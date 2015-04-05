@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	
+	<meta title="osmRacer - Wöhlerschule" package="com.woehlerschule.osmracer" version="1.0.0" company="OpenFL" />
+	<app main="Main" path="build" file="osmRacer" />
+	
+	<source path="src" />
+
+	<!-- Bibliotheken einbetten -->
+	<haxelib name="ash" />
+	<haxelib name="openfl" />
+	
+	<!-- Ressourcen, die nicht gebraucht werden, werden ausgeschlossen -->
+	<assets path="res" exclude="*.svg|*.xfc" />
+	<icon path="res/icon.svg" />
+	
+</project>
