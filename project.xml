@@ -2,7 +2,7 @@
 <project>
 	
 	<meta title="osmRacer - Wöhlerschule" package="com.woehlerschule.osmracer" version="1.0.0" company="OpenFL" />
-	<app main="Main" path="build" file="osmRacer" />
+	<app main="app.Main" path="build" file="osmRacer" />
 	
 	<source path="src" />
 
