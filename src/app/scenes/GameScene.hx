@@ -8,6 +8,7 @@ import ash.core.Entity;
 import ash.core.Engine;
 
 import app.systems.SystemPriorities;
+import app.systems.RenderSystem;
 import app.components.GameState;
 
 
@@ -15,7 +16,7 @@ class GameScene extends Sprite {
 
 	private var RootScene: Sprite;	//Haupt-Sprite des Spiels
 	private var Engine: Engine;		//Engine des Entity-Component-System
-	private var previousTime: Int;	//Hilfsvariable, um Framerate zu ermiteln
+	private var previousTime: Float;	//Hilfsvariable, um Framerate zu ermiteln
 
 	public function new(RootScene: Sprite) {
 		super();
@@ -33,6 +34,10 @@ class GameScene extends Sprite {
 
 		//Ein Entity erstellen, das das Spiel repräsentiert
 		this.Engine.addEntity( new Entity().add(new GameState()) );
+		this.Engine.addEntity( new app.entities.Car(50,50) );
+
+		//Systeme der Engine hinzufügen
+		this.Engine.addSystem( new RenderSystem(this), SystemPriorities.Render );
 
 	}
 
@@ -41,7 +46,7 @@ class GameScene extends Sprite {
 
 		//Das ECS muss wissen, wie lange ein Frame dauert.
 
-        var elapsedTime = Lib.getTimer() - previousTime; //Unterschied zum letzen Frame ermitteln (in Milisekunden).
+        var elapsedTime: Float = Lib.getTimer() - previousTime; //Unterschied zum letzen Frame ermitteln (in Milisekunden).
         previousTime = Lib.getTimer(); //Aktuelle Zeit für das nächste Frame zwischenspeichern.
 
         this.Engine.update(elapsedTime); //An ECS weitergeben
