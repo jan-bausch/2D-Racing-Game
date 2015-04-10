@@ -25,6 +25,7 @@ class RenderSystem extends System {
 		for (RenderNode in this.RenderNodes) {
 			RenderNode.Display.Sprite.x = RenderNode.Position.X;
 			RenderNode.Display.Sprite.y = RenderNode.Position.Y;
+            RenderNode.Display.Sprite.rotation = RenderNode.Position.Rotation;
 		}
 
 	}
