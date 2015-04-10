@@ -7,7 +7,7 @@ class Position {
 	public var Y: Float;
 	public var Rotation: Float;
 
-	public function new(X: Float, Y: Float, Rotation: Float = 50) {
+	public function new(X: Float, Y: Float, Rotation: Float = 0) {
 		this.X = X;
 		this.Y = Y;
 		this.Rotation = Rotation;

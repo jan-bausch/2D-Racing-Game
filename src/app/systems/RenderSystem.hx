@@ -27,7 +27,7 @@ class RenderSystem extends System {
 			RenderNode.Display.Sprite.y = RenderNode.Position.Y;
             RenderNode.Display.Sprite.rotation = RenderNode.Position.Rotation;
 		}
-
+        
 	}
 
 	//Wird aufgerufen, wenn System der Engine hinzugefügt wird

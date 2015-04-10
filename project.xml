@@ -8,6 +8,7 @@
 
 	<!-- Bibliotheken einbetten -->
 	<haxelib name="ash" />
+	<haxelib name="lime" />
 	<haxelib name="openfl" />
 	
 	<!-- Ressourcen, die nicht gebraucht werden, werden ausgeschlossen -->
