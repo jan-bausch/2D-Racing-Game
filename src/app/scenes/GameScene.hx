@@ -9,8 +9,10 @@ import ash.core.Engine;
 
 import app.systems.SystemPriorities;
 import app.systems.RenderSystem;
+import app.systems.InputSystem;
 import app.components.GameState;
 
+import openfl.events.KeyboardEvent;
 
 class GameScene extends Sprite {
 
@@ -38,6 +40,7 @@ class GameScene extends Sprite {
 
 		//Systeme der Engine hinzufügen
 		this.Engine.addSystem( new RenderSystem(this), SystemPriorities.Render );
+		this.Engine.addSystem( new InputSystem(this), SystemPriorities.Update );
 
 	}
 
@@ -49,7 +52,7 @@ class GameScene extends Sprite {
         var elapsedTime: Float = Lib.getTimer() - previousTime; //Unterschied zum letzen Frame ermitteln (in Milisekunden).
         previousTime = Lib.getTimer(); //Aktuelle Zeit für das nächste Frame zwischenspeichern.
 
-        this.Engine.update(elapsedTime); //An ECS weitergeben
+        this.Engine.update(elapsedTime / 1000); //An ECS weitergeben
 
 	}
 
