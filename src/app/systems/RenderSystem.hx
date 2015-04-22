@@ -23,8 +23,8 @@ class RenderSystem extends System {
 
 		//Position jedes Sprites aktualisieren 
 		for (RenderNode in this.RenderNodes) {
-			RenderNode.Display.Sprite.x = RenderNode.Position.X;
-			RenderNode.Display.Sprite.y = RenderNode.Position.Y;
+			RenderNode.Display.Sprite.x = RenderNode.Position.Vector.x;
+			RenderNode.Display.Sprite.y = RenderNode.Position.Vector.y;
             RenderNode.Display.Sprite.rotation = RenderNode.Position.Rotation;
 		}
         

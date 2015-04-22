@@ -1,6 +1,5 @@
 package app.components;
 
-import lime.math.Vector2;
 
 //Speichert nötige Daten für Autosimulation
 class Vehicle {
@@ -12,7 +11,7 @@ class Vehicle {
 	public function new() {
 		
 		this.Speed = 0;
-		this.SteerAngle = 15;
+		this.SteerAngle = 0;
 		this.AxisDistance = 130; //Konstante Variale anghängig vom Fahrzeug
 
 	}

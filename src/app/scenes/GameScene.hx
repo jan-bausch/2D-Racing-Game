@@ -10,6 +10,7 @@ import ash.core.Engine;
 import app.systems.SystemPriorities;
 import app.systems.RenderSystem;
 import app.systems.InputSystem;
+import app.systems.VehicleSystem;
 import app.components.GameState;
 
 import openfl.events.KeyboardEvent;
@@ -39,8 +40,9 @@ class GameScene extends Sprite {
 		this.Engine.addEntity( new app.entities.Car(300, 300) );
 
 		//Systeme der Engine hinzufügen
-		this.Engine.addSystem( new RenderSystem(this), SystemPriorities.Render );
 		this.Engine.addSystem( new InputSystem(this), SystemPriorities.Update );
+		this.Engine.addSystem( new VehicleSystem(), SystemPriorities.Update );
+		this.Engine.addSystem( new RenderSystem(this), SystemPriorities.Render );
 
 	}
 

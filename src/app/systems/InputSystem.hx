@@ -18,6 +18,9 @@ class InputSystem extends System {
 
     private var maxSteerAngle: Float;   //Maximaler Auschlag der Räder
     private var SteerAmount: Float;
+    private var maxSpeed: Float;    //Maximale Geschwindigkeit des Autos
+    private var Acceleration: Float;    //Beschleunigung
+    private var Deceleration: Float;
     private var Up: Bool;
     private var Down: Bool;
     private var Right: Bool;
@@ -31,8 +34,11 @@ class InputSystem extends System {
         this.Right = false;
         this.Left = false;
 
-        this.maxSteerAngle = 35;
-        this.SteerAmount = 100;
+        this.maxSteerAngle = 45;
+        this.SteerAmount = 200;
+        this.maxSpeed = 200;
+        this.Acceleration = 30;
+        this.Deceleration = 15;
 
         //Events registrieren
         this.Scene.addEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
@@ -50,7 +56,15 @@ class InputSystem extends System {
             if (this.Right && Vehicle.SteerAngle + this.SteerAmount * elapsed <= this.maxSteerAngle) Vehicle.SteerAngle += this.SteerAmount * elapsed;
             if (this.Left && Vehicle.SteerAngle - this.SteerAmount * elapsed >= -this.maxSteerAngle) Vehicle.SteerAngle -= this.SteerAmount * elapsed;
 
-        }
+            if (this.Up && this.maxSpeed >= Vehicle.Speed + this.Acceleration * elapsed) {
+                Vehicle.Speed += this.Acceleration * elapsed;
+            } else {
+                Vehicle.Speed -= this.Deceleration * elapsed;
+                if (Vehicle.Speed < 0) Vehicle.Speed = 0;
+            }
+
+
+        }   
 
 
 	}
