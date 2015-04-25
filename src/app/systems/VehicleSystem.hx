@@ -23,24 +23,21 @@ class VehicleSystem extends System {
             var Vehicle: Vehicle = VehicleNode.Vehicle,
                 Position: Position = VehicleNode.Position;
 
-            //Die Mathematik-Funktionen von Haxe rechnen mit Bogenmaß/Radianz, also muss ich die Werte erstmal umrechnen
-            var rRotation: Float = (Position.Rotation),
-                rSteerAngle: Float = Vehicle.SteerAngle;
 
             //Aktuelle Positionen von Front- und Rückrad berechnen
-            var FrontWheel: Vector2 = Position.Vector - Vehicle.AxisDistance/2 * new Vector2(Math.sin(-rRotation) , Math.cos(-rRotation));
-            var BackWheel: Vector2 = Position.Vector + Vehicle.AxisDistance/2 * new Vector2(Math.sin(-rRotation) , Math.cos(-rRotation));
+            var FrontWheel: Vector2 = Position.Vector + Vehicle.AxisDistance/2 * new Vector2(Math.sin( -Position.Rotation) , Math.cos( -Position.Rotation));
+            var BackWheel: Vector2 = Position.Vector - Vehicle.AxisDistance/2 * new Vector2(Math.sin( -Position.Rotation) , Math.cos( -Position.Rotation));
 
             //Front- und Rückrad bewegen
-            FrontWheel -= Vehicle.Speed * elapsed * new Vector2(Math.sin(-rSteerAngle - rRotation) , Math.cos(-rSteerAngle - rRotation));
-            BackWheel -= Vehicle.Speed * elapsed * new Vector2(Math.sin(-rRotation), Math.cos(-rRotation));
-
+            FrontWheel += Vehicle.Speed * elapsed * new Vector2(Math.sin( -Position.Rotation - Vehicle.SteerAngle) , Math.cos( -Position.Rotation - Vehicle.SteerAngle));
+            BackWheel += Vehicle.Speed * elapsed * new Vector2(Math.sin( -Position.Rotation), Math.cos( -Position.Rotation));
 
             //Neue Rotation des Autos ermitteln
-            Position.Rotation = -Math.atan2( BackWheel.x - FrontWheel.x , BackWheel.y - FrontWheel.y );
+            Position.Rotation = -Math.atan2( FrontWheel.x - BackWheel.x , FrontWheel.y - BackWheel.y );
 
             //Zuletzt Auto positionieren
             Position.Vector = (FrontWheel + BackWheel) / 2;
+
 
         }   
 

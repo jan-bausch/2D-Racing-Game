@@ -20,23 +20,23 @@ class VehicleSprite extends Sprite {
 
         //Reifen-Sprites erstellen und positionieren
         this.WheelTopLeft = this.getWheelSprite();
-        this.WheelTopLeft.x = -50;
-        this.WheelTopLeft.y = -70;
+        this.WheelTopLeft.x = 50;
+        this.WheelTopLeft.y = 70;
         this.addChild(this.WheelTopLeft);
 
         this.WheelTopRight = this.getWheelSprite();
-        this.WheelTopRight.x = 50;
-        this.WheelTopRight.y = -70;
+        this.WheelTopRight.x = -50;
+        this.WheelTopRight.y = 70;
         this.addChild(this.WheelTopRight);
 
         this.WheelBottomLeft = this.getWheelSprite();
-        this.WheelBottomLeft.x = -50;
-        this.WheelBottomLeft.y = 70;
+        this.WheelBottomLeft.x = 50;
+        this.WheelBottomLeft.y = -70;
         this.addChild(this.WheelBottomLeft);
 
         this.WheelBottomRight = this.getWheelSprite();
-        this.WheelBottomRight.x = 50;
-        this.WheelBottomRight.y = 70;
+        this.WheelBottomRight.x = -50;
+        this.WheelBottomRight.y = -70;
         this.addChild(this.WheelBottomRight);
 
 
@@ -45,7 +45,7 @@ class VehicleSprite extends Sprite {
         Chassis.graphics.beginFill(0xFF0000);
         Chassis.graphics.drawRect (-50, -100, 100, 200);   //Chassis zeichnen
         Chassis.graphics.beginFill(0xE24A4A);
-        Chassis.graphics.drawRect (-40, -40, 80, 120); //Dach zeichnen
+        Chassis.graphics.drawRect (-40, -80, 80, 120); //Dach zeichnen
         this.addChild(Chassis);
 
         //Events registrieren
