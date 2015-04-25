@@ -4,6 +4,10 @@
 	<meta title="osmRacer - Wöhlerschule" package="com.woehlerschule.osmracer" version="1.0.0" company="OpenFL" />
 	<app main="app.Main" path="build" file="osmRacer" />
 	
+	<window background="#FFFFFF" fps="60" orientation="portrait" />
+	<window width="1280" height="800" if="desktop"/>
+
+
 	<source path="src" />
 
 	<!-- Bibliotheken einbetten -->
