@@ -24,8 +24,8 @@ class VehicleSystem extends System {
                 Position: Position = VehicleNode.Position;
 
             //Die Mathematik-Funktionen von Haxe rechnen mit Bogenmaß/Radianz, also muss ich die Werte erstmal umrechnen
-            var rRotation: Float = (Position.Rotation)* (Math.PI / 180),
-                rSteerAngle: Float = Vehicle.SteerAngle * (Math.PI / 180);
+            var rRotation: Float = (Position.Rotation),
+                rSteerAngle: Float = Vehicle.SteerAngle;
 
             //Aktuelle Positionen von Front- und Rückrad berechnen
             var FrontWheel: Vector2 = Position.Vector - Vehicle.AxisDistance/2 * new Vector2(Math.sin(-rRotation) , Math.cos(-rRotation));
@@ -36,8 +36,8 @@ class VehicleSystem extends System {
             BackWheel -= Vehicle.Speed * elapsed * new Vector2(Math.sin(-rRotation), Math.cos(-rRotation));
 
 
-            //Neue Rotation des Autos ermitteln und zu Grad umrechnen
-            Position.Rotation = -Math.atan2( BackWheel.x - FrontWheel.x , BackWheel.y - FrontWheel.y ) * (180 / Math.PI);
+            //Neue Rotation des Autos ermitteln
+            Position.Rotation = -Math.atan2( BackWheel.x - FrontWheel.x , BackWheel.y - FrontWheel.y );
 
             //Zuletzt Auto positionieren
             Position.Vector = (FrontWheel + BackWheel) / 2;

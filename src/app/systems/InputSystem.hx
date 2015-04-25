@@ -34,8 +34,8 @@ class InputSystem extends System {
         this.Right = false;
         this.Left = false;
 
-        this.maxSteerAngle = 45;
-        this.SteerAmount = 200;
+        this.maxSteerAngle = 45 * (Math.PI / 180);  //45°
+        this.SteerAmount = 200 * (Math.PI / 180);                     
         this.maxSpeed = 200;
         this.Acceleration = 30;
         this.Deceleration = 15;

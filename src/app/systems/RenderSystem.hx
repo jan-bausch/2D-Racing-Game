@@ -25,7 +25,8 @@ class RenderSystem extends System {
 		for (RenderNode in this.RenderNodes) {
 			RenderNode.Display.Sprite.x = RenderNode.Position.Vector.x;
 			RenderNode.Display.Sprite.y = RenderNode.Position.Vector.y;
-            RenderNode.Display.Sprite.rotation = RenderNode.Position.Rotation;
+            //OpenFl misst Rotation in Grad, daher müssen wir vom Bogenmaß umrechnen
+            RenderNode.Display.Sprite.rotation = RenderNode.Position.Rotation * (180 / Math.PI);
 		}
         
 	}

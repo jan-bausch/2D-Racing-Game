@@ -58,8 +58,9 @@ class VehicleSprite extends Sprite {
     private function onEnterFrame(event: Event) : Void {
 
         //Reifenwinkel aktualisieren
-        this.WheelTopRight.rotation = this.Vehicle.SteerAngle;
-        this.WheelTopLeft.rotation = this.Vehicle.SteerAngle;
+        //OpenFl misst in Grad, daher müssen wir vom Bogenmaß umrechnen
+        this.WheelTopRight.rotation = this.Vehicle.SteerAngle * (180 / Math.PI);
+        this.WheelTopLeft.rotation = this.Vehicle.SteerAngle * (180 / Math.PI);
 
     }
 
