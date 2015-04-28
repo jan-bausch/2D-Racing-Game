@@ -37,7 +37,8 @@ class GameScene extends Sprite {
 
 		//Ein Entity erstellen, das das Spiel repräsentiert
 		this.Engine.addEntity( new Entity().add(new GameState()) );
-		this.Engine.addEntity( new app.entities.Car(300, 300) );
+		this.Engine.addEntity( new app.entities.Grass(300, 300, 2000,2000) );
+		this.Engine.addEntity( new app.entities.Car(0, 0) );
 
 		//Systeme der Engine hinzufügen
 		this.Engine.addSystem( new InputSystem(this), SystemPriorities.Update );
