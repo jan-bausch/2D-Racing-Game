@@ -3,6 +3,7 @@ package app.scenes;
 import openfl.Lib;
 import openfl.display.Sprite;
 import openfl.events.Event;
+import hxmath.math.Vector2;
 import ash.core.System;
 import ash.core.Entity;
 import ash.core.Engine;
@@ -37,7 +38,9 @@ class GameScene extends Sprite {
 
 		//Ein Entity erstellen, das das Spiel repräsentiert
 		this.Engine.addEntity( new Entity().add(new GameState()) );
+
 		this.Engine.addEntity( new app.entities.Grass(300, 300, 2000,2000) );
+		this.Engine.addEntity( new app.entities.Road(new Vector2(-300,0),  new Vector2(300,300), Math.PI / 2, Math.PI / 2, 250) );
 		this.Engine.addEntity( new app.entities.Car(0, 0) );
 
 		//Systeme der Engine hinzufügen
@@ -52,8 +55,8 @@ class GameScene extends Sprite {
 
 		//Das ECS muss wissen, wie lange ein Frame dauert.
 
-        var elapsedTime: Float = Lib.getTimer() - previousTime; //Unterschied zum letzen Frame ermitteln (in Milisekunden).
-        previousTime = Lib.getTimer(); //Aktuelle Zeit für das nächste Frame zwischenspeichern.
+        var elapsedTime: Float = Lib.getTimer() - this.previousTime; //Unterschied zum letzen Frame ermitteln (in Milisekunden).
+        this.previousTime = Lib.getTimer(); //Aktuelle Zeit für das nächste Frame zwischenspeichern.
 
         this.Engine.update(elapsedTime / 1000); //An ECS weitergeben
 

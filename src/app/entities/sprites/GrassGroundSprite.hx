@@ -11,9 +11,9 @@ class GrassGroundSprite extends Sprite {
 	public function new(Width: Float, Height: Float) {
         super();
 
-        var bitmapData = Assets.getBitmapData("res/images/ground/Grass.png");
+        var Image = Assets.getBitmapData("res/images/ground/Grass.png");
 
-        this.graphics.beginBitmapFill(bitmapData);
+        this.graphics.beginBitmapFill(Image);
         this.graphics.drawRect(0, 0, Width, Height);
 
 
