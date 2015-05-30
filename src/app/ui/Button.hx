@@ -9,50 +9,50 @@ import openfl.text.TextFieldAutoSize;
 
 class Button extends Sprite {
 
-	public var Text: String;
-	public var Pressed: Bool;
-	private var TextField: TextField;
-	public var TextFormat: TextFormat;
+	public var text: String;
+	public var pressed: Bool;
+	private var textField: TextField;
+	public var textFormat: TextFormat;
 
-	public function new(Text: String, TextFormat: TextFormat) {
+	public function new(text: String, textFormat: TextFormat) {
 		super();
 
-		this.Text = Text;
-		this.TextFormat = TextFormat;
-		this.Pressed = false;
+		this.text = text;
+		this.textFormat = textFormat;
+		this.pressed = false;
 
 		//Textfeld initialisieren
-		this.TextField = new TextField();
-		this.TextField.defaultTextFormat = this.TextFormat;
-		this.TextField.selectable = false;
-		this.TextField.autoSize = TextFieldAutoSize.CENTER;
-		this.TextField.text = this.Text;
+		textField = new TextField();
+		textField.defaultTextFormat = textFormat;
+		textField.selectable = false;
+		textField.autoSize = TextFieldAutoSize.CENTER;
+		textField.text = text;
 
-		this.addChild(this.TextField);
+		addChild(textField);
 
 		//Events registrieren
-		this.addEventListener(Event.RESIZE, this.onResize);
-		this.addEventListener(MouseEvent.MOUSE_UP, this.onUnpressed);
-		this.addEventListener(MouseEvent.MOUSE_DOWN, this.onPressed);
+		addEventListener(Event.RESIZE, onResize);
+		addEventListener(MouseEvent.MOUSE_UP, onUnpressed);
+		addEventListener(MouseEvent.MOUSE_DOWN, onPressed);
 
 		//Event auslösen, damit Textfeld anfangs zentriert wird.
-		this.onResize(new Event("RESIZE"));
+		onResize(new Event("RESIZE"));
 	}
 
 
 	private function onPressed(event: Event) : Void {
-		this.Pressed = true;
+		pressed = true;
 	}
 
 	private function onUnpressed(event: Event) : Void {
-		this.Pressed = false;
+		pressed = false;
 	}
 
 	//Textfeld anpassen, wenn Button sich verändert
 	private function onResize(event: Event) : Void {
 
-		this.TextField.width = this.TextField.textWidth;
-		this.TextField.height = this.TextField.textHeight;
+		textField.width = textField.textWidth;
+		textField.height = textField.textHeight;
 
 	}
 

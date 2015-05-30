@@ -11,43 +11,45 @@ import app.scenes.GameScene;
 class MainMenuScene extends Sprite {
 
 	//Haupt-Sprite des Spiels
-	private var RootScene: Sprite;
+	private var rootScene: Sprite;
 	//Menü-Buttons
-	private var StartGameButton: Button;
+	private var startGameButton: Button;
 
-	public function new(RootScene: Sprite) {
+	public function new(rootScene: Sprite) {
 		super();
-		this.RootScene = RootScene;
-
-		this.intializeUI();
+		
+		this.rootScene = rootScene;
+		intializeUI();
 		
 	}
 
 	//Buttons intialisieren und hinzufügen
 	private function intializeUI() : Void {
 
-		this.StartGameButton = new Button("Start game", new TextFormat("Katamotz Ikasi", 30, 0x7A0026));
-		this.StartGameButton.x = 0;
-		this.StartGameButton.y = 0;
-		this.addChild(this.StartGameButton);
+		startGameButton = new Button("Start game", new TextFormat("Katamotz Ikasi", 30, 0x7A0026));
+		startGameButton.x = 0;
+		startGameButton.y = 0;
+		addChild(this.startGameButton);
+
 		//Funktion des StartButtons festelegen
-		this.StartGameButton.addEventListener(MouseEvent.CLICK, function(event: Event) { 
-			this.setScene(new GameScene(this.RootScene)); 
+		startGameButton.addEventListener(MouseEvent.CLICK, function(event: Event) {
+			//Wenn Button gedrückt, soll Spiel gestartet werden
+			this.setScene(new GameScene(this.rootScene)); 
 		});
 
 	}
 
 
 	//Eine Szene als neuer Hauptsprite setzen.
-	private function setScene(NewScene: Sprite) : Void {
+	private function setScene(newScene: Sprite) : Void {
 
 		//Alle Kinder des Hauptsprites löschen
-		while (this.RootScene.numChildren > 0) {
-		    this.RootScene.removeChildAt(0);
+		while (rootScene.numChildren > 0) {
+		    rootScene.removeChildAt(0);
 		}
 
 		//Neue Szene hinzufügen
-		this.RootScene.addChild(NewScene);
+		rootScene.addChild(newScene);
 
 	}
 

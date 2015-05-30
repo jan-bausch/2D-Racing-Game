@@ -6,7 +6,7 @@ import app.components.Position;
 
 class VehicleNode extends Node<VehicleNode> {
 
-    public var Vehicle: Vehicle;
-    public var Position: Position;
+    public var vehicle: Vehicle;
+    public var position: Position;
 
 }

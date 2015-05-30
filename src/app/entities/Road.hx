@@ -10,13 +10,13 @@ import app.entities.sprites.RoadSprite;
 
 class Road extends Entity {
 
-	public function new(Start: Vector2, End: Vector2, StartAngle: Float, EndAngle: Float, Width) {
+	public function new(start: Vector2, end: Vector2, startAngle: Float, endAngle: Float, width) {
 		super();
 
-		var Middle: Vector2 = (Start + End) / 2;
+		var middle: Vector2 = (start + end) / 2;
 
-		this.add( new Position( Middle.x , Middle.y ) ); //Mitte beider Vektoren ist die Position der Straße
-		this.add( new Display(new RoadSprite(Start - Middle, End - Middle, StartAngle, EndAngle, Width)) );
+		this.add( new Position( middle.x , middle.y ) ); //Mitte beider Vektoren ist die Position der Straße
+		this.add( new Display(new RoadSprite(start - middle, end - middle, startAngle, endAngle, width)) );
 
 	}
 

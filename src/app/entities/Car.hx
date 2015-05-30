@@ -12,16 +12,16 @@ import app.entities.sprites.VehicleSprite;
 
 class Car extends Entity {
 
-	public function new(X: Float, Y: Float) {
+	public function new(x: Float, y: Float) {
 		super();
 
-		var VehicleComponent: Vehicle = new Vehicle();
+		var vehicleComponent: Vehicle = new Vehicle();
 
 		this.add( new Camera() );
-		this.add( new Position(X, Y) );
+		this.add( new Position(x, y) );
 		this.add( new Input() );
-		this.add( new Display(new VehicleSprite(VehicleComponent)) );
-		this.add( VehicleComponent );
+		this.add( new Display(new VehicleSprite(vehicleComponent)) );
+		this.add( vehicleComponent );
 
 
 	}

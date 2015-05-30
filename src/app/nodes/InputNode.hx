@@ -6,7 +6,7 @@ import app.components.Input;
 
 class InputNode extends Node<InputNode> {
 
-    public var Vehicle: Vehicle;
-    public var Input: Input;
+    public var vehicle: Vehicle;
+    public var input: Input;
 
 }

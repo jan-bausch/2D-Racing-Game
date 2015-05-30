@@ -6,7 +6,7 @@ import app.components.Display;
 
 class RenderNode extends Node<RenderNode> {
 
-    public var Position: Position;
-    public var Display: Display;
+    public var position: Position;
+    public var display: Display;
 
 }

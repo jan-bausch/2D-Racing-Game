@@ -11,7 +11,7 @@ import app.components.Position;
 
 class VehicleSystem extends System {
 
-	private var VehicleNodes: NodeList<VehicleNode>;
+	private var vehicleNodes: NodeList<VehicleNode>;
 
 	public function new() {
 		super();
@@ -19,24 +19,25 @@ class VehicleSystem extends System {
 
 	public override function update(elapsed: Float) : Void {
 
-        for (VehicleNode in this.VehicleNodes) {
-            var Vehicle: Vehicle = VehicleNode.Vehicle,
-                Position: Position = VehicleNode.Position;
+        for (vehicleNode in vehicleNodes) {
+
+            var vehicle: Vehicle = vehicleNode.vehicle,
+                position: Position = vehicleNode.position;
 
 
             //Aktuelle Positionen von Front- und Rückrad berechnen
-            var FrontWheel: Vector2 = Position.Vector + Vehicle.AxisDistance/2 * new Vector2(Math.sin( -Position.Rotation) , Math.cos( -Position.Rotation));
-            var BackWheel: Vector2 = Position.Vector - Vehicle.AxisDistance/2 * new Vector2(Math.sin( -Position.Rotation) , Math.cos( -Position.Rotation));
+            var frontWheel: Vector2 = position.vector + vehicle.axisDistance/2 * new Vector2(Math.sin( -position.rotation) , Math.cos( -position.rotation));
+            var backWheel: Vector2 = position.vector - vehicle.axisDistance/2 * new Vector2(Math.sin( -position.rotation) , Math.cos( -position.rotation));
 
             //Front- und Rückrad bewegen
-            FrontWheel += Vehicle.Speed * elapsed * new Vector2(Math.sin( -Position.Rotation - Vehicle.SteerAngle) , Math.cos( -Position.Rotation - Vehicle.SteerAngle));
-            BackWheel += Vehicle.Speed * elapsed * new Vector2(Math.sin( -Position.Rotation), Math.cos( -Position.Rotation));
+            frontWheel += vehicle.speed * elapsed * new Vector2(Math.sin( -position.rotation - vehicle.steerAngle) , Math.cos( -position.rotation - vehicle.steerAngle));
+            backWheel += vehicle.speed * elapsed * new Vector2(Math.sin( -position.rotation), Math.cos( -position.rotation));
 
             //Neue Rotation des Autos ermitteln
-            Position.Rotation = -Math.atan2( FrontWheel.x - BackWheel.x , FrontWheel.y - BackWheel.y );
+            position.rotation = -Math.atan2( frontWheel.x - backWheel.x , frontWheel.y - backWheel.y );
 
-            //Zuletzt Auto positionieren
-            Position.Vector = (FrontWheel + BackWheel) / 2;
+            //Die neue Position des Autos ergibt sich aus Mittelpunkt zwischen Vorder- und Hinterrad
+            position.vector = (frontWheel + backWheel) / 2;
 
 
         }   
@@ -46,14 +47,13 @@ class VehicleSystem extends System {
 
 
 	//Wird aufgerufen, wenn System der Engine hinzugefügt wird
-	public override function addToEngine(Engine:Engine):Void {
-        this.VehicleNodes = Engine.getNodeList(VehicleNode);
+	public override function addToEngine(engine: Engine):Void {
+        vehicleNodes = engine.getNodeList(VehicleNode);
    	}
 
    	//Wird aufgerufen, wenn System von der Engine entfernt wird
-    public override function removeFromEngine(Engine:Engine):Void {
-        this.VehicleNodes = null;
-
+    public override function removeFromEngine(engine: Engine):Void {
+        vehicleNodes = null;
     }
 
 

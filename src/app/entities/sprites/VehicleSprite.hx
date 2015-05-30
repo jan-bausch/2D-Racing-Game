@@ -7,49 +7,49 @@ import app.components.Vehicle;
 
 class VehicleSprite extends Sprite {
 
-    private var Vehicle: Vehicle; //Repräsentiert das Auto, das dieses Sprite darstellt
+    private var vehicle: Vehicle; //Repräsentiert das Auto, das dieses Sprite darstellt
 
-    private var WheelTopLeft: Sprite;  
-    private var WheelTopRight: Sprite;
-    private var WheelBottomLeft: Sprite;
-    private var WheelBottomRight: Sprite;
+    private var wheeltopLeft: Sprite;  
+    private var wheelTopRight: Sprite;
+    private var wheelBottomLeft: Sprite;
+    private var wheelBottomRight: Sprite;
 
-	public function new(Vehicle: Vehicle) {
+	public function new(vehicle: Vehicle) {
         super();
-        this.Vehicle = Vehicle;
+        this.vehicle = vehicle;
 
         //Reifen-Sprites erstellen und positionieren
-        this.WheelTopLeft = this.getWheelSprite();
-        this.WheelTopLeft.x = 50;
-        this.WheelTopLeft.y = 70;
-        this.addChild(this.WheelTopLeft);
+        wheeltopLeft = this.getWheelSprite();
+        wheeltopLeft.x = 50;
+        wheeltopLeft.y = 70;
+        addChild(this.wheeltopLeft);
 
-        this.WheelTopRight = this.getWheelSprite();
-        this.WheelTopRight.x = -50;
-        this.WheelTopRight.y = 70;
-        this.addChild(this.WheelTopRight);
+        wheelTopRight = this.getWheelSprite();
+        wheelTopRight.x = -50;
+        wheelTopRight.y = 70;
+        addChild(this.wheelTopRight);
 
-        this.WheelBottomLeft = this.getWheelSprite();
-        this.WheelBottomLeft.x = 50;
-        this.WheelBottomLeft.y = -70;
-        this.addChild(this.WheelBottomLeft);
+        wheelBottomLeft = this.getWheelSprite();
+        wheelBottomLeft.x = 50;
+        wheelBottomLeft.y = -70;
+        addChild(this.wheelBottomLeft);
 
-        this.WheelBottomRight = this.getWheelSprite();
-        this.WheelBottomRight.x = -50;
-        this.WheelBottomRight.y = -70;
-        this.addChild(this.WheelBottomRight);
+        wheelBottomRight = this.getWheelSprite();
+        wheelBottomRight.x = -50;
+        wheelBottomRight.y = -70;
+        addChild(this.wheelBottomRight);
 
 
         //Chassis und Dach erstellen und postionieren
-        var Chassis: Sprite = new Sprite();
-        Chassis.graphics.beginFill(0xFF0000);
-        Chassis.graphics.drawRect (-50, -100, 100, 200);   //Chassis zeichnen
-        Chassis.graphics.beginFill(0xE24A4A);
-        Chassis.graphics.drawRect (-40, -80, 80, 120); //Dach zeichnen
-        this.addChild(Chassis);
+        var chassis: Sprite = new Sprite();
+        chassis.graphics.beginFill(0xFF0000);
+        chassis.graphics.drawRect (-50, -100, 100, 200);   //Chassis zeichnen
+        chassis.graphics.beginFill(0xE24A4A);
+        chassis.graphics.drawRect (-40, -80, 80, 120); //Dach zeichnen
+        addChild(chassis);
 
         //Events registrieren
-        this.addEventListener(Event.ENTER_FRAME, this.onEnterFrame); 
+        addEventListener(Event.ENTER_FRAME, onEnterFrame); 
 
 	}
 
@@ -59,19 +59,19 @@ class VehicleSprite extends Sprite {
 
         //Reifenwinkel aktualisieren
         //OpenFl misst in Grad, daher müssen wir vom Bogenmaß umrechnen
-        this.WheelTopRight.rotation = this.Vehicle.SteerAngle * (180 / Math.PI);
-        this.WheelTopLeft.rotation = this.Vehicle.SteerAngle * (180 / Math.PI);
+        wheelTopRight.rotation = vehicle.steerAngle * (180 / Math.PI);
+        wheeltopLeft.rotation = vehicle.steerAngle * (180 / Math.PI);
 
     }
 
     //Gibt einen neuen Reifensprite zurück
     private function getWheelSprite() : Sprite {
 
-        var Wheel: Sprite = new Sprite();
-        Wheel.graphics.beginFill(0x222222);
-        Wheel.graphics.drawRect(-9, -18, 18, 36); //Reifen zeichnen
+        var wheel: Sprite = new Sprite();
+        wheel.graphics.beginFill(0x222222);
+        wheel.graphics.drawRect(-9, -18, 18, 36); //Reifen zeichnen
 
-        return Wheel;
+        return wheel;
     }
 
 }

@@ -5,12 +5,12 @@ import hxmath.math.Vector2;
 //Spiegelt den Mittelpunkt eines Entitys wider
 class Position {
 
-	public var Vector: Vector2;
-	public var Rotation: Float;
+	public var vector: Vector2;
+	public var rotation: Float;
 
-	public function new(X: Float, Y: Float, Rotation: Float = 0) {
-		this.Vector = new Vector2(X, Y);
-		this.Rotation = Rotation;
+	public function new(x: Float, y: Float, rotation: Float = 0) {
+		this.vector = new Vector2(x, y);
+		this.rotation = rotation;
 	}
 
 }

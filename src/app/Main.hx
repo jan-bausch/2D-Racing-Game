@@ -11,8 +11,8 @@ class Main extends Sprite {
 	public function new () {		
 		super();
 
-		var StartScene: Sprite = new GameScene(this);
-		this.addChild(StartScene);
+		var startScene: Sprite = new GameScene(this);
+		addChild(startScene);
 
 			
 	}

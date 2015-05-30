@@ -9,11 +9,11 @@ import app.entities.sprites.GrassGroundSprite;
 
 class Grass extends Entity {
 
-	public function new(X: Float, Y: Float, Width: Float, Height: Float) {
+	public function new(x: Float, y: Float, width: Float, height: Float) {
 		super();
 
-		this.add( new Position(X, Y) );
-		this.add( new Display(new GrassGroundSprite(Width, Height)) );
+		this.add( new Position(x, y) );
+		this.add( new Display(new GrassGroundSprite(width, height)) );
 
 	}
 

@@ -9,39 +9,39 @@ import hxmath.math.Vector2;
 class RoadSprite extends Sprite {
 
 
-	public function new(Start: Vector2, End: Vector2, StartAngle: Float, EndAngle: Float, Width) {
+	public function new(start: Vector2, end: Vector2, startAngle: Float, endAngle: Float, width) {
         super();
 
-        var Image = Assets.getBitmapData("res/images/ground/Asphalt.png");
+        var image = Assets.getBitmapData("res/images/ground/Asphalt.png");
 
 
         //Eckpunkte der Straße berechnen
-        var Corner1: Vector2 = Vector2.fromPolar(-StartAngle, Width) + Start, 	//Ecke links oben
-        	Corner2: Vector2 = Vector2.fromPolar(StartAngle, Width) + Start, 	//Ecke links unten
-        	Corner3: Vector2 = Vector2.fromPolar(-EndAngle, Width) + End, 	//Ecke rechts oben
-        	Corner4: Vector2 = Vector2.fromPolar(EndAngle, Width) + End; 	//Ecke rechts unten
+        var corner1: Vector2 = Vector2.fromPolar(-startAngle, width) + start, 	//Ecke links oben
+        	corner2: Vector2 = Vector2.fromPolar(startAngle, width) + start, 	//Ecke links unten
+        	corner3: Vector2 = Vector2.fromPolar(-endAngle, width) + end, 	//Ecke rechts oben
+        	corner4: Vector2 = Vector2.fromPolar(endAngle, width) + end; 	//Ecke rechts unten
 
 
         //Straßeuntergrund zeichnen
-       	graphics.beginBitmapFill(Image);
+       	graphics.beginBitmapFill(image);
 
-        graphics.moveTo(Corner1.x, Corner1.y);
-        graphics.lineTo(Corner2.x, Corner2.y);
-        graphics.lineTo(Corner4.x, Corner4.y);
-        graphics.lineTo(Corner3.x, Corner3.y);
+        graphics.moveTo(corner1.x, corner1.y);
+        graphics.lineTo(corner2.x, corner2.y);
+        graphics.lineTo(corner4.x, corner4.y);
+        graphics.lineTo(corner3.x, corner3.y);
 
         graphics.endFill();
 
 
         //Seitenmarkierung zeichnen (Weiß)
-       	graphics.lineStyle(20, 0xE6E6E6, 1, false, openfl.display.LineScaleMode.NONE, openfl.display.CapsStyle.SQUARE);
-        graphics.moveTo(Corner1.x, Corner1.y);
-        graphics.lineTo(Corner3.x, Corner3.y);
+       	graphics.lineStyle(20, 0xE6E6E6, 1, false, openfl.display.LineScaleMode.NONE, openfl.display.CapsStyle.NONE);
+        graphics.moveTo(corner1.x, corner1.y);
+        graphics.lineTo(corner3.x, corner3.y);
         graphics.endFill();
 
-        graphics.lineStyle(20, 0xE6E6E6, 1, false, openfl.display.LineScaleMode.NONE, openfl.display.CapsStyle.SQUARE);
-        graphics.moveTo(Corner2.x, Corner2.y);
-        graphics.lineTo(Corner4.x, Corner4.y);
+        graphics.lineStyle(20, 0xE6E6E6, 1, false, openfl.display.LineScaleMode.NONE, openfl.display.CapsStyle.NONE);
+        graphics.moveTo(corner2.x, corner2.y);
+        graphics.lineTo(corner4.x, corner4.y);
         graphics.endFill();
 
 	}

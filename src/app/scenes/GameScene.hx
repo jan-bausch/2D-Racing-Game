@@ -18,35 +18,36 @@ import openfl.events.KeyboardEvent;
 
 class GameScene extends Sprite {
 
-	private var RootScene: Sprite;	//Haupt-Sprite des Spiels
-	private var Engine: Engine;		//Engine des Entity-Component-System
+	private var rootScene: Sprite;	//Haupt-Sprite des Spiels
+	private var engine: Engine;		//Engine des Entity-Component-System
 	private var previousTime: Float;	//Hilfsvariable, um Framerate zu ermiteln
 
-	public function new(RootScene: Sprite) {
+	public function new(rootScene: Sprite) {
 		super();
-		this.RootScene = RootScene;
-		this.previousTime = 0;
 
-		this.startGame(); //ECS starten
-		this.addEventListener(Event.ENTER_FRAME, this.onEnterFrame); //Events registrieren
+		this.rootScene = rootScene;
+		previousTime = 0;
+
+		startGame(); //ECS starten
+		addEventListener(Event.ENTER_FRAME, onEnterFrame); //Events registrieren
 
 	}
 
 	private function startGame() : Void {
 
-		this.Engine = new Engine();
+		engine = new Engine();
 
 		//Ein Entity erstellen, das das Spiel repräsentiert
-		this.Engine.addEntity( new Entity().add(new GameState()) );
+		engine.addEntity( new Entity().add(new GameState()) );
 
-		this.Engine.addEntity( new app.entities.Grass(300, 300, 2000,2000) );
-		this.Engine.addEntity( new app.entities.Road(new Vector2(-300,0),  new Vector2(300,300), Math.PI / 2, Math.PI / 2, 250) );
-		this.Engine.addEntity( new app.entities.Car(0, 0) );
+		engine.addEntity( new app.entities.Grass(300, 300, 2000,2000) );
+		engine.addEntity( new app.entities.Road(new Vector2(-300,0),  new Vector2(300,300), Math.PI / 2, Math.PI / 2, 250) );
+		engine.addEntity( new app.entities.Car(0, 0) );
 
 		//Systeme der Engine hinzufügen
-		this.Engine.addSystem( new InputSystem(this), SystemPriorities.Update );
-		this.Engine.addSystem( new VehicleSystem(), SystemPriorities.Update );
-		this.Engine.addSystem( new RenderSystem(this), SystemPriorities.Render );
+		engine.addSystem( new InputSystem(this), SystemPriorities.update );
+		engine.addSystem( new VehicleSystem(), SystemPriorities.update );
+		engine.addSystem( new RenderSystem(this), SystemPriorities.render );
 
 	}
 
@@ -55,10 +56,10 @@ class GameScene extends Sprite {
 
 		//Das ECS muss wissen, wie lange ein Frame dauert.
 
-        var elapsedTime: Float = Lib.getTimer() - this.previousTime; //Unterschied zum letzen Frame ermitteln (in Milisekunden).
-        this.previousTime = Lib.getTimer(); //Aktuelle Zeit für das nächste Frame zwischenspeichern.
+        var elapsedTime: Float = Lib.getTimer() - previousTime; //Vergangene Zeit seit vergangenem Frame ermitteln (in Milisekunden).
+        previousTime = Lib.getTimer(); //Aktuelle Zeit für das nächste Frame zwischenspeichern.
 
-        this.Engine.update(elapsedTime / 1000); //An ECS weitergeben
+        engine.update(elapsedTime / 1000); //An ECS weitergeben
 
 	}
 

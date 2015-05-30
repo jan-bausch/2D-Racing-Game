@@ -5,6 +5,6 @@ import app.components.GameState;
 
 class GameNode extends Node<GameNode> {
 
-    public var GameState: GameState;
+    public var gameState: GameState;
 
 }

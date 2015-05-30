@@ -6,7 +6,7 @@ import app.components.Camera;
 
 class CameraNode extends Node<CameraNode> {
 
-    public var Position: Position;
-    public var Camera: Camera;
+    public var position: Position;
+    public var camera: Camera;
 
 }

@@ -8,13 +8,13 @@ import openfl.Assets;
 class GrassGroundSprite extends Sprite {
 
 
-	public function new(Width: Float, Height: Float) {
+	public function new(width: Float, height: Float) {
         super();
 
-        var Image = Assets.getBitmapData("res/images/ground/Grass.png");
+        var image = Assets.getBitmapData("res/images/ground/Grass.png");
 
-        this.graphics.beginBitmapFill(Image);
-        this.graphics.drawRect(0, 0, Width, Height);
+       	graphics.beginBitmapFill(image);
+        graphics.drawRect(0, 0, width, height);
 
 
 	}
