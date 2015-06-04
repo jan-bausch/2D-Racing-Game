@@ -8,5 +8,5 @@ class SystemPriorities {
     public static inline var update:Int = 2;
     public static inline var collisions:Int = 3;
     public static inline var render:Int = 4;
-
+	public static inline var last:Int = 4;
 }

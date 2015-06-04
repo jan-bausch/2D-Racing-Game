@@ -7,11 +7,14 @@ import hxmath.math.Vector2;
 import ash.core.System;
 import ash.core.Entity;
 import ash.core.Engine;
+import ash.signals.Signal1;
 
 import app.systems.SystemPriorities;
 import app.systems.RenderSystem;
 import app.systems.InputSystem;
 import app.systems.VehicleSystem;
+import app.systems.LevelLoadingSystem;
+import app.systems.GameSystem;
 import app.components.GameState;
 
 import openfl.events.KeyboardEvent;
@@ -37,17 +40,21 @@ class GameScene extends Sprite {
 
 		engine = new Engine();
 
+		//Events, die zwischen Systemen ausgetauscht werden
+		var LOAD_LEVEL: Signal1<Int> = new Signal1<Int>();
+
 		//Ein Entity erstellen, das das Spiel repräsentiert
 		engine.addEntity( new Entity().add(new GameState()) );
 
-		engine.addEntity( new app.entities.Grass(300, 300, 2000,2000) );
-		engine.addEntity( new app.entities.Road(new Vector2(-300,0),  new Vector2(300,300), Math.PI / 2, Math.PI / 2, 250) );
-		engine.addEntity( new app.entities.Car(0, 0) );
 
 		//Systeme der Engine hinzufügen
 		engine.addSystem( new InputSystem(this), SystemPriorities.update );
 		engine.addSystem( new VehicleSystem(), SystemPriorities.update );
 		engine.addSystem( new RenderSystem(this), SystemPriorities.render );
+		engine.addSystem( new LevelLoadingSystem(LOAD_LEVEL), SystemPriorities.last);
+		engine.addSystem( new GameSystem(LOAD_LEVEL), SystemPriorities.preUpdate);
+
+	
 
 	}
 
