@@ -2,7 +2,7 @@ package app.entities.sprites;
 
 import openfl.display.Sprite;
 import openfl.Assets;
-import hxmath.math.Vector2;
+import app.math.Vector2;
 
 
 //Sprite einer Grassfläche
@@ -14,15 +14,18 @@ class RoadSprite extends Sprite {
 
         var image = Assets.getBitmapData("res/images/ground/Asphalt.png");
 
+
         //
-        var startWidth: Float = width / Math.cos((end-start).angle - startAngle + Math.PI / 2),
-            endWidth: Float = width / Math.cos((end-start).angle - startAngle + Math.PI / 2);
+        var startWidth: Float = width / Math.cos(-(startAngle - start.angleTo(end)) * (Math.PI/180)),
+            endWidth: Float = width / Math.cos(-(endAngle - start.angleTo(end)) * (Math.PI/180));
 
         //Eckpunkte der Straße berechnen
-        var corner1: Vector2 = Vector2.fromPolar(-startAngle, startWidth) + start, 	//Ecke links oben
-        	corner2: Vector2 = Vector2.fromPolar(startAngle, startWidth) + start, 	//Ecke links unten
-        	corner3: Vector2 = Vector2.fromPolar(-endAngle, endWidth) + end, 	//Ecke rechts oben
-        	corner4: Vector2 = Vector2.fromPolar(endAngle, endWidth) + end; 	//Ecke rechts unten
+        var corner1: Vector2 = Vector2.fromPolar(startAngle - 90, startWidth) + start, 	//Ecke links oben
+        	corner2: Vector2 = Vector2.fromPolar(startAngle + 90, startWidth) + start, 	//Ecke links unten
+        	corner3: Vector2 = Vector2.fromPolar(endAngle - 90, endWidth) + end, 	//Ecke rechts oben
+        	corner4: Vector2 = Vector2.fromPolar(endAngle +90, endWidth) + end; 	//Ecke rechts unten
+
+
 
 
         //Straßeuntergrund zeichnen

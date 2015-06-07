@@ -21,22 +21,22 @@ class VehicleSprite extends Sprite {
         //Reifen-Sprites erstellen und positionieren
         wheeltopLeft = this.getWheelSprite();
         wheeltopLeft.x = 50;
-        wheeltopLeft.y = 70;
+        wheeltopLeft.y = -70;
         addChild(this.wheeltopLeft);
 
         wheelTopRight = this.getWheelSprite();
         wheelTopRight.x = -50;
-        wheelTopRight.y = 70;
+        wheelTopRight.y = -70;
         addChild(this.wheelTopRight);
 
         wheelBottomLeft = this.getWheelSprite();
         wheelBottomLeft.x = 50;
-        wheelBottomLeft.y = -70;
+        wheelBottomLeft.y = 70;
         addChild(this.wheelBottomLeft);
 
         wheelBottomRight = this.getWheelSprite();
         wheelBottomRight.x = -50;
-        wheelBottomRight.y = -70;
+        wheelBottomRight.y = 70;
         addChild(this.wheelBottomRight);
 
 
@@ -45,7 +45,7 @@ class VehicleSprite extends Sprite {
         chassis.graphics.beginFill(0xFF0000);
         chassis.graphics.drawRect (-50, -100, 100, 200);   //Chassis zeichnen
         chassis.graphics.beginFill(0xE24A4A);
-        chassis.graphics.drawRect (-40, -80, 80, 120); //Dach zeichnen
+        chassis.graphics.drawRect (-40, -40, 80, 120); //Dach zeichnen
         addChild(chassis);
 
         //Events registrieren
@@ -58,9 +58,8 @@ class VehicleSprite extends Sprite {
     private function onEnterFrame(event: Event) : Void {
 
         //Reifenwinkel aktualisieren
-        //OpenFl misst in Grad, daher müssen wir vom Bogenmaß umrechnen
-        wheelTopRight.rotation = vehicle.steerAngle * (180 / Math.PI);
-        wheeltopLeft.rotation = vehicle.steerAngle * (180 / Math.PI);
+        wheelTopRight.rotation = vehicle.steerAngle;
+        wheeltopLeft.rotation = vehicle.steerAngle;
 
     }
 

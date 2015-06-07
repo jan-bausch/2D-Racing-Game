@@ -8,7 +8,7 @@ import ash.core.Engine;
 import ash.core.Entity;
 import ash.signals.Signal1;
 import openfl.Assets;
-import hxmath.math.Vector2;
+import app.math.Vector2;
 
 import app.nodes.RenderNode;
 
@@ -78,13 +78,13 @@ class LevelLoadingSystem extends System {
 		for( i in 0...waypoints.length-1 ) {
 	
 			var start: Vector2 = new Vector2(waypoints[i].x, waypoints[i].y),
-				end: Vector2 = new Vector2(waypoints[i+1].x, waypoints[i+1].y),
-				endAngle: Float = (end-start).angle + Math.PI / 2;
+				end: Vector2 = new Vector2(waypoints[i+1].x, waypoints[i+1].y);
+
+			var startAngle: Float = (i==0) ? start.angleTo(end) : (start.angleTo(end) + new Vector2(waypoints[i-1].x, waypoints[i-1].y).angleTo(start)) / 2,
+				endAngle: Float = (i==waypoints.length-2) ? start.angleTo(end) : (start.angleTo(end) + end.angleTo(new Vector2(waypoints[i+2].x, waypoints[i+2].y))) / 2;
 
 
-				trace(endAngle * (180 / Math.PI));
-
-			engine.addEntity( new app.entities.Road(start,  end, Math.PI / 2, Math.PI / 2, width) );
+			engine.addEntity( new app.entities.Road(start,  end, startAngle, endAngle, width) );
 
 		}
 

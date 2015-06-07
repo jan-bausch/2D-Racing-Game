@@ -1,7 +1,7 @@
 package app.entities;
 
 import ash.core.Entity;
-import hxmath.math.Vector2;
+import app.math.Vector2;
 
 import app.components.Position;
 import app.components.Display;

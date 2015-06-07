@@ -36,8 +36,8 @@ class InputSystem extends System {
         left = false;
 
         //Physikalische Konstanten festlegen
-        maxSteerAngle = 45 * (Math.PI / 180);  //45°
-        steerAmount = 200 * (Math.PI / 180);                     
+        maxSteerAngle = 45;  //45°
+        steerAmount = 200;                     
         maxSpeed = 200;
         acceleration = 30;
         deceleration = 15;

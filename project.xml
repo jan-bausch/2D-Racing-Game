@@ -12,7 +12,7 @@
 
 	<!-- Bibliotheken einbetten -->
 	<haxelib name="ash" />
-	<haxelib name="hxmath" />
+	<haxeflag name="-D" value="HXMATH_USE_OPENFL_STRUCTURES" />
 	<haxelib name="openfl" />
 	
 	<!-- Ressourcen, die nicht gebraucht werden, werden ausgeschlossen -->

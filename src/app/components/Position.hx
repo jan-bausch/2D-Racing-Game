@@ -1,6 +1,6 @@
 package app.components;
 
-import hxmath.math.Vector2;
+import app.math.Vector2;
 
 //Spiegelt den Mittelpunkt eines Entitys wider
 class Position {

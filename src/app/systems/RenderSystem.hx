@@ -5,7 +5,7 @@ import ash.core.NodeList;
 import ash.core.Engine;
 import openfl.Lib;
 import openfl.display.Sprite;
-import hxmath.math.Vector2;
+import app.math.Vector2;
 
 import app.nodes.RenderNode;
 import app.nodes.CameraNode;
@@ -46,7 +46,7 @@ class RenderSystem extends System {
 			renderNode.display.sprite.y = renderNode.position.vector.y - cameraPosition.y + Lib.current.stage.stageHeight/2;
 
             //OpenFl misst Rotation in Grad, daher müssen wir vom Bogenmaß umrechnen
-            renderNode.display.sprite.rotation = renderNode.position.rotation * (180 / Math.PI);
+            renderNode.display.sprite.rotation = renderNode.position.rotation;
 		}
         
 	}
