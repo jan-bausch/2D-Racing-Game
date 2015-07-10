@@ -5,7 +5,7 @@
 	<app main="app.Main" path="build" file="osmRacer" />
 	
 	<window background="#ffffff" fps="60" orientation="portrait" />
-	<window width="800" height="600" if="desktop"/>
+	<window width="1000" height="600" if="desktop"/>
 
 
 	<source path="src" />
