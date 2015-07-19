@@ -5,17 +5,21 @@ import ash.core.NodeList;
 import ash.core.Engine;
 import openfl.Lib;
 import openfl.display.Sprite;
+import openfl.geom.Matrix;
 import app.math.Vector2;
 
 import app.nodes.RenderNode;
+import app.nodes.CameraVehicleNode;
 import app.nodes.CameraNode;
 
 class RenderSystem extends System {
 
 	private var renderNodes: NodeList<RenderNode>;
     private var cameraNodes: NodeList<CameraNode>;
+    private var cameraVehicleNodes: NodeList<CameraVehicleNode>;
 	private var scene: Sprite;	//Verweis auf Sprite des "GameScene"-Objekts
 
+    private static inline var SPEED_ZOOM: Float = 5/10000;
 
 	public function new(scene: Sprite) {
 		super();
@@ -27,28 +31,57 @@ class RenderSystem extends System {
 	public override function update(elapsed: Float) : Void {
 
         var cameraPosition: Vector2 = new Vector2(0, 0),
-            focusedEntities: Int = 0;
+            focusedEntities: Int = 0,
+            zoom: Float = 0;
 
         //Position der Kamera ergibt sich aus der Durchschnittsposition der fokussierten Entities (d.h. mit "Camera"-Komponente)
         for (cameraNode in cameraNodes) {
             cameraPosition += cameraNode.position.vector;
             focusedEntities++;
+            zoom += cameraNode.camera.zoom;
         }
 
         cameraPosition /= focusedEntities;
+
+
+
+
+        //Matrix der Hauptszene
+        var matrix: Matrix = scene.transform.matrix;
+
+        //Position transformieren, sodass das Auto im Mittelpunkt steht.
+        matrix.tx = - cameraPosition.x * zoom + Lib.current.stage.stageWidth/2;
+        matrix.ty = - cameraPosition.y * zoom + Lib.current.stage.stageHeight/2;
+
+        //Kamerazoom anwenden
+        matrix.a = matrix.d = zoom;
+
+        
+
+        //Transformationen anwenden
+        scene.transform.matrix = matrix;
+
 
 
 		//Position jedes Sprites aktualisieren 
 		for (renderNode in renderNodes) {
 
             //Sprites positionieren (Kamera und Fenstermitte mitberücksichtigen)
-			renderNode.display.sprite.x = renderNode.position.vector.x - cameraPosition.x + Lib.current.stage.stageWidth/2;
-			renderNode.display.sprite.y = renderNode.position.vector.y - cameraPosition.y + Lib.current.stage.stageHeight/2;
+			renderNode.display.sprite.x = renderNode.position.vector.x;
+			renderNode.display.sprite.y = renderNode.position.vector.y;
 
             //OpenFl misst Rotation in Grad, daher müssen wir vom Bogenmaß umrechnen
             renderNode.display.sprite.rotation = renderNode.position.rotation;
 		}
         
+
+        //Zoom an Geschwindigkeit anpassen
+        for (cameraVehicleNode in cameraVehicleNodes) {
+
+            var zoom: Float = 1 - SPEED_ZOOM * Math.abs(cameraVehicleNode.vehicle.speed);
+            cameraVehicleNode.camera.zoom = zoom;
+        }
+
 	}
 
 	//Wird aufgerufen, wenn System der Engine hinzugefügt wird
@@ -56,6 +89,7 @@ class RenderSystem extends System {
 
         renderNodes = engine.getNodeList(RenderNode);
         cameraNodes = engine.getNodeList(CameraNode);
+        cameraVehicleNodes = engine.getNodeList(CameraVehicleNode);
 
         //Den Sprite eines jedes vorhanden Entitys schon dem GameScene-Sprite hinzufügen
         for (renderNode in renderNodes)
@@ -83,6 +117,7 @@ class RenderSystem extends System {
     public override function removeFromEngine(engine: Engine):Void {
         this.renderNodes = null;
         this.cameraNodes = null;
+        this.cameraVehicleNodes = null;
     }
 
 
