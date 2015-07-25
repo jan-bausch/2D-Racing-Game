@@ -13,8 +13,12 @@ class VehicleSystem extends System {
 
 	private var vehicleNodes: NodeList<VehicleNode>;
 
-	public function new() {
-		super();
+    private var events: SystemEvents;
+
+    public function new(events: SystemEvents) {
+        super();
+
+        this.events = events;
     }
 
 	public override function update(elapsed: Float) : Void {

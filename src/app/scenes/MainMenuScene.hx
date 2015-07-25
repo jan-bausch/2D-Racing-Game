@@ -45,7 +45,6 @@ class MainMenuScene extends Sprite {
 
 		//Wenn startButton gedrückt ist, soll die Spielszene geladen werden.
 		startButton.addEventListener(MouseEvent.CLICK, function(event: Event) {
-			trace("test");
 			setScene(new GameScene(this.rootScene)); 
 		});
 
@@ -97,7 +96,7 @@ class MainMenuScene extends Sprite {
 		//Überschrift positionieren
 		heading.x = Lib.current.stage.stageWidth / 8;
 		heading.y = Lib.current.stage.stageHeight / 20;
-		heading.setTextFormat(new TextFormat ("Katamotz Ikasi", Lib.current.stage.stageHeight / 7, 0x7A0026));
+		//heading.setTextFormat(new TextFormat("Katamotz Ikasi", Lib.current.stage.stageHeight / 7, 0x7A0026));
 
 
 	}

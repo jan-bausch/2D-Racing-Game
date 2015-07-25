@@ -21,9 +21,12 @@ class RenderSystem extends System {
 
     private static inline var SPEED_ZOOM: Float = 5/10000;
 
-	public function new(scene: Sprite) {
-		super();
-        
+    private var events: SystemEvents;
+
+    public function new(events: SystemEvents, scene: Sprite) {
+        super();
+
+        this.events = events;
 		this.scene = scene;
 	}
 

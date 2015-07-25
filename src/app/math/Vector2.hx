@@ -443,7 +443,7 @@ abstract Vector2(Vector2Type) from Vector2Type to Vector2Type
      * @param pivot     The pivot point to rotate around.
      * @return          The modified object.
      */
-    public inline function rotate(angle:Float, pivot:Vector2):Vector2
+    public inline function rotate(angle:Float, ?pivot:Vector2) :Vector2
     {
         var self:Vector2 = this;
         
@@ -451,9 +451,15 @@ abstract Vector2(Vector2Type) from Vector2Type to Vector2Type
 
         var cos = Math.cos(angle);
         var sin = Math.sin(angle);
-        var dx = self.x - pivot.x;
-        var dy = self.y - pivot.y;
+
+        var dx = self.x;
+        var dy = self.y;
         
+        if (pivot != null) {
+            dx -= pivot.x;
+            dy -= pivot.y;
+        }
+
         self.x = dx * Math.cos(angle) - dy * Math.sin(angle);
         self.y = dx * Math.sin(angle) + dy * Math.cos(angle);
         

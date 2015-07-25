@@ -15,16 +15,18 @@ import app.nodes.RenderNode;
 class LevelLoadingSystem extends System {
 
 	private var renderNodes: NodeList<RenderNode>;
-	private var LOAD_LEVEL: Signal1<Int>;
 	private var engine: Engine;
 
-	public function new(LOAD_LEVEL: Signal1<Int>) {
+    private var events: SystemEvents;
+
+    public function new(events: SystemEvents) {
 		super();
 
-		this.LOAD_LEVEL = LOAD_LEVEL;
+        this.events = events;
+
 
 		//Events registrieren
-		LOAD_LEVEL.add(onLoadLevel);
+		events.LOAD_LEVEL.add(onLoadLevel);
 	}
 
 
@@ -46,9 +48,10 @@ class LevelLoadingSystem extends System {
 		for (entity in entities) {
 
 			switch entity.type {
-			    case "Car": 	engine.addEntity( new app.entities.Car(entity.x, entity.y) );
-			    case "Road": 	parseRoad(entity.waypoints, entity.width);
-			    case "Grass": 	engine.addEntity( new app.entities.Grass(entity.x, entity.y, entity.width, entity.height) );
+			    case "Car": 		engine.addEntity( new app.entities.Car(entity.x, entity.y) );
+			    case "Road": 		parseRoad(entity.waypoints, entity.width);
+			    case "Grass": 		engine.addEntity( new app.entities.Grass(entity.x, entity.y, entity.width, entity.height) );
+			    case "StoneWall":	engine.addEntity( new app.entities.StoneWall(parseWaypoints(entity.waypoints)) );
 			}
 
 		}
@@ -68,6 +71,17 @@ class LevelLoadingSystem extends System {
 			engine.removeEntity(entity);
 		}
 
+	}
+
+	private function parseWaypoints(waypoints: Array<{x: Float, y: Float}>) : Array<Vector2> {
+
+		var polygon: Array<Vector2> = new Array<Vector2>();
+
+		for (point in waypoints) {
+			polygon.push(new Vector2(point.x, point.y));
+		}
+
+		return polygon;
 	}
 
 	private function parseRoad(waypoints: Array<{x: Float, y: Float}>, width: Float) : Void {

@@ -7,14 +7,15 @@ import openfl.events.Event;
 import ash.core.System;
 import ash.core.Entity;
 import ash.core.Engine;
-import ash.signals.Signal1;
 
 import app.systems.SystemPriorities;
+import app.systems.SystemEvents;
 import app.systems.RenderSystem;
 import app.systems.InputSystem;
 import app.systems.VehicleSystem;
 import app.systems.LevelLoadingSystem;
 import app.systems.GameSystem;
+import app.systems.CollisionSystem;
 import app.components.GameState;
 
 import openfl.events.KeyboardEvent;
@@ -41,18 +42,19 @@ class GameScene extends Sprite {
 		engine = new Engine();
 
 		//Events, die zwischen Systemen ausgetauscht werden
-		var LOAD_LEVEL: Signal1<Int> = new Signal1<Int>();
+		var systemEvents: SystemEvents = new SystemEvents();
 
 		//Ein Entity erstellen, das das Spiel repräsentiert
 		engine.addEntity( new Entity().add(new GameState()) );
 
 
 		//Systeme der Engine hinzufügen
-		engine.addSystem( new InputSystem(this), SystemPriorities.update );
-		engine.addSystem( new VehicleSystem(), SystemPriorities.update );
-		engine.addSystem( new RenderSystem(this), SystemPriorities.render );
-		engine.addSystem( new LevelLoadingSystem(LOAD_LEVEL), SystemPriorities.last);
-		engine.addSystem( new GameSystem(LOAD_LEVEL), SystemPriorities.preUpdate);
+		engine.addSystem( new InputSystem(systemEvents, this), 		SystemPriorities.update );
+		engine.addSystem( new VehicleSystem(systemEvents), 			SystemPriorities.update );
+		engine.addSystem( new CollisionSystem(systemEvents), 		SystemPriorities.collisions );
+		engine.addSystem( new RenderSystem(systemEvents, this), 	SystemPriorities.render );
+		engine.addSystem( new LevelLoadingSystem(systemEvents), 	SystemPriorities.last);
+		engine.addSystem( new GameSystem(systemEvents), 			SystemPriorities.preUpdate);
 
 	
 

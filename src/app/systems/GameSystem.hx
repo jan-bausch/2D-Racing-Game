@@ -5,16 +5,17 @@ import ash.core.NodeList;
 import ash.core.Engine;
 import ash.signals.Signal1;
 
+import app.systems.SystemEvents;
 
 class GameSystem extends System {
 
 
-    private var LOAD_LEVEL: Signal1<Int>;
+    private var events: SystemEvents;
 
-    public function new(LOAD_LEVEL: Signal1<Int>) {
+    public function new(events: SystemEvents) {
 		super();
 
-        this.LOAD_LEVEL = LOAD_LEVEL;
+        this.events = events;
 
 
 	}
@@ -28,7 +29,10 @@ class GameSystem extends System {
 
 	//Wird aufgerufen, wenn System der Engine hinzugefügt wird
     public override function addToEngine(engine: Engine):Void {
-        LOAD_LEVEL.dispatch(0);
+
+    	//Erstes Level laden
+        events.LOAD_LEVEL.dispatch(0);
+        
    	}
 
    	//Wird aufgerufen, wenn System von der Engine entfernt wird

@@ -2,13 +2,23 @@
 <project>
 	
 	<meta title="osmRacer - Wöhlerschule" package="com.woehlerschule.osmracer" version="1.0.0" company="OpenFL" />
-	<app main="app.Main" path="build" file="osmRacer" />
+	<app main="app.Main" path="build" file="osmRacer" preloader="app.scenes.Preloader"/>
 	
 	<window background="#ffffff" fps="60" orientation="portrait" />
+
+	<!-- Plattform-spezifische Optionen -->
 	<window width="1000" height="600" if="desktop"/>
+	<window fullscreen="true" if="mobile" />
+	<window orientation="landscape" />
+	<window vsync="true" antialiasing="0" if="cpp" />
+	<window hardware="true" allow-shaders="true" require-shaders="false" if="cpp"/>
 
 
 	<source path="src" />
+
+
+	<!-- Debug Modus (Bei Veröffentlichung auskommentieren) -->
+	<haxedef name="debug" />
 
 	<!-- Bibliotheken einbetten -->
 	<haxelib name="ash" />
@@ -16,7 +26,8 @@
 	<haxelib name="openfl" />
 	
 	<!-- Ressourcen, die nicht gebraucht werden, werden ausgeschlossen -->
-	<assets path="res" exclude="*.svg|*.xfc" />
+	<assets path="res" exclude="*.xfc" />
 	<icon path="res/icon.svg" />
+
 	
 </project>
