@@ -15,7 +15,7 @@ class Road extends Entity {
 
 		var middle: Vector2 = (start + end) / 2;
 
-		this.add( new Position( middle.x , middle.y ) ); //Mitte beider Vektoren ist die Position der Straße
+		this.add( new Position( middle ) ); //Mitte beider Vektoren ist die Position der Straße
 		this.add( new Display(new RoadSprite(start - middle, end - middle, startAngle, endAngle, width)) );
 
 	}

@@ -8,8 +8,8 @@ class Position {
 	public var vector: Vector2;
 	public var rotation: Float;
 
-	public function new(x: Float, y: Float, rotation: Float = 0) {
-		this.vector = new Vector2(x, y);
+	public function new(position: Vector2, rotation: Float = 0) {
+		this.vector = position;
 		this.rotation = rotation;
 	}
 

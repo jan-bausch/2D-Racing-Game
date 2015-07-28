@@ -14,13 +14,13 @@ import app.entities.sprites.VehicleSprite;
 
 class Car extends Entity {
 
-	public function new(x: Float, y: Float) {
+	public function new(position: Vector2, rotation: Float) {
 		super();
 
 		var vehicleComponent: Vehicle = new Vehicle();
 
 		this.add( new Camera() );
-		this.add( new Position(x, y) );
+		this.add( new Position(position, rotation) );
 		this.add( new Input() );
 		this.add( new Display(new VehicleSprite(vehicleComponent)) );
 		this.add( new Collision([ new Vector2(-50, -100), new Vector2(50, -100), new Vector2(50, 100), new Vector2(-50, 100) ], true) );

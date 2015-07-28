@@ -1,6 +1,6 @@
 package app.systems;
 
-import haxe.Json;
+import haxe.xml.Fast;
 
 import ash.core.System;
 import ash.core.NodeList;
@@ -37,26 +37,103 @@ class LevelLoadingSystem extends System {
 
 		clearLevel();
 		//Level parsen
-		parseLevel(Json.parse( Assets.getText("res/levels/" + id + ".json") ));
+		parseLevel(Xml.parse( Assets.getText("res/levels/level" + id + ".xml") ));
 	}
 
 	//Level-Datei lesen und Entities erstellen
-	private function parseLevel(json: Dynamic) : Void {
+	private function parseLevel(xml: Xml) : Void {
 
-		var entities: Array<Dynamic> = json.entities;
+		var data: Fast = new Fast(xml.firstElement()),
+			levelName: String = data.att.Name;
 
-		for (entity in entities) {
 
-			switch entity.type {
-			    case "Car": 		engine.addEntity( new app.entities.Car(entity.x, entity.y) );
-			    case "Road": 		parseRoad(entity.waypoints, entity.width);
-			    case "Grass": 		engine.addEntity( new app.entities.Grass(entity.x, entity.y, entity.width, entity.height) );
-			    case "StoneWall":	engine.addEntity( new app.entities.StoneWall(parseWaypoints(entity.waypoints)) );
+
+		for (layer in data.node.Layers.nodes.Layer) {
+			for (item in layer.node.Items.nodes.Item) {
+				parseItem(item);
 			}
-
 		}
 
 	}
+
+
+	private function parseItem(item: Fast) : Void {
+
+		var type: String = "";
+
+		//Typ des Entities herausfinden
+		for (property in item.node.CustomProperties.nodes.Property) {
+			if (property.att.Name == "type") type = property.node.string.innerData;
+		}
+
+		switch type {
+			case "grass-ground": engine.addEntity( new app.entities.Grass(parsePosition(item), parsePolygon(item)) );
+			case "stone-wall": engine.addEntity( new app.entities.StoneWall(parsePosition(item), parsePolygon(item)) );
+			case "car": engine.addEntity( new app.entities.Car(parsePosition(item), parseRotation(item)) );
+			case "road": parseRoad(item);
+			default: throw "Unknow Entity of type '" + type + "' in level.";
+		}
+
+
+	}
+
+
+	private function parseRotation(item: Fast) : Float {
+		return Std.parseFloat(item.node.Rotation.innerData) *(180/Math.PI);
+	}
+
+	private function parsePosition(item: Fast) : Vector2 {
+
+		var x: Float = Std.parseFloat(item.node.Position.node.X.innerData),
+			y: Float = Std.parseFloat(item.node.Position.node.Y.innerData);
+
+		return new Vector2(x,y);
+	}
+
+
+	private function parsePolygon(item: Fast, absolute: Bool = false) : Array<Vector2> {
+
+		var polygon: Array<Vector2> = new Array<Vector2>();
+
+		//Sollen die Punkte absolut oder relativ zum Mittelpunkt des Entities ausgelesen werden?
+		if (absolute) {
+			for (point in item.node.WorldPoints.nodes.Vector2)
+				polygon.push(new Vector2(Std.parseFloat(point.node.X.innerData), Std.parseFloat(point.node.Y.innerData)));
+		
+		} else {
+			for (point in item.node.LocalPoints.nodes.Vector2)
+				polygon.push(new Vector2(Std.parseFloat(point.node.X.innerData), Std.parseFloat(point.node.Y.innerData)));
+
+		}
+
+		return polygon;
+	}
+
+	private function parseRoad(item: Fast) : Void {
+		
+
+		var width: Float = Std.parseFloat(item.node.LineWidth.innerData),
+			waypoints: Array<Vector2> = parsePolygon(item, true);
+
+		//Error werfen, wenn Strecke nur einen Wegpunkt hat.
+		if (waypoints.length < 2) throw "Level-Loading failed: Road only has one waypoint.";
+
+		for ( i in 0...waypoints.length-1 ) {
+	
+			var start: Vector2 = waypoints[i],
+				end: Vector2 = waypoints[i+1];
+
+			var startAngle: Float = (i==0) ? start.angleTo(end) : (start.angleTo(end) + new Vector2(waypoints[i-1].x, waypoints[i-1].y).angleTo(start)) / 2,
+				endAngle: Float = (i==waypoints.length-2) ? start.angleTo(end) : (start.angleTo(end) + end.angleTo(new Vector2(waypoints[i+2].x, waypoints[i+2].y))) / 2;
+
+
+			engine.addEntity( new app.entities.Road(start,  end, startAngle, endAngle, width) );
+
+		}
+
+
+	}
+
 
 	//Alle alten Entities löschen
 	private function clearLevel() : Void {
@@ -70,38 +147,6 @@ class LevelLoadingSystem extends System {
 		for (entity in entitiesToBeRemoved) {
 			engine.removeEntity(entity);
 		}
-
-	}
-
-	private function parseWaypoints(waypoints: Array<{x: Float, y: Float}>) : Array<Vector2> {
-
-		var polygon: Array<Vector2> = new Array<Vector2>();
-
-		for (point in waypoints) {
-			polygon.push(new Vector2(point.x, point.y));
-		}
-
-		return polygon;
-	}
-
-	private function parseRoad(waypoints: Array<{x: Float, y: Float}>, width: Float) : Void {
-		
-		//Error werfen, wenn Strecke nur einen Wegpunkt hat.
-		if (waypoints.length < 2) throw "Level-Loading failed: Road only has one waypoint.";
-
-		for( i in 0...waypoints.length-1 ) {
-	
-			var start: Vector2 = new Vector2(waypoints[i].x, waypoints[i].y),
-				end: Vector2 = new Vector2(waypoints[i+1].x, waypoints[i+1].y);
-
-			var startAngle: Float = (i==0) ? start.angleTo(end) : (start.angleTo(end) + new Vector2(waypoints[i-1].x, waypoints[i-1].y).angleTo(start)) / 2,
-				endAngle: Float = (i==waypoints.length-2) ? start.angleTo(end) : (start.angleTo(end) + end.angleTo(new Vector2(waypoints[i+2].x, waypoints[i+2].y))) / 2;
-
-
-			engine.addEntity( new app.entities.Road(start,  end, startAngle, endAngle, width) );
-
-		}
-
 
 	}
 

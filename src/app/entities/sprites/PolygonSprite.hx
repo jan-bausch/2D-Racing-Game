@@ -2,24 +2,22 @@ package app.entities.sprites;
 
 import openfl.display.Sprite;
 import openfl.Assets;
+import openfl.display.BitmapData;
 
 import app.math.Vector2;
 
 
-//Sprite einer Grassfläche
-class StoneWallSprite extends Sprite {
+//Sprite eines generischen Vielecks mit Bild
+class PolygonSprite extends Sprite {
 
 
-	public function new(polygon: Array<Vector2>) {
+	public function new(polygon: Array<Vector2>, bitmapData: BitmapData) {
         super();
 
-        var image = Assets.getBitmapData("res/textures/stonewall.png");
-
-       	graphics.beginBitmapFill(image);
+       	graphics.beginBitmapFill(bitmapData);
       
        	var first: Bool = true;
        	for (point in polygon) {
-       		trace(point);
        		if (first) {
        			graphics.moveTo(point.x, point.y);
        			first = false;
