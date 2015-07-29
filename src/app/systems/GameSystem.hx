@@ -1,11 +1,14 @@
 package app.systems;
 
+
 import ash.core.System;
+import ash.core.Entity;
 import ash.core.NodeList;
 import ash.core.Engine;
 import ash.signals.Signal1;
 
 import app.systems.SystemEvents;
+import app.math.CollisionResponse;
 
 class GameSystem extends System {
 
@@ -16,7 +19,7 @@ class GameSystem extends System {
 		super();
 
         this.events = events;
-
+        events.ENTITY_COLLIDED.add(onEntityCollided);
 
 	}
 
@@ -26,6 +29,15 @@ class GameSystem extends System {
 
 	}
 
+
+
+	private function onEntityCollided(entity1: Entity, entity2: Entity, collisionResponse: CollisionResponse) : Void {
+
+		if (Type.getClass(entity1) == app.entities.Car && Type.getClass(entity2) == app.entities.Finish) {
+			trace("load level");
+		}
+
+	}
 
 	//Wird aufgerufen, wenn System der Engine hinzugefügt wird
     public override function addToEngine(engine: Engine):Void {

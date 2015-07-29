@@ -23,7 +23,7 @@ class Car extends Entity {
 		this.add( new Position(position, rotation) );
 		this.add( new Input() );
 		this.add( new Display(new VehicleSprite(vehicleComponent)) );
-		this.add( new Collision([ new Vector2(-50, -100), new Vector2(50, -100), new Vector2(50, 100), new Vector2(-50, 100) ], true) );
+		this.add( new Collision([ new Vector2(-50, -100), new Vector2(50, -100), new Vector2(50, 100), new Vector2(-50, 100) ]) );
 		this.add( vehicleComponent );
 
 

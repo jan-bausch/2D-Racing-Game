@@ -26,6 +26,7 @@ class PolygonSprite extends Sprite {
        		}
        	}
 
+            graphics.endFill();
 
 
 	}

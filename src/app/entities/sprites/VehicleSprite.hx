@@ -46,6 +46,7 @@ class VehicleSprite extends Sprite {
         chassis.graphics.drawRect (-50, -100, 100, 200);   //Chassis zeichnen
         chassis.graphics.beginFill(0xE24A4A);
         chassis.graphics.drawRect (-40, -40, 80, 120); //Dach zeichnen
+        chassis.graphics.endFill();
         addChild(chassis);
 
         //Events registrieren
