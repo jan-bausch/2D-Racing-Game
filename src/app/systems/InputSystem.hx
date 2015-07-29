@@ -89,7 +89,10 @@ class InputSystem extends System {
             }
 
             //Abbremsen
-            if (down) vehicle.speed -= BREAK * elapsed;
+            if (down) {
+                vehicle.speed -= BREAK * elapsed;
+
+            }
             if (vehicle.speed < 0) vehicle.speed = 0;
 
 
@@ -116,6 +119,8 @@ class InputSystem extends System {
             case Keyboard.UP: up = true; 
         }
 
+        if (event.keyCode == Keyboard.DOWN) events.CAR_BREAK_BEGIN.dispatch();
+
     }
 
     private function onKeyUp(event: KeyboardEvent) : Void {
@@ -126,6 +131,8 @@ class InputSystem extends System {
             case Keyboard.RIGHT: right = false;
             case Keyboard.UP: up = false; 
         }
+
+        if (event.keyCode == Keyboard.DOWN) events.CAR_BREAK_END.dispatch();
 
     }
 

@@ -16,6 +16,7 @@ import app.systems.VehicleSystem;
 import app.systems.LevelLoadingSystem;
 import app.systems.GameSystem;
 import app.systems.CollisionSystem;
+import app.systems.SoundSystem;
 import app.components.GameState;
 
 import openfl.events.KeyboardEvent;
@@ -51,6 +52,7 @@ class GameScene extends Sprite {
 		//Systeme der Engine hinzufügen
 		engine.addSystem( new InputSystem(systemEvents, this), 		SystemPriorities.update );
 		engine.addSystem( new VehicleSystem(systemEvents), 			SystemPriorities.update );
+		engine.addSystem( new SoundSystem(systemEvents), 			SystemPriorities.update );
 		engine.addSystem( new CollisionSystem(systemEvents), 		SystemPriorities.collisions );
 		engine.addSystem( new RenderSystem(systemEvents, this), 	SystemPriorities.render );
 		engine.addSystem( new LevelLoadingSystem(systemEvents), 	SystemPriorities.last);
