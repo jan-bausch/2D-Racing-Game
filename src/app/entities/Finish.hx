@@ -2,6 +2,7 @@ package app.entities;
 
 import ash.core.Entity;
 import openfl.Assets;
+import openfl.display.BitmapData;
 
 import app.components.Position;
 import app.components.Display;
@@ -12,12 +13,17 @@ import app.entities.sprites.ImageSprite;
 
 class Finish extends Entity {
 
-	public function new(position: Vector2, width: Float, height: Float) {
+	public function new(position: Vector2, scale: Vector2) {
 		super();
 
+		var bitmap: BitmapData = Assets.getBitmapData("res/textures/finish.png");
+		var width = bitmap.width * scale.x,
+			height = bitmap.height * scale.y;
+
+		trace(position + " " + width + " " + height);
 
 		this.add( new Position(position) );
-		this.add( new Display(new ImageSprite(width, height, Assets.getBitmapData("res/textures/finish.png"))) );
+		this.add( new Display(new ImageSprite(width, height, bitmap)) );
 		this.add( new Collision([ new Vector2(-width/2, -height/2), new Vector2(width/2, -height/2), new Vector2(width/2, height/2), new Vector2(-width/2, height/2) ], false) );
 
 

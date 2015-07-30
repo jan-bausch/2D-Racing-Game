@@ -71,12 +71,21 @@ class LevelLoadingSystem extends System {
 			case "stone-wall": engine.addEntity( new app.entities.StoneWall(parsePosition(item), parsePolygon(item)) );
 			case "car": engine.addEntity( new app.entities.Car(parsePosition(item), parseRotation(item)) );
 			case "road": parseRoad(item);
+			case "finish": engine.addEntity( new app.entities.Finish(parsePosition(item), parseScale(item)) );
 			default: throw "Unknow Entity of type '" + type + "' in level.";
 		}
 
 
 	}
 
+
+	private function parseScale(item: Fast) : Vector2 {
+
+		var x: Float = Std.parseFloat(item.node.Scale.node.X.innerData),
+			y: Float = Std.parseFloat(item.node.Scale.node.Y.innerData);
+
+		return new Vector2(x,y);
+	}
 
 	private function parseRotation(item: Fast) : Float {
 		return Std.parseFloat(item.node.Rotation.innerData) *(180/Math.PI);
@@ -112,7 +121,7 @@ class LevelLoadingSystem extends System {
 	private function parseRoad(item: Fast) : Void {
 		
 
-		var width: Float = Std.parseFloat(item.node.LineWidth.innerData),
+		var width: Float = Std.parseFloat(item.node.LineWidth.innerData) / 2,
 			waypoints: Array<Vector2> = parsePolygon(item, true);
 
 		//Error werfen, wenn Strecke nur einen Wegpunkt hat.

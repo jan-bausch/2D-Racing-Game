@@ -266,6 +266,37 @@
                         <PackedValue>2441117824</PackedValue>
                     </LineColor>
                 </Item>
+                <Item xsi:type="TextureItem" Name="Ziel" Visible="true">
+                    <Position>
+                        <X>37</X>
+                        <Y>-3</Y>
+                    </Position>
+                    <CustomProperties>
+                        <Property Name="type" Type="string" Description="">
+                            <string>finish</string>
+                        </Property>
+                    </CustomProperties>
+                    <Rotation>0</Rotation>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
+                    <TintColor>
+                        <R>255</R>
+                        <G>255</G>
+                        <B>255</B>
+                        <A>255</A>
+                        <PackedValue>4294967295</PackedValue>
+                    </TintColor>
+                    <FlipHorizontally>false</FlipHorizontally>
+                    <FlipVertically>false</FlipVertically>
+                    <texture_filename>textures\finish.png</texture_filename>
+                    <asset_name>textures\finish</asset_name>
+                    <Origin>
+                        <X>42</X>
+                        <Y>100</Y>
+                    </Origin>
+                </Item>
             </Items>
             <ScrollSpeed>
                 <X>1</X>
@@ -275,7 +306,7 @@
     </Layers>
     <CustomProperties />
     <EditorRelated>
-        <NextItemNumber>6</NextItemNumber>
+        <NextItemNumber>7</NextItemNumber>
         <ContentRootFolder>D:\Dateien\Projekte\2015\Wöhlerschule BLL\res</ContentRootFolder>
         <CameraPosition>
             <X>0</X>
