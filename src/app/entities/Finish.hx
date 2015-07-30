@@ -19,9 +19,7 @@ class Finish extends Entity {
 		var bitmap: BitmapData = Assets.getBitmapData("res/textures/finish.png");
 		var width = bitmap.width * scale.x,
 			height = bitmap.height * scale.y;
-
-		trace(position + " " + width + " " + height);
-
+			
 		this.add( new Position(position) );
 		this.add( new Display(new ImageSprite(width, height, bitmap)) );
 		this.add( new Collision([ new Vector2(-width/2, -height/2), new Vector2(width/2, -height/2), new Vector2(width/2, height/2), new Vector2(-width/2, height/2) ], false) );

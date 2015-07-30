@@ -15,7 +15,6 @@ class ImageSprite extends Sprite {
 	public function new(width: Float, height: Float, bitmapData: BitmapData) {
         super();
 
-        trace(width + " " + height);
 		graphics.beginBitmapFill(bitmapData);
 			graphics.drawRect(-width/2, -height/2, width, height);
 		graphics.endFill();

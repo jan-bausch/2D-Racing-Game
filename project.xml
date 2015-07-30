@@ -22,7 +22,6 @@
 
 	<!-- Bibliotheken einbetten -->
 	<haxelib name="ash" />
-	<haxeflag name="-D" value="HXMATH_USE_OPENFL_STRUCTURES" />
 	<haxelib name="openfl" />
 	
 	<!-- Ressourcen, die nicht gebraucht werden, werden ausgeschlossen -->
