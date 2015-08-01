@@ -1,5 +1,6 @@
 package app.systems;
 
+import ash.core.Entity;
 import ash.core.System;
 import ash.core.NodeList;
 import ash.core.Engine;
@@ -8,6 +9,8 @@ import openfl.display.Sprite;
 import openfl.geom.Matrix;
 import app.math.Vector2;
 
+import app.components.Collision;
+import app.entities.sprites.CollisionSprite;
 import app.nodes.RenderNode;
 import app.nodes.CameraVehicleNode;
 import app.nodes.CameraNode;
@@ -94,9 +97,10 @@ class RenderSystem extends System {
         cameraNodes = engine.getNodeList(CameraNode);
         cameraVehicleNodes = engine.getNodeList(CameraVehicleNode);
 
+
         //Den Sprite eines jedes vorhanden Entitys schon dem GameScene-Sprite hinzufügen
         for (renderNode in renderNodes)
-        	scene.addChild(renderNode.display.sprite);
+            addRenderChild(renderNode.display.sprite, renderNode.entity);
 
         //Events registrieren
         renderNodes.nodeAdded.add(onRenderNodeAdded);
@@ -107,7 +111,17 @@ class RenderSystem extends System {
    	//Wird aufgerufen, wenn ein neues Entity der RenderNode-Liste hinzugefügt wird
     private function onRenderNodeAdded(node: RenderNode) : Void {
     	//Neues Entity zum "GameScene"-Objekt hinzufügen
-    	scene.addChild(node.display.sprite);
+        addRenderChild(node.display.sprite, node.entity);
+    }   
+
+    private function addRenderChild(child: Sprite, entity: Entity) : Void {
+
+        //Im Debugmodus Kollisionsvieleck darstellen
+        #if debug
+            if (entity.has(Collision)) child.addChild(new CollisionSprite(entity.get(Collision)));
+        #end
+        
+        scene.addChild(child);
     }
 
     //Wird aufgerufen, wenn ein Entity aus der RenderNode-Liste entfernt wird
