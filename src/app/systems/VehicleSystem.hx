@@ -4,6 +4,7 @@ import ash.core.System;
 import ash.core.NodeList;
 import ash.core.Engine;
 import app.math.Vector2;
+import app.math.CollisionResponse;
 
 import app.nodes.VehicleNode;
 import app.components.Vehicle;
@@ -38,11 +39,22 @@ class VehicleSystem extends System {
             backWheel += Vector2.fromPolar(position.rotation, vehicle.speed * elapsed);
 
             //Neue Rotation des Autos ermitteln
-            position.rotation = backWheel.angleTo(frontWheel);
+            var rotation: Float = backWheel.angleTo(frontWheel);
 
             //Die neue Position des Autos ergibt sich aus Mittelpunkt zwischen Vorder- und Hinterrad
-            position.vector = (frontWheel + backWheel) / 2;
+            var movement: Vector2 = ((frontWheel + backWheel) / 2) - position.vector;
 
+
+            //Event an das CollisionSystem weitergeben, dass zurückgibt, ob das Auto fahren darf
+            events.CAN_ENTITY_MOVE.dispatch(vehicleNode.entity, movement, function (response: CollisionResponse) {
+
+                //Wenn Auto nicht kollidiert, kann es auf die neue Position versetzt werden
+                if (response.willCollide== false) {
+                    position.rotation = rotation;
+                    position.vector += movement;
+                }
+
+            });
 
 
         }   

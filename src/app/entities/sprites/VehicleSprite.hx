@@ -1,6 +1,8 @@
 package app.entities.sprites;
 
 import openfl.display.Sprite;
+import openfl.display.Bitmap;
+import openfl.Assets;
 import openfl.events.Event;
 
 import app.components.Vehicle;
@@ -20,33 +22,32 @@ class VehicleSprite extends Sprite {
 
         //Reifen-Sprites erstellen und positionieren
         wheeltopLeft = this.getWheelSprite();
-        wheeltopLeft.x = 50;
+        wheeltopLeft.x = 40;
         wheeltopLeft.y = -70;
         addChild(this.wheeltopLeft);
 
         wheelTopRight = this.getWheelSprite();
-        wheelTopRight.x = -50;
+        wheelTopRight.x = -40;
         wheelTopRight.y = -70;
         addChild(this.wheelTopRight);
 
         wheelBottomLeft = this.getWheelSprite();
-        wheelBottomLeft.x = 50;
+        wheelBottomLeft.x = 40;
         wheelBottomLeft.y = 70;
         addChild(this.wheelBottomLeft);
 
         wheelBottomRight = this.getWheelSprite();
-        wheelBottomRight.x = -50;
+        wheelBottomRight.x = -40;
         wheelBottomRight.y = 70;
         addChild(this.wheelBottomRight);
 
 
-        //Chassis und Dach erstellen und postionieren
-        var chassis: Sprite = new Sprite();
-        chassis.graphics.beginFill(0xFF0000);
-        chassis.graphics.drawRect (-50, -100, 100, 200);   //Chassis zeichnen
-        chassis.graphics.beginFill(0xE24A4A);
-        chassis.graphics.drawRect (-40, -40, 80, 120); //Dach zeichnen
-        chassis.graphics.endFill();
+        //Chassis laden und postionieren
+        var chassis: Bitmap = new Bitmap(Assets.getBitmapData("res/textures/car1.png"));
+        chassis.height = 200;
+        chassis.width *= chassis.scaleY;
+        chassis.x = -chassis.width/2;
+        chassis.y = -chassis.height/2;
         addChild(chassis);
 
         //Events registrieren
@@ -69,7 +70,7 @@ class VehicleSprite extends Sprite {
 
         var wheel: Sprite = new Sprite();
         wheel.graphics.beginFill(0x222222);
-        wheel.graphics.drawRect(-9, -18, 18, 36); //Reifen zeichnen
+        wheel.graphics.drawRect(-7, -14, 14, 28); //Reifen zeichnen
 
         return wheel;
     }

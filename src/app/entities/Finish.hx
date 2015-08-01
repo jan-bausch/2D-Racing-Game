@@ -25,6 +25,7 @@ class Finish extends Entity {
 		this.add( new Collision([ new Vector2(-width/2, -height/2), new Vector2(width/2, -height/2), new Vector2(width/2, height/2), new Vector2(-width/2, height/2) ], false) );
 
 
+
 	}
 
 }

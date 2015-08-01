@@ -85,8 +85,8 @@
             <Items>
                 <Item xsi:type="PathItem" Name="Straße" Visible="true">
                     <Position>
-                        <X>-362</X>
-                        <Y>622</Y>
+                        <X>-236</X>
+                        <Y>1035</Y>
                     </Position>
                     <CustomProperties>
                         <Property Name="type" Type="string" Description="">
@@ -117,24 +117,24 @@
                     </LocalPoints>
                     <WorldPoints>
                         <Vector2>
-                            <X>-362</X>
-                            <Y>622</Y>
+                            <X>-236</X>
+                            <Y>1035</Y>
                         </Vector2>
                         <Vector2>
-                            <X>418.2177</X>
-                            <Y>801.233643</Y>
+                            <X>544.2177</X>
+                            <Y>1214.23364</Y>
                         </Vector2>
                         <Vector2>
-                            <X>749.5813</X>
-                            <Y>350.8589</Y>
+                            <X>875.5813</X>
+                            <Y>763.8589</Y>
                         </Vector2>
                         <Vector2>
-                            <X>431.103882</X>
-                            <Y>-5.52331543</Y>
+                            <X>557.1039</X>
+                            <Y>407.476685</Y>
                         </Vector2>
                         <Vector2>
-                            <X>-626.6883</X>
-                            <Y>5.62384033</Y>
+                            <X>-500.6883</X>
+                            <Y>418.62384</Y>
                         </Vector2>
                     </WorldPoints>
                     <IsPolygon>false</IsPolygon>
@@ -147,129 +147,10 @@
                         <PackedValue>2432696320</PackedValue>
                     </LineColor>
                 </Item>
-                <Item xsi:type="TextureItem" Name="Auto" Visible="true">
-                    <Position>
-                        <X>-729</X>
-                        <Y>11</Y>
-                    </Position>
-                    <CustomProperties>
-                        <Property Name="type" Type="string" Description="">
-                            <string>car</string>
-                        </Property>
-                    </CustomProperties>
-                    <Rotation>1.56169438</Rotation>
-                    <Scale>
-                        <X>1</X>
-                        <Y>1</Y>
-                    </Scale>
-                    <TintColor>
-                        <R>255</R>
-                        <G>255</G>
-                        <B>255</B>
-                        <A>255</A>
-                        <PackedValue>4294967295</PackedValue>
-                    </TintColor>
-                    <FlipHorizontally>false</FlipHorizontally>
-                    <FlipVertically>false</FlipVertically>
-                    <texture_filename>textures\car.png</texture_filename>
-                    <asset_name>textures\car</asset_name>
-                    <Origin>
-                        <X>50</X>
-                        <Y>100</Y>
-                    </Origin>
-                </Item>
-                <Item xsi:type="PathItem" Name="Mauer" Visible="true">
-                    <Position>
-                        <X>-211</X>
-                        <Y>-413</Y>
-                    </Position>
-                    <CustomProperties>
-                        <Property Name="type" Type="string" Description="">
-                            <string>stone-wall</string>
-                        </Property>
-                    </CustomProperties>
-                    <LocalPoints>
-                        <Vector2>
-                            <X>0</X>
-                            <Y>0</Y>
-                        </Vector2>
-                        <Vector2>
-                            <X>-4</X>
-                            <Y>146</Y>
-                        </Vector2>
-                        <Vector2>
-                            <X>644</X>
-                            <Y>184</Y>
-                        </Vector2>
-                        <Vector2>
-                            <X>1048</X>
-                            <Y>376</Y>
-                        </Vector2>
-                        <Vector2>
-                            <X>1132</X>
-                            <Y>564</Y>
-                        </Vector2>
-                        <Vector2>
-                            <X>1294</X>
-                            <Y>478</Y>
-                        </Vector2>
-                        <Vector2>
-                            <X>1148</X>
-                            <Y>308</Y>
-                        </Vector2>
-                        <Vector2>
-                            <X>678</X>
-                            <Y>68</Y>
-                        </Vector2>
-                    </LocalPoints>
-                    <WorldPoints>
-                        <Vector2>
-                            <X>-211</X>
-                            <Y>-413</Y>
-                        </Vector2>
-                        <Vector2>
-                            <X>-215</X>
-                            <Y>-267</Y>
-                        </Vector2>
-                        <Vector2>
-                            <X>433</X>
-                            <Y>-229</Y>
-                        </Vector2>
-                        <Vector2>
-                            <X>837</X>
-                            <Y>-37</Y>
-                        </Vector2>
-                        <Vector2>
-                            <X>921</X>
-                            <Y>151</Y>
-                        </Vector2>
-                        <Vector2>
-                            <X>1083</X>
-                            <Y>65</Y>
-                        </Vector2>
-                        <Vector2>
-                            <X>937</X>
-                            <Y>-105</Y>
-                        </Vector2>
-                        <Vector2>
-                            <X>467</X>
-                            <Y>-345</Y>
-                        </Vector2>
-                    </WorldPoints>
-                    <IsPolygon>true</IsPolygon>
-                    <LineWidth>4</LineWidth>
-                    <LineColor>
-                        <R>128</R>
-                        <G>128</G>
-                        <B>128</B>
-                        <A>145</A>
-                        <PackedValue>2441117824</PackedValue>
-                    </LineColor>
-                </Item>
                 <Item xsi:type="TextureItem" Name="Ziel" Visible="true">
                     <Position>
-                        <X>37</X>
-                        <Y>-3</Y>
+                        <X>163</X>
+                        <Y>410</Y>
                     </Position>
                     <CustomProperties>
                         <Property Name="type" Type="string" Description="">
@@ -297,6 +178,93 @@
                         <Y>100</Y>
                     </Origin>
                 </Item>
+                <Item xsi:type="PathItem" Name="Mauer" Visible="true">
+                    <Position>
+                        <X>-72</X>
+                        <Y>-442</Y>
+                    </Position>
+                    <CustomProperties>
+                        <Property Name="type" Type="string" Description="">
+                            <string>stone-wall</string>
+                        </Property>
+                    </CustomProperties>
+                    <LocalPoints>
+                        <Vector2>
+                            <X>0</X>
+                            <Y>0</Y>
+                        </Vector2>
+                        <Vector2>
+                            <X>271.668671</X>
+                            <Y>0</Y>
+                        </Vector2>
+                        <Vector2>
+                            <X>221.668671</X>
+                            <Y>201.668671</Y>
+                        </Vector2>
+                        <Vector2>
+                            <X>94</X>
+                            <Y>95.66867</Y>
+                        </Vector2>
+                    </LocalPoints>
+                    <WorldPoints>
+                        <Vector2>
+                            <X>-72</X>
+                            <Y>-442</Y>
+                        </Vector2>
+                        <Vector2>
+                            <X>199.668671</X>
+                            <Y>-442</Y>
+                        </Vector2>
+                        <Vector2>
+                            <X>149.668671</X>
+                            <Y>-240.331329</Y>
+                        </Vector2>
+                        <Vector2>
+                            <X>22</X>
+                            <Y>-346.331329</Y>
+                        </Vector2>
+                    </WorldPoints>
+                    <IsPolygon>true</IsPolygon>
+                    <LineWidth>4</LineWidth>
+                    <LineColor>
+                        <R>192</R>
+                        <G>0</G>
+                        <B>192</B>
+                        <A>145</A>
+                        <PackedValue>2445279424</PackedValue>
+                    </LineColor>
+                </Item>
+                <Item xsi:type="TextureItem" Name="Auto" Visible="true">
+                    <Position>
+                        <X>-602</X>
+                        <Y>426</Y>
+                    </Position>
+                    <CustomProperties>
+                        <Property Name="type" Type="string" Description="">
+                            <string>car</string>
+                        </Property>
+                    </CustomProperties>
+                    <Rotation>1.6095432</Rotation>
+                    <Scale>
+                        <X>0.448430479</X>
+                        <Y>0.448430479</Y>
+                    </Scale>
+                    <TintColor>
+                        <R>255</R>
+                        <G>255</G>
+                        <B>255</B>
+                        <A>255</A>
+                        <PackedValue>4294967295</PackedValue>
+                    </TintColor>
+                    <FlipHorizontally>false</FlipHorizontally>
+                    <FlipVertically>false</FlipVertically>
+                    <texture_filename>textures\car1.png</texture_filename>
+                    <asset_name>textures\car1</asset_name>
+                    <Origin>
+                        <X>116</X>
+                        <Y>223</Y>
+                    </Origin>
+                </Item>
             </Items>
             <ScrollSpeed>
                 <X>1</X>
@@ -306,11 +274,11 @@
     </Layers>
     <CustomProperties />
     <EditorRelated>
-        <NextItemNumber>7</NextItemNumber>
+        <NextItemNumber>9</NextItemNumber>
         <ContentRootFolder>D:\Dateien\Projekte\2015\Wöhlerschule BLL\res</ContentRootFolder>
         <CameraPosition>
             <X>0</X>
-            <Y>0</Y>
+            <Y>58.33345</Y>
         </CameraPosition>
         <Version>1.3.0.0</Version>
     </EditorRelated>

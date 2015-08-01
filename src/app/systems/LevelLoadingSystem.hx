@@ -67,8 +67,8 @@ class LevelLoadingSystem extends System {
 		}
 
 		switch type {
-			case "grass-ground": engine.addEntity( new app.entities.Grass(parsePosition(item), parsePolygon(item)) );
-			case "stone-wall": engine.addEntity( new app.entities.StoneWall(parsePosition(item), parsePolygon(item)) );
+			case "grass-ground": engine.addEntity( new app.entities.Grass(parsePolygon(item, true)) );
+			case "stone-wall": engine.addEntity( new app.entities.StoneWall(parsePolygon(item, true)) );
 			case "car": engine.addEntity( new app.entities.Car(parsePosition(item), parseRotation(item)) );
 			case "road": parseRoad(item);
 			case "finish": engine.addEntity( new app.entities.Finish(parsePosition(item), parseScale(item)) );

@@ -51,7 +51,7 @@ class SoundSystem extends System {
 
 	//Wird aufgerufen, wenn System der Engine hinzugefügt wird
     public override function addToEngine(engine: Engine):Void {
-        SOUND_BREAK.play();
+        
    	}
 
    	//Wird aufgerufen, wenn System von der Engine entfernt wird
