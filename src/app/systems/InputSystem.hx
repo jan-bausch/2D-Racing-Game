@@ -19,10 +19,6 @@ class InputSystem extends System {
     //Physikalische Konstanten
     private var MAX_STEER_ANGLE: Float;   //Maximaler Auschlag der Räder
     private var STEER_SPEED: Float;     //Empfindlichkeit des Lenkrads
-    private var MAX_SPEED: Float;    //Maximale Geschwindigkeit des Autos
-    private var ACCELERATION: Float;    //Beschleunigung
-    private var DECELERATION: Float;    //Entschleunigung
-    private var BREAK: Float;    //Bremskraft
 
     //Steurungsinput
     private var up: Bool;
@@ -45,11 +41,7 @@ class InputSystem extends System {
         //Physikalische Konstanten festlegen
         MAX_STEER_ANGLE = 45;
 
-        STEER_SPEED = 120;
-        MAX_SPEED = 800;
-        ACCELERATION = 100;
-        DECELERATION = 130;
-        BREAK = 200;
+        STEER_SPEED = 80;
 
 
         //Events registrieren
@@ -65,7 +57,7 @@ class InputSystem extends System {
 
 
             //Lenkrad wieder in Nullstellung bringen
-            var STRAIGHTENING_SPEED = STEER_SPEED * elapsed * vehicle.speed / 1000;
+            var STRAIGHTENING_SPEED = STEER_SPEED * elapsed * vehicle.velocity / 40;
 
             if (vehicle.steerAngle > 0) {
                 vehicle.steerAngle = (vehicle.steerAngle - STRAIGHTENING_SPEED) > 0 ? vehicle.steerAngle - STRAIGHTENING_SPEED : 0;
@@ -81,19 +73,8 @@ class InputSystem extends System {
             if (right && vehicle.steerAngle + STEER_SPEED * elapsed <= MAX_STEER_ANGLE) vehicle.steerAngle += STEER_SPEED * elapsed;
             if (left && vehicle.steerAngle - STEER_SPEED * elapsed >= -MAX_STEER_ANGLE) vehicle.steerAngle -= STEER_SPEED * elapsed;
 
-            //Wenn geradeaus gefahren wird und maximale Geschwindigkeit noch nicht erreich ist, wird das Auto beschleunigt.
-            if (up && MAX_SPEED >= vehicle.speed + ACCELERATION * elapsed) {
-                vehicle.speed += ACCELERATION * elapsed;
-            } else {
-                vehicle.speed -= DECELERATION * elapsed;
-            }
-
-            //Abbremsen
-            if (down) {
-                vehicle.speed -= BREAK * elapsed;
-
-            }
-            if (vehicle.speed < 0) vehicle.speed = 0;
+            vehicle.throttle = up;
+            vehicle.brake = down;
 
 
         }   

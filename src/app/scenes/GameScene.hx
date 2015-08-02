@@ -70,7 +70,7 @@ class GameScene extends Sprite {
         var elapsedTime: Float = Lib.getTimer() - previousTime; //Vergangene Zeit seit vergangenem Frame ermitteln (in Milisekunden).
         previousTime = Lib.getTimer(); //Aktuelle Zeit für das nächste Frame zwischenspeichern.
 
-        engine.update(elapsedTime / 1000); //An ECS weitergeben
+        engine.update(elapsedTime / 1000); //Verstrichene Zeit (in Sekunden) an ECS weitergeben
 
 	}
 
