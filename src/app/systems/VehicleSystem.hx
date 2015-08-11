@@ -33,7 +33,7 @@ class VehicleSystem extends System {
             var vehicle: Vehicle = vehicleNode.vehicle,
                 position: Position = vehicleNode.position;
 
-            var tractionForce: Float = (vehicle.throttle ? vehicle.ENGINE_FORCE: 0) - (vehicle.brake && vehicle.velocity > 0 ? vehicle.ENGINE_FORCE: 0) - (vehicle.brake && vehicle.velocity < 0 ? vehicle.REVERSE_FORCE: 0);
+            var tractionForce: Float = (vehicle.throttle ? vehicle.ENGINE_FORCE: 0) - (vehicle.brake && vehicle.velocity > 0 ? vehicle.BRAKE_FORCE: 0) - (vehicle.brake && vehicle.velocity < 0 ? vehicle.REVERSE_FORCE: 0);
 
             var dragForce: Float = -AIR_RESISTANCE * vehicle.velocity * vehicle.velocity, //C * v * |v|
                 rollingForce: Float = -ROLLING_RESISTANCE * vehicle.velocity,

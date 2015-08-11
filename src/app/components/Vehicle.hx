@@ -12,12 +12,12 @@ class Vehicle {
 	public var velocity: Float;
 	public var MASS: Float;
 	public var ENGINE_FORCE: Float;
-	public var BREAK_FORCE: Float;
+	public var BRAKE_FORCE: Float;
 	public var REVERSE_FORCE: Float;
 
 	public var throttle: Bool;
 	public var brake: Bool;
-	public var handbreak: Bool;
+	public var handbrake: Bool;
 	public var steerAngle: Float;	//Winkel der Vorderräder
 	public var axisDistance: Float;	//Entfernung zwischen beiden Achsen
 
@@ -30,12 +30,12 @@ class Vehicle {
 
 		this.MASS = 1200;
 		this.ENGINE_FORCE = 5000;
-		this.BREAK_FORCE = 40000;
+		this.BRAKE_FORCE = 12000;
 		this.REVERSE_FORCE = 1000;
 
 		this.throttle = false;
 		this.brake = false;
-		this.handbreak = false;
+		this.handbrake = false;
 		this.steerAngle = 0;
 		this.axisDistance = 130; //Konstante Variale anghängig vom Fahrzeug
 
