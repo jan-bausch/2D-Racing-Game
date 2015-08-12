@@ -14,6 +14,10 @@ import app.math.Vector2;
 class SystemEvents {
 
 	public var LOAD_LEVEL: Signal1<Int>;
+	public var GAME_COUNTDOWN: Signal0;
+	public var GAME_START: Signal0;
+	public var GAME_END: Signal1<Float>;
+
 	public var ENTITY_COLLIDED: Signal3<Entity, Entity, CollisionResponse>;
 	public var CAN_ENTITY_MOVE: Signal3<Entity, Vector2, CollisionResponse -> Void>;
 
@@ -23,6 +27,12 @@ class SystemEvents {
 	public function new() {
 
 		LOAD_LEVEL = new Signal1<Int>();
+		GAME_COUNTDOWN = new Signal0();
+		GAME_START = new Signal0();
+		GAME_END = new Signal1<Float>();
+
+
+
 		ENTITY_COLLIDED = new Signal3<Entity, Entity, CollisionResponse>();
 		CAN_ENTITY_MOVE = new Signal3<Entity, Vector2, CollisionResponse -> Void>();
 		CAR_BREAK_BEGIN = new Signal0();

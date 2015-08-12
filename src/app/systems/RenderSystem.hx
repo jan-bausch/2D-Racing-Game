@@ -62,7 +62,7 @@ class RenderSystem extends System {
         //Kamerazoom anwenden
         matrix.a = matrix.d = zoom;
 
-        
+
 
         //Transformationen anwenden
         scene.transform.matrix = matrix;

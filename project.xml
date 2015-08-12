@@ -22,7 +22,8 @@
 
 	<!-- Bibliotheken einbetten -->
 	<haxelib name="ash" />
-	<haxelib name="openfl" />
+	<haxelib name="haxeui" />
+    <haxelib name="openfl" />
 	
 	<!-- Ressourcen, die nicht gebraucht werden, werden ausgeschlossen -->
 	<assets path="res" exclude="*.xfc" />

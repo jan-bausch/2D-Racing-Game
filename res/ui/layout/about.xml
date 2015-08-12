@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+	<vbox width="100%">
+
+		<text wrapLines="true" width="100%" text="Dieses Spiel ist im Rahmen einer besonderen Lernleistung im Fach Informatik entstanden.\n\nEntwickelt von Jan Frederik Bausch\nGymnasium Wöhlerschule, 2015-2016" />
+
+		<divider text="Quelltext" />
+		<text wrapLines="true"  width="100%" text="Dieses Spiel wurde mit der Programmiersprache Haxe und den Bibliotheken OpenFl, Ash und HaxeUI entwickelt. Der Quelltext ist auf folgender Seite zu finden:\nhttp://github.com/jfbausch/BLL" />
+
+		<divider text="Verwendete Ressourcen" />
+		<text wrapLines="true"  width="100%" text="Freie Ressourcen, die ich benutzt habe:\n\nf\nad\nd" />
+
+	</vbox>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<vbox width="100%">
+	<divider text="Divider" />
+	<button text="Button with a listener" id="myButton" width="100%" />
+	<text text="Text field" id="myText" width="100%" />
+	<button text="Button" width="100%" />
+	<button text="Button" width="100%" />
+	<button text="Button" width="100%" />
+	<button text="Button" width="100%" />
+</vbox>

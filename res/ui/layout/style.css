@@ -1,0 +1,32 @@
+
+#caption{
+	fontSize: 40;
+	verticalAlignment: top;
+	horizontalAlignment: center;
+	paddingTop: 250;
+}
+
+.longtext{
+	wrapLines: true;
+	backgroundColor: #65464;
+}
+
+#menu{
+	spacingY: 20;
+	verticalAlignment: center;
+	horizontalAlignment: center;
+	paddingRight: 350;
+}
+
+
+#car{
+	verticalAlignment: center;
+	horizontalAlignment: right;
+	paddingRight: 100;
+}
+
+#menu Button{
+	fontSize: 20;
+	paddingBottom: 10;
+	paddingTop: 10;
+}

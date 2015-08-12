@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<box width="100%" height="100%" style='backgroundImage:"res/ui/background.png"'>
+
+
+    <text text="Racing game" id="caption" y="250"/>
+
+    <vbox width="600" id="menu">
+            <button id="start" text="Starten" width="100%"/>
+            <button id="options" text="Einstellungen" width="100%" />
+            <button id="about" text="Über" width="100%" />
+    </vbox>
+
+
+    <image resource="res/ui/car.png" id="car" height="90%" />
+
+</box>
