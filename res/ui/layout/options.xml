@@ -1,11 +1,41 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <vbox width="100%">
-	<divider text="Divider" />
-	<button text="Button with a listener" id="myButton" width="100%" />
-	<text text="Text field" id="myText" width="100%" />
-	<button text="Button" width="100%" />
-	<button text="Button" width="100%" />
-	<button text="Button" width="100%" />
-	<button text="Button" width="100%" />
+    <spacer height="10" />
+    <divider text="Grundeinstellungen" />
+
+    <grid columns="2" width="100%">
+    
+        <spacer width="200" />
+        <spacer width="0" />
+
+        <text text="Anzeigemodus" />
+        <hbox >
+            <optionbox text="Fenster" group="group1" selected="true"/>
+            <optionbox text="Vollbild" group="group1" id="fullscreen"/>
+        </hbox>
+        
+        <text text="Steuerung"/>
+        <hbox >
+            <optionbox text="Tastatur" group="group2" id="keyboard"/>
+            <optionbox text="Controller" group="group2" selected="true" />
+        </hbox>
+       
+
+    </grid>
+    
+    <spacer height="10" />
+    <divider text="Erweiterte Einstellungen" />
+
+
+    <grid columns="2" width="100%">
+
+        <spacer width="200" />
+        <spacer width="0" />
+
+        <text text="Kollisionsrahmen anzeigen" />
+        <checkbox id="collision"/>
+
+    </grid>
+
 </vbox>

@@ -9,6 +9,7 @@ import openfl.display.Sprite;
 import openfl.geom.Matrix;
 import app.math.Vector2;
 
+import app.Configuration;
 import app.components.Collision;
 import app.entities.sprites.CollisionSprite;
 import app.nodes.RenderNode;
@@ -21,6 +22,7 @@ class RenderSystem extends System {
     private var cameraNodes: NodeList<CameraNode>;
     private var cameraVehicleNodes: NodeList<CameraVehicleNode>;
 	private var scene: Sprite;	//Verweis auf Sprite des "GameScene"-Objekts
+    private var configuration: Configuration;
 
     private static inline var SPEED_ZOOM: Float = 5/10000;
 
@@ -31,6 +33,7 @@ class RenderSystem extends System {
 
         this.events = events;
 		this.scene = scene;
+        this.configuration = new Configuration();
 	}
 
 
@@ -117,9 +120,10 @@ class RenderSystem extends System {
     private function addRenderChild(child: Sprite, entity: Entity) : Void {
 
         //Im Debugmodus Kollisionsvieleck darstellen
-        #if debug
+        if (configuration.SHOW_COLLISION) {
             if (entity.has(Collision)) child.addChild(new CollisionSprite(entity.get(Collision)));
-        #end
+        }
+
         
         scene.addChild(child);
     }

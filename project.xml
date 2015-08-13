@@ -17,9 +17,6 @@
 	<source path="src" />
 
 
-	<!-- Debug Modus (Bei Veröffentlichung auskommentieren) -->
-	<haxedef name="debug" />
-
 	<!-- Bibliotheken einbetten -->
 	<haxelib name="ash" />
 	<haxelib name="haxeui" />
