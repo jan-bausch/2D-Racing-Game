@@ -14,11 +14,13 @@ class GameSystem extends System {
 
 
     private var events: SystemEvents;
+    private var level: Int;
 
-    public function new(events: SystemEvents) {
+    public function new(events: SystemEvents, level: Int) {
 		super();
 
         this.events = events;
+        this.level = level;
         events.ENTITY_COLLIDED.add(onEntityCollided);
 
 	}
@@ -45,7 +47,7 @@ class GameSystem extends System {
     public override function addToEngine(engine: Engine):Void {
 
     	//Erstes Level laden
-        events.LOAD_LEVEL.dispatch(0);
+        events.LOAD_LEVEL.dispatch(level);
         
    	}
 

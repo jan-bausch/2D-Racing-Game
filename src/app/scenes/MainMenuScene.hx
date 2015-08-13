@@ -14,7 +14,7 @@ import haxe.ui.toolkit.controls.CheckBox;
 import haxe.ui.toolkit.controls.OptionBox;
 import haxe.ui.toolkit.core.PopupManager;
 
-import app.scenes.GameScene;
+import app.scenes.LevelMenuScene;
 import app.Configuration;
 
 class MainMenuScene extends Sprite {
@@ -35,7 +35,7 @@ class MainMenuScene extends Sprite {
 			root.addChild(view);
 
 			//onClick-Events registrieren
-			root.findChild("start", Button, true).onClick = function(e:UIEvent){	setScene(new GameScene(this.rootScene));	};
+			root.findChild("start", Button, true).onClick = function(e:UIEvent){	setScene(new LevelMenuScene(this.rootScene));	};
 			root.findChild("options", Button, true).onClick = function(e:UIEvent){	showOptionsScreen();	};
 			root.findChild("about", Button, true).onClick = function(e:UIEvent){	showAboutScreen();	};
 

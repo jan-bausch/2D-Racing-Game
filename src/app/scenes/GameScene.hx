@@ -26,12 +26,14 @@ class GameScene extends Sprite {
 	private var rootScene: Sprite;	//Haupt-Sprite des Spiels
 	private var engine: Engine;		//Engine des Entity-Component-System
 	private var previousTime: Float;	//Hilfsvariable, um Framerate zu ermiteln
+	private var level: Int;
 
-	public function new(rootScene: Sprite) {
+	public function new(rootScene: Sprite, level: Int) {
 		super();
 
 		this.rootScene = rootScene;
 		previousTime = 0;
+		this.level = level;
 
 		startGame(); //ECS starten
 		addEventListener(Event.ENTER_FRAME, onEnterFrame); //Events registrieren
@@ -56,7 +58,7 @@ class GameScene extends Sprite {
 		engine.addSystem( new CollisionSystem(systemEvents), 		SystemPriorities.collisions );
 		engine.addSystem( new RenderSystem(systemEvents, this), 	SystemPriorities.render );
 		engine.addSystem( new LevelLoadingSystem(systemEvents), 	SystemPriorities.last);
-		engine.addSystem( new GameSystem(systemEvents), 			SystemPriorities.preUpdate);
+		engine.addSystem( new GameSystem(systemEvents, level), 		SystemPriorities.preUpdate);
 
 	
 

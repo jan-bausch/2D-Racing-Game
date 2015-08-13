@@ -1,83 +1,61 @@
 package app.scenes;
 
-import openfl.Lib;
 import openfl.display.Sprite;
-import openfl.text.TextFormat;
-import openfl.text.TextField;
-import openfl.events.Event;
-import openfl.events.MouseEvent;
-import openfl.Assets;
-import openfl.display.Bitmap;
-import openfl.display.SimpleButton;
+import openfl.display.DisplayObjectContainer;
+
+import haxe.ui.toolkit.core.interfaces.IDisplayObject;
+import haxe.ui.toolkit.core.interfaces.IDisplayObjectContainer;
+import haxe.ui.toolkit.core.Root;
+import haxe.ui.toolkit.core.RootManager;
+import haxe.ui.toolkit.core.Toolkit;
+import haxe.ui.toolkit.events.UIEvent;
+import haxe.ui.toolkit.controls.Button;
+import haxe.ui.toolkit.containers.Grid;
+import haxe.ui.toolkit.core.PopupManager;
 
 import app.scenes.GameScene;
-import app.ui.LevelButton;
+import app.Configuration;
 
 class LevelMenuScene extends Sprite {
 
 	//Haupt-Sprite des Spiels
 	private var rootScene: Sprite;
-	//UI-Elemente
-	private var startButton: SimpleButton;
-	private var settingsButton: SimpleButton;
-	private var background: Bitmap;
-	private var car: Bitmap;
-	private var heading: TextField;
+	private var configuration: Configuration;
 
 	public function new(rootScene: Sprite) {
 		super();
 		
 		this.rootScene = rootScene;
-		intializeUI();
+		this.configuration = new Configuration();
 
-		//Wenn sich die Fenstergröße ändert, soll die Funktion "layout()" aufgerufen werden
-		Lib.current.stage.addEventListener(Event.RESIZE, layout);
-		//Um Elemente beim Start anzuordnen, wird die Funktion einmal manuell aufgerufen
-		layout(new Event("RESIZE"));
+		//UI laden und anzeigen
+		Toolkit.openFullscreen(function(root:Root) {
+			var view: IDisplayObject = Toolkit.processXmlResource("res/ui/layout/level-menu.xml");
+			root.addChild(view);
 
-	}
+			var container: Grid = root.findChild("level-container", Grid, true);
 
-
-	private function intializeUI() : Void {
-
-
-
-		background = new Bitmap(Assets.getBitmapData("res/ui/background.png"));
-
-
-		//Überschrift
-		heading = new TextField();
-		heading.embedFonts = true;
-		heading.width = 1000;
-		heading.text = "Wähle ein Level:";
-
-		addChild(background);
-		addChild(heading);
-
-		var LevelButton: LevelButton = new LevelButton(1);
-		LevelButton.x = 100;
-		LevelButton.y = 100;
-
-		addChild(LevelButton);
+			//Buttons für jedes Level dynamisch hinzufügen
+			for (i in 0...10) {
+				var button: Button = new Button();
+				button.text = i+1 + ".";
+				button.autoSize = false;
+				button.styleName = "level-button";
+				button.disabled = i >= configuration.HIGHSCORES.length;
+				button.onClick = function(e:UIEvent){ setScene(new GameScene(rootScene, i)); };
+				container.addChild(button); 
+			}
 
 
-		LevelButton.width = 100;
-	}
 
-	private function layout(event: Event) : Void {
-		
+		});
 
-		//Hintergrundgröße
-		background.width = Lib.current.stage.stageWidth;
-		background.height = Lib.current.stage.stageHeight;
-
-		//Überschrift positionieren
-		heading.x = Lib.current.stage.stageWidth / 15;
-		heading.y = Lib.current.stage.stageHeight / 20;
-		heading.setTextFormat(new TextFormat ("Katamotz Ikasi", Lib.current.stage.stageHeight / 15, 0x7A0026));
-
+        //setScene(new GameScene(this.rootScene)); 
 
 	}
+
+
+
 
 	//Eine Szene als neuer Hauptsprite setzen.
 	private function setScene(newScene: Sprite) : Void {
@@ -86,6 +64,10 @@ class LevelMenuScene extends Sprite {
 		while (rootScene.numChildren > 0) {
 		    rootScene.removeChildAt(0);
 		}
+
+
+		//UI entfernen
+		RootManager.instance.destroyAllRoots();
 
 		//Neue Szene hinzufügen
 		rootScene.addChild(newScene);

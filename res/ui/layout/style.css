@@ -1,10 +1,4 @@
 
-#caption{
-	fontSize: 40;
-	verticalAlignment: top;
-	horizontalAlignment: center;
-	paddingTop: 250;
-}
 
 .longtext{
 	wrapLines: true;
@@ -18,6 +12,17 @@
 	paddingRight: 350;
 }
 
+#level-container{
+	verticalAlignment: center;
+	horizontalAlignment: center;
+	spacing: 30;
+}
+
+.level-button{
+	width: 100;
+	height: 100;
+	fontSize: 30;
+}
 
 #car{
 	verticalAlignment: center;
