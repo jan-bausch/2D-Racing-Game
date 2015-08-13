@@ -24,7 +24,6 @@ class Main extends Sprite {
 		var startScene: Sprite = new MainMenuScene(this);
 		addChild(startScene);
 
-			
 	}
 	
 	
