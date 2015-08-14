@@ -41,7 +41,7 @@ class LevelMenuScene extends Sprite {
 				button.text = i+1 + ".";
 				button.autoSize = false;
 				button.styleName = "level-button";
-				button.disabled = i >= configuration.HIGHSCORES.length;
+				button.disabled = i > configuration.HIGHSCORES.length;
 				button.onClick = function(e:UIEvent){ setScene(new GameScene(rootScene, i)); };
 				container.addChild(button); 
 			}

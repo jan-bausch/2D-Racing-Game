@@ -8,6 +8,8 @@ import ash.core.System;
 import ash.core.Entity;
 import ash.core.Engine;
 
+import haxe.ui.toolkit.core.RootManager;
+
 import app.systems.SystemPriorities;
 import app.systems.SystemEvents;
 import app.systems.RenderSystem;
@@ -17,6 +19,8 @@ import app.systems.LevelLoadingSystem;
 import app.systems.GameSystem;
 import app.systems.CollisionSystem;
 import app.systems.SoundSystem;
+import app.systems.AnimationSystem;
+import app.scenes.MainMenuScene;
 import app.components.GameState;
 
 import openfl.events.KeyboardEvent;
@@ -47,6 +51,10 @@ class GameScene extends Sprite {
 		//Events, die zwischen Systemen ausgetauscht werden
 		var systemEvents: SystemEvents = new SystemEvents();
 
+
+		//Events registrieren
+		systemEvents.SHOW_MAINMENU.add(function () { setScene(new MainMenuScene(rootScene)); });
+
 		//Ein Entity erstellen, das das Spiel repräsentiert
 		engine.addEntity( new Entity().add(new GameState()) );
 
@@ -55,6 +63,7 @@ class GameScene extends Sprite {
 		engine.addSystem( new InputSystem(systemEvents, this), 		SystemPriorities.update );
 		engine.addSystem( new VehicleSystem(systemEvents), 			SystemPriorities.update );
 		engine.addSystem( new SoundSystem(systemEvents), 			SystemPriorities.update );
+		engine.addSystem( new AnimationSystem(systemEvents), 		SystemPriorities.update );
 		engine.addSystem( new CollisionSystem(systemEvents), 		SystemPriorities.collisions );
 		engine.addSystem( new RenderSystem(systemEvents, this), 	SystemPriorities.render );
 		engine.addSystem( new LevelLoadingSystem(systemEvents), 	SystemPriorities.last);
@@ -63,6 +72,8 @@ class GameScene extends Sprite {
 	
 
 	}
+
+
 
 	//Wird jedes Frame aufgerufen (~ 30x pro Sekunde)
 	private function onEnterFrame(event: Event) : Void {
@@ -73,6 +84,24 @@ class GameScene extends Sprite {
         previousTime = Lib.getTimer(); //Aktuelle Zeit für das nächste Frame zwischenspeichern.
 
         engine.update(elapsedTime / 1000); //Verstrichene Zeit (in Sekunden) an ECS weitergeben
+
+	}
+
+
+	//Eine Szene als neuer Hauptsprite setzen.
+	private function setScene(newScene: Sprite) : Void {
+
+		//Alle Kinder des Hauptsprites löschen
+		while (rootScene.numChildren > 0) {
+		    rootScene.removeChildAt(0);
+		}
+
+
+		//UI entfernen
+		RootManager.instance.destroyAllRoots();
+
+		//Neue Szene hinzufügen
+		rootScene.addChild(newScene);
 
 	}
 

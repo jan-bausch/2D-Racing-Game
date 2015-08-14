@@ -8,8 +8,9 @@ import ash.core.Engine;
 import ash.core.Entity;
 import ash.signals.Signal1;
 import openfl.Assets;
-import app.math.Vector2;
 
+import app.math.Vector2;
+import app.entities.Level;
 import app.nodes.RenderNode;
 
 class LevelLoadingSystem extends System {
@@ -33,11 +34,11 @@ class LevelLoadingSystem extends System {
 
 
 	//Wird aufgerufen, wenn ein neues Level geladen werden soll.
-	private function onLoadLevel(id: Int) : Void {
+	private function onLoadLevel(level: Level) : Void {
 
 		clearLevel();
 		//Level parsen
-		parseLevel(Xml.parse( Assets.getText("res/levels/level" + id + ".xml") ));
+		parseLevel(Xml.parse( Assets.getText("res/levels/level" + level.id + ".xml") ));
 	}
 
 	//Level-Datei lesen und Entities erstellen

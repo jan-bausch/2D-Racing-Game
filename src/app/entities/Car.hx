@@ -19,7 +19,7 @@ class Car extends Entity {
 
 		var vehicleComponent: Vehicle = new Vehicle();
 
-		this.add( new Camera() );
+		this.add( new Camera(.5, 10) );
 		this.add( new Position(position, rotation) );
 
 		//Steurungs-Komponente wird erst hinzugefügt, wenn der Countdown beim Level-Start abgelaufen ist.

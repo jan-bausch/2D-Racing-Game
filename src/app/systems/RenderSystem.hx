@@ -7,6 +7,8 @@ import ash.core.Engine;
 import openfl.Lib;
 import openfl.display.Sprite;
 import openfl.geom.Matrix;
+import openfl.filters.BlurFilter;
+import openfl.filters.BitmapFilterQuality;
 import app.math.Vector2;
 
 import app.Configuration;
@@ -23,6 +25,7 @@ class RenderSystem extends System {
     private var cameraVehicleNodes: NodeList<CameraVehicleNode>;
 	private var scene: Sprite;	//Verweis auf Sprite des "GameScene"-Objekts
     private var configuration: Configuration;
+    private var blurFilter: BlurFilter;
 
     private static inline var SPEED_ZOOM: Float = 5/10000;
 
@@ -34,6 +37,8 @@ class RenderSystem extends System {
         this.events = events;
 		this.scene = scene;
         this.configuration = new Configuration();
+        this.blurFilter = new BlurFilter();
+        blurFilter.quality = BitmapFilterQuality.MEDIUM;
 	}
 
 
@@ -41,6 +46,7 @@ class RenderSystem extends System {
 
         var cameraPosition: Vector2 = new Vector2(0, 0),
             focusedEntities: Int = 0,
+            blur: Float = 0,
             zoom: Float = 0;
 
         //Position der Kamera ergibt sich aus der Durchschnittsposition der fokussierten Entities (d.h. mit "Camera"-Komponente)
@@ -48,6 +54,7 @@ class RenderSystem extends System {
             cameraPosition += cameraNode.position.vector;
             focusedEntities++;
             zoom += cameraNode.camera.zoom;
+            blur = cameraNode.camera.blur;
         }
 
         cameraPosition /= focusedEntities;
@@ -56,16 +63,16 @@ class RenderSystem extends System {
 
 
         //Matrix der Hauptszene
-        var matrix: Matrix = scene.transform.matrix;
+        var matrix: Matrix = new Matrix();
 
         //Position transformieren, sodass das Auto im Mittelpunkt steht.
         matrix.tx = - cameraPosition.x * zoom + Lib.current.stage.stageWidth/2;
         matrix.ty = - cameraPosition.y * zoom + Lib.current.stage.stageHeight/2;
-
         //Kamerazoom anwenden
         matrix.a = matrix.d = zoom;
-
-
+        //Kamerablur anwenden
+        blurFilter.blurX = blurFilter.blurY = blur;
+        scene.filters = (blur == 0) ? [] : [blurFilter];
 
         //Transformationen anwenden
         scene.transform.matrix = matrix;
