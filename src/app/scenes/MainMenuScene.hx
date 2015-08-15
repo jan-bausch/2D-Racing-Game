@@ -31,6 +31,7 @@ class MainMenuScene extends Sprite {
 
 		//Hauptmenü-UI laden und anzeigen
 		Toolkit.openFullscreen(function(root:Root) {
+
 			var view: IDisplayObject = Toolkit.processXmlResource("res/ui/layout/main-menu.xml");
 			root.addChild(view);
 

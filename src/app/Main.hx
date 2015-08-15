@@ -21,7 +21,7 @@ class Main extends Sprite {
         Macros.addStyleSheet("res/ui/layout/style.css"); //Stylesheet laden
         
 		//Startmenü anzeigen
-		var startScene: Sprite = new MainMenuScene(this);
+		var startScene: Sprite = new GameScene(this, 0);
 		addChild(startScene);
 
 	}

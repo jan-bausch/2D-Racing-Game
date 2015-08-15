@@ -47,7 +47,6 @@ class LevelMenuScene extends Sprite {
 			}
 
 
-
 		});
 
         //setScene(new GameScene(this.rootScene)); 

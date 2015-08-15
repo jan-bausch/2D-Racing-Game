@@ -6,11 +6,15 @@ import ash.core.NodeList;
 import ash.core.Engine;
 import openfl.Lib;
 import openfl.display.Sprite;
+import haxe.ui.toolkit.controls.Text;
 import openfl.geom.Matrix;
 import openfl.filters.BlurFilter;
 import openfl.filters.BitmapFilterQuality;
-import app.math.Vector2;
+import openfl.utils.Timer;
+import openfl.events.TimerEvent;
 
+
+import app.math.Vector2;
 import app.Configuration;
 import app.components.Collision;
 import app.entities.sprites.CollisionSprite;
@@ -39,6 +43,10 @@ class RenderSystem extends System {
         this.configuration = new Configuration();
         this.blurFilter = new BlurFilter();
         blurFilter.quality = BitmapFilterQuality.MEDIUM;
+
+
+        //Events registrieren
+        events.GAME_COUNTDOWN.add(onCountdown);
 	}
 
 
@@ -99,6 +107,34 @@ class RenderSystem extends System {
         }
 
 	}
+
+
+    //Countdown beim Start eines Levels anzeigen
+    private function onCountdown(callback: Void->Void) : Void {
+
+        var countdownTimer: Timer = new Timer(1000, 4),
+            counts: Int = 3;
+
+
+        //Textfeld in der Mitte des Bildschirms anzeigen
+
+
+        countdownTimer.start();
+
+        countdownTimer.addEventListener(TimerEvent.TIMER, function(e: TimerEvent) {
+
+            switch (counts) {
+                case 3: trace("3");
+                case 2: trace("2");
+                case 1: trace("1");
+                case 0: trace("Los!");
+            }
+
+            counts--;
+        });
+
+    }
+
 
 	//Wird aufgerufen, wenn System der Engine hinzugefügt wird
 	public override function addToEngine(engine: Engine):Void {

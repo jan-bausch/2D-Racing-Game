@@ -34,10 +34,10 @@ class AnimationSystem extends System {
 
 	}
 
-    private function onZoomIn() : Void {
+    private function onZoomIn(callback: Void->Void) : Void {
         
         for (cameraNode in cameraNodes) {
-            Actuate.tween(cameraNode.camera, 1, {zoom: 1, blur: 0}).ease(Quad.easeInOut).delay(0.2);
+            Actuate.tween(cameraNode.camera, 1, {zoom: 1, blur: 0}).ease(Quad.easeInOut).delay(0.2).onComplete(callback);
 
         }
 

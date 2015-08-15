@@ -66,10 +66,15 @@ class GameSystem extends System {
             //Popup mit Ok bestätigt.
 
             //Zuerst auf Auto zoomen und Blur entfernen
-            events.GAME_ZOOM_IN.dispatch();
+            events.GAME_ZOOM_IN.dispatch(function () {
 
-            //Danach Countdown anzeigen
+                //Dann Countdown (3...2...1...Los!) anzeigen
+                events.GAME_COUNTDOWN.dispatch(function () {
 
+
+                });
+
+            });
 
         });
 
