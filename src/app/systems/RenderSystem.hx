@@ -44,7 +44,6 @@ class RenderSystem extends System {
         this.blurFilter = new BlurFilter();
         blurFilter.quality = BitmapFilterQuality.MEDIUM;
 
-
         //Events registrieren
         events.GAME_COUNTDOWN.add(onCountdown);
 	}

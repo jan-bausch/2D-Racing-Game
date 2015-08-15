@@ -9,6 +9,8 @@ import haxe.ui.toolkit.core.Macros;
 import app.scenes.MainMenuScene;
 import app.scenes.GameScene;
 
+import haxe.ui.toolkit.core.PopupManager;
+
 class Main extends Sprite {
 	
 	
@@ -20,9 +22,9 @@ class Main extends Sprite {
         Toolkit.init();
         Macros.addStyleSheet("res/ui/layout/style.css"); //Stylesheet laden
         
+
 		//Startmenü anzeigen
-		var startScene: Sprite = new GameScene(this, 0);
-		addChild(startScene);
+		new MainMenuScene().show();
 
 	}
 	

@@ -1,108 +1,43 @@
 package app.scenes;
 
-import openfl.Lib;
-import openfl.display.Sprite;
-import openfl.events.Event;
-//import app.math.Vector2;
-import ash.core.System;
-import ash.core.Entity;
-import ash.core.Engine;
+import haxe.ui.toolkit.core.Toolkit;
+import haxe.ui.toolkit.containers.SpriteContainer;
 
-import haxe.ui.toolkit.core.RootManager;
-
-import app.systems.SystemPriorities;
-import app.systems.SystemEvents;
-import app.systems.RenderSystem;
-import app.systems.InputSystem;
-import app.systems.VehicleSystem;
-import app.systems.LevelLoadingSystem;
-import app.systems.GameSystem;
-import app.systems.CollisionSystem;
-import app.systems.SoundSystem;
-import app.systems.AnimationSystem;
+import app.scenes.FullscreenScene;
 import app.scenes.MainMenuScene;
-import app.components.GameState;
+import app.systems.SystemEvents;
+import app.Game;
+import app.entities.Level;
 
-import openfl.events.KeyboardEvent;
+class GameScene extends FullscreenScene {
 
-class GameScene extends Sprite {
-
-	private var rootScene: Sprite;	//Haupt-Sprite des Spiels
-	private var engine: Engine;		//Engine des Entity-Component-System
-	private var previousTime: Float;	//Hilfsvariable, um Framerate zu ermiteln
 	private var level: Int;
+	public var systemEvents: SystemEvents; //Events, die zwischen Systemen ausgetauscht werden
 
-	public function new(rootScene: Sprite, level: Int) {
+	public function new(level: Int) {
 		super();
 
-		this.rootScene = rootScene;
-		previousTime = 0;
 		this.level = level;
-
-		startGame(); //ECS starten
-		addEventListener(Event.ENTER_FRAME, onEnterFrame); //Events registrieren
-
-	}
-
-	private function startGame() : Void {
-
-		engine = new Engine();
-
-		//Events, die zwischen Systemen ausgetauscht werden
-		var systemEvents: SystemEvents = new SystemEvents();
+		this.systemEvents = new SystemEvents();
 
 
 		//Events registrieren
-		systemEvents.SHOW_MAINMENU.add(function () { setScene(new MainMenuScene(rootScene)); });
+		systemEvents.SHOW_MAINMENU.add(function () { new MainMenuScene().show(); });
 
-		//Ein Entity erstellen, das das Spiel repräsentiert
-		engine.addEntity( new Entity().add(new GameState()) );
+		//Layout laden
+		view = Toolkit.processXmlResource("res/ui/layout/game.xml");
 
+		//GameSprite in der untersten Ebene hinzufügen
+		view.addChildAt(new SpriteContainer(new Game(systemEvents)), 0);
 
-		//Systeme der Engine hinzufügen
-		engine.addSystem( new InputSystem(systemEvents, this), 		SystemPriorities.update );
-		engine.addSystem( new VehicleSystem(systemEvents), 			SystemPriorities.update );
-		engine.addSystem( new SoundSystem(systemEvents), 			SystemPriorities.update );
-		engine.addSystem( new AnimationSystem(systemEvents), 		SystemPriorities.update );
-		engine.addSystem( new CollisionSystem(systemEvents), 		SystemPriorities.collisions );
-		engine.addSystem( new RenderSystem(systemEvents, this), 	SystemPriorities.render );
-		engine.addSystem( new LevelLoadingSystem(systemEvents), 	SystemPriorities.last);
-		engine.addSystem( new GameSystem(systemEvents, level), 		SystemPriorities.preUpdate);
-
-	
 
 	}
 
+	public override function show() {
+		super.show();
 
-
-	//Wird jedes Frame aufgerufen (~ 30x pro Sekunde)
-	private function onEnterFrame(event: Event) : Void {
-
-		//Das ECS muss wissen, wie lange ein Frame dauert.
-
-        var elapsedTime: Float = Lib.getTimer() - previousTime; //Vergangene Zeit seit vergangenem Frame ermitteln (in Milisekunden).
-        previousTime = Lib.getTimer(); //Aktuelle Zeit für das nächste Frame zwischenspeichern.
-
-        engine.update(elapsedTime / 1000); //Verstrichene Zeit (in Sekunden) an ECS weitergeben
-
-	}
-
-
-	//Eine Szene als neuer Hauptsprite setzen.
-	private function setScene(newScene: Sprite) : Void {
-
-		//Alle Kinder des Hauptsprites löschen
-		while (rootScene.numChildren > 0) {
-		    rootScene.removeChildAt(0);
-		}
-
-
-		//UI entfernen
-		RootManager.instance.destroyAllRoots();
-
-		//Neue Szene hinzufügen
-		rootScene.addChild(newScene);
-
+		//Zuletzt das Event auslösen, dass das Spiel startet
+		systemEvents.LOAD_LEVEL.dispatch(new Level(level));
 	}
 
 } 
