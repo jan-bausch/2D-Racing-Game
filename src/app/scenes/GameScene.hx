@@ -25,7 +25,7 @@ class GameScene extends FullscreenScene {
 		systemEvents.SHOW_MAINMENU.add(function () { new MainMenuScene().show(); });
 
 		//Layout laden
-		view = Toolkit.processXmlResource("res/ui/layout/game.xml");
+		view = Toolkit.processXmlResource("assets/ui/layout/game.xml");
 
 		//GameSprite in der untersten Ebene hinzufügen
 		view.addChildAt(new SpriteContainer(new Game(systemEvents)), 0);

@@ -16,7 +16,7 @@ class MainMenuScene extends FullscreenScene {
 		super();
 		
 		//Layout laden
-		view = Toolkit.processXmlResource("res/ui/layout/main-menu.xml");
+		view = Toolkit.processXmlResource("assets/ui/layout/main-menu.xml");
 
 
 		//onClick-Events registrieren

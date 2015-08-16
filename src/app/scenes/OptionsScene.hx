@@ -24,7 +24,7 @@ class OptionsScene extends PopupScene {
 
 
 		//Layout laden und Werte festlegen
-		view = loadOptions(Toolkit.processXmlResource("res/ui/layout/options.xml"));
+		view = loadOptions(Toolkit.processXmlResource("assets/ui/layout/options.xml"));
 
 		//Aktionen festlegen, falls OK-Button gedrückt wurde
 		callback = function(btn:Dynamic) {

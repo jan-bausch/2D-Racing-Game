@@ -16,7 +16,7 @@ class LevelMenuScene extends FullscreenScene {
 		super();
 
 		//UI laden und anzeigen
-		view = Toolkit.processXmlResource("res/ui/layout/level-menu.xml");
+		view = Toolkit.processXmlResource("assets/ui/layout/level-menu.xml");
 
 		var configuration: Configuration = new Configuration();
 		var container: Grid = view.findChild("level-container", Grid, true);

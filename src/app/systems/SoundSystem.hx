@@ -30,7 +30,7 @@ class SoundSystem extends System {
         events.CAR_BREAK_BEGIN.add(onBreakBegin);
         events.CAR_BREAK_END.add(onBreakEnd);
 
-        SOUND_BREAK = Assets.getSound("res/sounds/drift.ogg");
+        SOUND_BREAK = Assets.getSound("assets/sounds/drift.ogg");
 
 	}
 

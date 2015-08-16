@@ -14,7 +14,7 @@ class FullscreenScene extends Scene {
 	public function new() {
 		super();
 
-		view = Toolkit.processXmlResource("res/ui/layout/main-menu.xml");
+		view = Toolkit.processXmlResource("assets/ui/layout/main-menu.xml");
 
 	}
 

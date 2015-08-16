@@ -26,7 +26,7 @@ class Grass extends Entity {
 
 
 		this.add( new Position(center) );
-		this.add( new Display(new PolygonSprite(polygon, Assets.getBitmapData("res/textures/grass-ground.png"))) );
+		this.add( new Display(new PolygonSprite(polygon, Assets.getBitmapData("assets/textures/grass-ground.png"))) );
 
 
 	}

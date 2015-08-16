@@ -21,7 +21,7 @@ class AboutScene extends PopupScene {
 
 
 		//Layout laden
-		view = Toolkit.processXmlResource("res/ui/layout/about.xml");
+		view = Toolkit.processXmlResource("assets/ui/layout/about.xml");
 
 
 	}

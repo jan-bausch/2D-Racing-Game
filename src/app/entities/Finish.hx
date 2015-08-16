@@ -16,7 +16,7 @@ class Finish extends Entity {
 	public function new(position: Vector2, scale: Vector2) {
 		super();
 
-		var bitmap: BitmapData = Assets.getBitmapData("res/textures/finish.png");
+		var bitmap: BitmapData = Assets.getBitmapData("assets/textures/finish.png");
 		var width = bitmap.width * scale.x,
 			height = bitmap.height * scale.y;
 			

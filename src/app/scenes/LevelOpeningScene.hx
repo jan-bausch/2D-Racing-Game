@@ -28,7 +28,7 @@ class LevelOpeningScene extends WindowScene {
 
 
 		//Layout laden
-		view = Toolkit.processXmlResource("res/ui/layout/level-opening.xml");
+		view = Toolkit.processXmlResource("assets/ui/layout/level-opening.xml");
 
         //Levelinformationen in UI schreiben
         view.findChild("level-id", Text, true).text = (level.id + 1) + "";

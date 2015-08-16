@@ -24,8 +24,8 @@
     <haxelib name="openfl" />
 	
 	<!-- Ressourcen, die nicht gebraucht werden, werden ausgeschlossen -->
-	<assets path="res" exclude="*.xfc" />
-	<icon path="res/icon.svg" />
+	<assets path="assets" exclude="*.xfc" />
+	<icon path="assets/icon.svg" />
 
 	
 </project>

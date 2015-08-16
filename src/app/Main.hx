@@ -20,7 +20,7 @@ class Main extends Sprite {
 		//HaxeUI-Bibliothek initialisieren
 		Toolkit.theme = new  haxe.ui.toolkit.themes.GradientTheme();
         Toolkit.init();
-        Macros.addStyleSheet("res/ui/layout/style.css"); //Stylesheet laden
+        Macros.addStyleSheet("assets/ui/layout/style.css"); //Stylesheet laden
         
 
 		//Startmenü anzeigen

@@ -12,7 +12,7 @@ class RoadSprite extends Sprite {
 	public function new(start: Vector2, end: Vector2, startAngle: Float, endAngle: Float, width: Float) {
         super();
 
-        var image = Assets.getBitmapData("res/images/ground/Asphalt.png");
+        var image = Assets.getBitmapData("assets/textures/asphalt-ground.png");
 
 
         //
