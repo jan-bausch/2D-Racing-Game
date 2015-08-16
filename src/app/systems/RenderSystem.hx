@@ -6,12 +6,9 @@ import ash.core.NodeList;
 import ash.core.Engine;
 import openfl.Lib;
 import openfl.display.Sprite;
-import haxe.ui.toolkit.controls.Text;
 import openfl.geom.Matrix;
 import openfl.filters.BlurFilter;
 import openfl.filters.BitmapFilterQuality;
-import openfl.utils.Timer;
-import openfl.events.TimerEvent;
 
 
 import app.math.Vector2;
@@ -27,7 +24,7 @@ class RenderSystem extends System {
 	private var renderNodes: NodeList<RenderNode>;
     private var cameraNodes: NodeList<CameraNode>;
     private var cameraVehicleNodes: NodeList<CameraVehicleNode>;
-	private var scene: Sprite;	//Verweis auf Sprite des "GameScene"-Objekts
+	private var sprite: Sprite;	//Verweis auf Sprite des Spiels
     private var configuration: Configuration;
     private var blurFilter: BlurFilter;
 
@@ -35,17 +32,14 @@ class RenderSystem extends System {
 
     private var events: SystemEvents;
 
-    public function new(events: SystemEvents, scene: Sprite) {
+    public function new(events: SystemEvents, sprite: Sprite) {
         super();
 
         this.events = events;
-		this.scene = scene;
+		this.sprite = sprite;
         this.configuration = new Configuration();
         this.blurFilter = new BlurFilter();
         blurFilter.quality = BitmapFilterQuality.MEDIUM;
-
-        //Events registrieren
-        events.GAME_COUNTDOWN.add(onCountdown);
 	}
 
 
@@ -79,10 +73,10 @@ class RenderSystem extends System {
         matrix.a = matrix.d = zoom;
         //Kamerablur anwenden
         blurFilter.blurX = blurFilter.blurY = blur;
-        scene.filters = (blur == 0) ? [] : [blurFilter];
+        sprite.filters = (blur == 0) ? [] : [blurFilter];
 
         //Transformationen anwenden
-        scene.transform.matrix = matrix;
+        sprite.transform.matrix = matrix;
 
 
 
@@ -108,32 +102,6 @@ class RenderSystem extends System {
 	}
 
 
-    //Countdown beim Start eines Levels anzeigen
-    private function onCountdown(callback: Void->Void) : Void {
-
-        var countdownTimer: Timer = new Timer(1000, 4),
-            counts: Int = 3;
-
-
-        //Textfeld in der Mitte des Bildschirms anzeigen
-
-
-        countdownTimer.start();
-
-        countdownTimer.addEventListener(TimerEvent.TIMER, function(e: TimerEvent) {
-
-            switch (counts) {
-                case 3: trace("3");
-                case 2: trace("2");
-                case 1: trace("1");
-                case 0: trace("Los!");
-            }
-
-            counts--;
-        });
-
-    }
-
 
 	//Wird aufgerufen, wenn System der Engine hinzugefügt wird
 	public override function addToEngine(engine: Engine):Void {
@@ -143,7 +111,7 @@ class RenderSystem extends System {
         cameraVehicleNodes = engine.getNodeList(CameraVehicleNode);
 
 
-        //Den Sprite eines jedes vorhanden Entitys schon dem GameScene-Sprite hinzufügen
+        //Den Sprite eines jedes vorhanden Entitys schon dem Gamesprite-Sprite hinzufügen
         for (renderNode in renderNodes)
             addRenderChild(renderNode.display.sprite, renderNode.entity);
 
@@ -155,7 +123,7 @@ class RenderSystem extends System {
 
    	//Wird aufgerufen, wenn ein neues Entity der RenderNode-Liste hinzugefügt wird
     private function onRenderNodeAdded(node: RenderNode) : Void {
-    	//Neues Entity zum "GameScene"-Objekt hinzufügen
+    	//Neues Entity zum "Gamesprite"-Objekt hinzufügen
         addRenderChild(node.display.sprite, node.entity);
     }   
 
@@ -167,13 +135,13 @@ class RenderSystem extends System {
         }
 
         
-        scene.addChild(child);
+        sprite.addChild(child);
     }
 
     //Wird aufgerufen, wenn ein Entity aus der RenderNode-Liste entfernt wird
     private function onRenderNodeRemoved(node: RenderNode) : Void {
-    	//Entferntes Entity aus dem "GameScene"-Objekt löschen
-        scene.removeChild(node.display.sprite);
+    	//Entferntes Entity aus dem "Gamesprite"-Objekt löschen
+        sprite.removeChild(node.display.sprite);
     }
 
    	//Wird aufgerufen, wenn System von der Engine entfernt wird

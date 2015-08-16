@@ -12,6 +12,7 @@ import haxe.ui.toolkit.core.RootManager;
 import app.systems.SystemPriorities;
 import app.systems.SystemEvents;
 import app.systems.RenderSystem;
+import app.systems.UISystem;
 import app.systems.InputSystem;
 import app.systems.VehicleSystem;
 import app.systems.LevelLoadingSystem;
@@ -22,6 +23,8 @@ import app.systems.AnimationSystem;
 import app.scenes.MainMenuScene;
 import app.components.GameState;
 
+import app.scenes.Scene;
+
 import openfl.events.KeyboardEvent;
 
 class Game extends Sprite {
@@ -29,11 +32,13 @@ class Game extends Sprite {
 	private var engine: Engine;		//Engine des Entity-Component-System
 	private var previousTime: Float;	//Hilfsvariable, um Framerate zu ermiteln
 	public var systemEvents: SystemEvents;
+	private var scene: Scene;
 
-	public function new(systemEvents: SystemEvents) {
+	public function new(systemEvents: SystemEvents, scene: Scene) {
 		super();
 
 		this.systemEvents = systemEvents;
+		this.scene = scene;
 		previousTime = 0;
 
 		startGame(); //ECS starten
@@ -56,6 +61,7 @@ class Game extends Sprite {
 		engine.addSystem( new AnimationSystem(systemEvents), 		SystemPriorities.update );
 		engine.addSystem( new CollisionSystem(systemEvents), 		SystemPriorities.collisions );
 		engine.addSystem( new RenderSystem(systemEvents, this), 	SystemPriorities.render );
+		engine.addSystem( new UISystem(systemEvents, scene), 		SystemPriorities.render );
 		engine.addSystem( new LevelLoadingSystem(systemEvents), 	SystemPriorities.last);
 		engine.addSystem( new GameSystem(systemEvents), 		SystemPriorities.preUpdate);
 

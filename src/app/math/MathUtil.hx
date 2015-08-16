@@ -14,4 +14,6 @@ class MathUtil {
 	public static function clamp(n: Float, min: Float, max: Float) : Float {
 		return Math.min(Math.max(n, min), max);
 	}
+
+	public static functon
 }

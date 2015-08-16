@@ -10,6 +10,10 @@ import ash.signals.Signal1;
 import app.scenes.LevelOpeningScene;
 import app.systems.SystemEvents;
 import app.entities.Level;
+import app.nodes.GameNode;
+import app.nodes.VehicleNode;
+import app.components.Input;
+import app.components.GameState;
 import app.math.CollisionResponse;
 
 class GameSystem extends System {
@@ -18,19 +22,30 @@ class GameSystem extends System {
     private var events: SystemEvents;
     private var level: Level;
     private var configuration: Configuration;
+    private var gameNodes: NodeList<GameNode>;
+    private var playerNodes: NodeList<VehicleNode>;
+
+    private var running: Bool; //Soll Zeitmessung beginnen?
 
     public function new(events: SystemEvents) {
 		super();
 
         this.events = events;
         this.configuration = new Configuration();
+        this.running = false;
 
         events.ENTITY_COLLIDED.add(onEntityCollided);
         events.LOAD_LEVEL.add(onLoadLevel);
+        events.GAME_START.add(onGameStart);
 	}
 
 
 	public override function update(elapsed: Float) : Void {
+
+        for (gameNode in gameNodes) {
+            //Wenn Zeitmessung aktiviert ist, wird Zeit hinzugefügt
+            if (running) gameNode.gameState.time += elapsed * 1000;
+        }
 
 
 	}
@@ -54,6 +69,9 @@ class GameSystem extends System {
         //Aktuelles Level setzen
         this.level = newLevel;
 
+        //Aktuelles Level in Game-Entity speichern
+        for (gameNode in gameNodes) gameNode.gameState.level = level;
+
         //Zeige Popup mit Levelinformationen
         new app.scenes.LevelOpeningScene(level, events, function() {
             
@@ -65,6 +83,8 @@ class GameSystem extends System {
                 //Dann Countdown (3...2...1...Los!) anzeigen
                 events.GAME_COUNTDOWN.dispatch(function () {
 
+                    //Spiel starten
+                    events.GAME_START.dispatch();
 
                 });
 
@@ -72,24 +92,29 @@ class GameSystem extends System {
 
         }).show();
     }
+    
+    //Wird aufgerufen, wenn das Spiel gestartet wurde. (bzw. Countdown heruntergezählt wurde)
+    private function onGameStart() : Void {
 
-    private function showOpeningPopup(callback: Void->Void) : Void {
+        //Dem Spieler-Entity eine Steuerungskomponente geben, damit er fahren kann
+        for (player in playerNodes) player.entity.add(new Input());
 
-        //Popup in der Mitte des Bildschirms anzeigen
-        new app.scenes.LevelOpeningScene(level, events, callback).show();
+        //Zeitmessung starten
+        running = true;
 
     }
 
-
 	//Wird aufgerufen, wenn System der Engine hinzugefügt wird
     public override function addToEngine(engine: Engine):Void {
-
+        gameNodes = engine.getNodeList(GameNode);
+        playerNodes = engine.getNodeList(VehicleNode);
    	}
 
 
    	//Wird aufgerufen, wenn System von der Engine entfernt wird
     public override function removeFromEngine(engine: Engine):Void {
-
+        gameNodes = null;
+        playerNodes = null;
     }
 
 

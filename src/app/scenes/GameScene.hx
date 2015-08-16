@@ -28,7 +28,7 @@ class GameScene extends FullscreenScene {
 		view = Toolkit.processXmlResource("assets/ui/layout/game.xml");
 
 		//GameSprite in der untersten Ebene hinzufügen
-		view.addChildAt(new SpriteContainer(new Game(systemEvents)), 0);
+		view.addChildAt(new SpriteContainer(new Game(systemEvents, this)), 0);
 
 
 	}
