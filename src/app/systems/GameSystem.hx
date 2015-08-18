@@ -10,6 +10,8 @@ import ash.signals.Signal1;
 import app.scenes.LevelOpeningScene;
 import app.systems.SystemEvents;
 import app.entities.Level;
+import app.entities.Car;
+import app.entities.Finish;
 import app.nodes.GameNode;
 import app.nodes.VehicleNode;
 import app.components.Input;
@@ -34,9 +36,11 @@ class GameSystem extends System {
         this.configuration = new Configuration();
         this.running = false;
 
+        //Events registrieren
         events.ENTITY_COLLIDED.add(onEntityCollided);
         events.LOAD_LEVEL.add(onLoadLevel);
         events.GAME_START.add(onGameStart);
+        events.GAME_END.add(onGameEnd);
 	}
 
 
@@ -51,13 +55,22 @@ class GameSystem extends System {
 	}
 
 
+    private function onGameEnd(time: Float) : Void {
+
+        //Dem Spieler wieder die Kontrolle über die Steuerung nehmen
+        for (player in playerNodes) player.entity.remove(Input);
+
+    }
 
 	private function onEntityCollided(entity1: Entity, entity2: Entity, collisionResponse: CollisionResponse) : Void {
 
-        trace(Type.getClassName(Type.getClass(entity1)) + "" + Type.getClassName(Type.getClass(entity2)));
+        //trace(Type.getClassName(Type.getClass(entity1)) + "" + Type.getClassName(Type.getClass(entity2)));
 
+        //Prüfen, ob es sich bei den kollidierten Entitäten um Spieler und Ziel handelt
 		if (Type.getClass(entity1) == app.entities.Car && Type.getClass(entity2) == app.entities.Finish) {
-			trace("load level");
+			//Level beendet
+            running = false;
+            for (gameNode in gameNodes) events.GAME_END.dispatch(gameNode.gameState.time);
 		}
 
 	}

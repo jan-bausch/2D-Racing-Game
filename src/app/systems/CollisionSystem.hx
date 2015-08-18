@@ -146,7 +146,7 @@ class CollisionSystem extends System {
 
 			if (polygonResponse.isColliding) collisionResponse.isColliding = true;
 			if (polygonResponse.willCollide) collisionResponse.willCollide = true;
-
+			if (!collision1.solid || !collision2.solid) collisionResponse.solid = false;
 
 			//Wenn das Entity kollidiert, lösen wir gleichzeitig noch ein Event asu
 			if (polygonResponse.isColliding || polygonResponse.willCollide) events.ENTITY_COLLIDED.dispatch(entity, collisionNode2.entity, polygonResponse);

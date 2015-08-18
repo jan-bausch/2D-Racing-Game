@@ -66,7 +66,7 @@ class VehicleSystem extends System {
             events.CAN_ENTITY_MOVE.dispatch(vehicleNode.entity, movement, function (response: CollisionResponse) {
 
                 //Wenn Auto nicht kollidiert, kann es auf die neue Position versetzt werden
-                if (response.willCollide== false) {
+                if (response.willCollide == false || !response.solid) {
                     position.rotation = rotation;
                     position.vector += movement;
                 }
