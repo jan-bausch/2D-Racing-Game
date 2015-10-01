@@ -8,6 +8,9 @@
 		<text wrapLines="true"  width="100%" text="Dieses Spiel wurde mit der Programmiersprache Haxe und den Bibliotheken OpenFl, Ash und HaxeUI entwickelt. Der Quelltext ist auf folgender Seite zu finden:\nhttp://github.com/jfbausch/BLL" />
 
 		<divider text="Verwendete Ressourcen" />
-		<text wrapLines="true"  width="100%" text="Freie Ressourcen, die ich benutzt habe:\n\nf\nad\nd" />
+		<text wrapLines="true"  width="100%" text="Freie Ressourcen, die ich benutzt habe:\nf\nad\nd" />
+
+		 <spacer height="20" />
+   		 <button text="Daten zurücksetzen" id="reset" horizontalAlign="right" />
 
 	</vbox>
