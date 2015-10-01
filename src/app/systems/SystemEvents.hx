@@ -18,10 +18,7 @@ class SystemEvents {
 	public var GAME_ZOOM_IN: Signal1<Void->Void>;
 	public var GAME_COUNTDOWN: Signal1<Void->Void>;
 	public var GAME_START: Signal0;
-	public var GAME_END: Signal1<Float>;
-
-	public var SHOW_MAINMENU: Signal0;
-	public var SHOW_PAUSEMENU: Signal0;
+	public var GAME_END: Signal2<Float, Result>;
 
 	public var ENTITY_COLLIDED: Signal3<Entity, Entity, CollisionResponse>;
 	public var CAN_ENTITY_MOVE: Signal3<Entity, Vector2, CollisionResponse -> Void>;
@@ -35,10 +32,7 @@ class SystemEvents {
 		GAME_ZOOM_IN = new Signal1<Void->Void>();
 		GAME_COUNTDOWN = new Signal1<Void->Void>();
 		GAME_START = new Signal0();
-		GAME_END = new Signal1<Float>();
-
-		SHOW_MAINMENU = new Signal0();
-		SHOW_PAUSEMENU = new Signal0();
+		GAME_END = new Signal2<Float, Result>();
 
 		ENTITY_COLLIDED = new Signal3<Entity, Entity, CollisionResponse>();
 		CAN_ENTITY_MOVE = new Signal3<Entity, Vector2, CollisionResponse -> Void>();

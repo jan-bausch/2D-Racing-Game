@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+	
+<box height="100%" width="100%">
+	<vbox width="95%" horizontalAlign="center">
+		
+		<spacer height="30" />
+
+		<image id="icon" horizontalAlign="center" width="130" height="130" resource="assets/ui/play.png" stretch="true" />
+
+		<spacer height="15" />
+
+		<text id="result" horizontalAlign="center" style="fontSize: 25;" />
+
+	</vbox>
+
+	<hbox verticalAlign="bottom" style="paddingBottom: 20" horizontalAlign="center">
+		<button text="Neustart" id="restart" />
+		<button text="Weiter" id="continue" />
+	</hbox>
+
+</box>

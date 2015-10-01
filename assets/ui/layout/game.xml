@@ -12,8 +12,8 @@
 
 		<hbox verticalAlign="top" horizontalAlign="right" style="paddingRight: 80; paddingTop: 30;" >
 
-			<text text="00:00" id="minutes" style="fontSize: 30; fontBold: true; color: #FFFFFF;" verticalAlign="bottom" />
-			<absolute><text text="000" id="miliseconds" style="fontSize: 20; color: #FFFFFF;" y="9" /></absolute>
+			<text id="minutes" style="fontSize: 30; fontBold: true; color: #FFFFFF;" verticalAlign="bottom" />
+			<absolute><text id="miliseconds" style="fontSize: 20; color: #FFFFFF; alpha: 0.7;" y="9" x="-5"/></absolute>
 
 		</hbox>
 

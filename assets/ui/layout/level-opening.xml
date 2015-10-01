@@ -29,8 +29,8 @@
 	</vbox>
 
 	<hbox verticalAlign="bottom" style="paddingBottom: 20" horizontalAlign="center">
-		<button text="Starten" id="start" />
 		<button text="Zurück zum Menü" id="abort" />
+		<button text="Starten" id="start" />
 	</hbox>
 
 </box>

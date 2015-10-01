@@ -27,7 +27,7 @@ class Configuration{
 		SHOW_COLLISION = (io.data.SHOW_COLLISION == null) ? false : io.data.SHOW_COLLISION;
 		INPUT_KEYBOARD = (io.data.INPUT_KEYBOARDN == null) ? true : io.data.INPUT_KEYBOARD;
 		FULLSCREEN = (io.data.FULLSCREEN == null) ? false : io.data.FULLSCREEN;
-		HIGHSCORES = (io.data.HIGHSCORES == null) ? [] : io.data.HIGHSCORES;
+		HIGHSCORES = (io.data.HIGHSCORES == null) ? [0] : io.data.HIGHSCORES;
 
 
 	}

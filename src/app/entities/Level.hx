@@ -1,5 +1,11 @@
 package app.entities;
 
+enum Result {
+  Fail;
+  Bronze;
+  Silver;
+  Gold;
+}
 
 class Level {
 
@@ -20,6 +26,16 @@ class Level {
 		name = "Tutorial";
 		description = "Lerne die Grundlagen und mache dich mit dem Auto vertraut.";
 		time = 22 * 1000; //22 Sekunden
+	}
+
+	//Ergebnisszeit bewerten (fehlgeschlagen, Bronze-Medaille, Silber-Medaille, Gold-Medaille)
+	public function rate(result: Float) : Result {
+
+		if (result <= time * 0.9) return Result.Gold;
+		if (result <= time * 0.95) return Result.Silver;
+		if (result <= time * 1) return Result.Bronze;
+
+		return Result.Fail;
 	}
 
 }

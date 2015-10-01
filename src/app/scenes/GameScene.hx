@@ -20,10 +20,6 @@ class GameScene extends FullscreenScene {
 		this.level = level;
 		this.systemEvents = new SystemEvents();
 
-
-		//Events registrieren
-		systemEvents.SHOW_MAINMENU.add(function () { new MainMenuScene().show(); });
-
 		//Layout laden
 		view = Toolkit.processXmlResource("assets/ui/layout/game.xml");
 

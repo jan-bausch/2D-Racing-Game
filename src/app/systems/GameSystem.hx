@@ -52,13 +52,27 @@ class GameSystem extends System {
         }
 
 
+
 	}
 
 
-    private function onGameEnd(time: Float) : Void {
+    private function onGameEnd(time: Float, result: Result) : Void {
 
         //Dem Spieler wieder die Kontrolle über die Steuerung nehmen
-        for (player in playerNodes) player.entity.remove(Input);
+        for (player in playerNodes) {
+            //Entschleunigen
+            player.vehicle.throttle = false;
+            //Steurungs-Komponente entfernen
+            player.entity.remove(Input);
+        }
+
+        //Falls sich Spieler verbessert hat, neue Bestzeit speichern
+        if (configuration.HIGHSCORES[level.id] > time || configuration.HIGHSCORES[level.id] == 0) configuration.HIGHSCORES[level.id] = time;
+        
+        //Wenn Level gewonnnen, nächstes Level freischalten
+        if (configuration.HIGHSCORES.length == level.id + 1 && result != Result.Fail) configuration.HIGHSCORES.push(0);
+
+        configuration.save();
 
     }
 
@@ -67,10 +81,11 @@ class GameSystem extends System {
         //trace(Type.getClassName(Type.getClass(entity1)) + "" + Type.getClassName(Type.getClass(entity2)));
 
         //Prüfen, ob es sich bei den kollidierten Entitäten um Spieler und Ziel handelt
-		if (Type.getClass(entity1) == app.entities.Car && Type.getClass(entity2) == app.entities.Finish) {
+		if (Type.getClass(entity1) == app.entities.Car && Type.getClass(entity2) == app.entities.Finish && running) {
 			//Level beendet
             running = false;
-            for (gameNode in gameNodes) events.GAME_END.dispatch(gameNode.gameState.time);
+            //GameEnd-Event auslösen
+            for (gameNode in gameNodes) events.GAME_END.dispatch(gameNode.gameState.time, level.rate(gameNode.gameState.time));
 		}
 
 	}
@@ -85,25 +100,6 @@ class GameSystem extends System {
         //Aktuelles Level in Game-Entity speichern
         for (gameNode in gameNodes) gameNode.gameState.level = level;
 
-        //Zeige Popup mit Levelinformationen
-        new app.scenes.LevelOpeningScene(level, events, function() {
-            
-            //Popup mit Ok bestätigt.
-
-            //Zuerst auf Auto zoomen und Blur entfernen
-            events.GAME_ZOOM_IN.dispatch(function () {
-
-                //Dann Countdown (3...2...1...Los!) anzeigen
-                events.GAME_COUNTDOWN.dispatch(function () {
-
-                    //Spiel starten
-                    events.GAME_START.dispatch();
-
-                });
-
-            });
-
-        }).show();
     }
     
     //Wird aufgerufen, wenn das Spiel gestartet wurde. (bzw. Countdown heruntergezählt wurde)

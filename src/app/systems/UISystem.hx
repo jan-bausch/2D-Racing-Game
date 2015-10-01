@@ -18,6 +18,7 @@ import app.scenes.Scene;
 import app.systems.SystemEvents;
 import app.nodes.GameNode;
 import app.math.Time;
+import app.entities.Level;
 
 class UISystem extends System {
 
@@ -25,6 +26,7 @@ class UISystem extends System {
     private var events: SystemEvents;
     private var gameNodes: NodeList<GameNode>;
     private var counter: Float;
+    private var level: Level;
 
     public function new(events: SystemEvents, scene: Scene) {
         super();
@@ -36,6 +38,8 @@ class UISystem extends System {
         //Events registrieren
         events.GAME_COUNTDOWN.add(onCountdown);
         events.GAME_START.add(onGameStart);
+        events.GAME_END.add(onGameEnd);
+        events.LOAD_LEVEL.add(onLoadLevel);
 	}
 
 
@@ -63,7 +67,42 @@ class UISystem extends System {
 
 	}
 
-    //Wird aufgerufen, wenn Countdown abgelaufen ist - bzw. wenn das Spiel gestartet ist
+    //Wird aufgerufen, wenn ein neues Level geladen wird.
+    private function onLoadLevel(newLevel: Level) : Void {
+
+        this.level = newLevel;
+
+        //Zeige Popup mit Levelinformationen
+        new app.scenes.LevelOpeningScene(newLevel, function() {
+            
+            //Popup mit Ok bestätigt.
+
+            //Zuerst auf Auto zoomen und Blur entfernen
+            events.GAME_ZOOM_IN.dispatch(function () {
+
+                //Dann Countdown (3...2...1...Los!) anzeigen
+                events.GAME_COUNTDOWN.dispatch(function () {
+
+                    //Spiel starten
+                    events.GAME_START.dispatch();
+
+                });
+
+            });
+
+        }).show();
+    }
+
+
+    //Wird aufgerufen, wenn Ziellinie durchfahren ist.
+    private function onGameEnd(time: Float, result: Result) : Void {
+
+        new app.scenes.LevelFinishScene(level, result).show();
+
+
+    }
+
+    //Wird aufgerufen, wenn Countdown abgelaufen ist - bzw. wenn die Zeitmessung beginnt.
     private function onGameStart() : Void {
 
         //HUD (sprich Geschwindigkeitsanzeige, Zeit) beim Spielstart anzeigen
