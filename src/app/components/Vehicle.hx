@@ -5,10 +5,6 @@ import app.math.Vector2;
 //Speichert nötige Daten für Autosimulation
 class Vehicle {
 
-	public var speed: Float;	//Geschwindigkeit
-
-
-
 	public var velocity: Float;
 	public var MASS: Float;
 	public var ENGINE_FORCE: Float;
@@ -22,8 +18,6 @@ class Vehicle {
 	public var axisDistance: Float;	//Entfernung zwischen beiden Achsen
 
 	public function new() {
-		
-		this.speed = 0;
 
 		this.velocity = 0;
 

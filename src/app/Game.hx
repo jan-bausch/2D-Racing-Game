@@ -10,6 +10,7 @@ import ash.core.Engine;
 import haxe.ui.toolkit.core.RootManager;
 
 import app.systems.SystemPriorities;
+import app.systems.CameraSystem;
 import app.systems.SystemEvents;
 import app.systems.RenderSystem;
 import app.systems.UISystem;
@@ -57,6 +58,7 @@ class Game extends Sprite {
 		//Systeme der Engine hinzufügen
 		engine.addSystem( new InputSystem(systemEvents, this), 		SystemPriorities.update );
 		engine.addSystem( new VehicleSystem(systemEvents), 			SystemPriorities.update );
+		engine.addSystem( new CameraSystem(systemEvents), 			SystemPriorities.update );
 		engine.addSystem( new SoundSystem(systemEvents), 			SystemPriorities.update );
 		engine.addSystem( new AnimationSystem(systemEvents), 		SystemPriorities.update );
 		engine.addSystem( new CollisionSystem(systemEvents), 		SystemPriorities.collisions );

@@ -14,6 +14,8 @@ import openfl.filters.BitmapFilterQuality;
 import app.math.Vector2;
 import app.Configuration;
 import app.components.Collision;
+import app.components.Vehicle;
+import app.components.Input;
 import app.entities.sprites.CollisionSprite;
 import app.nodes.RenderNode;
 import app.nodes.CameraVehicleNode;
@@ -28,7 +30,7 @@ class RenderSystem extends System {
     private var configuration: Configuration;
     private var blurFilter: BlurFilter;
 
-    private static inline var SPEED_ZOOM: Float = 5/10000;
+    private static inline var SPEED_ZOOM: Float = .5/40; //Wie schnell zoomt die Kamera bei höheren Geschwindigkeiten heraus?
 
     private var events: SystemEvents;
 
@@ -39,7 +41,7 @@ class RenderSystem extends System {
 		this.sprite = sprite;
         this.configuration = new Configuration();
         this.blurFilter = new BlurFilter();
-        blurFilter.quality = BitmapFilterQuality.MEDIUM;
+        blurFilter.quality = BitmapFilterQuality.LOW;
 	}
 
 
@@ -52,10 +54,32 @@ class RenderSystem extends System {
 
         //Position der Kamera ergibt sich aus der Durchschnittsposition der fokussierten Entities (d.h. mit "Camera"-Komponente)
         for (cameraNode in cameraNodes) {
-            cameraPosition += cameraNode.position.vector;
-            focusedEntities++;
+
+
+            /*
+                Den Fokuspunkt finden:
+                Bei den meisten Entities ist der Fokuspunkt der Kamera die Position des Entities selbst.
+                Beim Auto aber fokusiert die Kamera immer einige Meter vor dem Auto - sprich in die 
+                Richtung der Fahrt. Dieser Punkt wird nun berechnet.
+            */
+            if (cameraNode.entity.has(Vehicle)) {
+                //Wenn das fokussierte Entity ein Auto ist
+
+                var angle: Float = cameraNode.position.rotation,
+                    velocity: Float = cameraNode.entity.get(Vehicle).velocity;
+
+                //Wenn das fokussierte Entity ein Auto ist
+                cameraNode.camera.target = Vector2.fromPolar(angle, velocity * 10);
+                cameraPosition += cameraNode.position.vector + cameraNode.camera.focus;
+
+            }else{
+                cameraPosition += cameraNode.position.vector;
+            }
+
+            //Zoom und Blur festlegen
             zoom += cameraNode.camera.zoom;
             blur = cameraNode.camera.blur;
+            focusedEntities++;
         }
 
         cameraPosition /= focusedEntities;
@@ -95,7 +119,8 @@ class RenderSystem extends System {
         //Zoom an Geschwindigkeit anpassen
         for (cameraVehicleNode in cameraVehicleNodes) {
 
-            var zoom: Float = 1 - SPEED_ZOOM * Math.abs(cameraVehicleNode.vehicle.speed);
+
+            var zoom: Float = 1 - SPEED_ZOOM * Math.abs(cameraVehicleNode.vehicle.velocity);
             cameraVehicleNode.camera.zoom = zoom;
         }
 

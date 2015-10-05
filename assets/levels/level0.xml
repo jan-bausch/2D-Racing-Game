@@ -5,8 +5,8 @@
             <Items>
                 <Item xsi:type="PathItem" Name="Grasboden" Visible="true">
                     <Position>
-                        <X>-901</X>
-                        <Y>-669</Y>
+                        <X>-776</X>
+                        <Y>-409</Y>
                     </Position>
                     <CustomProperties>
                         <Property Name="type" Type="string" Description="">
@@ -19,50 +19,50 @@
                             <Y>0</Y>
                         </Vector2>
                         <Vector2>
-                            <X>-350.734</X>
-                            <Y>1093.69067</Y>
+                            <X>-351.2578</X>
+                            <Y>1095.3241</Y>
                         </Vector2>
                         <Vector2>
-                            <X>1043.99609</X>
-                            <Y>2253.42114</Y>
+                            <X>539.8011</X>
+                            <Y>2772.55566</Y>
                         </Vector2>
                         <Vector2>
-                            <X>2202.54761</X>
-                            <Y>1609.29382</Y>
+                            <X>6321.97559</X>
+                            <Y>1691.81677</Y>
                         </Vector2>
                         <Vector2>
-                            <X>2089.97144</X>
-                            <Y>369.842834</Y>
+                            <X>6434.56738</X>
+                            <Y>277.2563</Y>
                         </Vector2>
                         <Vector2>
-                            <X>966.3812</X>
-                            <Y>-306.32785</Y>
+                            <X>3356.38647</X>
+                            <Y>-567.1737</Y>
                         </Vector2>
                     </LocalPoints>
                     <WorldPoints>
                         <Vector2>
-                            <X>-901</X>
-                            <Y>-669</Y>
+                            <X>-776</X>
+                            <Y>-409</Y>
                         </Vector2>
                         <Vector2>
-                            <X>-1251.734</X>
-                            <Y>424.690674</Y>
+                            <X>-1127.25781</X>
+                            <Y>686.3241</Y>
                         </Vector2>
                         <Vector2>
-                            <X>142.9961</X>
-                            <Y>1584.42114</Y>
+                            <X>-236.198914</X>
+                            <Y>2363.55566</Y>
                         </Vector2>
                         <Vector2>
-                            <X>1301.54761</X>
-                            <Y>940.2938</Y>
+                            <X>5545.97559</X>
+                            <Y>1282.81677</Y>
                         </Vector2>
                         <Vector2>
-                            <X>1188.97144</X>
-                            <Y>-299.157166</Y>
+                            <X>5658.56738</X>
+                            <Y>-131.743713</Y>
                         </Vector2>
                         <Vector2>
-                            <X>65.3812256</X>
-                            <Y>-975.3279</Y>
+                            <X>2580.38647</X>
+                            <Y>-976.1737</Y>
                         </Vector2>
                     </WorldPoints>
                     <IsPolygon>true</IsPolygon>
@@ -85,8 +85,8 @@
             <Items>
                 <Item xsi:type="PathItem" Name="Straße" Visible="true">
                     <Position>
-                        <X>-236</X>
-                        <Y>1035</Y>
+                        <X>-325</X>
+                        <Y>389</Y>
                     </Position>
                     <CustomProperties>
                         <Property Name="type" Type="string" Description="">
@@ -99,46 +99,46 @@
                             <Y>0</Y>
                         </Vector2>
                         <Vector2>
-                            <X>780.2177</X>
-                            <Y>179.233643</Y>
+                            <X>4772.7334</X>
+                            <Y>-87.4607</Y>
                         </Vector2>
                         <Vector2>
-                            <X>1111.5813</X>
-                            <Y>-271.1411</Y>
+                            <X>4936.36865</X>
+                            <Y>177.185455</Y>
                         </Vector2>
                         <Vector2>
-                            <X>793.1039</X>
-                            <Y>-627.5233</Y>
+                            <X>4770.54639</X>
+                            <Y>404.2953</Y>
                         </Vector2>
                         <Vector2>
-                            <X>-264.6883</X>
-                            <Y>-616.37616</Y>
+                            <X>12.1542969</X>
+                            <Y>505.880859</Y>
                         </Vector2>
                     </LocalPoints>
                     <WorldPoints>
                         <Vector2>
-                            <X>-236</X>
-                            <Y>1035</Y>
+                            <X>-325</X>
+                            <Y>389</Y>
                         </Vector2>
                         <Vector2>
-                            <X>544.2177</X>
-                            <Y>1214.23364</Y>
+                            <X>4447.7334</X>
+                            <Y>301.5393</Y>
                         </Vector2>
                         <Vector2>
-                            <X>875.5813</X>
-                            <Y>763.8589</Y>
+                            <X>4611.36865</X>
+                            <Y>566.1854</Y>
                         </Vector2>
                         <Vector2>
-                            <X>557.1039</X>
-                            <Y>407.476685</Y>
+                            <X>4445.54639</X>
+                            <Y>793.2953</Y>
                         </Vector2>
                         <Vector2>
-                            <X>-500.6883</X>
-                            <Y>418.62384</Y>
+                            <X>-312.8457</X>
+                            <Y>894.880859</Y>
                         </Vector2>
                     </WorldPoints>
                     <IsPolygon>false</IsPolygon>
-                    <LineWidth>200</LineWidth>
+                    <LineWidth>400</LineWidth>
                     <LineColor>
                         <R>0</R>
                         <G>0</G>
@@ -149,8 +149,8 @@
                 </Item>
                 <Item xsi:type="TextureItem" Name="Ziel" Visible="true">
                     <Position>
-                        <X>163</X>
-                        <Y>410</Y>
+                        <X>-122</X>
+                        <Y>890</Y>
                     </Position>
                     <CustomProperties>
                         <Property Name="type" Type="string" Description="">
@@ -159,8 +159,8 @@
                     </CustomProperties>
                     <Rotation>0</Rotation>
                     <Scale>
-                        <X>1</X>
-                        <Y>1</Y>
+                        <X>1.954334</X>
+                        <Y>1.954334</Y>
                     </Scale>
                     <TintColor>
                         <R>255</R>
@@ -274,11 +274,11 @@
     </Layers>
     <CustomProperties />
     <EditorRelated>
-        <NextItemNumber>9</NextItemNumber>
-        <ContentRootFolder>D:\Dateien\Projekte\2015\Wöhlerschule BLL\res</ContentRootFolder>
+        <NextItemNumber>18</NextItemNumber>
+        <ContentRootFolder>D:\Dateien\Projekte\2015\Wöhlerschule BLL\assets</ContentRootFolder>
         <CameraPosition>
-            <X>0</X>
-            <Y>58.33345</Y>
+            <X>1128.333</X>
+            <Y>460.833435</Y>
         </CameraPosition>
         <Version>1.3.0.0</Version>
     </EditorRelated>
