@@ -8,21 +8,21 @@ import app.components.Position;
 import app.components.Display;
 import app.math.Vector2;
 import app.components.Collision;
-import app.entities.sprites.ImageSprite;
+import app.entities.sprites.StretchedImageSprite;
 
 
-class Finish extends Entity {
+class Barrier extends Entity {
 
 	public function new(position: Vector2, scale: Vector2, rotation: Float) {
 		super();
 
-		var bitmap: BitmapData = Assets.getBitmapData("assets/textures/finish.png");
+		var bitmap: BitmapData = Assets.getBitmapData("assets/textures/barrier.png");
 		var width = bitmap.width * scale.x,
 			height = bitmap.height * scale.y;
 			
 		this.add( new Position(position, rotation) );
-		this.add( new Display(new ImageSprite(width, height, bitmap)) );
-		this.add( new Collision(width, height, false) );
+		this.add( new Display(new StretchedImageSprite(width, height, bitmap)) );
+		this.add( new Collision(width, height) );
 
 
 

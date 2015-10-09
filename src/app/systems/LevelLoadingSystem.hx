@@ -72,8 +72,9 @@ class LevelLoadingSystem extends System {
 			case "stone-wall": engine.addEntity( new app.entities.StoneWall(parsePolygon(item, true)) );
 			case "car": engine.addEntity( new app.entities.Car(parsePosition(item), parseRotation(item)) );
 			case "road": parseRoad(item);
-			case "finish": engine.addEntity( new app.entities.Finish(parsePosition(item), parseScale(item)) );
-			default: throw "Unknow Entity of type '" + type + "' in level.";
+			case "finish": engine.addEntity( new app.entities.Finish(parsePosition(item), parseScale(item), parseRotation(item)) );
+			case "barrier": engine.addEntity( new app.entities.Barrier(parsePosition(item), parseScale(item), parseRotation(item)) );
+			//default: throw "Unknow Entity of type '" + type + "' in level.";
 		}
 
 

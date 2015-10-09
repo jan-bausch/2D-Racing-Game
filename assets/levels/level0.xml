@@ -149,7 +149,7 @@
                 </Item>
                 <Item xsi:type="TextureItem" Name="Ziel" Visible="true">
                     <Position>
-                        <X>-122</X>
+                        <X>-114</X>
                         <Y>890</Y>
                     </Position>
                     <CustomProperties>
@@ -157,7 +157,7 @@
                             <string>finish</string>
                         </Property>
                     </CustomProperties>
-                    <Rotation>0</Rotation>
+                    <Rotation>-0.670162141</Rotation>
                     <Scale>
                         <X>1.954334</X>
                         <Y>1.954334</Y>
@@ -185,7 +185,7 @@
                     </Position>
                     <CustomProperties>
                         <Property Name="type" Type="string" Description="">
-                            <string>stone-wall</string>
+                            <string>stone-polygon</string>
                         </Property>
                     </CustomProperties>
                     <LocalPoints>
@@ -237,7 +237,7 @@
                 <Item xsi:type="TextureItem" Name="Auto" Visible="true">
                     <Position>
                         <X>-564</X>
-                        <Y>379</Y>
+                        <Y>376</Y>
                     </Position>
                     <CustomProperties>
                         <Property Name="type" Type="string" Description="">
@@ -265,6 +265,37 @@
                         <Y>223</Y>
                     </Origin>
                 </Item>
+                <Item xsi:type="TextureItem" Name="Barrier1" Visible="true">
+                    <Position>
+                        <X>561</X>
+                        <Y>8</Y>
+                    </Position>
+                    <CustomProperties>
+                        <Property Name="type" Type="string" Description="barrier">
+                            <string>barrier</string>
+                        </Property>
+                    </CustomProperties>
+                    <Rotation>-1.51956427</Rotation>
+                    <Scale>
+                        <X>3.961539</X>
+                        <Y>3.961539</Y>
+                    </Scale>
+                    <TintColor>
+                        <R>255</R>
+                        <G>255</G>
+                        <B>255</B>
+                        <A>255</A>
+                        <PackedValue>4294967295</PackedValue>
+                    </TintColor>
+                    <FlipHorizontally>false</FlipHorizontally>
+                    <FlipVertically>false</FlipVertically>
+                    <texture_filename>textures\barrier.png</texture_filename>
+                    <asset_name>textures\barrier</asset_name>
+                    <Origin>
+                        <X>79</X>
+                        <Y>202</Y>
+                    </Origin>
+                </Item>
             </Items>
             <ScrollSpeed>
                 <X>1</X>
@@ -274,11 +305,11 @@
     </Layers>
     <CustomProperties />
     <EditorRelated>
-        <NextItemNumber>20</NextItemNumber>
+        <NextItemNumber>24</NextItemNumber>
         <ContentRootFolder>D:\Dateien\Projekte\2015\Wöhlerschule BLL\assets</ContentRootFolder>
         <CameraPosition>
-            <X>-378.3336</X>
-            <Y>429.16684</Y>
+            <X>429.6664</X>
+            <Y>92.1682739</Y>
         </CameraPosition>
         <Version>1.3.0.0</Version>
     </EditorRelated>

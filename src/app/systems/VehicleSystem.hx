@@ -69,6 +69,9 @@ class VehicleSystem extends System {
                 if (response.collision == false || response.solid == false) {
                     position.rotation = rotation;
                     position.vector += movement;
+                } else {
+                    vehicle.velocity = 0;
+
                 }
 
             });
