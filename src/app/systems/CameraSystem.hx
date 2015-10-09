@@ -29,8 +29,8 @@ class CameraSystem extends System {
 
         for (cameraNode in cameraNodes) {
 
-
             var delta: Vector2 = cameraNode.camera.target - cameraNode.camera.focus;
+            //Position der Kamera näher an Zielposition bewegen
             cameraNode.camera.focus += delta.normalize() * Math.min(cameraNode.camera.inertia * elapsed, delta.length); 
         }
 

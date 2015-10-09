@@ -65,8 +65,8 @@ class VehicleSystem extends System {
             //Event an das CollisionSystem weitergeben, dass zurückgibt, ob das Auto fahren darf
             events.CAN_ENTITY_MOVE.dispatch(vehicleNode.entity, movement, function (response: CollisionResponse) {
 
-                //Wenn Auto nicht kollidiert, kann es auf die neue Position versetzt werden
-                if (response.willCollide == false || !response.solid) {
+                //Wenn Auto nicht kollidiert oder mit einem nicht soliden Objekt kollidiert, kann es auf die neue Position versetzt werden
+                if (response.collision == false || response.solid == false) {
                     position.rotation = rotation;
                     position.vector += movement;
                 }

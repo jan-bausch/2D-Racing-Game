@@ -27,7 +27,7 @@ class StoneWall extends Entity {
 
 		this.add( new Position(center) );
 		this.add( new Display(new PolygonSprite(polygon, Assets.getBitmapData("assets/textures/stone-wall.png")) ));
-		this.add( new Collision(polygon, true) );
+		//this.add( new Collision(polygon, true) );
 
 
 	}

@@ -14,19 +14,20 @@ class CollisionSprite extends Sprite {
 	public function new(collision: Collision) {
         super();
 
-            //Vieleck als blau Linie darstellen
+            //Eine Ecke mit Kreis markieren
+            graphics.beginFill(0x0000FF);
+            graphics.drawCircle(collision.width/2, collision.height/2, 5);
+            graphics.endFill();
+
+            //Rechteck als blau Linie darstellen
        	graphics.lineStyle(2, 0x0000FF);
       
-       	var first: Bool = true;
-       	for (point in collision.polygon) {
-       		if (first) {
-       			graphics.moveTo(point.x, point.y);
-       			first = false;
-       		} else {
-       			graphics.lineTo(point.x, point.y);
-       		}
-       	}
-            graphics.lineTo(collision.polygon[0].x, collision.polygon[0].y);
+       	graphics.moveTo(collision.width/2, collision.height/2);
+            graphics.lineTo(collision.width/2, -collision.height/2);
+            graphics.lineTo(-collision.width/2, -collision.height/2);
+            graphics.lineTo(-collision.width/2, collision.height/2);
+            graphics.lineTo(collision.width/2, collision.height/2);
+
             graphics.endFill();
 
 

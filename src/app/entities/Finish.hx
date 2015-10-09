@@ -22,7 +22,7 @@ class Finish extends Entity {
 			
 		this.add( new Position(position) );
 		this.add( new Display(new ImageSprite(width, height, bitmap)) );
-		this.add( new Collision([ new Vector2(-width/2, -height/2), new Vector2(width/2, -height/2), new Vector2(width/2, height/2), new Vector2(-width/2, height/2) ], false) );
+		this.add( new Collision(width, height, false) );
 
 
 

@@ -31,7 +31,7 @@ abstract Vector2(Vector2Type) from Vector2Type to Vector2Type {
 
     
     //Bildet Vektor aus einem Winkel und Radius
-    public static inline function fromPolar(angle:Float, radius:Float):Vector2 {
+    public static inline function fromPolar(angle:Float, radius:Float = 1):Vector2 {
 
     	angle = (angle-90)*(Math.PI / 180);
         return new Vector2(radius * Math.cos(angle), radius * Math.sin(angle));
@@ -134,7 +134,7 @@ abstract Vector2(Vector2Type) from Vector2Type to Vector2Type {
     public inline function rotate(angle:Float, ?pivot:Vector2) : Vector2 {
         var self:Vector2 = this;
         
-        angle = (angle-90)*(Math.PI / 180);
+        angle = (angle)*(Math.PI / 180);
 
         var dx = self.x;
         var dy = self.y;

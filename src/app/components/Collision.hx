@@ -2,33 +2,22 @@ package app.components;
 
 
 import app.math.Vector2;
-import app.math.Rectangle;
 
 //Entity soll kollidieren können
 class Collision {
 
 	public var solid: Bool;
-	public var polygon: Array<Vector2>; //Repräsentiert das Vieleck, das kollidiert
-	public var boundingRadius: Float; //Der Abstand zum entferntesten Punkt des Vielecks. Er wird benutzt, um grob auf Kollision zu prüfen.
+	public var width: Float;
+	public var height: Float;
+	public var radius: Float; //Der Abstand zum entferntesten Punkt des Rechtecks. Er wird benutzt, um grob auf Kollision zu prüfen.
 
-	public function new(polygon: Array<Vector2>, solid: Bool = true) {
+	public function new(width: Float, height: Float, solid: Bool = true) {
 		
-		this.polygon = polygon;
+		this.width = width;
+		this.height = height;
 		this.solid = solid;
-		calculateFarthestPoint();
+		this.radius = new Vector2(width/2, height/2).length;
 
-	}
-
-	//Errechnet den Abstand zum entferntesten Punkt
-	public function calculateFarthestPoint() : Void {
-
-		var distance: Float = 0;
-
-		for (point in polygon) {
-			if (point.length > distance) distance = point.length;
-		}
-		
-		boundingRadius = distance;
 	}
 
 }
