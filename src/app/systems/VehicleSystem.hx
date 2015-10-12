@@ -68,10 +68,13 @@ class VehicleSystem extends System {
                 //Wenn Auto nicht kollidiert oder mit einem nicht soliden Objekt kollidiert, kann es auf die neue Position versetzt werden
                 if (response.collision == false || response.solid == false) {
                     position.rotation = rotation;
-                    position.vector += movement;
-                } else {
-                    vehicle.velocity = 0;
+                    position.vector += response.offset;
 
+                } else {
+                    if (response.solid) {
+                        vehicle.velocity /= 2;
+                        position.vector -= response.offset;
+                    }
                 }
 
             });

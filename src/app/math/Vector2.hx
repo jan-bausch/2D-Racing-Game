@@ -25,7 +25,7 @@ abstract Vector2(Vector2Type) from Vector2Type to Vector2Type {
     
     //Winkel zwischen Vektor und Y-Achse (Im Uhrzeigersinn aufsteigend)
     public var angle(get, never): Float;
-    
+
 
     public inline function new(x:Float, y:Float) this = new Vector2Type(x, y);
 
@@ -127,7 +127,6 @@ abstract Vector2(Vector2Type) from Vector2Type to Vector2Type {
     }
     
 
-    
 
 
     //Rotation im Uhrzeigersinn (ggf. um einen anderen Drehpunkt)
@@ -173,8 +172,7 @@ abstract Vector2(Vector2Type) from Vector2Type to Vector2Type {
     }
     
     
-    private inline function get_length():Float
-    {
+    private inline function get_length():Float {
         var self:Vector2 = this;
         return Math.sqrt(
             self.x * self.x +
@@ -182,10 +180,10 @@ abstract Vector2(Vector2Type) from Vector2Type to Vector2Type {
     }
 
     
-    private inline function get_angle():Float
-    {
+    private inline function get_angle():Float {
         var self:Vector2 = this;
         return Math.atan2(self.y, self.x) *(180/Math.PI) + 90;
     }
     
+
 }
