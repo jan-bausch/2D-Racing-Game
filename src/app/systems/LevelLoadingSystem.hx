@@ -74,6 +74,7 @@ class LevelLoadingSystem extends System {
 			case "road": parseRoad(item);
 			case "finish": engine.addEntity( new app.entities.Finish(parsePosition(item), parseScale(item), parseRotation(item)) );
 			case "barrier": engine.addEntity( new app.entities.Barrier(parsePosition(item), parseScale(item), parseRotation(item)) );
+			case "boost": engine.addEntity( new app.entities.Boost(parsePosition(item), parseScale(item), parseRotation(item)) );
 			//default: throw "Unknow Entity of type '" + type + "' in level.";
 		}
 

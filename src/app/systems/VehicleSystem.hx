@@ -59,7 +59,7 @@ class VehicleSystem extends System {
 
             //trace(((frontWheel + backWheel) / 2) - position.vector );
             //Die neue Position des Autos ergibt sich aus Mittelpunkt zwischen Vorder- und Hinterrad
-            var movement: Vector2 = (((frontWheel + backWheel) / 2) - position.vector );
+            var movement: Vector2 = (((frontWheel + backWheel) / 2) - position.vector ) + vehicle.boost;
 
 
             //Event an das CollisionSystem weitergeben, dass zurückgibt, ob das Auto fahren darf

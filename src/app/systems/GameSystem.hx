@@ -16,7 +16,10 @@ import app.nodes.GameNode;
 import app.nodes.VehicleNode;
 import app.components.Input;
 import app.components.GameState;
+import app.components.Vehicle;
+import app.components.Position;
 import app.math.CollisionResponse;
+import app.math.Vector2;
 
 class GameSystem extends System {
 
@@ -46,11 +49,16 @@ class GameSystem extends System {
 
 	public override function update(elapsed: Float) : Void {
 
+        //Zeit messen
         for (gameNode in gameNodes) {
             //Wenn Zeitmessung aktiviert ist, wird Zeit hinzugefügt
             if (running) gameNode.gameState.time += elapsed * 1000;
         }
 
+        //"Boost"-Effekt stetig sinken lassen
+        for (playerNode in playerNodes) {
+            playerNode.vehicle.boost *= .95;
+        }
 
 
 	}
@@ -78,15 +86,20 @@ class GameSystem extends System {
 
 	private function onEntityCollided(entity1: Entity, entity2: Entity, collisionResponse: CollisionResponse) : Void {
 
-        //trace(Type.getClassName(Type.getClass(entity1)) + "" + Type.getClassName(Type.getClass(entity2)));
-
-        //Prüfen, ob es sich bei den kollidierten Entitäten um Spieler und Ziel handelt
+       
+        //Kollision zwischen Spieler und Zielfläche
 		if (Type.getClass(entity1) == app.entities.Car && Type.getClass(entity2) == app.entities.Finish && running) {
 			//Level beendet
             running = false;
             //GameEnd-Event auslösen
             for (gameNode in gameNodes) events.GAME_END.dispatch(gameNode.gameState.time, level.rate(gameNode.gameState.time));
 		}
+
+        //Kollision zwischen Spieler und Boosterfläche
+        if (Type.getClass(entity1) == app.entities.Car && Type.getClass(entity2) == app.entities.Boost && running) {
+            //Boost-Effekt von Spieler aktivieren
+            entity1.get(Vehicle).boost =  Vector2.fromPolar(entity2.get(Position).rotation, 30);
+        }   
 
 	}
 
