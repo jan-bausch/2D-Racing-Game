@@ -20,7 +20,10 @@ class SystemEvents {
 	public var GAME_START: Signal0;
 	public var GAME_END: Signal2<Float, Result>;
 
-	public var ENTITY_COLLIDED: Signal3<Entity, Entity, CollisionResponse>;
+	public var COLLISION: Signal3<Entity, Entity, CollisionResponse>;
+	public var COLLISION_ENTER: Signal3<Entity, Entity, CollisionResponse>;
+	public var COLLISION_LEAVE: Signal2<Entity, Entity>;
+
 	public var CAN_ENTITY_MOVE: Signal3<Entity, Vector2, CollisionResponse -> Void>;
 
 	public var CAR_BREAK_BEGIN: Signal0;
@@ -34,7 +37,10 @@ class SystemEvents {
 		GAME_START = new Signal0();
 		GAME_END = new Signal2<Float, Result>();
 
-		ENTITY_COLLIDED = new Signal3<Entity, Entity, CollisionResponse>();
+		COLLISION = new Signal3<Entity, Entity, CollisionResponse>();
+		COLLISION_ENTER = new Signal3<Entity, Entity, CollisionResponse>();
+		COLLISION_LEAVE = new Signal2<Entity, Entity>();
+
 		CAN_ENTITY_MOVE = new Signal3<Entity, Vector2, CollisionResponse -> Void>();
 		CAR_BREAK_BEGIN = new Signal0();
 		CAR_BREAK_END = new Signal0();

@@ -40,7 +40,7 @@ class GameSystem extends System {
         this.running = false;
 
         //Events registrieren
-        events.ENTITY_COLLIDED.add(onEntityCollided);
+        events.COLLISION.add(onCollision);
         events.LOAD_LEVEL.add(onLoadLevel);
         events.GAME_START.add(onGameStart);
         events.GAME_END.add(onGameEnd);
@@ -84,7 +84,7 @@ class GameSystem extends System {
 
     }
 
-	private function onEntityCollided(entity1: Entity, entity2: Entity, collisionResponse: CollisionResponse) : Void {
+	private function onCollision(entity1: Entity, entity2: Entity, collisionResponse: CollisionResponse) : Void {
 
        
         //Kollision zwischen Spieler und Zielfläche

@@ -2,8 +2,19 @@
 
 <box width="100%" height="100%" style='backgroundImage:"assets/ui/background.png"'>
 
-	<!-- Das Spiel-Element wird hier dynamisch eingefügt -->
+	<style>
+	    #infobox Text {
+	        color: #FFFFFF;
+	        fontSize: 18; 
+	    }
 
+	    #infobox Image {
+	        width: 100%;
+	    }
+
+    </style>
+
+	<!-- Das Spiel-Element wird hier dynamisch eingefügt -->
 
 	<text id="countdown" style="visible: true; color: #FFFFFF" horizontalAlign="center" verticalAlign="center" />
 
@@ -16,6 +27,13 @@
 			<absolute><text id="miliseconds" style="fontSize: 20; color: #FFFFFF; alpha: 0.7;" y="9" x="-5"/></absolute>
 
 		</hbox>
+
+		<absolute id="infobox-container" style="visible: false;">
+		<vbox x="70" y="50" id="infobox" style='backgroundImage:"assets/ui/transparent-background.png"; paddingTop: 35; paddingBottom: 15; paddingRight: 15; paddingLeft: 15;' >
+
+		</vbox>
+		<image x="85" y="20" width="50" height="50" resource="assets/ui/infobox.png" />
+		</absolute>
 
     </box>
 

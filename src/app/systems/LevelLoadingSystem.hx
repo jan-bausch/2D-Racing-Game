@@ -13,6 +13,9 @@ import app.math.Vector2;
 import app.entities.Level;
 import app.nodes.RenderNode;
 
+import haxe.ui.toolkit.core.interfaces.IDisplayObjectContainer;
+import haxe.ui.toolkit.core.Toolkit;
+
 class LevelLoadingSystem extends System {
 
 	private var renderNodes: NodeList<RenderNode>;
@@ -75,7 +78,8 @@ class LevelLoadingSystem extends System {
 			case "finish": engine.addEntity( new app.entities.Finish(parsePosition(item), parseScale(item), parseRotation(item)) );
 			case "barrier": engine.addEntity( new app.entities.Barrier(parsePosition(item), parseScale(item), parseRotation(item)) );
 			case "boost": engine.addEntity( new app.entities.Boost(parsePosition(item), parseScale(item), parseRotation(item)) );
-			//default: throw "Unknow Entity of type '" + type + "' in level.";
+			case "infobox": engine.addEntity( new app.entities.Infobox(parsePosition(item), parseScale(item), parseRotation(item), parseView(item)) );
+			default: throw "Error while loading level: Unknow Entity of type '" + type + "'";
 		}
 
 
@@ -92,6 +96,15 @@ class LevelLoadingSystem extends System {
 
 	private function parseRotation(item: Fast) : Float {
 		return Std.parseFloat(item.node.Rotation.innerData) *(180/Math.PI);
+	}
+
+	private function parseView(item: Fast) : IDisplayObjectContainer {
+		for (property in item.node.CustomProperties.nodes.Property) {
+			if (property.att.Name == "view") return Toolkit.processXml(Xml.parse(StringTools.htmlUnescape(property.node.string.innerData)));
+		}
+
+		throw "Error while loading level: Infobox has no view property";
+		return null;
 	}
 
 	private function parsePosition(item: Fast) : Vector2 {

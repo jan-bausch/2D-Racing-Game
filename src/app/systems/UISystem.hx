@@ -7,6 +7,7 @@ import ash.core.Engine;
 
 import haxe.ui.toolkit.controls.Text;
 import haxe.ui.toolkit.containers.Box;
+import haxe.ui.toolkit.core.interfaces.IDisplayObjectContainer;
 
 import motion.Actuate;
 import motion.easing.Linear;
@@ -18,7 +19,9 @@ import app.scenes.Scene;
 import app.systems.SystemEvents;
 import app.nodes.GameNode;
 import app.math.Time;
+import app.math.CollisionResponse;
 import app.entities.Level;
+import app.components.UI;
 
 class UISystem extends System {
 
@@ -40,6 +43,8 @@ class UISystem extends System {
         events.GAME_START.add(onGameStart);
         events.GAME_END.add(onGameEnd);
         events.LOAD_LEVEL.add(onLoadLevel);
+        events.COLLISION_ENTER.add(onCollisionEnter);
+        events.COLLISION_LEAVE.add(onCollisionLeave);
 	}
 
 
@@ -91,6 +96,30 @@ class UISystem extends System {
             });
 
         }).show();
+    }
+
+
+    private function onCollisionEnter(entity1: Entity, entity2: Entity, collisionResponse: CollisionResponse) : Void {
+
+         //Kollision zwischen Spieler und Zielfläche
+         if (Type.getClass(entity1) == app.entities.Car && Type.getClass(entity2) == app.entities.Infobox) {
+
+            trace(Type.getClassName(Type.getClass(entity2.get(app.components.UI).view) ));
+            //Infobox anzeigen
+            scene.view.findChild("infobox", IDisplayObjectContainer, true).removeAllChildren();
+            scene.view.findChild("infobox", IDisplayObjectContainer, true).addChild(entity2.get(app.components.UI).view.clone());
+
+            scene.view.findChild("infobox-container", Box, true).visible = true;
+         }
+
+    }
+
+    private function onCollisionLeave(entity1: Entity, entity2: Entity) : Void {
+        
+        if (Type.getClass(entity1) == app.entities.Car && Type.getClass(entity2) == app.entities.Infobox) {
+            scene.view.findChild("infobox-container", Box, true).visible = false;
+        }
+
     }
 
 

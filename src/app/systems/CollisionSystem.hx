@@ -35,6 +35,7 @@ class CollisionSystem extends System {
 	}
 
 
+
 	private function canEntityMove(entity: Entity, movement: Vector2, callback: CollisionResponse -> Void) : Void {
 
 
@@ -80,8 +81,21 @@ class CollisionSystem extends System {
 			if (response.offset.length < collisionResponse.offset.length && collisionResponse.solid) collisionResponse.offset = response.offset;
 
 			//Wenn das Entity kollidiert, lösen wir gleichzeitig noch ein Event aus
-			if (response.collision) events.ENTITY_COLLIDED.dispatch(entity, collisionNode2.entity, response);
+			if (response.collision) {
+				events.COLLISION.dispatch(entity, collisionNode2.entity, response);
 
+				//Wenn das Entity davor noch nicht mit Entity2 kollidiert ist, wird außerdem das COLLISION_ENTER event ausgelöst
+				if (collision1.collidingEntities.indexOf(collisionNode2.entity) == -1) {
+					collision1.collidingEntities.push(collisionNode2.entity);
+					events.COLLISION_ENTER.dispatch(entity, collisionNode2.entity, response);
+				}
+			}
+
+			//Wenn das Entity nicht mit aktuellem Entity2 kollidiert, aber im Frame davor mit ihm kollidierte, wird COLLISION_LEAVE event ausgelöst
+			if (response.collision == false && collision1.collidingEntities.indexOf(collisionNode2.entity) != -1) {
+				collision1.collidingEntities.remove(collisionNode2.entity);
+				events.COLLISION_LEAVE.dispatch(entity, collisionNode2.entity);
+			}
 
 		}
 
