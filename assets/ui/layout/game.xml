@@ -21,12 +21,19 @@
 
 	<box x="0" y="0" width="100%" height="100%" style="visible: false;" id="hud">
 
-		<hbox verticalAlign="top" horizontalAlign="right" style="paddingRight: 80; paddingTop: 30;" >
+		<box verticalAlign="top" horizontalAlign="right" style="paddingRight: 50; paddingTop: 30;" >
+			<vbox style='backgroundImage:"assets/ui/background-grey.png"; padding: 8; paddingRight: 20' >
+			<hbox>
+				<text id="minutes" style="fontSize: 30; fontBold: true; color: #FFFFFF;" verticalAlign="bottom" />
+				<text id="miliseconds" style="fontSize: 20; color: #FFFFFF; alpha: 0.7;" verticalAlign="bottom"/>
+			</hbox>
+			<hbox>
+				<text id="activatedcheckpoints" style="fontSize: 30; fontBold: true; color: #FFFFFF;" />
+				<text id="totalcheckpoints" style="fontSize: 22; color: #FFFFFF; alpha: 0.7;"  verticalAlign="bottom"/>
+			</hbox>
+			</vbox>
+		</box>
 
-			<text id="minutes" style="fontSize: 30; fontBold: true; color: #FFFFFF;" verticalAlign="bottom" />
-			<absolute><text id="miliseconds" style="fontSize: 20; color: #FFFFFF; alpha: 0.7;" y="9" x="-5"/></absolute>
-
-		</hbox>
 
 		<absolute id="infobox-container" style="visible: false;">
 		<vbox x="70" y="50" id="infobox" style='backgroundImage:"assets/ui/transparent-background.png"; paddingTop: 35; paddingBottom: 15; paddingRight: 15; paddingLeft: 15;' >

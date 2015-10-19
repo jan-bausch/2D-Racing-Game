@@ -45,6 +45,7 @@ class GameSystem extends System {
         //Events registrieren
         events.COLLISION.add(onCollision);
         events.LOAD_LEVEL.add(onLoadLevel);
+        events.LOADED_LEVEL.add(onLoadedLevel);
         events.GAME_START.add(onGameStart);
         events.GAME_END.add(onGameEnd);
 	}
@@ -97,10 +98,12 @@ class GameSystem extends System {
             if (checkpoint.activated == false) {
                 checkpoint.activated = true;
 
-                trace("Checkpoint");
-
                 //Zähler für aktivierte Checkpoints hochzählen
-                for (gameNode in gameNodes) gameNode.gameState.activatedCheckpoints++;
+                for (gameNode in gameNodes) {
+                    gameNode.gameState.activatedCheckpoints++;
+                    //Event auslösen
+                    events.CHECKPOINT_ACTIVATED.dispatch(gameNode.gameState.activatedCheckpoints);
+                }
 
             }
         }
@@ -141,18 +144,23 @@ class GameSystem extends System {
 
     }
     
-    //Wird aufgerufen, wenn das Spiel gestartet wurde. (bzw. Countdown heruntergezählt wurde)
-    private function onGameStart() : Void {
+    //Wird aufgerufen, wenn ein neues Level geladen wurde.
+    private function onLoadedLevel() : Void {
 
-        //Dem Spieler-Entity eine Steuerungskomponente geben, damit er fahren kann
-        for (player in playerNodes) player.entity.add(new Input());
 
         //Einmalig zählen, wieviele Checkpoints das Level besitzt
         var totalCheckpoints: Int = 0;
         for (checkpointNode in checkpointNodes) totalCheckpoints++;
         //Schließlich im Game-Entity speichern
         for (gameNode in gameNodes) gameNode.gameState.totalCheckpoints = totalCheckpoints;
-        
+
+    }    
+
+    //Wird aufgerufen, wenn das Spiel gestartet wurde. (bzw. Countdown heruntergezählt wurde)
+    private function onGameStart() : Void {
+
+        //Dem Spieler-Entity eine Steuerungskomponente geben, damit er fahren kann
+        for (player in playerNodes) player.entity.add(new Input());
 
         //Zeitmessung starten
         running = true;

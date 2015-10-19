@@ -45,6 +45,7 @@ class UISystem extends System {
         events.LOAD_LEVEL.add(onLoadLevel);
         events.COLLISION_ENTER.add(onCollisionEnter);
         events.COLLISION_LEAVE.add(onCollisionLeave);
+        events.CHECKPOINT_ACTIVATED.add(onCheckpointActivated);
 	}
 
 
@@ -122,6 +123,10 @@ class UISystem extends System {
     }
 
 
+    private function onCheckpointActivated(activatedCheckpoints: Int) : Void {
+        scene.view.findChild("activatedcheckpoints", Text, true).text = Std.string(activatedCheckpoints);
+    }
+
     //Wird aufgerufen, wenn Ziellinie durchfahren ist.
     private function onGameEnd(time: Float, result: Result) : Void {
 
@@ -132,6 +137,10 @@ class UISystem extends System {
 
     //Wird aufgerufen, wenn Countdown abgelaufen ist - bzw. wenn die Zeitmessung beginnt.
     private function onGameStart() : Void {
+
+        //Informationen über Checkpoints anzeigen
+        for (gameNode in gameNodes) scene.view.findChild("totalcheckpoints", Text, true).text = '/' + Std.string(gameNode.gameState.totalCheckpoints);
+        scene.view.findChild("activatedcheckpoints", Text, true).text = "0";
 
         //HUD (sprich Geschwindigkeitsanzeige, Zeit) beim Spielstart anzeigen
         scene.view.findChild("hud", Box, true).visible = true;

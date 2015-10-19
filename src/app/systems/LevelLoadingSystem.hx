@@ -42,6 +42,9 @@ class LevelLoadingSystem extends System {
 		clearLevel();
 		//Level parsen
 		parseLevel(Xml.parse( Assets.getText("assets/levels/level" + level.id + ".xml") ));
+
+		//Loaded-Level Event auslösen
+		events.LOADED_LEVEL.dispatch();
 	}
 
 	//Level-Datei lesen und Entities erstellen
