@@ -57,7 +57,7 @@ class InputSystem extends System {
 
 
             //Lenkrad wieder in Nullstellung bringen
-            var STRAIGHTENING_SPEED = STEER_SPEED * elapsed * vehicle.velocity / 40;
+            var STRAIGHTENING_SPEED = STEER_SPEED * elapsed * vehicle.velocity / 50;
 
             if (vehicle.steerAngle > 0) {
                 vehicle.steerAngle = (vehicle.steerAngle - STRAIGHTENING_SPEED) > 0 ? vehicle.steerAngle - STRAIGHTENING_SPEED : 0;

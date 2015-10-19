@@ -27,9 +27,9 @@ class Vehicle {
 
 		this.MASS = 1200;
 		
-		this.ENGINE_FORCE = 5000;
-		this.BRAKE_FORCE = 12000;
-		this.REVERSE_FORCE = 1000;
+		this.ENGINE_FORCE = 10000;
+		this.BRAKE_FORCE = 20000;
+		this.REVERSE_FORCE = 3000;
 
 		this.throttle = false;
 		this.brake = false;

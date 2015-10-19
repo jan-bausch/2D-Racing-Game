@@ -15,5 +15,4 @@ class MathUtil {
 		return Math.min(Math.max(n, min), max);
 	}
 
-	public static functon
 }

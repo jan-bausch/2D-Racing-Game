@@ -4,6 +4,7 @@ import ash.core.System;
 import ash.core.NodeList;
 import ash.core.Engine;
 import app.math.Vector2;
+import app.math.MathUtil;
 import app.math.CollisionResponse;
 
 import app.nodes.VehicleNode;
@@ -17,8 +18,8 @@ class VehicleSystem extends System {
     private var events: SystemEvents;
 
     //Naturkonstanten
-    private static inline var ROLLING_RESISTANCE: Float = 12.8; //8
-    private static inline var AIR_RESISTANCE: Float = 0.4257;    //2
+    private static inline var ROLLING_RESISTANCE: Float = 15; //8
+    private static inline var AIR_RESISTANCE: Float = 5;    //2
 
     public function new(events: SystemEvents) {
         super();
@@ -42,25 +43,21 @@ class VehicleSystem extends System {
 
             vehicle.velocity += elapsed * acceleration;
 
-            
-            
-
-            var pixelVelocity: Float = vehicle.velocity;
 
             //Aktuelle Positionen von Front- und Rückrad berechnen
-            var frontWheel: Vector2 = position.vector + Vector2.fromPolar(position.rotation, vehicle.axisDistance/2);
-            var backWheel: Vector2 = position.vector  + Vector2.fromPolar(position.rotation + 180, vehicle.axisDistance/2);
+            var frontWheel: Vector2 = Vector2.fromPolar(position.rotation, vehicle.axisDistance/2);
+            var backWheel: Vector2 = Vector2.fromPolar(position.rotation + 180, vehicle.axisDistance/2);
 
             //Front- und Rückrad bewegen
-            frontWheel += Vector2.fromPolar(position.rotation + vehicle.steerAngle, pixelVelocity * elapsed);
-            backWheel += Vector2.fromPolar(position.rotation, pixelVelocity * elapsed);
-
+            frontWheel += Vector2.fromPolar(position.rotation + vehicle.steerAngle, vehicle.velocity* 200/5 * elapsed);
+            backWheel += Vector2.fromPolar(position.rotation, vehicle.velocity* 200/5 * elapsed);
+            
             //Neue Rotation des Autos ermitteln
             var rotation: Float = backWheel.angleTo(frontWheel);
 
             //trace(((frontWheel + backWheel) / 2) - position.vector );
             //Die neue Position des Autos ergibt sich aus Mittelpunkt zwischen Vorder- und Hinterrad
-            var movement: Vector2 = (((frontWheel + backWheel) / 2) - position.vector ) + vehicle.boost;
+            var movement: Vector2 = ((frontWheel + backWheel) / 2) + vehicle.boost;
 
 
             //Event an das CollisionSystem weitergeben, dass zurückgibt, ob das Auto fahren darf
