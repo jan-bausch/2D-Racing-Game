@@ -104,7 +104,6 @@ class UISystem extends System {
          //Kollision zwischen Spieler und Zielfläche
          if (Type.getClass(entity1) == app.entities.Car && Type.getClass(entity2) == app.entities.Infobox) {
 
-            trace(Type.getClassName(Type.getClass(entity2.get(app.components.UI).view) ));
             //Infobox anzeigen
             scene.view.findChild("infobox", IDisplayObjectContainer, true).removeAllChildren();
             scene.view.findChild("infobox", IDisplayObjectContainer, true).addChild(entity2.get(app.components.UI).view.clone());

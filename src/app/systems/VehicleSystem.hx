@@ -42,9 +42,10 @@ class VehicleSystem extends System {
 
             vehicle.velocity += elapsed * acceleration;
 
+            
+            
 
-
-            var pixelVelocity: Float = vehicle.velocity * 200/5;
+            var pixelVelocity: Float = vehicle.velocity;
 
             //Aktuelle Positionen von Front- und Rückrad berechnen
             var frontWheel: Vector2 = position.vector + Vector2.fromPolar(position.rotation, vehicle.axisDistance/2);

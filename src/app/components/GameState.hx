@@ -6,10 +6,14 @@ import app.entities.Level;
 class GameState {
 
 	public var time: Float; //Die verstrichene Zeit des Levels in Milisekunden
-	public var level: Level;
+	public var level: Level; //Referenz auf aktuelle Levelinformationen
+	public var activatedCheckpoints: Int; //Wieviele Checkpoints wurden schon aktiviert.
+	public var totalCheckpoints: Int; //So viele Checkpoints hat das Level insgesamt.
 
 	public function new() {
 		this.time = 0;
+		this.activatedCheckpoints = 0;
+		this.totalCheckpoints = 0;
 	}
 
 } 

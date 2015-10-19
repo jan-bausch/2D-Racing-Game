@@ -76,6 +76,7 @@ class LevelLoadingSystem extends System {
 			case "car": engine.addEntity( new app.entities.Car(parsePosition(item), parseRotation(item)) );
 			case "road": parseRoad(item);
 			case "finish": engine.addEntity( new app.entities.Finish(parsePosition(item), parseScale(item), parseRotation(item)) );
+			case "checkpoint": engine.addEntity( new app.entities.Checkpoint(parsePosition(item), parseScale(item), parseRotation(item)) );
 			case "barrier": engine.addEntity( new app.entities.Barrier(parsePosition(item), parseScale(item), parseRotation(item)) );
 			case "boost": engine.addEntity( new app.entities.Boost(parsePosition(item), parseScale(item), parseRotation(item)) );
 			case "infobox": engine.addEntity( new app.entities.Infobox(parsePosition(item), parseScale(item), parseRotation(item), parseView(item)) );

@@ -14,10 +14,12 @@ import app.entities.Car;
 import app.entities.Finish;
 import app.nodes.GameNode;
 import app.nodes.VehicleNode;
+import app.nodes.CheckpointNode;
 import app.components.Input;
 import app.components.GameState;
 import app.components.Vehicle;
 import app.components.Position;
+import app.components.CheckpointComponent;
 import app.math.CollisionResponse;
 import app.math.Vector2;
 
@@ -28,6 +30,7 @@ class GameSystem extends System {
     private var level: Level;
     private var configuration: Configuration;
     private var gameNodes: NodeList<GameNode>;
+    private var checkpointNodes: NodeList<CheckpointNode>;
     private var playerNodes: NodeList<VehicleNode>;
 
     private var running: Bool; //Soll Zeitmessung beginnen?
@@ -86,13 +89,36 @@ class GameSystem extends System {
 
 	private function onCollision(entity1: Entity, entity2: Entity, collisionResponse: CollisionResponse) : Void {
 
-       
+        //Kollision zwischen Spieler und Zielfläche
+        if (Type.getClass(entity1) == app.entities.Car && Type.getClass(entity2) == app.entities.Checkpoint && running) {
+            var checkpoint: CheckpointComponent = entity2.get(CheckpointComponent);
+
+            //Wenn Spieler noch nicht den Checkpoint betreten hat, wird Checkpoint aktiviert
+            if (checkpoint.activated == false) {
+                checkpoint.activated = true;
+
+                trace("Checkpoint");
+
+                //Zähler für aktivierte Checkpoints hochzählen
+                for (gameNode in gameNodes) gameNode.gameState.activatedCheckpoints++;
+
+            }
+        }
+
         //Kollision zwischen Spieler und Zielfläche
 		if (Type.getClass(entity1) == app.entities.Car && Type.getClass(entity2) == app.entities.Finish && running) {
-			//Level beendet
-            running = false;
-            //GameEnd-Event auslösen
-            for (gameNode in gameNodes) events.GAME_END.dispatch(gameNode.gameState.time, level.rate(gameNode.gameState.time));
+
+            for (gameNode in gameNodes) {
+                //Prüfen, ob alle Checkpoints erreicht wurden
+                if (gameNode.gameState.activatedCheckpoints >= gameNode.gameState.totalCheckpoints) {
+
+                    //Level beendet
+                    running = false;
+                    //GameEnd-Event auslösen
+                    for (gameNode in gameNodes) events.GAME_END.dispatch(gameNode.gameState.time, level.rate(gameNode.gameState.time));
+
+                }
+            }
 		}
 
         //Kollision zwischen Spieler und Boosterfläche
@@ -121,6 +147,13 @@ class GameSystem extends System {
         //Dem Spieler-Entity eine Steuerungskomponente geben, damit er fahren kann
         for (player in playerNodes) player.entity.add(new Input());
 
+        //Einmalig zählen, wieviele Checkpoints das Level besitzt
+        var totalCheckpoints: Int = 0;
+        for (checkpointNode in checkpointNodes) totalCheckpoints++;
+        //Schließlich im Game-Entity speichern
+        for (gameNode in gameNodes) gameNode.gameState.totalCheckpoints = totalCheckpoints;
+        
+
         //Zeitmessung starten
         running = true;
 
@@ -130,6 +163,7 @@ class GameSystem extends System {
     public override function addToEngine(engine: Engine):Void {
         gameNodes = engine.getNodeList(GameNode);
         playerNodes = engine.getNodeList(VehicleNode);
+        checkpointNodes = engine.getNodeList(CheckpointNode);
    	}
 
 
@@ -137,6 +171,7 @@ class GameSystem extends System {
     public override function removeFromEngine(engine: Engine):Void {
         gameNodes = null;
         playerNodes = null;
+        checkpointNodes = null;
     }
 
 
