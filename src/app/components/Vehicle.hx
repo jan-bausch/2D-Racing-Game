@@ -6,7 +6,7 @@ import app.math.Vector2;
 class Vehicle {
 
 	public var velocity: Float;
-	public var boost: Vector2;
+	public var boost: Float;
 
 	public var MASS: Float;
 	public var ENGINE_FORCE: Float;
@@ -22,7 +22,7 @@ class Vehicle {
 	public function new() {
 
 		this.velocity = 0;
-		this.boost = new Vector2(0,0);
+		this.boost = 0;
 
 
 		this.MASS = 1200;

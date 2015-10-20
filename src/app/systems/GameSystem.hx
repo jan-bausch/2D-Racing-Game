@@ -61,7 +61,7 @@ class GameSystem extends System {
 
         //"Boost"-Effekt stetig sinken lassen
         for (playerNode in playerNodes) {
-            playerNode.vehicle.boost *= .95;
+            playerNode.vehicle.boost *= .90;
         }
 
 
@@ -127,12 +127,12 @@ class GameSystem extends System {
         //Kollision zwischen Spieler und Boosterfläche
         if (Type.getClass(entity1) == app.entities.Car && Type.getClass(entity2) == app.entities.Boost && running) {
             //Boost-Effekt von Spieler aktivieren
-            entity1.get(Vehicle).boost =  Vector2.fromPolar(entity2.get(Position).rotation, 30);
+            entity1.get(Vehicle).boost =  20000;
         }   
 
 	}
 
-
+ 
     //Wird aufgerufen, wenn ein neues Level geladen wird.
     private function onLoadLevel(newLevel: Level) : Void {
 
