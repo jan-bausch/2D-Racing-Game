@@ -13,13 +13,7 @@
             <optionbox text="Fenster" group="group1" selected="true"/>
             <optionbox text="Vollbild" group="group1" id="fullscreen"/>
         </hbox>
-        
-        <text text="Steuerung"/>
-        <hbox >
-            <optionbox text="Tastatur" group="group2" id="keyboard"/>
-            <optionbox text="Controller" group="group2" selected="true" />
-        </hbox>
-       
+
         <text text="Lautstärke" />
         <hslider id="volume" max="100" width="150"/>
 

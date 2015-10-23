@@ -8,7 +8,6 @@ class Configuration{
 	private static inline var id: String = "configuration";
 
 	public var DEBUG: Bool;
-	public var INPUT_KEYBOARD: Bool;
 	public var VOLUME: Float;
 	public var FULLSCREEN: Bool;
 
@@ -26,7 +25,6 @@ class Configuration{
 
 		//Werte herauslesen, falls sie gesetzt sind
 		DEBUG = (io.data.DEBUG == null) ? false : io.data.DEBUG;
-		INPUT_KEYBOARD = (io.data.INPUT_KEYBOARDN == null) ? true : io.data.INPUT_KEYBOARD;
 		FULLSCREEN = (io.data.FULLSCREEN == null) ? false : io.data.FULLSCREEN;
 		VOLUME = (io.data.VOLUME == null) ? 1 : io.data.VOLUME;
 		HIGHSCORES = (io.data.HIGHSCORES == null) ? [0] : io.data.HIGHSCORES;
@@ -40,8 +38,7 @@ class Configuration{
 		var io: SharedObject = SharedObject.getLocal(id);
 
 		//Werte in Datei schreiben
-		io.data.DEBUG = DEBUG;	
-		io.data.INPUT_KEYBOARD = INPUT_KEYBOARD;			
+		io.data.DEBUG = DEBUG;			
 		io.data.FULLSCREEN = FULLSCREEN;	
 		io.data.VOLUME = VOLUME;		
 		io.data.HIGHSCORES = HIGHSCORES;
