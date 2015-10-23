@@ -2,12 +2,15 @@ package app;
 
 
 import openfl.display.Sprite;
+import openfl.display.StageDisplayState;
+import openfl.Lib;
 
 import haxe.ui.toolkit.core.Toolkit;
 import haxe.ui.toolkit.core.Macros;
 
 import app.scenes.MainMenuScene;
 import app.scenes.GameScene;
+import app.Configuration;
 
 import haxe.ui.toolkit.core.PopupManager;
 
@@ -22,6 +25,8 @@ class Main extends Sprite {
         Toolkit.init();
         Macros.addStyleSheet("assets/ui/layout/style.css"); //Stylesheet laden
         
+        //Wenn man die Option "Vollbild" gewählt hat, muss Fenster in Vollbildmodus gebracht werden
+        Lib.current.stage.displayState = new Configuration().FULLSCREEN ? StageDisplayState.FULL_SCREEN_INTERACTIVE : StageDisplayState.NORMAL;
 
 		//Startmenü anzeigen
 		new MainMenuScene().show();

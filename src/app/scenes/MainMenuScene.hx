@@ -1,5 +1,7 @@
 package app.scenes;
 
+import openfl.Lib;
+
 import haxe.ui.toolkit.events.UIEvent;
 import haxe.ui.toolkit.controls.Button;
 import haxe.ui.toolkit.core.Toolkit;
@@ -23,6 +25,7 @@ class MainMenuScene extends FullscreenScene {
 		view.findChild("start", Button, true).onClick = function(e:UIEvent){	new LevelMenuScene().show();	};
 		view.findChild("options", Button, true).onClick = function(e:UIEvent){	new OptionsScene().show();	};
 		view.findChild("about", Button, true).onClick = function(e:UIEvent){	new AboutScene().show();	};
+		view.findChild("quit", Button, true).onClick = function(e:UIEvent){	Lib.exit();	};
 
 	}
 

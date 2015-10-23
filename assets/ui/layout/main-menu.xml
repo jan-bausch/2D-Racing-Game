@@ -10,6 +10,7 @@
             <button id="start" text="Starten" width="100%"/>
             <button id="options" text="Einstellungen" width="100%" />
             <button id="about" text="Über" width="100%" />
+            <button id="quit" text="Beenden" width="100%" />
     </vbox>
 
 

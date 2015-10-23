@@ -1,5 +1,8 @@
 package app.scenes;
 
+import openfl.Lib;
+import openfl.display.StageDisplayState;
+
 import haxe.ui.toolkit.core.interfaces.IDisplayObjectContainer;
 import haxe.ui.toolkit.core.PopupManager;
 import haxe.ui.toolkit.controls.CheckBox;
@@ -58,6 +61,12 @@ class OptionsScene extends PopupScene {
 		configuration.VOLUME = view.findChild("volume", HSlider, true).pos / 100;
 
 		configuration.save();
+
+
+		//Wenn man die Option "Vollbild" gewählt hat, muss Fenster in Vollbildmodus gebracht werden
+        Lib.current.stage.displayState = new Configuration().FULLSCREEN ? StageDisplayState.FULL_SCREEN_INTERACTIVE : StageDisplayState.NORMAL;
+
+
 	}
 
 }
