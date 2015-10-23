@@ -9,6 +9,7 @@ import app.scenes.WindowScene;
 import app.systems.SystemEvents;
 import app.Configuration;
 import app.entities.Level;
+import app.math.Time;
 
 class LevelOpeningScene extends WindowScene {
 
@@ -30,8 +31,8 @@ class LevelOpeningScene extends WindowScene {
         view.findChild("level-id", Text, true).text = (level.id + 1) + "";
         view.findChild("level-name", Text, true).text = level.name;
         view.findChild("level-description", Text, true).text = level.description;
-        view.findChild("personal-time", Text, true).text = (configuration.HIGHSCORES[level.id] != 0) ? (configuration.HIGHSCORES[level.id] / 1000) + " Sekunden" : "-" ;
-        view.findChild("level-time", Text, true).text = (level.time / 1000) + " Sekunden";
+        view.findChild("personal-time", Text, true).text = (configuration.HIGHSCORES[level.id] != 0) ? Time.fromMiliseconds(configuration.HIGHSCORES[level.id]).string : "-" ;
+        view.findChild("level-time", Text, true).text = Time.fromMiliseconds(level.time).string;
 
         //Buttonevents festlegen
         view.findChild("start", Button, true).onClick = function(e:UIEvent){    close(); callback();    };

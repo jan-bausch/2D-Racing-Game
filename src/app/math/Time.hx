@@ -10,6 +10,7 @@ class Time {
 	public var milisecondsString: String;
 	public var secondsString: String;
 	public var minutesString: String;
+	public var string: String;
 
 	public function new() {
 
@@ -35,7 +36,8 @@ class Time {
 		result.secondsString = (result.seconds < 10) ? "0" + result.seconds : "" + result.seconds; 
 		result.minutesString = (result.minutes < 10) ? "0" + result.minutes : "" + result.minutes; 
 
-
+		result.string = result.minutesString + ":" + result.secondsString + "." + result.milisecondsString;
+		
 
 		return result;
 	}

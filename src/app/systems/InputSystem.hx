@@ -129,6 +129,10 @@ class InputSystem extends System {
     }
 
 
+    
+
+    
+
 	//Wird aufgerufen, wenn System der Engine hinzugefügt wird
 	public override function addToEngine(engine: Engine):Void {
         inputNodes = engine.getNodeList(InputNode);
