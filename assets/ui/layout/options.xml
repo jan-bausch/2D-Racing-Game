@@ -2,7 +2,6 @@
 
 <vbox width="100%">
     <spacer height="10" />
-    <divider text="Grundeinstellungen" />
 
     <grid columns="2" width="100%">
     
@@ -21,6 +20,8 @@
             <optionbox text="Controller" group="group2" selected="true" />
         </hbox>
        
+        <text text="Lautstärke" />
+        <hslider id="volume" max="100" width="150"/>
 
     </grid>
     
@@ -33,8 +34,8 @@
         <spacer width="200" />
         <spacer width="0" />
 
-        <text text="Kollisionsrahmen anzeigen" />
-        <checkbox id="collision"/>
+        <text text="Debug-Modus" />
+        <checkbox id="debug"/>
 
     </grid>
 

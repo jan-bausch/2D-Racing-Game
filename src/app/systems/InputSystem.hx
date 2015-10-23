@@ -25,6 +25,7 @@ class InputSystem extends System {
     private var down: Bool;
     private var right: Bool;
     private var left: Bool;
+    private var space: Bool;
 
     private var events: SystemEvents;
 
@@ -37,6 +38,7 @@ class InputSystem extends System {
         down = false;
         right = false;
         left = false;
+        space = false;
 
         //Physikalische Konstanten festlegen
         MAX_STEER_ANGLE = 45;
@@ -77,6 +79,7 @@ class InputSystem extends System {
             vehicle.brake = down;
 
 
+
         }   
 
 
@@ -95,9 +98,13 @@ class InputSystem extends System {
 
         switch (event.keyCode) {   
             case Keyboard.DOWN: down = true;
+            case Keyboard.S: down = true;
             case Keyboard.LEFT: left = true;
+            case Keyboard.A: left = true;
             case Keyboard.RIGHT: right = true;
-            case Keyboard.UP: up = true; 
+            case Keyboard.D: right = true;
+            case Keyboard.UP: up = true;
+            case Keyboard.W: up = true;
         }
 
         if (event.keyCode == Keyboard.DOWN) events.CAR_BREAK_BEGIN.dispatch();
@@ -108,9 +115,13 @@ class InputSystem extends System {
 
         switch (event.keyCode) {   
             case Keyboard.DOWN: down = false;
+            case Keyboard.S: down =false;
             case Keyboard.LEFT: left = false;
+            case Keyboard.A: left = false;
             case Keyboard.RIGHT: right = false;
-            case Keyboard.UP: up = false; 
+            case Keyboard.D: right = false;
+            case Keyboard.UP: up = false;
+            case Keyboard.W: up = false;
         }
 
         if (event.keyCode == Keyboard.DOWN) events.CAR_BREAK_END.dispatch();

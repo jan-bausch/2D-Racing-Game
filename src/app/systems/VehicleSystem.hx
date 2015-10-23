@@ -25,6 +25,7 @@ class VehicleSystem extends System {
         super();
 
         this.events = events;
+
     }
 
 	public override function update(elapsed: Float) : Void {
@@ -42,7 +43,6 @@ class VehicleSystem extends System {
                 acceleration: Float = longForce / vehicle.MASS;
 
             vehicle.velocity += elapsed * acceleration;
-
 
             //Aktuelle Positionen von Front- und Rückrad berechnen
             var frontWheel: Vector2 = Vector2.fromPolar(position.rotation, vehicle.axisDistance/2);

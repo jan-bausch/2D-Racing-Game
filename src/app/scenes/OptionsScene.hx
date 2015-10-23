@@ -4,6 +4,7 @@ import haxe.ui.toolkit.core.interfaces.IDisplayObjectContainer;
 import haxe.ui.toolkit.core.PopupManager;
 import haxe.ui.toolkit.controls.CheckBox;
 import haxe.ui.toolkit.controls.OptionBox;
+import haxe.ui.toolkit.controls.HSlider;
 import haxe.ui.toolkit.core.Toolkit;
 
 import app.scenes.PopupScene;
@@ -41,7 +42,8 @@ class OptionsScene extends PopupScene {
 
 		view.findChild("fullscreen", OptionBox, true).selected = configuration.FULLSCREEN;
 		view.findChild("keyboard", OptionBox, true).selected = configuration.INPUT_KEYBOARD;
-		view.findChild("collision", CheckBox, true).selected = configuration.SHOW_COLLISION;
+		view.findChild("debug", CheckBox, true).selected = configuration.DEBUG;
+		view.findChild("volume", HSlider, true).pos = configuration.VOLUME * 100;
 
 		return view;
 	}
@@ -52,7 +54,8 @@ class OptionsScene extends PopupScene {
 
 		configuration.FULLSCREEN = view.findChild("fullscreen", OptionBox, true).selected;
 		configuration.INPUT_KEYBOARD = view.findChild("keyboard", OptionBox, true).selected;
-		configuration.SHOW_COLLISION = view.findChild("collision", CheckBox, true).selected;
+		configuration.DEBUG = view.findChild("debug", CheckBox, true).selected;
+		configuration.VOLUME = view.findChild("volume", HSlider, true).pos / 100;
 
 		configuration.save();
 	}

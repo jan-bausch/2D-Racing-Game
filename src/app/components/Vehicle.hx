@@ -15,7 +15,6 @@ class Vehicle {
 
 	public var throttle: Bool;
 	public var brake: Bool;
-	public var handbrake: Bool;
 	public var steerAngle: Float;	//Winkel der Vorderräder
 	public var axisDistance: Float;	//Entfernung zwischen beiden Achsen
 
@@ -33,7 +32,6 @@ class Vehicle {
 
 		this.throttle = false;
 		this.brake = false;
-		this.handbrake = false;
 		this.steerAngle = 0;
 		this.axisDistance = 130; //Konstante Variale anghängig vom Fahrzeug
 

@@ -155,7 +155,7 @@ class RenderSystem extends System {
     private function addRenderChild(child: Sprite, entity: Entity) : Void {
 
         //Im Debugmodus Kollisionsvieleck darstellen
-        if (configuration.SHOW_COLLISION) {
+        if (configuration.DEBUG) {
             if (entity.has(Collision)) child.addChild(new CollisionSprite(entity.get(Collision)));
         }
 

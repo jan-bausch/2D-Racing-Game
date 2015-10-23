@@ -25,6 +25,7 @@ import app.scenes.MainMenuScene;
 import app.components.GameState;
 
 import app.scenes.Scene;
+import app.Configuration;
 
 import openfl.events.KeyboardEvent;
 
@@ -34,12 +35,14 @@ class Game extends Sprite {
 	private var previousTime: Float;	//Hilfsvariable, um Framerate zu ermiteln
 	public var systemEvents: SystemEvents;
 	private var scene: Scene;
+	private var configuration: Configuration;
 
 	public function new(systemEvents: SystemEvents, scene: Scene) {
 		super();
 
 		this.systemEvents = systemEvents;
 		this.scene = scene;
+		this.configuration = new Configuration();
 		previousTime = 0;
 
 		startGame(); //ECS starten
@@ -59,7 +62,8 @@ class Game extends Sprite {
 		engine.addSystem( new InputSystem(systemEvents, this), 		SystemPriorities.update );
 		engine.addSystem( new VehicleSystem(systemEvents), 			SystemPriorities.update );
 		engine.addSystem( new CameraSystem(systemEvents), 			SystemPriorities.update );
-		engine.addSystem( new SoundSystem(systemEvents), 			SystemPriorities.update );
+		if (configuration.VOLUME > 0)
+			engine.addSystem( new SoundSystem(systemEvents), 			SystemPriorities.update );
 		engine.addSystem( new AnimationSystem(systemEvents), 		SystemPriorities.update );
 		engine.addSystem( new CollisionSystem(systemEvents), 		SystemPriorities.collisions );
 		engine.addSystem( new RenderSystem(systemEvents, this), 	SystemPriorities.render );
