@@ -13,19 +13,19 @@ import app.math.Time;
 
 class LevelOpeningScene extends WindowScene {
 
-	private var events: SystemEvents;
+    private var events: SystemEvents;
 
-	public function new(level: Level, callback: Void->Void) {
-	
-		//Grundeinstellungen festlegen
-		width = 400;
-		height = 300;
-		var configuration: Configuration = new Configuration();
-		super();
+    public function new(level: Level, callback: Void->Void) {
+    
+        //Grundeinstellungen festlegen
+        width = 400;
+        height = 300;
+        var configuration: Configuration = new Configuration();
+        super();
 
 
-		//Layout laden
-		view = Toolkit.processXmlResource("assets/ui/layout/level-opening.xml");
+        //Layout laden
+        view = Toolkit.processXmlResource("assets/ui/layout/level-opening.xml");
 
         //Levelinformationen in UI schreiben
         view.findChild("level-id", Text, true).text = (level.id + 1) + "";
@@ -36,8 +36,8 @@ class LevelOpeningScene extends WindowScene {
 
         //Buttonevents festlegen
         view.findChild("start", Button, true).onClick = function(e:UIEvent){    close(); callback();    };
-        view.findChild("abort", Button, true).onClick = function(e:UIEvent){	new app.scenes.MainMenuScene().show();     };
+        view.findChild("abort", Button, true).onClick = function(e:UIEvent){    new app.scenes.MainMenuScene().show();     };
 
-	}
+    }
 
 }

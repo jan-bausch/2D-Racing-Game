@@ -11,11 +11,11 @@ import app.entities.RouteArrow;
 class ArrowSprite extends Sprite {
 
 
-	public function new(turnRadius: TurnRadius, direction: Direction) {
+    public function new(turnRadius: TurnRadius, direction: Direction) {
   
         
 
-	}
+    }
 
 
 }

@@ -12,7 +12,7 @@ import app.math.Vector2;
 class StretchedImageSprite extends Sprite {
 
 
-	public function new(width: Float, height: Float, bitmapData: BitmapData) {
+    public function new(width: Float, height: Float, bitmapData: BitmapData) {
         super();
 
         var image: Bitmap = new Bitmap(bitmapData);
@@ -23,7 +23,7 @@ class StretchedImageSprite extends Sprite {
 
         addChild(image);
 
-	}
+    }
 
 
 }

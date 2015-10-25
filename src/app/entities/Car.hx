@@ -14,22 +14,22 @@ import app.entities.sprites.VehicleSprite;
 
 class Car extends Entity {
 
-	public function new(position: Vector2, rotation: Float) {
-		super();
+    public function new(position: Vector2, rotation: Float) {
+        super();
 
-		var vehicleComponent: Vehicle = new Vehicle();
+        var vehicleComponent: Vehicle = new Vehicle();
 
-		this.add( new Camera(.4, 10, 150) );
-		this.add( new Position(position, rotation) );
+        this.add( new Camera(.4, 10, 150) );
+        this.add( new Position(position, rotation) );
 
-		//Steurungs-Komponente wird erst hinzugefügt, wenn der Countdown beim Level-Start abgelaufen ist.
-		//this.add( new Input() );
+        //Steurungs-Komponente wird erst hinzugefügt, wenn der Countdown beim Level-Start abgelaufen ist.
+        //this.add( new Input() );
 
-		this.add( new Display(new VehicleSprite(vehicleComponent)) );
-		this.add( new Collision(80, 192) );
-		this.add( vehicleComponent );
+        this.add( new Display(new VehicleSprite(vehicleComponent)) );
+        this.add( new Collision(80, 192) );
+        this.add( vehicleComponent );
 
 
-	}
+    }
 
 }

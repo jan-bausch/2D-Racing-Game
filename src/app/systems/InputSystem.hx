@@ -3,6 +3,10 @@ package app.systems;
 import ash.core.System;
 import ash.core.NodeList;
 import ash.core.Engine;
+
+import lime.ui.Gamepad;
+import lime.ui.GamepadAxis;
+import lime.ui.GamepadButton;
 import openfl.events.Event;
 import openfl.events.KeyboardEvent;
 import openfl.ui.Keyboard;
@@ -13,19 +17,18 @@ import app.components.Vehicle;
 
 class InputSystem extends System {
 
-	private var inputNodes: NodeList<InputNode>;
-	private var scene: Sprite;	//Verweis auf die Applikation, um Zugriff auf Keyboard-Events zu erhalten.
+    private var inputNodes: NodeList<InputNode>;
+    private var scene: Sprite;  //Verweis auf die Applikation, um Zugriff auf Keyboard-Events zu erhalten.
 
     //Physikalische Konstanten
     private var MAX_STEER_ANGLE: Float;   //Maximaler Auschlag der Räder
     private var STEER_SPEED: Float;     //Empfindlichkeit des Lenkrads
 
     //Steurungsinput
-    private var up: Bool;
-    private var down: Bool;
-    private var right: Bool;
-    private var left: Bool;
-    private var space: Bool;
+    private var up: Float;
+    private var down: Float;
+    private var right: Float;
+    private var left: Float;
 
     private var events: SystemEvents;
 
@@ -33,12 +36,12 @@ class InputSystem extends System {
         super();
 
         this.events = events;
-		this.scene = scene;
-        up = false;
-        down = false;
-        right = false;
-        left = false;
-        space = false;
+        this.scene = scene;
+        up = 0;
+        down = 0;
+        right = 0;
+        left = 0;
+
 
         //Physikalische Konstanten festlegen
         MAX_STEER_ANGLE = 45;
@@ -49,10 +52,12 @@ class InputSystem extends System {
         //Events registrieren
         scene.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 
-	}
 
 
-	public override function update(elapsed: Float) : Void {
+    }
+
+
+    public override function update(elapsed: Float) : Void {
 
         for (inputNode in inputNodes) {
             var vehicle: Vehicle = inputNode.vehicle;
@@ -72,8 +77,8 @@ class InputSystem extends System {
 
 
             //Lenkrad drehen, sofern nicht über maximalem Ausschlag.
-            if (right && vehicle.steerAngle + STEER_SPEED * elapsed <= MAX_STEER_ANGLE) vehicle.steerAngle += STEER_SPEED * elapsed;
-            if (left && vehicle.steerAngle - STEER_SPEED * elapsed >= -MAX_STEER_ANGLE) vehicle.steerAngle -= STEER_SPEED * elapsed;
+            if (vehicle.steerAngle + STEER_SPEED * right * elapsed <= MAX_STEER_ANGLE) vehicle.steerAngle += STEER_SPEED * right *  elapsed;
+            if (vehicle.steerAngle - STEER_SPEED * left *  elapsed >= -MAX_STEER_ANGLE) vehicle.steerAngle -= STEER_SPEED * left * elapsed;
 
             vehicle.throttle = up;
             vehicle.brake = down;
@@ -83,7 +88,7 @@ class InputSystem extends System {
         }   
 
 
-	}
+    }
 
 
     //Wird aufgerufen, wenn das "GameScene"-Sprite zum eigentlichen Spiel hinzugefügt wird.
@@ -92,19 +97,22 @@ class InputSystem extends System {
         //Nun kann man die Keyboard-Events registrieren, das jetzt die Stage-Variable festgelegt ist.
         scene.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
         scene.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUp);
+
+
+
     }
 
     private function onKeyDown(event: KeyboardEvent) : Void {
 
         switch (event.keyCode) {   
-            case Keyboard.DOWN: down = true;
-            case Keyboard.S: down = true;
-            case Keyboard.LEFT: left = true;
-            case Keyboard.A: left = true;
-            case Keyboard.RIGHT: right = true;
-            case Keyboard.D: right = true;
-            case Keyboard.UP: up = true;
-            case Keyboard.W: up = true;
+            case Keyboard.DOWN: down = 1;
+            case Keyboard.S: down = 1;
+            case Keyboard.LEFT: left = 1;
+            case Keyboard.A: left = 1;
+            case Keyboard.RIGHT: right = 1;
+            case Keyboard.D: right = 1;
+            case Keyboard.UP: up = 1;
+            case Keyboard.W: up = 1;
         }
 
         if (event.keyCode == Keyboard.DOWN) events.CAR_BREAK_BEGIN.dispatch();
@@ -114,14 +122,14 @@ class InputSystem extends System {
     private function onKeyUp(event: KeyboardEvent) : Void {
 
         switch (event.keyCode) {   
-            case Keyboard.DOWN: down = false;
-            case Keyboard.S: down =false;
-            case Keyboard.LEFT: left = false;
-            case Keyboard.A: left = false;
-            case Keyboard.RIGHT: right = false;
-            case Keyboard.D: right = false;
-            case Keyboard.UP: up = false;
-            case Keyboard.W: up = false;
+            case Keyboard.DOWN: down = 0;
+            case Keyboard.S: down =0;
+            case Keyboard.LEFT: left = 0;
+            case Keyboard.A: left = 0;
+            case Keyboard.RIGHT: right = 0;
+            case Keyboard.D: right = 0;
+            case Keyboard.UP: up = 0;
+            case Keyboard.W: up = 0;
         }
 
         if (event.keyCode == Keyboard.DOWN) events.CAR_BREAK_END.dispatch();
@@ -133,12 +141,12 @@ class InputSystem extends System {
 
     
 
-	//Wird aufgerufen, wenn System der Engine hinzugefügt wird
-	public override function addToEngine(engine: Engine):Void {
+    //Wird aufgerufen, wenn System der Engine hinzugefügt wird
+    public override function addToEngine(engine: Engine):Void {
         inputNodes = engine.getNodeList(InputNode);
-   	}
+    }
 
-   	//Wird aufgerufen, wenn System von der Engine entfernt wird
+    //Wird aufgerufen, wenn System von der Engine entfernt wird
     public override function removeFromEngine(engine: Engine):Void {
         inputNodes = null;
 

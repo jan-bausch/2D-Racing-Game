@@ -23,10 +23,10 @@ import app.nodes.CameraNode;
 
 class RenderSystem extends System {
 
-	private var renderNodes: NodeList<RenderNode>;
+    private var renderNodes: NodeList<RenderNode>;
     private var cameraNodes: NodeList<CameraNode>;
     private var cameraVehicleNodes: NodeList<CameraVehicleNode>;
-	private var sprite: Sprite;	//Verweis auf Sprite des Spiels
+    private var sprite: Sprite; //Verweis auf Sprite des Spiels
     private var configuration: Configuration;
     private var blurFilter: BlurFilter;
 
@@ -38,14 +38,14 @@ class RenderSystem extends System {
         super();
 
         this.events = events;
-		this.sprite = sprite;
+        this.sprite = sprite;
         this.configuration = new Configuration();
         this.blurFilter = new BlurFilter();
         blurFilter.quality = BitmapFilterQuality.LOW;
-	}
+    }
 
 
-	public override function update(elapsed: Float) : Void {
+    public override function update(elapsed: Float) : Void {
 
         var cameraPosition: Vector2 = new Vector2(0, 0),
             focusedEntities: Int = 0,
@@ -104,16 +104,16 @@ class RenderSystem extends System {
 
 
 
-		//Position jedes Sprites aktualisieren 
-		for (renderNode in renderNodes) {
+        //Position jedes Sprites aktualisieren 
+        for (renderNode in renderNodes) {
 
             //Sprites positionieren (Kamera und Fenstermitte mitberücksichtigen)
-			renderNode.display.sprite.x = renderNode.position.vector.x;
-			renderNode.display.sprite.y = renderNode.position.vector.y;
+            renderNode.display.sprite.x = renderNode.position.vector.x;
+            renderNode.display.sprite.y = renderNode.position.vector.y;
 
             //OpenFl misst Rotation in Grad, daher müssen wir vom Bogenmaß umrechnen
             renderNode.display.sprite.rotation = renderNode.position.rotation;
-		}
+        }
         
 
         //Zoom an Geschwindigkeit anpassen
@@ -124,12 +124,12 @@ class RenderSystem extends System {
             cameraVehicleNode.camera.zoom = zoom;
         }
 
-	}
+    }
 
 
 
-	//Wird aufgerufen, wenn System der Engine hinzugefügt wird
-	public override function addToEngine(engine: Engine):Void {
+    //Wird aufgerufen, wenn System der Engine hinzugefügt wird
+    public override function addToEngine(engine: Engine):Void {
 
         renderNodes = engine.getNodeList(RenderNode);
         cameraNodes = engine.getNodeList(CameraNode);
@@ -144,11 +144,11 @@ class RenderSystem extends System {
         renderNodes.nodeAdded.add(onRenderNodeAdded);
         renderNodes.nodeRemoved.add(onRenderNodeRemoved);
 
-   	}
+    }
 
-   	//Wird aufgerufen, wenn ein neues Entity der RenderNode-Liste hinzugefügt wird
+    //Wird aufgerufen, wenn ein neues Entity der RenderNode-Liste hinzugefügt wird
     private function onRenderNodeAdded(node: RenderNode) : Void {
-    	//Neues Entity zum "Gamesprite"-Objekt hinzufügen
+        //Neues Entity zum "Gamesprite"-Objekt hinzufügen
         addRenderChild(node.display.sprite, node.entity);
     }   
 
@@ -165,11 +165,11 @@ class RenderSystem extends System {
 
     //Wird aufgerufen, wenn ein Entity aus der RenderNode-Liste entfernt wird
     private function onRenderNodeRemoved(node: RenderNode) : Void {
-    	//Entferntes Entity aus dem "Gamesprite"-Objekt löschen
+        //Entferntes Entity aus dem "Gamesprite"-Objekt löschen
         sprite.removeChild(node.display.sprite);
     }
 
-   	//Wird aufgerufen, wenn System von der Engine entfernt wird
+    //Wird aufgerufen, wenn System von der Engine entfernt wird
     public override function removeFromEngine(engine: Engine):Void {
         this.renderNodes = null;
         this.cameraNodes = null;

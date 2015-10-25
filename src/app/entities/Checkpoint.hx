@@ -14,19 +14,19 @@ import app.entities.sprites.ImageSprite;
 
 class Checkpoint extends Entity {
 
-	public function new(position: Vector2, scale: Vector2, rotation: Float) {
-		super();
+    public function new(position: Vector2, scale: Vector2, rotation: Float) {
+        super();
 
-		var bitmap: BitmapData = Assets.getBitmapData("assets/textures/checkpoint.png");
-		var width = bitmap.width * scale.x,
-			height = bitmap.height * scale.y;
-			
-		this.add( new Position(position, rotation) );
-		this.add( new Display(new ImageSprite(width, height, bitmap)) );
-		this.add( new Collision(width, height, false) );
-		this.add( new CheckpointComponent() ); 
+        var bitmap: BitmapData = Assets.getBitmapData("assets/textures/checkpoint.png");
+        var width = bitmap.width * scale.x,
+            height = bitmap.height * scale.y;
+            
+        this.add( new Position(position, rotation) );
+        this.add( new Display(new ImageSprite(width, height, bitmap)) );
+        this.add( new Collision(width, height, false) );
+        this.add( new CheckpointComponent() ); 
 
 
-	}
+    }
 
 }

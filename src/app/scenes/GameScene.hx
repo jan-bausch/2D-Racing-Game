@@ -11,29 +11,29 @@ import app.entities.Level;
 
 class GameScene extends FullscreenScene {
 
-	private var level: Int;
-	public var systemEvents: SystemEvents; //Events, die zwischen Systemen ausgetauscht werden
+    private var level: Int;
+    public var systemEvents: SystemEvents; //Events, die zwischen Systemen ausgetauscht werden
 
-	public function new(level: Int) {
-		super();
+    public function new(level: Int) {
+        super();
 
-		this.level = level;
-		this.systemEvents = new SystemEvents();
+        this.level = level;
+        this.systemEvents = new SystemEvents();
 
-		//Layout laden
-		view = Toolkit.processXmlResource("assets/ui/layout/game.xml");
+        //Layout laden
+        view = Toolkit.processXmlResource("assets/ui/layout/game.xml");
 
-		//GameSprite in der untersten Ebene hinzufügen
-		view.addChildAt(new SpriteContainer(new Game(systemEvents, this)), 0);
+        //GameSprite in der untersten Ebene hinzufügen
+        view.addChildAt(new SpriteContainer(new Game(systemEvents, this)), 0);
 
 
-	}
+    }
 
-	public override function show() {
-		super.show();
+    public override function show() {
+        super.show();
 
-		//Zuletzt das Event auslösen, dass das Spiel startet
-		systemEvents.LOAD_LEVEL.dispatch(new Level(level));
-	}
+        //Zuletzt das Event auslösen, dass das Spiel startet
+        systemEvents.LOAD_LEVEL.dispatch(new Level(level));
+    }
 
 } 

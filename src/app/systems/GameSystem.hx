@@ -36,7 +36,7 @@ class GameSystem extends System {
     private var running: Bool; //Soll Zeitmessung beginnen?
 
     public function new(events: SystemEvents) {
-		super();
+        super();
 
         this.events = events;
         this.configuration = new Configuration();
@@ -48,10 +48,10 @@ class GameSystem extends System {
         events.LOADED_LEVEL.add(onLoadedLevel);
         events.GAME_START.add(onGameStart);
         events.GAME_END.add(onGameEnd);
-	}
+    }
 
 
-	public override function update(elapsed: Float) : Void {
+    public override function update(elapsed: Float) : Void {
 
         //Zeit messen
         for (gameNode in gameNodes) {
@@ -65,15 +65,15 @@ class GameSystem extends System {
         }
 
 
-	}
+    }
 
 
     private function onGameEnd(time: Float, result: Result) : Void {
 
         //Dem Spieler wieder die Kontrolle über die Steuerung nehmen
         for (player in playerNodes) {
-            //Entschleunigen
-            player.vehicle.throttle = false;
+            //"Fuß vom Gas nehmen"
+            player.vehicle.throttle = 0;
             //Steurungs-Komponente entfernen
             player.entity.remove(Input);
         }
@@ -88,7 +88,7 @@ class GameSystem extends System {
 
     }
 
-	private function onCollision(entity1: Entity, entity2: Entity, collisionResponse: CollisionResponse) : Void {
+    private function onCollision(entity1: Entity, entity2: Entity, collisionResponse: CollisionResponse) : Void {
 
         //Kollision zwischen Spieler und Zielfläche
         if (Type.getClass(entity1) == app.entities.Car && Type.getClass(entity2) == app.entities.Checkpoint && running) {
@@ -109,7 +109,7 @@ class GameSystem extends System {
         }
 
         //Kollision zwischen Spieler und Zielfläche
-		if (Type.getClass(entity1) == app.entities.Car && Type.getClass(entity2) == app.entities.Finish && running) {
+        if (Type.getClass(entity1) == app.entities.Car && Type.getClass(entity2) == app.entities.Finish && running) {
 
             for (gameNode in gameNodes) {
                 //Prüfen, ob alle Checkpoints erreicht wurden
@@ -122,7 +122,7 @@ class GameSystem extends System {
 
                 }
             }
-		}
+        }
 
         //Kollision zwischen Spieler und Boosterfläche
         if (Type.getClass(entity1) == app.entities.Car && Type.getClass(entity2) == app.entities.Boost && running) {
@@ -130,7 +130,7 @@ class GameSystem extends System {
             entity1.get(Vehicle).boost =  20000;
         }   
 
-	}
+    }
 
  
     //Wird aufgerufen, wenn ein neues Level geladen wird.
@@ -167,15 +167,15 @@ class GameSystem extends System {
 
     }
 
-	//Wird aufgerufen, wenn System der Engine hinzugefügt wird
+    //Wird aufgerufen, wenn System der Engine hinzugefügt wird
     public override function addToEngine(engine: Engine):Void {
         gameNodes = engine.getNodeList(GameNode);
         playerNodes = engine.getNodeList(VehicleNode);
         checkpointNodes = engine.getNodeList(CheckpointNode);
-   	}
+    }
 
 
-   	//Wird aufgerufen, wenn System von der Engine entfernt wird
+    //Wird aufgerufen, wenn System von der Engine entfernt wird
     public override function removeFromEngine(engine: Engine):Void {
         gameNodes = null;
         playerNodes = null;

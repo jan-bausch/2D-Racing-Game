@@ -19,13 +19,13 @@ class CameraSystem extends System {
     private var cameraNodes: NodeList<CameraNode>;
 
     public function new(events: SystemEvents) {
-		super();
+        super();
 
         this.events = events;
-	}
+    }
 
 
-	public override function update(elapsed: Float) : Void {
+    public override function update(elapsed: Float) : Void {
 
         for (cameraNode in cameraNodes) {
 
@@ -35,14 +35,14 @@ class CameraSystem extends System {
         }
 
 
-	}
+    }
 
-	//Wird aufgerufen, wenn System der Engine hinzugefügt wird
+    //Wird aufgerufen, wenn System der Engine hinzugefügt wird
     public override function addToEngine(engine: Engine):Void {
         cameraNodes = engine.getNodeList(CameraNode);
-   	}
+    }
 
-   	//Wird aufgerufen, wenn System von der Engine entfernt wird
+    //Wird aufgerufen, wenn System von der Engine entfernt wird
     public override function removeFromEngine(engine: Engine):Void {
         cameraNodes = null;
     }

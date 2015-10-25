@@ -1,37 +1,37 @@
 
 
 .longtext{
-	wrapLines: true;
-	backgroundColor: #65464;
+    wrapLines: true;
+    backgroundColor: #65464;
 }
 
 #menu{
-	spacingY: 20;
-	verticalAlignment: center;
-	horizontalAlignment: center;
-	paddingRight: 350;
+    spacingY: 20;
+    verticalAlignment: center;
+    horizontalAlignment: center;
+    paddingRight: 350;
 }
 
 #level-container{
-	verticalAlignment: center;
-	horizontalAlignment: center;
-	spacing: 30;
+    verticalAlignment: center;
+    horizontalAlignment: center;
+    spacing: 30;
 }
 
 .level-button{
-	width: 100;
-	height: 100;
-	fontSize: 30;
+    width: 100;
+    height: 100;
+    fontSize: 30;
 }
 
 #car{
-	verticalAlignment: center;
-	horizontalAlignment: right;
-	paddingRight: 100;
+    verticalAlignment: center;
+    horizontalAlignment: right;
+    paddingRight: 100;
 }
 
 #menu Button{
-	fontSize: 20;
-	paddingBottom: 10;
-	paddingTop: 10;
+    fontSize: 20;
+    paddingBottom: 10;
+    paddingTop: 10;
 }

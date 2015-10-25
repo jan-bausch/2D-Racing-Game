@@ -25,7 +25,7 @@ import app.components.UI;
 
 class UISystem extends System {
 
-	private var scene: Scene;	//Verweis auf Sprite des "GameScene"-Objekts
+    private var scene: Scene;   //Verweis auf Sprite des "GameScene"-Objekts
     private var events: SystemEvents;
     private var gameNodes: NodeList<GameNode>;
     private var counter: Float;
@@ -35,7 +35,7 @@ class UISystem extends System {
         super();
 
         this.events = events;
-		this.scene = scene;
+        this.scene = scene;
         this.counter = 0;
 
         //Events registrieren
@@ -46,10 +46,10 @@ class UISystem extends System {
         events.COLLISION_ENTER.add(onCollisionEnter);
         events.COLLISION_LEAVE.add(onCollisionLeave);
         events.CHECKPOINT_ACTIVATED.add(onCheckpointActivated);
-	}
+    }
 
 
-	public override function update(elapsed: Float) : Void {
+    public override function update(elapsed: Float) : Void {
 
         //Es reicht, wenn wir die Zeitanzeige nur alle 50ms aktualisieren.
         //Deswegen überspringen wir einige Durchgänge
@@ -71,7 +71,7 @@ class UISystem extends System {
             counter = 0;
         }
 
-	}
+    }
 
     //Wird aufgerufen, wenn ein neues Level geladen wird.
     private function onLoadLevel(newLevel: Level) : Void {
@@ -190,13 +190,13 @@ class UISystem extends System {
 
     }
 
-	//Wird aufgerufen, wenn System der Engine hinzugefügt wird
-	public override function addToEngine(engine: Engine):Void {
+    //Wird aufgerufen, wenn System der Engine hinzugefügt wird
+    public override function addToEngine(engine: Engine):Void {
         gameNodes = engine.getNodeList(GameNode);
-   	}
+    }
 
 
-   	//Wird aufgerufen, wenn System von der Engine entfernt wird
+    //Wird aufgerufen, wenn System von der Engine entfernt wird
     public override function removeFromEngine(engine: Engine):Void {
         gameNodes = null;
     }
