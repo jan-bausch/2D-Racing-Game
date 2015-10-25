@@ -145,7 +145,7 @@ class GameSystem extends System {
     }
     
     //Wird aufgerufen, wenn ein neues Level geladen wurde.
-    private function onLoadedLevel() : Void {
+    private function onLoadedLevel(newLevel: Level) : Void {
 
 
         //Einmalig zählen, wieviele Checkpoints das Level besitzt

@@ -90,7 +90,7 @@ class SoundSystem extends System {
         });
     }
 
-    private function onLoadedLevel() : Void {
+    private function onLoadedLevel(level: Level) : Void {
 
         //Motorgeräusche starten
         CHANNEL_IDLE = SOUND_IDLE.play(0,99);

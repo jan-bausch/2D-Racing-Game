@@ -20,6 +20,7 @@ class LevelLoadingSystem extends System {
 
     private var renderNodes: NodeList<RenderNode>;
     private var engine: Engine;
+    private var level: Null<Level>;
 
     private var events: SystemEvents;
 
@@ -27,7 +28,7 @@ class LevelLoadingSystem extends System {
         super();
 
         this.events = events;
-
+        this.level = null;
 
         //Events registrieren
         events.LOAD_LEVEL.add(onLoadLevel);
@@ -40,20 +41,27 @@ class LevelLoadingSystem extends System {
     private function onLoadLevel(level: Level) : Void {
 
         clearLevel();
+
+        //Aktuelles Level setzen
+        this.level = level;
+
         //Level parsen
         parseLevel(Xml.parse( Assets.getText("assets/levels/level" + level.id + ".xml") ));
 
         //Loaded-Level Event auslösen
-        events.LOADED_LEVEL.dispatch();
+        events.LOADED_LEVEL.dispatch(level);
     }
 
     //Level-Datei lesen und Entities erstellen
     private function parseLevel(xml: Xml) : Void {
 
-        var data: Fast = new Fast(xml.firstElement()),
-            levelName: String = data.att.Name;
+        var data: Fast = new Fast(xml.firstElement());
 
-
+        for (property in data.node.CustomProperties.nodes.Property) {
+            if (property.att.Name == "name") level.name = property.node.string.innerData;
+            if (property.att.Name == "description") level.description = property.node.string.innerData;
+            if (property.att.Name == "time") level.time = Std.parseInt(property.node.string.innerData);
+        }
 
         for (layer in data.node.Layers.nodes.Layer) {
             for (item in layer.node.Items.nodes.Item) {

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Level xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Level_01" Visible="true">
+<Level xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Level_0" Visible="true">
     <Layers>
         <Layer Name="Ground" Visible="true">
             <Items>
@@ -574,7 +574,17 @@
             </ScrollSpeed>
         </Layer>
     </Layers>
-    <CustomProperties />
+    <CustomProperties>
+        <Property Name="name" Type="string" Description="">
+            <string>Tutorial</string>
+        </Property>
+        <Property Name="description" Type="string" Description="">
+            <string>Lerne die Grundlagen und mache dich mit dem Auto vertraut.</string>
+        </Property>
+        <Property Name="time" Type="string" Description="">
+            <string>22000</string>
+        </Property>
+    </CustomProperties>
     <EditorRelated>
         <NextItemNumber>35</NextItemNumber>
         <ContentRootFolder>D:\Dateien\Projekte\2015\Wöhlerschule BLL\assets</ContentRootFolder>

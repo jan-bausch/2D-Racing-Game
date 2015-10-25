@@ -15,7 +15,7 @@ import app.math.Vector2;
 class SystemEvents {
 
     public var LOAD_LEVEL: Signal1<Level>;
-    public var LOADED_LEVEL: Signal0;
+    public var LOADED_LEVEL: Signal1<Level>;
     public var GAME_ZOOM_IN: Signal1<Void->Void>;
     public var GAME_COUNTDOWN: Signal1<Void->Void>;
     public var GAME_START: Signal0;
@@ -35,7 +35,7 @@ class SystemEvents {
     public function new() {
 
         LOAD_LEVEL = new Signal1<Level>();
-        LOADED_LEVEL = new Signal0();
+        LOADED_LEVEL = new Signal1<Level>();
         GAME_ZOOM_IN = new Signal1<Void->Void>();
         GAME_COUNTDOWN = new Signal1<Void->Void>();
         GAME_START = new Signal0();

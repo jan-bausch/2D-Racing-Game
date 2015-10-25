@@ -42,7 +42,7 @@ class UISystem extends System {
         events.GAME_COUNTDOWN.add(onCountdown);
         events.GAME_START.add(onGameStart);
         events.GAME_END.add(onGameEnd);
-        events.LOAD_LEVEL.add(onLoadLevel);
+        events.LOADED_LEVEL.add(onLoadedLevel);
         events.COLLISION_ENTER.add(onCollisionEnter);
         events.COLLISION_LEAVE.add(onCollisionLeave);
         events.CHECKPOINT_ACTIVATED.add(onCheckpointActivated);
@@ -74,7 +74,7 @@ class UISystem extends System {
     }
 
     //Wird aufgerufen, wenn ein neues Level geladen wird.
-    private function onLoadLevel(newLevel: Level) : Void {
+    private function onLoadedLevel(newLevel: Level) : Void {
 
         this.level = newLevel;
 
