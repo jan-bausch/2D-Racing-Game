@@ -23,6 +23,7 @@ class LevelFinishScene extends WindowScene {
         //Grundeinstellungen festlegen
         width = 400;
         height = 300;
+        
         super();
 
 
