@@ -16,7 +16,7 @@ class VehicleSprite extends Sprite {
     private var wheelBottomLeft: Sprite;
     private var wheelBottomRight: Sprite;
 
-	public function new(vehicle: Vehicle) {
+    public function new(vehicle: Vehicle) {
         super();
         this.vehicle = vehicle;
 
@@ -53,7 +53,7 @@ class VehicleSprite extends Sprite {
         //Events registrieren
         addEventListener(Event.ENTER_FRAME, onEnterFrame); 
 
-	}
+    }
 
 
     //Wird aufgerufen, bevor gezeichnet wird.

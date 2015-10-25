@@ -9,26 +9,26 @@ import haxe.ui.toolkit.core.PopupManager;
 
 class PopupScene extends Scene {
 
-	private var title: String;
-	private var buttons: Array<Dynamic>;
-	private var width: Float;
-	private var callback: Dynamic->Void;
+    private var title: String;
+    private var buttons: Array<Dynamic>;
+    private var width: Float;
+    private var callback: Dynamic->Void;
 
-	public function new() {
-		super();
-		
-		this.title = "";
-		this.buttons = [PopupButton.OK];
-		this.width = 300;
-		this.callback = function(btn: Dynamic) {};
+    public function new() {
+        super();
+        
+        this.title = "";
+        this.buttons = [PopupButton.OK];
+        this.width = 300;
+        this.callback = function(btn: Dynamic) {};
 
-	}
+    }
 
-	public override function show() : Void {
+    public override function show() : Void {
 
-		//Popup-Fenster mit Einstellungen anzeigen
-		PopupManager.instance.showCustom(view, title, { buttons: buttons, width: width },callback);
+        //Popup-Fenster mit Einstellungen anzeigen
+        PopupManager.instance.showCustom(view, title, { buttons: buttons, width: width },callback);
 
-	}
+    }
 
 }

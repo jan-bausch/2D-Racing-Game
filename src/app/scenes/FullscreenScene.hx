@@ -11,24 +11,24 @@ import haxe.ui.toolkit.core.Toolkit;
 
 class FullscreenScene extends Scene {
 
-	public function new() {
-		super();
+    public function new() {
+        super();
 
-		view = Toolkit.processXmlResource("assets/ui/layout/main-menu.xml");
+        view = Toolkit.processXmlResource("assets/ui/layout/main-menu.xml");
 
-	}
+    }
 
-	public override function show() : Void {
+    public override function show() : Void {
 
-		//Alte Scenen entfernen
-		RootManager.instance.destroyAllRoots();
-	
-		//Anzeigen
-		Toolkit.openFullscreen(function(root:Root) {
-			this.root = root;
-			root.addChild(view);
-		});
+        //Alte Scenen entfernen
+        RootManager.instance.destroyAllRoots();
+    
+        //Anzeigen
+        Toolkit.openFullscreen(function(root:Root) {
+            this.root = root;
+            root.addChild(view);
+        });
 
-	}
+    }
 
 }

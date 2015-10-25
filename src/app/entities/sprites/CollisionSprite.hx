@@ -11,7 +11,7 @@ import app.components.Collision;
 class CollisionSprite extends Sprite {
 
 
-	public function new(collision: Collision) {
+    public function new(collision: Collision) {
         super();
 
             //Eine Ecke mit Kreis markieren
@@ -20,9 +20,9 @@ class CollisionSprite extends Sprite {
             graphics.endFill();
 
             //Rechteck als blau Linie darstellen
-       	graphics.lineStyle(2, 0x0000FF);
+        graphics.lineStyle(2, 0x0000FF);
       
-       	graphics.moveTo(collision.width/2, collision.height/2);
+        graphics.moveTo(collision.width/2, collision.height/2);
             graphics.lineTo(collision.width/2, -collision.height/2);
             graphics.lineTo(-collision.width/2, -collision.height/2);
             graphics.lineTo(-collision.width/2, collision.height/2);
@@ -31,7 +31,7 @@ class CollisionSprite extends Sprite {
             graphics.endFill();
 
 
-	}
+    }
 
 
 }

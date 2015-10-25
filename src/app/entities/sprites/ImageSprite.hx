@@ -12,14 +12,14 @@ import app.math.Vector2;
 class ImageSprite extends Sprite {
 
 
-	public function new(width: Float, height: Float, bitmapData: BitmapData) {
+    public function new(width: Float, height: Float, bitmapData: BitmapData) {
         super();
 
-		graphics.beginBitmapFill(bitmapData);
-			graphics.drawRect(-width/2, -height/2, width, height);
-		graphics.endFill();
+        graphics.beginBitmapFill(bitmapData);
+            graphics.drawRect(-width/2, -height/2, width, height);
+        graphics.endFill();
 
-	}
+    }
 
 
 }

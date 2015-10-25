@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8" ?>
-	
+    
 <box height="100%" width="100%">
-	<vbox width="95%" horizontalAlign="center">
+    <vbox width="95%" horizontalAlign="center">
 
-		<spacer height="20" />
-		<hbox width="100%" spacing="20" x="20" y="20">
-			<spacer width="10" />
-			<text id="level-id" style="fontSize: 45; color: #FF3300; borderColor: #FF3300" />
-			<spacer width="5" />
-			<text  id="level-name" style="fontSize: 35" />
-		</hbox>
-		<spacer height="10" />
+        <spacer height="20" />
+        <hbox width="100%" spacing="20" x="20" y="20">
+            <spacer width="10" />
+            <text id="level-id" style="fontSize: 45; color: #FF3300; borderColor: #FF3300" />
+            <spacer width="5" />
+            <text  id="level-name" style="fontSize: 35" />
+        </hbox>
+        <spacer height="10" />
 
-		<text wrapLines="true" id="level-description" width="100%" />
+        <text wrapLines="true" id="level-description" width="100%" />
 
-		<divider text="Zeiten" />
-		<grid columns="2">
+        <divider text="Zeiten" />
+        <grid columns="2">
 
-			<spacer width="150" /> <spacer width="10" />
+            <spacer width="150" /> <spacer width="10" />
 
-			<text text="Deine Bestzeit:" />
-			<text  id="personal-time" />
+            <text text="Deine Bestzeit:" />
+            <text  id="personal-time" />
 
-			<text text="Mindestzeit:" />
-			<text  id="level-time" />
+            <text text="Mindestzeit:" />
+            <text  id="level-time" />
 
-		</grid>		
-	</vbox>
+        </grid>     
+    </vbox>
 
-	<hbox verticalAlign="bottom" style="paddingBottom: 20" horizontalAlign="center">
-		<button text="Zurück zum Menü" id="abort" />
-		<button text="Starten" id="start" />
-	</hbox>
+    <hbox verticalAlign="bottom" style="paddingBottom: 20" horizontalAlign="center">
+        <button text="Zurück zum Menü" id="abort" />
+        <button text="Starten" id="start" />
+    </hbox>
 
 </box>

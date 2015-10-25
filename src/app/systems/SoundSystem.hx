@@ -39,7 +39,7 @@ class SoundSystem extends System {
     private var CHANNEL_FAST: SoundChannel;
 
     public function new(events: SystemEvents) {
-		super();
+        super();
 
         this.events = events;
         this.volume = 1;
@@ -58,10 +58,10 @@ class SoundSystem extends System {
         SOUND_FAST = Assets.getSound("assets/sounds/fast_long.ogg");
 
 
-	}
+    }
 
 
-	public override function update(elapsed: Float) : Void {
+    public override function update(elapsed: Float) : Void {
 
 
         for (vehicleNode in vehicleNodes) {
@@ -74,7 +74,7 @@ class SoundSystem extends System {
             CHANNEL_FAST.soundTransform = new SoundTransform(Math.max(1 - Math.abs((velocity-60)/30), 0));
         }
 
-	}
+    }
 
 
     //Countdown beim Start eines Levels anzeigen
@@ -119,12 +119,12 @@ class SoundSystem extends System {
 
     }
 
-	//Wird aufgerufen, wenn System der Engine hinzugefügt wird
+    //Wird aufgerufen, wenn System der Engine hinzugefügt wird
     public override function addToEngine(engine: Engine):Void {
         vehicleNodes = engine.getNodeList(VehicleNode);
-   	}
+    }
 
-   	//Wird aufgerufen, wenn System von der Engine entfernt wird
+    //Wird aufgerufen, wenn System von der Engine entfernt wird
     public override function removeFromEngine(engine: Engine):Void {
         vehicleNodes = null;
     }

@@ -21,18 +21,18 @@ class AnimationSystem extends System {
     private var cameraNodes: NodeList<CameraNode>;
 
     public function new(events: SystemEvents) {
-		super();
+        super();
 
         this.events = events;
 
         events.GAME_ZOOM_IN.add(onZoomIn);
-	}
+    }
 
 
-	public override function update(elapsed: Float) : Void {
+    public override function update(elapsed: Float) : Void {
 
 
-	}
+    }
 
     private function onZoomIn(callback: Void->Void) : Void {
         
@@ -44,12 +44,12 @@ class AnimationSystem extends System {
 
     }
 
-	//Wird aufgerufen, wenn System der Engine hinzugefügt wird
+    //Wird aufgerufen, wenn System der Engine hinzugefügt wird
     public override function addToEngine(engine: Engine):Void {
         cameraNodes = engine.getNodeList(CameraNode);
-   	}
+    }
 
-   	//Wird aufgerufen, wenn System von der Engine entfernt wird
+    //Wird aufgerufen, wenn System von der Engine entfernt wird
     public override function removeFromEngine(engine: Engine):Void {
         cameraNodes = null;
     }

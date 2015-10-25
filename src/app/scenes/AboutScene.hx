@@ -13,23 +13,23 @@ import app.Configuration;
 
 class AboutScene extends PopupScene {
 
-	public function new() {
-		super();
+    public function new() {
+        super();
 
-		//Grundeinstellungen festlegen
-		title = "Über";
-		width = 500;
-		buttons = [PopupButton.OK];
+        //Grundeinstellungen festlegen
+        title = "Über";
+        width = 500;
+        buttons = [PopupButton.OK];
 
-		//Layout laden
-		view = Toolkit.processXmlResource("assets/ui/layout/about.xml");
+        //Layout laden
+        view = Toolkit.processXmlResource("assets/ui/layout/about.xml");
 
-		
-		//Wenn "Zurücksetzen"-Button gedrückt wird, Daten löschen.
-		view.findChild("reset", Button).onClick = function (e:UIEvent) {
-			new Configuration().clear();
-		}
-		
-	}
+        
+        //Wenn "Zurücksetzen"-Button gedrückt wird, Daten löschen.
+        view.findChild("reset", Button).onClick = function (e:UIEvent) {
+            new Configuration().clear();
+        }
+        
+    }
 
 }

@@ -11,25 +11,25 @@ import app.math.Vector2;
 class PolygonSprite extends Sprite {
 
 
-	public function new(polygon: Array<Vector2>, bitmapData: BitmapData) {
+      public function new(polygon: Array<Vector2>, bitmapData: BitmapData) {
         super();
 
-       	graphics.beginBitmapFill(bitmapData);
+            graphics.beginBitmapFill(bitmapData);
       
-       	var first: Bool = true;
-       	for (point in polygon) {
-       		if (first) {
-       			graphics.moveTo(point.x, point.y);
-       			first = false;
-       		} else {
-       			graphics.lineTo(point.x, point.y);
-       		}
-       	}
+            var first: Bool = true;
+            for (point in polygon) {
+                  if (first) {
+                        graphics.moveTo(point.x, point.y);
+                        first = false;
+                  } else {
+                        graphics.lineTo(point.x, point.y);
+                  }
+            }
 
             graphics.endFill();
 
 
-	}
+      }
 
 
 }

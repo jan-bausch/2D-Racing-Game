@@ -13,7 +13,7 @@ import app.components.Position;
 
 class VehicleSystem extends System {
 
-	private var vehicleNodes: NodeList<VehicleNode>;
+    private var vehicleNodes: NodeList<VehicleNode>;
 
     private var events: SystemEvents;
 
@@ -28,14 +28,14 @@ class VehicleSystem extends System {
 
     }
 
-	public override function update(elapsed: Float) : Void {
+    public override function update(elapsed: Float) : Void {
 
         for (vehicleNode in vehicleNodes) {
 
             var vehicle: Vehicle = vehicleNode.vehicle,
                 position: Position = vehicleNode.position;
 
-            var tractionForce: Float = (vehicle.throttle ? vehicle.ENGINE_FORCE: 0) - (vehicle.brake && vehicle.velocity > 0 ? vehicle.BRAKE_FORCE: 0) - (vehicle.brake && vehicle.velocity < 0 ? vehicle.REVERSE_FORCE: 0);
+            var tractionForce: Float = (vehicle.throttle * vehicle.ENGINE_FORCE) - (vehicle.velocity > 0 ? vehicle.brake * vehicle.BRAKE_FORCE: 0) - (vehicle.velocity < 0 ? vehicle.brake * vehicle.REVERSE_FORCE: 0);
 
             var dragForce: Float = -AIR_RESISTANCE * vehicle.velocity * vehicle.velocity, //C * v * |v|
                 rollingForce: Float = -ROLLING_RESISTANCE * vehicle.velocity,
@@ -81,15 +81,15 @@ class VehicleSystem extends System {
         }   
 
 
-	}
+    }
 
 
-	//Wird aufgerufen, wenn System der Engine hinzugefügt wird
-	public override function addToEngine(engine: Engine):Void {
+    //Wird aufgerufen, wenn System der Engine hinzugefügt wird
+    public override function addToEngine(engine: Engine):Void {
         vehicleNodes = engine.getNodeList(VehicleNode);
-   	}
+    }
 
-   	//Wird aufgerufen, wenn System von der Engine entfernt wird
+    //Wird aufgerufen, wenn System von der Engine entfernt wird
     public override function removeFromEngine(engine: Engine):Void {
         vehicleNodes = null;
     }
