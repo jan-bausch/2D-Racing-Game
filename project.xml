@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
     
-    <meta title="osmRacer - Wöhlerschule" package="com.woehlerschule.osmracer" version="1.0.0" company="OpenFL" />
-    <app main="app.Main" path="build" file="osmRacer"/>
+    <meta title="Wöhler-Racer" package="de.woehlerschule.racer" version="1.0.0" company="Wöhlerschule" />
+    <app main="app.Main" path="build" file="Woehler-Racer"/>
     
     <window background="#ffffff" fps="60" orientation="portrait" />
 
