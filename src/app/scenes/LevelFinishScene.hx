@@ -10,6 +10,7 @@ import haxe.ui.toolkit.controls.Image;
 import haxe.ui.toolkit.events.UIEvent;
 
 import app.scenes.WindowScene;
+import app.scenes.LevelMenuScene;
 import app.scenes.LevelOpeningScene;
 import app.systems.SystemEvents;
 import app.entities.Level;
@@ -18,7 +19,7 @@ class LevelFinishScene extends WindowScene {
 
     private var events: SystemEvents;
 
-    public function new(level: Level, result: Result) {
+    public function new(level: Level, _result: Result) {
 
         //Grundeinstellungen festlegen
         width = 400;
@@ -31,7 +32,7 @@ class LevelFinishScene extends WindowScene {
         view = Toolkit.processXmlResource("assets/ui/layout/level-finish.xml");
 
             //Ergebniss anzeigen
-        switch (result) {
+        switch (_result) {
             case Result.Fail:
                 view.findChild("result", Text, true).text = "Fehlgeschlagen!";
                 view.findChild("icon", Image, true).resource = "assets/ui/result_fail.png";
@@ -48,13 +49,13 @@ class LevelFinishScene extends WindowScene {
         }
 
         //"Weiter"-Button sperren, wenn Level nicht geschafft wurde
-        view.findChild("continue", Button, true).disabled = (result == Result.Fail);
+        view.findChild("continue", Button, true).disabled = (_result == Result.Fail);
 
 
 
         //Buttonevents festlegen
         view.findChild("restart", Button, true).onClick = function(e:UIEvent){   new GameScene(level.id).show();    };
-        view.findChild("continue", Button, true).onClick = function(e:UIEvent){    new app.scenes.LevelMenuScene().show();    };
+        //view.findChild("continue", Button, true).onClick = function(e:UIEvent){    new LevelMenuScene().show();    };
 
     }
 

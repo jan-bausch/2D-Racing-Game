@@ -44,8 +44,6 @@ class VehicleSprite extends Sprite {
 
         //Chassis laden und postionieren
         var chassis: Bitmap = new Bitmap(Assets.getBitmapData("assets/textures/car1.png"));
-        chassis.height = 200;
-        chassis.width *= chassis.scaleY;
         chassis.x = -chassis.width/2;
         chassis.y = -chassis.height/2;
         addChild(chassis);
