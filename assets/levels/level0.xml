@@ -600,8 +600,8 @@
                 </Item>
                 <Item xsi:type="TextureItem" Name="Texture_0038" Visible="true">
                     <Position>
-                        <X>1855</X>
-                        <Y>-292</Y>
+                        <X>2005</X>
+                        <Y>88</Y>
                     </Position>
                     <CustomProperties>
                         <Property Name="type" Type="string" Description="">
@@ -722,6 +722,47 @@
                         <Y>75</Y>
                     </Origin>
                 </Item>
+                <Item xsi:type="PathItem" Name="path" Visible="true">
+                    <Position>
+                        <X>-561</X>
+                        <Y>-326</Y>
+                    </Position>
+                    <CustomProperties>
+                        <Property Name="type" Type="string" Description="">
+                            <string>path</string>
+                        </Property>
+                        <Property Name="target" Type="Item" Description="">tree</Property>
+                    </CustomProperties>
+                    <LocalPoints>
+                        <Vector2>
+                            <X>0</X>
+                            <Y>0</Y>
+                        </Vector2>
+                        <Vector2>
+                            <X>523</X>
+                            <Y>270</Y>
+                        </Vector2>
+                    </LocalPoints>
+                    <WorldPoints>
+                        <Vector2>
+                            <X>-561</X>
+                            <Y>-326</Y>
+                        </Vector2>
+                        <Vector2>
+                            <X>-38</X>
+                            <Y>-56</Y>
+                        </Vector2>
+                    </WorldPoints>
+                    <IsPolygon>false</IsPolygon>
+                    <LineWidth>4</LineWidth>
+                    <LineColor>
+                        <R>192</R>
+                        <G>0</G>
+                        <B>192</B>
+                        <A>145</A>
+                        <PackedValue>2445279424</PackedValue>
+                    </LineColor>
+                </Item>
             </Items>
             <ScrollSpeed>
                 <X>1</X>
@@ -741,11 +782,11 @@
         </Property>
     </CustomProperties>
     <EditorRelated>
-        <NextItemNumber>41</NextItemNumber>
+        <NextItemNumber>43</NextItemNumber>
         <ContentRootFolder>D:\Dateien\Projekte\2015\Wöhlerschule BLL\assets</ContentRootFolder>
         <CameraPosition>
             <X>2103.833</X>
-            <Y>-449.4967</Y>
+            <Y>-391.1633</Y>
         </CameraPosition>
         <Version>1.3.0.0</Version>
     </EditorRelated>

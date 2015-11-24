@@ -55,7 +55,7 @@ class LevelFinishScene extends WindowScene {
 
         //Buttonevents festlegen
         view.findChild("restart", Button, true).onClick = function(e:UIEvent){   new GameScene(level.id).show();    };
-        //view.findChild("continue", Button, true).onClick = function(e:UIEvent){    new LevelMenuScene().show();    };
+        view.findChild("continue", Button, true).onClick = function(e:UIEvent){    new LevelMenuScene().show();    };
 
     }
 

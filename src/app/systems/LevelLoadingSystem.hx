@@ -21,6 +21,7 @@ class LevelLoadingSystem extends System {
     private var renderNodes: NodeList<RenderNode>;
     private var engine: Engine;
     private var level: Null<Level>;
+    private var data: Fast;
 
     private var events: SystemEvents;
 
@@ -55,7 +56,7 @@ class LevelLoadingSystem extends System {
     //Level-Datei lesen und Entities erstellen
     private function parseLevel(xml: Xml) : Void {
 
-        var data: Fast = new Fast(xml.firstElement());
+        data = new Fast(xml.firstElement());
 
         for (property in data.node.CustomProperties.nodes.Property) {
             if (property.att.Name == "name") level.name = property.node.string.innerData;
@@ -92,6 +93,7 @@ class LevelLoadingSystem extends System {
             case "tree": engine.addEntity( new app.entities.Tree(parsePosition(item), parseScale(item), parseRotation(item)) );
             case "boost": engine.addEntity( new app.entities.Boost(parsePosition(item), parseScale(item), parseRotation(item)) );
             case "infobox": engine.addEntity( new app.entities.Infobox(parsePosition(item), parseScale(item), parseRotation(item), parseView(item)) );
+            case "path": engine.addEntity( new app.entities.Path(parseTarget(item), parsePolygon(item, true)[0], parsePolygon(item, true)[1]) );
             default: throw "Error while loading level: Unknow Entity of type '" + type + "'";
         }
 
@@ -128,6 +130,39 @@ class LevelLoadingSystem extends System {
         return new Vector2(x,y);
     }
 
+
+    private function parseTarget(item: Fast) : Entity {
+
+        var targetName: String = "";
+
+        //"target" in der XML-Datei finden
+        for (property in item.node.CustomProperties.nodes.Property) {
+            if (property.att.Name == "target") targetName = property.innerData;
+        }
+
+
+        var targetPosition: Vector2 = new Vector2(0,0);
+
+        //Position des targets ermitteln
+        for (layer in data.node.Layers.nodes.Layer) {
+            for (item in layer.node.Items.nodes.Item) {
+
+                //Prüfen, ob es sich beim aktuellen Item um den target handelt.
+                if (item.att.Name == targetName) targetPosition = parsePosition(item);
+
+            }
+        }
+
+
+        var target: Entity = null;
+
+        //Zuletzt mit Hilfe der Position eine Referenz zum entsprechendem Entity bekommen
+        for (positionNode in renderNodes) {
+            if (positionNode.position.vector == targetPosition) target = positionNode.entity;
+        }
+
+        return target;
+    }
 
     private function parsePolygon(item: Fast, absolute: Bool = false) : Array<Vector2> {
 
