@@ -501,8 +501,8 @@
             <Items>
                 <Item xsi:type="TextureItem" Name="tree" Visible="true">
                     <Position>
-                        <X>959</X>
-                        <Y>-148</Y>
+                        <X>-541</X>
+                        <Y>-313</Y>
                     </Position>
                     <CustomProperties>
                         <Property Name="type" Type="string" Description="">

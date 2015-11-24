@@ -54,9 +54,6 @@ class Game extends Sprite {
 
         engine = new Engine();
 
-        //Ein Entity erstellen, das das Spiel repräsentiert
-        engine.addEntity( new Entity().add(new GameState()) );
-
 
         //Systeme der Engine hinzufügen
         engine.addSystem( new InputSystem(systemEvents, this),      SystemPriorities.update );

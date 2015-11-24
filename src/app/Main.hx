@@ -14,10 +14,6 @@ import app.Configuration;
 
 import haxe.ui.toolkit.core.PopupManager;
 
-import lime.ui.Gamepad;
-import lime.ui.GamepadAxis;
-import lime.ui.GamepadButton;
-
 class Main extends Sprite {
     
     
