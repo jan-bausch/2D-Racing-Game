@@ -53,15 +53,15 @@ class UISystem extends System {
 
         //Es reicht, wenn wir die Zeitanzeige nur alle 50ms aktualisieren.
         //Deswegen überspringen wir einige Durchgänge
-
         counter += elapsed;
 
+
         if (counter > 0.05) {
+    
             for (gameNode in gameNodes) {
 
-                //Milisekunden in Stunde:Minute:Sekunde:Milisekunde umwandeln
+                //Milisekunden in Minuten, Sekunden und Milisekunden umwandeln
                 var time: Time = Time.fromMiliseconds(gameNode.gameState.time);
-
 
                 //Aktuelle Zeit anzeigen
                 scene.view.findChild("minutes", Text, true).text = time.minutesString + ":" + time.secondsString;

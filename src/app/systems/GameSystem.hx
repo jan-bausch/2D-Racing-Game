@@ -151,6 +151,7 @@ class GameSystem extends System {
         //Einmalig zählen, wieviele Checkpoints das Level besitzt
         var totalCheckpoints: Int = 0;
         for (checkpointNode in checkpointNodes) totalCheckpoints++;
+
         //Schließlich im Game-Entity speichern
         for (gameNode in gameNodes) gameNode.gameState.totalCheckpoints = totalCheckpoints;
 

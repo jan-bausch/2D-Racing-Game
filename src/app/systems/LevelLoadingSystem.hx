@@ -12,6 +12,7 @@ import openfl.Assets;
 import app.math.Vector2;
 import app.entities.Level;
 import app.nodes.RenderNode;
+import app.components.GameState;
 
 import haxe.ui.toolkit.core.interfaces.IDisplayObjectContainer;
 import haxe.ui.toolkit.core.Toolkit;
@@ -51,6 +52,7 @@ class LevelLoadingSystem extends System {
 
         //Loaded-Level Event auslösen
         events.LOADED_LEVEL.dispatch(level);
+
     }
 
     //Level-Datei lesen und Entities erstellen
@@ -213,8 +215,8 @@ class LevelLoadingSystem extends System {
 
         var entitiesToBeRemoved: Array<Entity> = new Array<Entity>();
 
-        for (renderNode in renderNodes) {
-            entitiesToBeRemoved.push(renderNode.entity);
+        for (entity in engine.entities) {
+            if (entity.has(GameState) == false) entitiesToBeRemoved.push(entity);
         }
 
         for (entity in entitiesToBeRemoved) {
