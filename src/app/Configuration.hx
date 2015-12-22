@@ -10,7 +10,7 @@ class Configuration{
     public var DEBUG: Bool;
     public var VOLUME: Float;
     public var FULLSCREEN: Bool;
-
+    public var LEVEL: Int;
     public var HIGHSCORES: Array<Float>;
 
 
@@ -27,6 +27,7 @@ class Configuration{
         DEBUG = (io.data.DEBUG == null) ? false : io.data.DEBUG;
         FULLSCREEN = (io.data.FULLSCREEN == null) ? false : io.data.FULLSCREEN;
         VOLUME = (io.data.VOLUME == null) ? 1 : io.data.VOLUME;
+        LEVEL = (io.data.LEVEL == null) ? 0 : io.data.LEVEL;
         HIGHSCORES = (io.data.HIGHSCORES == null) ? [0] : io.data.HIGHSCORES;
 
 
@@ -40,7 +41,8 @@ class Configuration{
         //Werte in Datei schreiben
         io.data.DEBUG = DEBUG;          
         io.data.FULLSCREEN = FULLSCREEN;    
-        io.data.VOLUME = VOLUME;        
+        io.data.VOLUME = VOLUME;
+        io.data.LEVEL = LEVEL;       
         io.data.HIGHSCORES = HIGHSCORES;
 
         //Datei auf Festplatte schreiben

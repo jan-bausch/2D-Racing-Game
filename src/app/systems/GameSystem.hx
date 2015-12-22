@@ -82,7 +82,10 @@ class GameSystem extends System {
         if (configuration.HIGHSCORES[level.id] > time || configuration.HIGHSCORES[level.id] == 0) configuration.HIGHSCORES[level.id] = time;
         
         //Wenn Level gewonnnen, nächstes Level freischalten
-        if (configuration.HIGHSCORES.length == level.id + 1 && result != Result.Fail) configuration.HIGHSCORES.push(0);
+        if (configuration.LEVEL == level.id && result != Result.Fail) {
+            configuration.HIGHSCORES.push(0);
+            configuration.LEVEL++;
+        }
 
         configuration.save();
 
