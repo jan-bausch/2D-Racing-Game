@@ -22,6 +22,7 @@ import app.components.Position;
 import app.components.CheckpointComponent;
 import app.math.CollisionResponse;
 import app.math.Vector2;
+import app.Configuration;
 
 class GameSystem extends System {
 

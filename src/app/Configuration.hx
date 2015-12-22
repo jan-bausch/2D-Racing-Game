@@ -12,10 +12,12 @@ class Configuration{
     public var FULLSCREEN: Bool;
     public var LEVEL: Int;
     public var HIGHSCORES: Array<Float>;
+    public var TOTALLEVELS: Int;
 
 
     public function new() {
         load();
+        this.TOTALLEVELS = 1;
     }
 
     public function load() : Void {

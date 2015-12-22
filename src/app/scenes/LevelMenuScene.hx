@@ -22,7 +22,7 @@ class LevelMenuScene extends FullscreenScene {
         var container: Grid = view.findChild("level-container", Grid, true);
 
         //Buttons für jedes Level dynamisch hinzufügen
-        for (i in 0...10) {
+        for (i in 0...configuration.TOTALLEVELS) {
             var button: Button = new Button();
             button.text = i+1 + ".";
             button.autoSize = false;

@@ -5,6 +5,8 @@
     backgroundColor: #65464;
 }
 
+
+
 #menu{
     spacingY: 20;
     verticalAlignment: center;
@@ -16,6 +18,13 @@
     verticalAlignment: center;
     horizontalAlignment: center;
     spacing: 30;
+}
+
+
+#game-beaten{
+    verticalAlignment: center;
+    horizontalAlignment: center;
+    spacing: 40;
 }
 
 .level-button{

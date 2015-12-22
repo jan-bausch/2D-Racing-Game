@@ -53,6 +53,3 @@ class SystemEvents {
     }
 
 }
-
-//Die "Ash"-Bibliothek kommt nur mit Signalen bis zu 3 Parametern. Daher erstellen wir Signal4 selbst
-class Signal4<T1, T2, T3, T4> extends SignalBase<T1->T2->T3->T4->Void> {}

@@ -22,11 +22,13 @@ import app.math.Time;
 import app.math.CollisionResponse;
 import app.entities.Level;
 import app.components.UI;
+import app.Configuration;
 
 class UISystem extends System {
 
     private var scene: Scene;   //Verweis auf Sprite des "GameScene"-Objekts
     private var events: SystemEvents;
+    private var configuration: Configuration;
     private var gameNodes: NodeList<GameNode>;
     private var counter: Float;
     private var level: Level;
@@ -35,6 +37,7 @@ class UISystem extends System {
         super();
 
         this.events = events;
+        this.configuration = new Configuration();
         this.scene = scene;
         this.counter = 0;
 
@@ -132,8 +135,8 @@ class UISystem extends System {
 
         new app.scenes.LevelFinishScene(level, result).show();
 
-
     }
+
 
     //Wird aufgerufen, wenn Countdown abgelaufen ist - bzw. wenn die Zeitmessung beginnt.
     private function onGameStart() : Void {

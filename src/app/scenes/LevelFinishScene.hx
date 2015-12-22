@@ -12,12 +12,12 @@ import haxe.ui.toolkit.events.UIEvent;
 import app.scenes.WindowScene;
 import app.scenes.LevelMenuScene;
 import app.scenes.LevelOpeningScene;
-import app.systems.SystemEvents;
 import app.entities.Level;
+import app.Configuration;
 
 class LevelFinishScene extends WindowScene {
 
-    private var events: SystemEvents;
+    private var configuration: Configuration;
 
     public function new(level: Level, _result: Result) {
 
@@ -55,7 +55,20 @@ class LevelFinishScene extends WindowScene {
 
         //Buttonevents festlegen
         view.findChild("restart", Button, true).onClick = function(e:UIEvent){   new GameScene(level.id).show();    };
-        view.findChild("continue", Button, true).onClick = function(e:UIEvent){    new LevelMenuScene().show();    };
+        view.findChild("continue", Button, true).onClick = function(e:UIEvent) {    
+
+            this.configuration = new Configuration();
+
+            //Prüfen, ob das Spiel besiegt wurde
+            if (configuration.LEVEL >= configuration.TOTALLEVELS) {
+                //Wenn besiegt, Game-Beaten-Scene anzeigen
+                new app.scenes.GameBeatenScene().show();
+            } else {
+                //Wenn nicht besiegt, normales Menü anzeigen
+                 new LevelMenuScene().show();
+            }
+
+        };
 
     }
 
