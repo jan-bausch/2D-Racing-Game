@@ -77,7 +77,8 @@ class RenderSystem extends System {
             }
 
             //Zoom und Blur festlegen
-            zoom += cameraNode.camera.zoom;
+            //Zoom verändert sich relativ zur Fensterhöhe
+            zoom += cameraNode.camera.zoom * (Lib.current.stage.stageHeight/600);
             blur = cameraNode.camera.blur;
             focusedEntities++;
         }
