@@ -14,6 +14,6 @@
     </vbox>
 
 
-    <image resource="assets/ui/car.png" id="car" height="90%" />
+    <image resource="assets/ui/car.png" id="car" height="70%" />
 
 </box>
