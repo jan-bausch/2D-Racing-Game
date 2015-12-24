@@ -9,7 +9,7 @@
 
         <image resource="assets/ui/game-beaten.png" id="game-beaten" height="300" />
 
-        <button text="Zurück zum Hauptmenü" id="main-menu" horizontalAlign="center" />
+        <button text="Zurück zum Hauptmenü" id="main-menu" horizontalAlign="center"/>
 
     </vbox>
 

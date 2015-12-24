@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
     
-    <meta title="Wöhler-Racer" package="de.woehlerschule.racer" version="1.0.0" company="Wöhlerschule" />
+    <meta title="Racer" package="de.woehlerschule.racer" version="1.0.0" company="Wöhlerschule" />
     <app main="app.Main" path="build" file="Woehler-Racer"/>
     
     <window background="#ffffff" fps="60" orientation="portrait" />

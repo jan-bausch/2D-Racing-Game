@@ -33,10 +33,15 @@
     fontSize: 30;
 }
 
-#car{
+
+#car-wrapper{
     verticalAlignment: center;
     horizontalAlignment: right;
-    paddingRight: 50;
+    width: 40%;
+}
+
+#car{
+    verticalAlignment: left;
 }
 
 #menu Button{
