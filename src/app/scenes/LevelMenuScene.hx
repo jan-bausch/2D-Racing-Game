@@ -32,6 +32,10 @@ class LevelMenuScene extends FullscreenScene {
             container.addChild(button); 
         }
 
+
+        //onClick-Events registrieren
+        view.findChild("main-menu", Button, true).onClick = function(e:UIEvent){    new MainMenuScene().show();    };
+        
     }
 
 }

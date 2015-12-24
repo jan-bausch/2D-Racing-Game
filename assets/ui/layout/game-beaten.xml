@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
-<box width="100%" height="100%" style='backgroundImage:"assets/ui/background.png"'>
+<box width="100%" height="100%" style='backgroundImage:"assets/ui/background.png";'>
+
+    <box width="100%" height="85%" verticalAlign="top" style="paddingTop: 30">
 
 
-    <vbox horizontalAlign="center" verticalAlign="center">
+        <text text="Du hast das Spiel bezwungen!" verticalAlign="top" horizontalAlign="center" style="fontSize:40;color:0xFFFFFF;"/>
 
-        <text text="Du hast das Spiel bezwungen!" style="fontSize:30" horizontalAlign="center"/>
+        <image resource="assets/ui/game-beaten.png" id="game-beaten" height="60%" />
 
-        <image resource="assets/ui/game-beaten.png" id="game-beaten" height="300" />
+        <button text="Zurück zum Hauptmenü" id="main-menu" horizontalAlign="center" verticalAlign="bottom"/>
 
-        <button text="Zurück zum Hauptmenü" id="main-menu" horizontalAlign="center"/>
 
-    </vbox>
-
+    </box>
 </box>
