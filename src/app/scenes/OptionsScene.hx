@@ -45,7 +45,7 @@ class OptionsScene extends PopupScene {
 
         view.findChild("fullscreen", OptionBox, true).selected = configuration.FULLSCREEN;
         view.findChild("debug", CheckBox, true).selected = configuration.DEBUG;
-        view.findChild("volume", HSlider, true).pos = configuration.VOLUME * 100;
+        view.findChild("volume", OptionBox, true).selected = configuration.VOLUME;
 
         return view;
     }
@@ -56,7 +56,7 @@ class OptionsScene extends PopupScene {
 
         configuration.FULLSCREEN = view.findChild("fullscreen", OptionBox, true).selected;
         configuration.DEBUG = view.findChild("debug", CheckBox, true).selected;
-        configuration.VOLUME = view.findChild("volume", HSlider, true).pos / 100;
+        configuration.VOLUME = view.findChild("volume", OptionBox, true).selected;
 
         configuration.save();
 

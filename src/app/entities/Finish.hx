@@ -8,11 +8,13 @@ import app.components.Position;
 import app.components.Display;
 import app.math.Vector2;
 import app.components.Collision;
-import app.entities.sprites.ImageSprite;
+import app.entities.sprites.StretchedImageSprite;
 
 
 class Finish extends Entity {
 
+
+    
     public function new(position: Vector2, scale: Vector2, rotation: Float) {
         super();
 
@@ -21,7 +23,7 @@ class Finish extends Entity {
             height = bitmap.height * scale.y;
             
         this.add( new Position(position, rotation) );
-        this.add( new Display(new ImageSprite(width, height, bitmap)) );
+        this.add( new Display(new StretchedImageSprite(width, height, bitmap)) );
         this.add( new Collision(width, height, false) );
 
 

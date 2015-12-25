@@ -21,7 +21,7 @@ class Barrier extends Entity {
             height = bitmap.height * scale.y;
             
         this.add( new Position(position, rotation) );
-        this.add( new Display(new StretchedImageSprite(width, height, bitmap)) );
+        this.add( new Display(new StretchedImageSprite(width  + 30*scale.x, height + 30*scale.y, bitmap)) );
         this.add( new Collision(width, height) );
 
 

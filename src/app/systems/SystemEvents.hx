@@ -29,6 +29,7 @@ class SystemEvents {
 
     public var CAN_ENTITY_MOVE: Signal3<Entity, Vector2, CollisionResponse -> Void>;
 
+    public var CAR_CRASH: Signal0;
     public var CAR_BREAK_BEGIN: Signal0;
     public var CAR_BREAK_END: Signal0;
 
@@ -48,6 +49,7 @@ class SystemEvents {
         CHECKPOINT_ACTIVATED = new Signal1<Int>();
 
         CAN_ENTITY_MOVE = new Signal3<Entity, Vector2, CollisionResponse -> Void>();
+        CAR_CRASH = new Signal0();
         CAR_BREAK_BEGIN = new Signal0();
         CAR_BREAK_END = new Signal0();
     }

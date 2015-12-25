@@ -142,6 +142,9 @@ class VehicleSystem extends System {
                         vehicle.velocity /= 2;
                         position.vector -= response.offset;
 
+                        //Zuletzt Event auslösen
+                        if (vehicle.velocity > 5) events.CAR_CRASH.dispatch();
+
                     }
                 }
 

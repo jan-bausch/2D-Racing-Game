@@ -8,7 +8,7 @@ class Configuration{
     private static inline var id: String = "configuration";
 
     public var DEBUG: Bool;
-    public var VOLUME: Float;
+    public var VOLUME: Bool;
     public var FULLSCREEN: Bool;
     public var LEVEL: Int;
     public var HIGHSCORES: Array<Float>;
@@ -28,7 +28,7 @@ class Configuration{
         //Werte herauslesen, falls sie gesetzt sind
         DEBUG = (io.data.DEBUG == null) ? false : io.data.DEBUG;
         FULLSCREEN = (io.data.FULLSCREEN == null) ? false : io.data.FULLSCREEN;
-        VOLUME = (io.data.VOLUME == null) ? 1 : io.data.VOLUME;
+        VOLUME = (io.data.VOLUME == null) ? true : io.data.VOLUME;
         LEVEL = (io.data.LEVEL == null) ? 0 : io.data.LEVEL;
         HIGHSCORES = (io.data.HIGHSCORES == null) ? [0] : io.data.HIGHSCORES;
 

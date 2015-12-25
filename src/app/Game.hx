@@ -59,7 +59,7 @@ class Game extends Sprite {
         engine.addSystem( new InputSystem(systemEvents, this),      SystemPriorities.update );
         engine.addSystem( new VehicleSystem(systemEvents),          SystemPriorities.update );
         engine.addSystem( new CameraSystem(systemEvents),           SystemPriorities.update );
-        if (configuration.VOLUME > 0)
+        if (configuration.VOLUME)
             engine.addSystem( new SoundSystem(systemEvents),            SystemPriorities.update );
         engine.addSystem( new AnimationSystem(systemEvents),        SystemPriorities.update );
         engine.addSystem( new CollisionSystem(systemEvents),        SystemPriorities.collisions );

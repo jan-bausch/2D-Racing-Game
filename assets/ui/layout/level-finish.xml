@@ -5,7 +5,7 @@
         
         <spacer height="30" />
 
-        <image id="icon" horizontalAlign="center" width="130" height="130" resource="assets/ui/play.png" stretch="true" />
+        <image id="icon" horizontalAlign="center" width="130" height="130" stretch="true" />
 
         <spacer height="15" />
 

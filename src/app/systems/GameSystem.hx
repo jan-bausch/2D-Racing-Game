@@ -12,6 +12,7 @@ import app.systems.SystemEvents;
 import app.entities.Level;
 import app.entities.Car;
 import app.entities.Finish;
+import app.entities.sprites.StretchedImageSprite;
 import app.nodes.GameNode;
 import app.nodes.VehicleNode;
 import app.nodes.CheckpointNode;
@@ -20,6 +21,7 @@ import app.components.GameState;
 import app.components.Vehicle;
 import app.components.Position;
 import app.components.CheckpointComponent;
+import app.components.Display;
 import app.math.CollisionResponse;
 import app.math.Vector2;
 import app.Configuration;
@@ -105,6 +107,7 @@ class GameSystem extends System {
                 //Zähler für aktivierte Checkpoints hochzählen
                 for (gameNode in gameNodes) {
                     gameNode.gameState.activatedCheckpoints++;
+
                     //Event auslösen
                     events.CHECKPOINT_ACTIVATED.dispatch(gameNode.gameState.activatedCheckpoints);
                 }
@@ -121,6 +124,7 @@ class GameSystem extends System {
 
                     //Level beendet
                     running = false;
+
                     //GameEnd-Event auslösen
                     for (gameNode in gameNodes) events.GAME_END.dispatch(gameNode.gameState.time, level.rate(gameNode.gameState.time));
 
