@@ -19,7 +19,7 @@ class Infobox extends Entity {
 
         var width = 100 * scale.x,
             height = 100 * scale.y;
-            
+
         this.add( new Position(position, rotation) );
         this.add( new Collision(width, height, false) );
         this.add( new UI(view) );

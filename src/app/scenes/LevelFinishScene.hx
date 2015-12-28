@@ -60,7 +60,7 @@ class LevelFinishScene extends WindowScene {
             this.configuration = new Configuration();
 
             //Prüfen, ob das Spiel besiegt wurde
-            if (configuration.LEVEL >= configuration.TOTALLEVELS) {
+            if (configuration.LEVEL == configuration.TOTALLEVELS) {
                 //Wenn besiegt, Game-Beaten-Scene anzeigen
                 new app.scenes.GameBeatenScene().show();
             } else {

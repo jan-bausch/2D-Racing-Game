@@ -3,10 +3,10 @@
     <Layers>
         <Layer Name="Ground" Visible="true">
             <Items>
-                <Item xsi:type="PathItem" Name="Path_0044" Visible="true">
+                <Item xsi:type="PathItem" Name="Grasboden" Visible="true">
                     <Position>
-                        <X>-3337</X>
-                        <Y>-2064</Y>
+                        <X>-776</X>
+                        <Y>-409</Y>
                     </Position>
                     <CustomProperties>
                         <Property Name="type" Type="string" Description="">
@@ -19,38 +19,54 @@
                             <Y>0</Y>
                         </Vector2>
                         <Vector2>
-                            <X>13290</X>
-                            <Y>-750</Y>
+                            <X>-351.2578</X>
+                            <Y>1095.3241</Y>
                         </Vector2>
                         <Vector2>
-                            <X>13180</X>
-                            <Y>6510</Y>
+                            <X>539.8011</X>
+                            <Y>2772.55566</Y>
                         </Vector2>
                         <Vector2>
-                            <X>-360</X>
-                            <Y>6320</Y>
+                            <X>6321.97559</X>
+                            <Y>1691.81677</Y>
+                        </Vector2>
+                        <Vector2>
+                            <X>6434.56738</X>
+                            <Y>277.2563</Y>
+                        </Vector2>
+                        <Vector2>
+                            <X>3356.38647</X>
+                            <Y>-567.1737</Y>
                         </Vector2>
                     </LocalPoints>
                     <WorldPoints>
                         <Vector2>
-                            <X>-3337</X>
-                            <Y>-2064</Y>
+                            <X>-776</X>
+                            <Y>-409</Y>
                         </Vector2>
                         <Vector2>
-                            <X>9953</X>
-                            <Y>-2814</Y>
+                            <X>-1127.25781</X>
+                            <Y>686.3241</Y>
                         </Vector2>
                         <Vector2>
-                            <X>9843</X>
-                            <Y>4446</Y>
+                            <X>-236.198914</X>
+                            <Y>2363.55566</Y>
                         </Vector2>
                         <Vector2>
-                            <X>-3697</X>
-                            <Y>4256</Y>
+                            <X>5545.97559</X>
+                            <Y>1282.81677</Y>
+                        </Vector2>
+                        <Vector2>
+                            <X>5658.56738</X>
+                            <Y>-131.743713</Y>
+                        </Vector2>
+                        <Vector2>
+                            <X>2580.38647</X>
+                            <Y>-976.1737</Y>
                         </Vector2>
                     </WorldPoints>
                     <IsPolygon>true</IsPolygon>
-                    <LineWidth>10</LineWidth>
+                    <LineWidth>4</LineWidth>
                     <LineColor>
                         <R>0</R>
                         <G>255</G>
@@ -61,8 +77,8 @@
                 </Item>
                 <Item xsi:type="PathItem" Name="Straße" Visible="true">
                     <Position>
-                        <X>-725</X>
-                        <Y>386</Y>
+                        <X>-325</X>
+                        <Y>389</Y>
                     </Position>
                     <CustomProperties>
                         <Property Name="type" Type="string" Description="">
@@ -78,46 +94,46 @@
                             <Y>0</Y>
                         </Vector2>
                         <Vector2>
-                            <X>3745.082</X>
-                            <Y>-32.3204956</Y>
+                            <X>4772.7334</X>
+                            <Y>-87.4607</Y>
                         </Vector2>
                         <Vector2>
-                            <X>5085.45459</X>
-                            <Y>89.90137</Y>
+                            <X>4936.36865</X>
+                            <Y>177.185455</Y>
                         </Vector2>
                         <Vector2>
-                            <X>6092.89844</X>
-                            <Y>633.6471</Y>
+                            <X>4770.54639</X>
+                            <Y>404.2953</Y>
                         </Vector2>
                         <Vector2>
-                            <X>6787.135</X>
-                            <Y>1615.06982</Y>
+                            <X>12.1542969</X>
+                            <Y>505.880859</Y>
                         </Vector2>
                     </LocalPoints>
                     <WorldPoints>
                         <Vector2>
-                            <X>-725</X>
-                            <Y>386</Y>
+                            <X>-325</X>
+                            <Y>389</Y>
                         </Vector2>
                         <Vector2>
-                            <X>3020.082</X>
-                            <Y>353.6795</Y>
+                            <X>4447.7334</X>
+                            <Y>301.5393</Y>
                         </Vector2>
                         <Vector2>
-                            <X>4360.45459</X>
-                            <Y>475.901367</Y>
+                            <X>4611.36865</X>
+                            <Y>566.1854</Y>
                         </Vector2>
                         <Vector2>
-                            <X>5367.89844</X>
-                            <Y>1019.64709</Y>
+                            <X>4445.54639</X>
+                            <Y>793.2953</Y>
                         </Vector2>
                         <Vector2>
-                            <X>6062.135</X>
-                            <Y>2001.06982</Y>
+                            <X>-312.8457</X>
+                            <Y>894.880859</Y>
                         </Vector2>
                     </WorldPoints>
                     <IsPolygon>false</IsPolygon>
-                    <LineWidth>500</LineWidth>
+                    <LineWidth>400</LineWidth>
                     <LineColor>
                         <R>0</R>
                         <G>0</G>
@@ -125,6 +141,130 @@
                         <A>145</A>
                         <PackedValue>2432696320</PackedValue>
                     </LineColor>
+                </Item>
+                <Item xsi:type="TextureItem" Name="Booster" Visible="true">
+                    <Position>
+                        <X>703</X>
+                        <Y>369</Y>
+                    </Position>
+                    <CustomProperties>
+                        <Property Name="type" Type="string" Description="">
+                            <string>boost</string>
+                        </Property>
+                    </CustomProperties>
+                    <Rotation>-4.712896</Rotation>
+                    <Scale>
+                        <X>0.6124492</X>
+                        <Y>1.61244917</Y>
+                    </Scale>
+                    <TintColor>
+                        <R>255</R>
+                        <G>255</G>
+                        <B>255</B>
+                        <A>255</A>
+                        <PackedValue>4294967295</PackedValue>
+                    </TintColor>
+                    <FlipHorizontally>false</FlipHorizontally>
+                    <FlipVertically>false</FlipVertically>
+                    <texture_filename>textures\boost.png</texture_filename>
+                    <asset_name>textures\boost</asset_name>
+                    <Origin>
+                        <X>116</X>
+                        <Y>223</Y>
+                    </Origin>
+                </Item>
+                <Item xsi:type="TextureItem" Name="Checkpoint" Visible="true">
+                    <Position>
+                        <X>1591</X>
+                        <Y>349</Y>
+                    </Position>
+                    <CustomProperties>
+                        <Property Name="type" Type="string" Description="">
+                            <string>checkpoint</string>
+                        </Property>
+                    </CustomProperties>
+                    <Rotation>0</Rotation>
+                    <Scale>
+                        <X>2.04175019</X>
+                        <Y>2.04175019</Y>
+                    </Scale>
+                    <TintColor>
+                        <R>255</R>
+                        <G>255</G>
+                        <B>255</B>
+                        <A>255</A>
+                        <PackedValue>4294967295</PackedValue>
+                    </TintColor>
+                    <FlipHorizontally>false</FlipHorizontally>
+                    <FlipVertically>false</FlipVertically>
+                    <texture_filename>textures\checkpoint.png</texture_filename>
+                    <asset_name>textures\checkpoint</asset_name>
+                    <Origin>
+                        <X>21</X>
+                        <Y>100</Y>
+                    </Origin>
+                </Item>
+                <Item xsi:type="TextureItem" Name="Texture_0034" Visible="true">
+                    <Position>
+                        <X>4571</X>
+                        <Y>564</Y>
+                    </Position>
+                    <CustomProperties>
+                        <Property Name="type" Type="string" Description="">
+                            <string>checkpoint</string>
+                        </Property>
+                    </CustomProperties>
+                    <Rotation>-1.54727125</Rotation>
+                    <Scale>
+                        <X>2.04175019</X>
+                        <Y>2.04175019</Y>
+                    </Scale>
+                    <TintColor>
+                        <R>255</R>
+                        <G>255</G>
+                        <B>255</B>
+                        <A>255</A>
+                        <PackedValue>4294967295</PackedValue>
+                    </TintColor>
+                    <FlipHorizontally>false</FlipHorizontally>
+                    <FlipVertically>false</FlipVertically>
+                    <texture_filename>textures\checkpoint.png</texture_filename>
+                    <asset_name>textures\checkpoint</asset_name>
+                    <Origin>
+                        <X>21</X>
+                        <Y>100</Y>
+                    </Origin>
+                </Item>
+                <Item xsi:type="TextureItem" Name="Texture_0035" Visible="true">
+                    <Position>
+                        <X>2471</X>
+                        <Y>834</Y>
+                    </Position>
+                    <CustomProperties>
+                        <Property Name="type" Type="string" Description="">
+                            <string>checkpoint</string>
+                        </Property>
+                    </CustomProperties>
+                    <Rotation>0.0218857527</Rotation>
+                    <Scale>
+                        <X>2.04175019</X>
+                        <Y>2.04175019</Y>
+                    </Scale>
+                    <TintColor>
+                        <R>255</R>
+                        <G>255</G>
+                        <B>255</B>
+                        <A>255</A>
+                        <PackedValue>4294967295</PackedValue>
+                    </TintColor>
+                    <FlipHorizontally>false</FlipHorizontally>
+                    <FlipVertically>false</FlipVertically>
+                    <texture_filename>textures\checkpoint.png</texture_filename>
+                    <asset_name>textures\checkpoint</asset_name>
+                    <Origin>
+                        <X>21</X>
+                        <Y>100</Y>
+                    </Origin>
                 </Item>
             </Items>
             <ScrollSpeed>
@@ -136,18 +276,18 @@
             <Items>
                 <Item xsi:type="TextureItem" Name="Ziel" Visible="true">
                     <Position>
-                        <X>5791</X>
-                        <Y>1617</Y>
+                        <X>-114</X>
+                        <Y>890</Y>
                     </Position>
                     <CustomProperties>
                         <Property Name="type" Type="string" Description="">
                             <string>finish</string>
                         </Property>
                     </CustomProperties>
-                    <Rotation>0.9240253</Rotation>
+                    <Rotation>-0.01220125</Rotation>
                     <Scale>
-                        <X>2.456566</X>
-                        <Y>2.51396751</Y>
+                        <X>1.954334</X>
+                        <Y>1.954334</Y>
                     </Scale>
                     <TintColor>
                         <R>255</R>
@@ -167,15 +307,15 @@
                 </Item>
                 <Item xsi:type="TextureItem" Name="Auto" Visible="true">
                     <Position>
-                        <X>-478</X>
-                        <Y>395</Y>
+                        <X>-528</X>
+                        <Y>391</Y>
                     </Position>
                     <CustomProperties>
                         <Property Name="type" Type="string" Description="">
                             <string>car</string>
                         </Property>
                     </CustomProperties>
-                    <Rotation>1.57079637</Rotation>
+                    <Rotation>0</Rotation>
                     <Scale>
                         <X>1</X>
                         <Y>1</Y>
@@ -196,17 +336,79 @@
                         <Y>100</Y>
                     </Origin>
                 </Item>
-                <Item xsi:type="TextureItem" Name="Texture_0025" Visible="true">
+                <Item xsi:type="TextureItem" Name="Barrier1" Visible="true">
                     <Position>
-                        <X>6193</X>
-                        <Y>1904</Y>
+                        <X>4422</X>
+                        <Y>-45</Y>
                     </Position>
                     <CustomProperties>
                         <Property Name="type" Type="string" Description="barrier">
                             <string>barrier</string>
                         </Property>
                     </CustomProperties>
-                    <Rotation>-2.34718561</Rotation>
+                    <Rotation>-1.54581714</Rotation>
+                    <Scale>
+                        <X>0.453259081</X>
+                        <Y>0.453259081</Y>
+                    </Scale>
+                    <TintColor>
+                        <R>255</R>
+                        <G>255</G>
+                        <B>255</B>
+                        <A>255</A>
+                        <PackedValue>4294967295</PackedValue>
+                    </TintColor>
+                    <FlipHorizontally>false</FlipHorizontally>
+                    <FlipVertically>false</FlipVertically>
+                    <texture_filename>textures\barrier.png</texture_filename>
+                    <asset_name>textures\barrier</asset_name>
+                    <Origin>
+                        <X>79</X>
+                        <Y>202</Y>
+                    </Origin>
+                </Item>
+                <Item xsi:type="TextureItem" Name="Texture_0025" Visible="true">
+                    <Position>
+                        <X>4465</X>
+                        <Y>1095</Y>
+                    </Position>
+                    <CustomProperties>
+                        <Property Name="type" Type="string" Description="barrier">
+                            <string>barrier</string>
+                        </Property>
+                    </CustomProperties>
+                    <Rotation>-1.54581714</Rotation>
+                    <Scale>
+                        <X>0.453259081</X>
+                        <Y>0.453259081</Y>
+                    </Scale>
+                    <TintColor>
+                        <R>255</R>
+                        <G>255</G>
+                        <B>255</B>
+                        <A>255</A>
+                        <PackedValue>4294967295</PackedValue>
+                    </TintColor>
+                    <FlipHorizontally>false</FlipHorizontally>
+                    <FlipVertically>false</FlipVertically>
+                    <texture_filename>textures\barrier.png</texture_filename>
+                    <asset_name>textures\barrier</asset_name>
+                    <Origin>
+                        <X>79</X>
+                        <Y>202</Y>
+                    </Origin>
+                </Item>
+                <Item xsi:type="TextureItem" Name="Texture_0026" Visible="true">
+                    <Position>
+                        <X>5028</X>
+                        <Y>545</Y>
+                    </Position>
+                    <CustomProperties>
+                        <Property Name="type" Type="string" Description="barrier">
+                            <string>barrier</string>
+                        </Property>
+                    </CustomProperties>
+                    <Rotation>-0.0152721405</Rotation>
                     <Scale>
                         <X>0.453259081</X>
                         <Y>0.453259081</Y>
@@ -229,15 +431,15 @@
                 </Item>
                 <Item xsi:type="TextureItem" Name="Texture_0027" Visible="true">
                     <Position>
-                        <X>5981</X>
-                        <Y>2072</Y>
+                        <X>4881</X>
+                        <Y>928</Y>
                     </Position>
                     <CustomProperties>
                         <Property Name="type" Type="string" Description="barrier">
                             <string>barrier</string>
                         </Property>
                     </CustomProperties>
-                    <Rotation>0.877742231</Rotation>
+                    <Rotation>0.5989951</Rotation>
                     <Scale>
                         <X>0.453259081</X>
                         <Y>0.453259081</Y>
@@ -258,420 +460,17 @@
                         <Y>202</Y>
                     </Origin>
                 </Item>
-                <Item xsi:type="TextureItem" Name="Texture_0045" Visible="true">
+                <Item xsi:type="TextureItem" Name="Texture_0028" Visible="true">
                     <Position>
-                        <X>5767</X>
-                        <Y>2258</Y>
+                        <X>4891</X>
+                        <Y>171</Y>
                     </Position>
                     <CustomProperties>
                         <Property Name="type" Type="string" Description="barrier">
                             <string>barrier</string>
                         </Property>
                     </CustomProperties>
-                    <Rotation>0.877742231</Rotation>
-                    <Scale>
-                        <X>0.453259081</X>
-                        <Y>0.453259081</Y>
-                    </Scale>
-                    <TintColor>
-                        <R>255</R>
-                        <G>255</G>
-                        <B>255</B>
-                        <A>255</A>
-                        <PackedValue>4294967295</PackedValue>
-                    </TintColor>
-                    <FlipHorizontally>false</FlipHorizontally>
-                    <FlipVertically>false</FlipVertically>
-                    <texture_filename>textures\barrier.png</texture_filename>
-                    <asset_name>textures\barrier</asset_name>
-                    <Origin>
-                        <X>79</X>
-                        <Y>202</Y>
-                    </Origin>
-                </Item>
-                <Item xsi:type="TextureItem" Name="Texture_0046" Visible="true">
-                    <Position>
-                        <X>6419</X>
-                        <Y>1690</Y>
-                    </Position>
-                    <CustomProperties>
-                        <Property Name="type" Type="string" Description="barrier">
-                            <string>barrier</string>
-                        </Property>
-                    </CustomProperties>
-                    <Rotation>-2.34718561</Rotation>
-                    <Scale>
-                        <X>0.453259081</X>
-                        <Y>0.453259081</Y>
-                    </Scale>
-                    <TintColor>
-                        <R>255</R>
-                        <G>255</G>
-                        <B>255</B>
-                        <A>255</A>
-                        <PackedValue>4294967295</PackedValue>
-                    </TintColor>
-                    <FlipHorizontally>false</FlipHorizontally>
-                    <FlipVertically>false</FlipVertically>
-                    <texture_filename>textures\barrier.png</texture_filename>
-                    <asset_name>textures\barrier</asset_name>
-                    <Origin>
-                        <X>79</X>
-                        <Y>202</Y>
-                    </Origin>
-                </Item>
-                <Item xsi:type="TextureItem" Name="Texture_0048" Visible="true">
-                    <Position>
-                        <X>136</X>
-                        <Y>682</Y>
-                    </Position>
-                    <CustomProperties>
-                        <Property Name="type" Type="string" Description="barrier">
-                            <string>barrier</string>
-                        </Property>
-                    </CustomProperties>
-                    <Rotation>1.57079637</Rotation>
-                    <Scale>
-                        <X>0.453259081</X>
-                        <Y>0.453259081</Y>
-                    </Scale>
-                    <TintColor>
-                        <R>255</R>
-                        <G>255</G>
-                        <B>255</B>
-                        <A>255</A>
-                        <PackedValue>4294967295</PackedValue>
-                    </TintColor>
-                    <FlipHorizontally>false</FlipHorizontally>
-                    <FlipVertically>false</FlipVertically>
-                    <texture_filename>textures\barrier.png</texture_filename>
-                    <asset_name>textures\barrier</asset_name>
-                    <Origin>
-                        <X>79</X>
-                        <Y>202</Y>
-                    </Origin>
-                </Item>
-                <Item xsi:type="TextureItem" Name="Texture_0049" Visible="true">
-                    <Position>
-                        <X>1151</X>
-                        <Y>682</Y>
-                    </Position>
-                    <CustomProperties>
-                        <Property Name="type" Type="string" Description="barrier">
-                            <string>barrier</string>
-                        </Property>
-                    </CustomProperties>
-                    <Rotation>1.57079637</Rotation>
-                    <Scale>
-                        <X>0.453259081</X>
-                        <Y>0.453259081</Y>
-                    </Scale>
-                    <TintColor>
-                        <R>255</R>
-                        <G>255</G>
-                        <B>255</B>
-                        <A>255</A>
-                        <PackedValue>4294967295</PackedValue>
-                    </TintColor>
-                    <FlipHorizontally>false</FlipHorizontally>
-                    <FlipVertically>false</FlipVertically>
-                    <texture_filename>textures\barrier.png</texture_filename>
-                    <asset_name>textures\barrier</asset_name>
-                    <Origin>
-                        <X>79</X>
-                        <Y>202</Y>
-                    </Origin>
-                </Item>
-                <Item xsi:type="TextureItem" Name="Texture_0050" Visible="true">
-                    <Position>
-                        <X>1991</X>
-                        <Y>667</Y>
-                    </Position>
-                    <CustomProperties>
-                        <Property Name="type" Type="string" Description="barrier">
-                            <string>barrier</string>
-                        </Property>
-                    </CustomProperties>
-                    <Rotation>1.57079637</Rotation>
-                    <Scale>
-                        <X>0.453259081</X>
-                        <Y>0.453259081</Y>
-                    </Scale>
-                    <TintColor>
-                        <R>255</R>
-                        <G>255</G>
-                        <B>255</B>
-                        <A>255</A>
-                        <PackedValue>4294967295</PackedValue>
-                    </TintColor>
-                    <FlipHorizontally>false</FlipHorizontally>
-                    <FlipVertically>false</FlipVertically>
-                    <texture_filename>textures\barrier.png</texture_filename>
-                    <asset_name>textures\barrier</asset_name>
-                    <Origin>
-                        <X>79</X>
-                        <Y>202</Y>
-                    </Origin>
-                </Item>
-                <Item xsi:type="TextureItem" Name="Texture_0051" Visible="true">
-                    <Position>
-                        <X>2816</X>
-                        <Y>682</Y>
-                    </Position>
-                    <CustomProperties>
-                        <Property Name="type" Type="string" Description="barrier">
-                            <string>barrier</string>
-                        </Property>
-                    </CustomProperties>
-                    <Rotation>1.57079637</Rotation>
-                    <Scale>
-                        <X>0.453259081</X>
-                        <Y>0.453259081</Y>
-                    </Scale>
-                    <TintColor>
-                        <R>255</R>
-                        <G>255</G>
-                        <B>255</B>
-                        <A>255</A>
-                        <PackedValue>4294967295</PackedValue>
-                    </TintColor>
-                    <FlipHorizontally>false</FlipHorizontally>
-                    <FlipVertically>false</FlipVertically>
-                    <texture_filename>textures\barrier.png</texture_filename>
-                    <asset_name>textures\barrier</asset_name>
-                    <Origin>
-                        <X>79</X>
-                        <Y>202</Y>
-                    </Origin>
-                </Item>
-                <Item xsi:type="TextureItem" Name="Texture_0052" Visible="true">
-                    <Position>
-                        <X>3676</X>
-                        <Y>732</Y>
-                    </Position>
-                    <CustomProperties>
-                        <Property Name="type" Type="string" Description="barrier">
-                            <string>barrier</string>
-                        </Property>
-                    </CustomProperties>
-                    <Rotation>1.67826688</Rotation>
-                    <Scale>
-                        <X>0.453259081</X>
-                        <Y>0.453259081</Y>
-                    </Scale>
-                    <TintColor>
-                        <R>255</R>
-                        <G>255</G>
-                        <B>255</B>
-                        <A>255</A>
-                        <PackedValue>4294967295</PackedValue>
-                    </TintColor>
-                    <FlipHorizontally>false</FlipHorizontally>
-                    <FlipVertically>false</FlipVertically>
-                    <texture_filename>textures\barrier.png</texture_filename>
-                    <asset_name>textures\barrier</asset_name>
-                    <Origin>
-                        <X>79</X>
-                        <Y>202</Y>
-                    </Origin>
-                </Item>
-                <Item xsi:type="TextureItem" Name="Texture_0053" Visible="true">
-                    <Position>
-                        <X>4856</X>
-                        <Y>1137</Y>
-                    </Position>
-                    <CustomProperties>
-                        <Property Name="type" Type="string" Description="barrier">
-                            <string>barrier</string>
-                        </Property>
-                    </CustomProperties>
-                    <Rotation>2.12976456</Rotation>
-                    <Scale>
-                        <X>0.453259081</X>
-                        <Y>0.453259081</Y>
-                    </Scale>
-                    <TintColor>
-                        <R>255</R>
-                        <G>255</G>
-                        <B>255</B>
-                        <A>255</A>
-                        <PackedValue>4294967295</PackedValue>
-                    </TintColor>
-                    <FlipHorizontally>false</FlipHorizontally>
-                    <FlipVertically>false</FlipVertically>
-                    <texture_filename>textures\barrier.png</texture_filename>
-                    <asset_name>textures\barrier</asset_name>
-                    <Origin>
-                        <X>79</X>
-                        <Y>202</Y>
-                    </Origin>
-                </Item>
-                <Item xsi:type="TextureItem" Name="Texture_0054" Visible="true">
-                    <Position>
-                        <X>5641</X>
-                        <Y>772</Y>
-                    </Position>
-                    <CustomProperties>
-                        <Property Name="type" Type="string" Description="barrier">
-                            <string>barrier</string>
-                        </Property>
-                    </CustomProperties>
-                    <Rotation>2.14760137</Rotation>
-                    <Scale>
-                        <X>0.453259081</X>
-                        <Y>0.453259081</Y>
-                    </Scale>
-                    <TintColor>
-                        <R>255</R>
-                        <G>255</G>
-                        <B>255</B>
-                        <A>255</A>
-                        <PackedValue>4294967295</PackedValue>
-                    </TintColor>
-                    <FlipHorizontally>false</FlipHorizontally>
-                    <FlipVertically>false</FlipVertically>
-                    <texture_filename>textures\barrier.png</texture_filename>
-                    <asset_name>textures\barrier</asset_name>
-                    <Origin>
-                        <X>79</X>
-                        <Y>202</Y>
-                    </Origin>
-                </Item>
-                <Item xsi:type="TextureItem" Name="Texture_0055" Visible="true">
-                    <Position>
-                        <X>4516</X>
-                        <Y>182</Y>
-                    </Position>
-                    <CustomProperties>
-                        <Property Name="type" Type="string" Description="barrier">
-                            <string>barrier</string>
-                        </Property>
-                    </CustomProperties>
-                    <Rotation>2.0307014</Rotation>
-                    <Scale>
-                        <X>0.453259081</X>
-                        <Y>0.453259081</Y>
-                    </Scale>
-                    <TintColor>
-                        <R>255</R>
-                        <G>255</G>
-                        <B>255</B>
-                        <A>255</A>
-                        <PackedValue>4294967295</PackedValue>
-                    </TintColor>
-                    <FlipHorizontally>false</FlipHorizontally>
-                    <FlipVertically>false</FlipVertically>
-                    <texture_filename>textures\barrier.png</texture_filename>
-                    <asset_name>textures\barrier</asset_name>
-                    <Origin>
-                        <X>79</X>
-                        <Y>202</Y>
-                    </Origin>
-                </Item>
-                <Item xsi:type="TextureItem" Name="Texture_0056" Visible="true">
-                    <Position>
-                        <X>3351</X>
-                        <Y>47</Y>
-                    </Position>
-                    <CustomProperties>
-                        <Property Name="type" Type="string" Description="barrier">
-                            <string>barrier</string>
-                        </Property>
-                    </CustomProperties>
-                    <Rotation>1.61866665</Rotation>
-                    <Scale>
-                        <X>0.453259081</X>
-                        <Y>0.453259081</Y>
-                    </Scale>
-                    <TintColor>
-                        <R>255</R>
-                        <G>255</G>
-                        <B>255</B>
-                        <A>255</A>
-                        <PackedValue>4294967295</PackedValue>
-                    </TintColor>
-                    <FlipHorizontally>false</FlipHorizontally>
-                    <FlipVertically>false</FlipVertically>
-                    <texture_filename>textures\barrier.png</texture_filename>
-                    <asset_name>textures\barrier</asset_name>
-                    <Origin>
-                        <X>79</X>
-                        <Y>202</Y>
-                    </Origin>
-                </Item>
-                <Item xsi:type="TextureItem" Name="Texture_0057" Visible="true">
-                    <Position>
-                        <X>2496</X>
-                        <Y>27</Y>
-                    </Position>
-                    <CustomProperties>
-                        <Property Name="type" Type="string" Description="barrier">
-                            <string>barrier</string>
-                        </Property>
-                    </CustomProperties>
-                    <Rotation>1.59604478</Rotation>
-                    <Scale>
-                        <X>0.453259081</X>
-                        <Y>0.453259081</Y>
-                    </Scale>
-                    <TintColor>
-                        <R>255</R>
-                        <G>255</G>
-                        <B>255</B>
-                        <A>255</A>
-                        <PackedValue>4294967295</PackedValue>
-                    </TintColor>
-                    <FlipHorizontally>false</FlipHorizontally>
-                    <FlipVertically>false</FlipVertically>
-                    <texture_filename>textures\barrier.png</texture_filename>
-                    <asset_name>textures\barrier</asset_name>
-                    <Origin>
-                        <X>79</X>
-                        <Y>202</Y>
-                    </Origin>
-                </Item>
-                <Item xsi:type="TextureItem" Name="Texture_0058" Visible="true">
-                    <Position>
-                        <X>1576</X>
-                        <Y>32</Y>
-                    </Position>
-                    <CustomProperties>
-                        <Property Name="type" Type="string" Description="barrier">
-                            <string>barrier</string>
-                        </Property>
-                    </CustomProperties>
-                    <Rotation>1.61866665</Rotation>
-                    <Scale>
-                        <X>0.453259081</X>
-                        <Y>0.453259081</Y>
-                    </Scale>
-                    <TintColor>
-                        <R>255</R>
-                        <G>255</G>
-                        <B>255</B>
-                        <A>255</A>
-                        <PackedValue>4294967295</PackedValue>
-                    </TintColor>
-                    <FlipHorizontally>false</FlipHorizontally>
-                    <FlipVertically>false</FlipVertically>
-                    <texture_filename>textures\barrier.png</texture_filename>
-                    <asset_name>textures\barrier</asset_name>
-                    <Origin>
-                        <X>79</X>
-                        <Y>202</Y>
-                    </Origin>
-                </Item>
-                <Item xsi:type="TextureItem" Name="Texture_0059" Visible="true">
-                    <Position>
-                        <X>711</X>
-                        <Y>27</Y>
-                    </Position>
-                    <CustomProperties>
-                        <Property Name="type" Type="string" Description="barrier">
-                            <string>barrier</string>
-                        </Property>
-                    </CustomProperties>
-                    <Rotation>1.61866665</Rotation>
+                    <Rotation>-0.6988033</Rotation>
                     <Scale>
                         <X>0.453259081</X>
                         <Y>0.453259081</Y>
@@ -702,8 +501,8 @@
             <Items>
                 <Item xsi:type="TextureItem" Name="tree" Visible="true">
                     <Position>
-                        <X>-259</X>
-                        <Y>67</Y>
+                        <X>-541</X>
+                        <Y>-313</Y>
                     </Position>
                     <CustomProperties>
                         <Property Name="type" Type="string" Description="">
@@ -767,8 +566,8 @@
                 </Item>
                 <Item xsi:type="TextureItem" Name="Tutorial 2" Visible="true">
                     <Position>
-                        <X>4152</X>
-                        <Y>675</Y>
+                        <X>3742</X>
+                        <Y>315</Y>
                     </Position>
                     <CustomProperties>
                         <Property Name="type" Type="string" Description="infobox">
@@ -778,10 +577,10 @@
                             <string>&lt;text text="Lenke mit den Pfeiltasten ← und →" /&gt;</string>
                         </Property>
                     </CustomProperties>
-                    <Rotation>0.255798578</Rotation>
+                    <Rotation>0</Rotation>
                     <Scale>
-                        <X>31.4246826</X>
-                        <Y>6.571364</Y>
+                        <X>25.24727</X>
+                        <Y>5.2795763</Y>
                     </Scale>
                     <TintColor>
                         <R>255</R>
@@ -801,8 +600,8 @@
                 </Item>
                 <Item xsi:type="TextureItem" Name="Texture_0038" Visible="true">
                     <Position>
-                        <X>452</X>
-                        <Y>695</Y>
+                        <X>2005</X>
+                        <Y>88</Y>
                     </Position>
                     <CustomProperties>
                         <Property Name="type" Type="string" Description="">
@@ -832,8 +631,8 @@
                 </Item>
                 <Item xsi:type="TextureItem" Name="Texture_0039" Visible="true">
                     <Position>
-                        <X>4045</X>
-                        <Y>8</Y>
+                        <X>5150</X>
+                        <Y>293</Y>
                     </Position>
                     <CustomProperties>
                         <Property Name="type" Type="string" Description="">
@@ -863,8 +662,8 @@
                 </Item>
                 <Item xsi:type="TextureItem" Name="Texture_0040" Visible="true">
                     <Position>
-                        <X>3135</X>
-                        <Y>708</Y>
+                        <X>2335</X>
+                        <Y>1243</Y>
                     </Position>
                     <CustomProperties>
                         <Property Name="type" Type="string" Description="">
@@ -873,8 +672,8 @@
                     </CustomProperties>
                     <Rotation>-1.2868073</Rotation>
                     <Scale>
-                        <X>2.20409942</X>
-                        <Y>2.20409942</Y>
+                        <X>1.7153666</X>
+                        <Y>1.7153666</Y>
                     </Scale>
                     <TintColor>
                         <R>255</R>
@@ -894,8 +693,8 @@
                 </Item>
                 <Item xsi:type="TextureItem" Name="Texture_0041" Visible="true">
                     <Position>
-                        <X>1977</X>
-                        <Y>1</Y>
+                        <X>2960</X>
+                        <Y>603</Y>
                     </Position>
                     <CustomProperties>
                         <Property Name="type" Type="string" Description="">
@@ -923,36 +722,46 @@
                         <Y>75</Y>
                     </Origin>
                 </Item>
-                <Item xsi:type="TextureItem" Name="Texture_0047" Visible="true">
+                <Item xsi:type="PathItem" Name="path" Visible="true">
                     <Position>
-                        <X>4470</X>
-                        <Y>1023</Y>
+                        <X>-561</X>
+                        <Y>-326</Y>
                     </Position>
                     <CustomProperties>
                         <Property Name="type" Type="string" Description="">
-                            <string>tree</string>
+                            <string>path</string>
                         </Property>
+                        <Property Name="target" Type="Item" Description="">tree</Property>
                     </CustomProperties>
-                    <Rotation>-1.2868073</Rotation>
-                    <Scale>
-                        <X>2.97994447</X>
-                        <Y>2.97994447</Y>
-                    </Scale>
-                    <TintColor>
-                        <R>255</R>
-                        <G>255</G>
-                        <B>255</B>
-                        <A>255</A>
-                        <PackedValue>4294967295</PackedValue>
-                    </TintColor>
-                    <FlipHorizontally>false</FlipHorizontally>
-                    <FlipVertically>false</FlipVertically>
-                    <texture_filename>textures\tree.png</texture_filename>
-                    <asset_name>textures\tree</asset_name>
-                    <Origin>
-                        <X>75</X>
-                        <Y>75</Y>
-                    </Origin>
+                    <LocalPoints>
+                        <Vector2>
+                            <X>0</X>
+                            <Y>0</Y>
+                        </Vector2>
+                        <Vector2>
+                            <X>523</X>
+                            <Y>270</Y>
+                        </Vector2>
+                    </LocalPoints>
+                    <WorldPoints>
+                        <Vector2>
+                            <X>-561</X>
+                            <Y>-326</Y>
+                        </Vector2>
+                        <Vector2>
+                            <X>-38</X>
+                            <Y>-56</Y>
+                        </Vector2>
+                    </WorldPoints>
+                    <IsPolygon>false</IsPolygon>
+                    <LineWidth>4</LineWidth>
+                    <LineColor>
+                        <R>192</R>
+                        <G>0</G>
+                        <B>192</B>
+                        <A>145</A>
+                        <PackedValue>2445279424</PackedValue>
+                    </LineColor>
                 </Item>
             </Items>
             <ScrollSpeed>
@@ -963,21 +772,21 @@
     </Layers>
     <CustomProperties>
         <Property Name="name" Type="string" Description="">
-            <string>Tutorial 1</string>
+            <string>Tutorial</string>
         </Property>
         <Property Name="description" Type="string" Description="">
-            <string>Beschleunigen und Bremsen</string>
+            <string>Lerne die Grundlagen und mache dich mit dem Auto vertraut.</string>
         </Property>
         <Property Name="time" Type="string" Description="">
-            <string>40000</string>
+            <string>22000</string>
         </Property>
     </CustomProperties>
     <EditorRelated>
-        <NextItemNumber>59</NextItemNumber>
+        <NextItemNumber>43</NextItemNumber>
         <ContentRootFolder>D:\Dateien\Projekte\2015\Wöhlerschule BLL\assets</ContentRootFolder>
         <CameraPosition>
-            <X>2854.32959</X>
-            <Y>468.8376</Y>
+            <X>618.8331</X>
+            <Y>691.337158</Y>
         </CameraPosition>
         <Version>1.3.0.0</Version>
     </EditorRelated>

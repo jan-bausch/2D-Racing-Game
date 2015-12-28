@@ -12,12 +12,12 @@ class Configuration{
     public var FULLSCREEN: Bool;
     public var LEVEL: Int;
     public var HIGHSCORES: Array<Float>;
-    public var TOTALLEVELS: Int;
+    public var TOTALLEVELS: Int; //Anzahl aller Level (Zählung startet bei 1)
 
 
     public function new() {
         load();
-        this.TOTALLEVELS = 1;
+        this.TOTALLEVELS = 6;
     }
 
     public function load() : Void {

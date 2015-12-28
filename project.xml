@@ -18,6 +18,7 @@
 
 
     <!-- Bibliotheken einbetten -->
+    <haxelib name="lime" />
     <haxelib name="ash" />
     <haxelib name="actuate" />
     <haxelib name="haxeui" />
@@ -26,6 +27,5 @@
     <!-- Ressourcen, die nicht gebraucht werden, werden ausgeschlossen -->
     <assets path="assets" exclude="*.xfc" />
     <icon path="assets/icon.svg" />
-
     
 </project>

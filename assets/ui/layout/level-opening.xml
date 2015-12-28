@@ -4,11 +4,11 @@
     <vbox width="95%" horizontalAlign="center">
 
         <spacer height="20" />
-        <hbox width="100%" spacing="20" x="20" y="20">
+        <hbox width="100%" x="20" y="20">
             <spacer width="10" />
             <text id="level-id" style="fontSize: 45; color: #FF3300; borderColor: #FF3300" />
             <spacer width="5" />
-            <text  id="level-name" style="fontSize: 35" />
+            <text  id="level-name" style="fontSize: 35" width="100%" />
         </hbox>
         <spacer height="10" />
 
