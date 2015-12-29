@@ -18,8 +18,8 @@ class VehicleSystem extends System {
     private var events: SystemEvents;
 
     //Naturkonstanten
-    private static inline var ROLLING_RESISTANCE: Float = 90; //8
-    private static inline var AIR_RESISTANCE: Float = 3;    //2
+    private static inline var ROLLING_RESISTANCE: Float = 180;
+    private static inline var AIR_RESISTANCE: Float = 5;
 
     public function new(events: SystemEvents) {
         super();

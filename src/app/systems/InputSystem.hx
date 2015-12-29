@@ -44,9 +44,9 @@ class InputSystem extends System {
 
 
         //Physikalische Konstanten festlegen
-        MAX_STEER_ANGLE = 45;
+        MAX_STEER_ANGLE = 30;
 
-        STEER_SPEED = 80;
+        STEER_SPEED = 60;
 
 
         //Events registrieren
@@ -62,9 +62,8 @@ class InputSystem extends System {
         for (inputNode in inputNodes) {
             var vehicle: Vehicle = inputNode.vehicle;
 
-
             //Lenkrad wieder in Nullstellung bringen
-            var STRAIGHTENING_SPEED = STEER_SPEED * elapsed * vehicle.velocity / 50;
+            var STRAIGHTENING_SPEED = Math.pow(STEER_SPEED * elapsed * Math.abs(vehicle.velocity), 1.5) / 300;
 
             if (vehicle.steerAngle > 0) {
                 vehicle.steerAngle = (vehicle.steerAngle - STRAIGHTENING_SPEED) > 0 ? vehicle.steerAngle - STRAIGHTENING_SPEED : 0;
