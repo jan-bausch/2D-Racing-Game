@@ -45,6 +45,7 @@ class UISystem extends System {
         events.GAME_COUNTDOWN.add(onCountdown);
         events.GAME_START.add(onGameStart);
         events.GAME_END.add(onGameEnd);
+        events.GAME_PAUSE.add(onGamePause);
         events.LOADED_LEVEL.add(onLoadedLevel);
         events.COLLISION_ENTER.add(onCollisionEnter);
         events.COLLISION_LEAVE.add(onCollisionLeave);
@@ -134,9 +135,12 @@ class UISystem extends System {
     private function onGameEnd(time: Float, result: Result) : Void {
 
         new app.scenes.LevelFinishScene(level, result).show();
-
     }
 
+    private function onGamePause() : Void {
+
+        new app.scenes.PauseScene(events, level).show();
+    }
 
     //Wird aufgerufen, wenn Countdown abgelaufen ist - bzw. wenn die Zeitmessung beginnt.
     private function onGameStart() : Void {

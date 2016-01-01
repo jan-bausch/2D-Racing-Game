@@ -36,6 +36,7 @@ class Game extends Sprite {
     public var systemEvents: SystemEvents;
     private var scene: Scene;
     private var configuration: Configuration;
+    private var running: Bool;
 
     public function new(systemEvents: SystemEvents, scene: Scene) {
         super();
@@ -44,10 +45,14 @@ class Game extends Sprite {
         this.scene = scene;
         this.configuration = new Configuration();
         previousTime = 0;
+        this.running = true;
 
         startGame(); //ECS starten
-        addEventListener(Event.ENTER_FRAME, onEnterFrame); //Events registrieren
 
+        //Events registrieren
+        addEventListener(Event.ENTER_FRAME, onEnterFrame);
+        systemEvents.GAME_PAUSE.add(onGamePause);
+        systemEvents.GAME_UNPAUSE.add(onGameUnpause);
     }
 
     private function startGame() : Void {
@@ -75,16 +80,24 @@ class Game extends Sprite {
     }
 
 
+    private function onGamePause() : Void {
+        running = false;
+    }
+
+    private function onGameUnpause() : Void {
+        running = true;
+    }
 
     //Wird jedes Frame aufgerufen (~ 30x pro Sekunde)
     private function onEnterFrame(event: Event) : Void {
 
         //Das ECS muss wissen, wie lange ein Frame dauert.
-
         var elapsedTime: Float = Lib.getTimer() - previousTime; //Vergangene Zeit seit vergangenem Frame ermitteln (in Milisekunden).
         previousTime = Lib.getTimer(); //Aktuelle Zeit für das nächste Frame zwischenspeichern.
 
-        engine.update(elapsedTime / 1000); //Verstrichene Zeit (in Sekunden) an ECS weitergeben
+        //Verstrichene Zeit (in Sekunden) an ECS weitergeben, sofern das Spiel laufen soll.
+        if (running)
+            engine.update(elapsedTime / 1000);
 
     }
 

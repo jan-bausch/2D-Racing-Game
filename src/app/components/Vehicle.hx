@@ -25,7 +25,7 @@ class Vehicle {
 
 
         this.MASS = 1200;
-        this.WHEELBASE = 130;
+        this.WHEELBASE = 140;
         
         this.ENGINE_FORCE = 10000;
         this.BRAKE_FORCE = 20000;

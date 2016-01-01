@@ -30,6 +30,7 @@ class InputSystem extends System {
     private var right: Float;
     private var left: Float;
 
+    private var running: Bool;
     private var events: SystemEvents;
 
     public function new(events: SystemEvents, scene: Sprite) {
@@ -41,7 +42,7 @@ class InputSystem extends System {
         down = 0;
         right = 0;
         left = 0;
-
+        running = true;
 
         //Physikalische Konstanten festlegen
         MAX_STEER_ANGLE = 30;
@@ -51,7 +52,8 @@ class InputSystem extends System {
 
         //Events registrieren
         scene.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-
+        events.GAME_PAUSE.add(onGamePause);
+        events.GAME_UNPAUSE.add(onGameUnpause);
 
 
     }
@@ -81,8 +83,6 @@ class InputSystem extends System {
 
             vehicle.throttle = up;
             vehicle.brake = down;
-
-
 
         }   
 
@@ -114,7 +114,11 @@ class InputSystem extends System {
             case Keyboard.W: up = 1;
         }
 
-        if (event.keyCode == Keyboard.DOWN) events.CAR_BREAK_BEGIN.dispatch();
+
+        //Pausen-Event auslösen, wenn Escape-Taste gedrückt.
+        for (inputNode in inputNodes) {
+            if (event.keyCode == Keyboard.ESCAPE && running) events.GAME_PAUSE.dispatch();
+        }
 
     }
 
@@ -131,12 +135,17 @@ class InputSystem extends System {
             case Keyboard.W: up = 0;
         }
 
-        if (event.keyCode == Keyboard.DOWN) events.CAR_BREAK_END.dispatch();
-
     }
 
 
     
+    private function onGamePause() : Void {
+        running = false;
+    }
+
+    private function onGameUnpause() : Void {
+        running = true;
+    }
 
     
 

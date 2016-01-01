@@ -6,9 +6,11 @@ import app.scenes.Scene;
 import haxe.ui.toolkit.core.Root;
 import haxe.ui.toolkit.core.Toolkit;
 import haxe.ui.toolkit.core.PopupManager;
+import haxe.ui.toolkit.controls.popups.Popup;
 
 class PopupScene extends Scene {
 
+    private var popup: Popup;
     private var title: String;
     private var buttons: Array<Dynamic>;
     private var width: Float;
@@ -27,8 +29,13 @@ class PopupScene extends Scene {
     public override function show() : Void {
 
         //Popup-Fenster mit Einstellungen anzeigen
-        PopupManager.instance.showCustom(view, title, { buttons: buttons, width: width },callback);
+        popup = PopupManager.instance.showCustom(view, title, { buttons: buttons, width: width },callback);
 
     }
+
+    public override function close() : Void {
+        PopupManager.instance.hidePopup(popup);
+    }
+
 
 }

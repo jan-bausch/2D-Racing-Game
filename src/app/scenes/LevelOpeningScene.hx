@@ -13,8 +13,6 @@ import app.math.Time;
 
 class LevelOpeningScene extends WindowScene {
 
-    private var events: SystemEvents;
-
     public function new(level: Level, callback: Void->Void) {
     
         //Grundeinstellungen festlegen
