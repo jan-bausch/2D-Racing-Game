@@ -8,7 +8,7 @@
         <text text="Wähle ein Level" verticalAlign="top" horizontalAlign="center" style="fontSize:30;color:0xFFFFFF;"/>
 
 
-        <grid columns="4" id="level-container" >
+        <grid columns="3" id="level-container" >
 
         </grid>
 

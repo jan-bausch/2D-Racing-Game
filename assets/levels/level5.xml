@@ -1986,7 +1986,7 @@
             <string>Beweise dein Können in Kurven</string>
         </Property>
         <Property Name="time" Type="string" Description="">
-            <string>28000</string>
+            <string>35000</string>
         </Property>
     </CustomProperties>
     <EditorRelated>

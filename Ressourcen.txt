@@ -1,0 +1,21 @@
+______________________________________________________________________________________________________________________
+Typ                 Lizens          Autor                           Url
+______________________________________________________________________________________________________________________
+
+---- Bilder ---- 
+Loorbeerkranz:      CC0                                             https://pixabay.com/en/laurel-wreath-honors-laurels-wreath-297040/
+Trophäe:            CC3             von "superawesomevectors"       http://superawesomevectors.deviantart.com/art/Free-vector-flat-trophy-illustration-572779336
+Informations-Icon:  Public Domain                                   https://commons.wikimedia.org/wiki/File:Information_icon.svg
+Medaille:           CC4             von "Nabin K. Sapkota"          https://commons.wikimedia.org/wiki/File:Golden_Medal_-1_Icon.png
+Fehler-Icon:        Public Domain                                   https://commons.wikimedia.org/wiki/File:White_X_in_red_background.svg
+Barriere:           Public Domain   von "WolfeClaw"                 http://www.turbosquid.com/3d-models/free-blend-model-concrete-road-barrier/675018
+Grass:              Public Domain   von "surfacecurve"              http://opengameart.org/content/grass-textureseamless-2d
+Asphalt:            Public Domain   von "para"                      http://opengameart.org/content/real-asphalt-texture-pack
+Auto:               Public Domain   von "UnLucky Studio"            http://unluckystudio.com/game-art-giveaway-7-top-down-vehicles-sprites-pack/
+Holzbox:            Public Domain   von "Square Pug Games"          http://opengameart.org/content/wooden-boxes-crates
+
+
+---- Toneffekte ----
+Checkpoint:         CC0             von "TheZero"                   http://www.freesound.org/people/TheZero/sounds/331362/
+Blechschaden:       CC0             von "squareal"                  https://www.freesound.org/people/squareal/sounds/237375/
+Countdown:          Public Domain   von "SuperTuxCart"              http://supertuxkart.sourceforge.net/

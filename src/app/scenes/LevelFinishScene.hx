@@ -34,7 +34,7 @@ class LevelFinishScene extends WindowScene {
             //Ergebniss anzeigen
         switch (_result) {
             case Result.Fail:
-                view.findChild("result", Text, true).text = "Fehlgeschlagen!";
+                view.findChild("result", Text, true).text = "Zu langsam!";
                 view.findChild("icon", Image, true).resource = "assets/ui/result_fail.png";
             case Result.Bronze:
                 view.findChild("result", Text, true).text = "Geschafft!";

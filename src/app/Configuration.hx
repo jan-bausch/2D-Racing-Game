@@ -17,7 +17,7 @@ class Configuration{
 
     public function new() {
         load();
-        this.TOTALLEVELS = 6;
+        this.TOTALLEVELS = 8;
     }
 
     public function load() : Void {

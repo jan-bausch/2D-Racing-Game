@@ -27,16 +27,16 @@
                             <Y>2772.55566</Y>
                         </Vector2>
                         <Vector2>
-                            <X>6321.97559</X>
-                            <Y>1691.81677</Y>
+                            <X>12781.9756</X>
+                            <Y>3311.817</Y>
                         </Vector2>
                         <Vector2>
-                            <X>6434.56738</X>
-                            <Y>277.2563</Y>
+                            <X>17664.5664</X>
+                            <Y>257.2563</Y>
                         </Vector2>
                         <Vector2>
-                            <X>3356.38647</X>
-                            <Y>-567.1737</Y>
+                            <X>11456.3867</X>
+                            <Y>-5717.174</Y>
                         </Vector2>
                     </LocalPoints>
                     <WorldPoints>
@@ -53,16 +53,16 @@
                             <Y>2363.55566</Y>
                         </Vector2>
                         <Vector2>
-                            <X>5545.97559</X>
-                            <Y>1282.81677</Y>
+                            <X>12005.9756</X>
+                            <Y>2902.817</Y>
                         </Vector2>
                         <Vector2>
-                            <X>5658.56738</X>
-                            <Y>-131.743713</Y>
+                            <X>16888.5664</X>
+                            <Y>-151.743713</Y>
                         </Vector2>
                         <Vector2>
-                            <X>2580.38647</X>
-                            <Y>-976.1737</Y>
+                            <X>10680.3867</X>
+                            <Y>-6126.174</Y>
                         </Vector2>
                     </WorldPoints>
                     <IsPolygon>true</IsPolygon>
@@ -77,8 +77,8 @@
                 </Item>
                 <Item xsi:type="PathItem" Name="Straße" Visible="true">
                     <Position>
-                        <X>-325</X>
-                        <Y>389</Y>
+                        <X>-415</X>
+                        <Y>379</Y>
                     </Position>
                     <CustomProperties>
                         <Property Name="type" Type="string" Description="">
@@ -94,26 +94,26 @@
                             <Y>0</Y>
                         </Vector2>
                         <Vector2>
-                            <X>4772.7334</X>
-                            <Y>-87.4607</Y>
+                            <X>4862.7334</X>
+                            <Y>-77.46069</Y>
                         </Vector2>
                         <Vector2>
-                            <X>6051.36865</X>
-                            <Y>-2492.81445</Y>
+                            <X>6141.36865</X>
+                            <Y>-2482.81445</Y>
                         </Vector2>
                         <Vector2>
-                            <X>9870.547</X>
-                            <Y>-3865.70459</Y>
+                            <X>9960.547</X>
+                            <Y>-3855.70459</Y>
                         </Vector2>
                         <Vector2>
-                            <X>12267.1543</X>
-                            <Y>-1104.11914</Y>
+                            <X>12357.1543</X>
+                            <Y>-1094.11914</Y>
                         </Vector2>
                     </LocalPoints>
                     <WorldPoints>
                         <Vector2>
-                            <X>-325</X>
-                            <Y>389</Y>
+                            <X>-415</X>
+                            <Y>379</Y>
                         </Vector2>
                         <Vector2>
                             <X>4447.7334</X>
@@ -462,8 +462,8 @@
                 </Item>
                 <Item xsi:type="TextureItem" Name="Texture_0025" Visible="true">
                     <Position>
-                        <X>9480</X>
-                        <Y>-3745</Y>
+                        <X>9463</X>
+                        <Y>-3731</Y>
                     </Position>
                     <CustomProperties>
                         <Property Name="type" Type="string" Description="barrier">
@@ -555,8 +555,8 @@
                 </Item>
                 <Item xsi:type="TextureItem" Name="Texture_0028" Visible="true">
                     <Position>
-                        <X>9731</X>
-                        <Y>-3709</Y>
+                        <X>9711</X>
+                        <Y>-3686</Y>
                     </Position>
                     <CustomProperties>
                         <Property Name="type" Type="string" Description="barrier">
@@ -677,28 +677,20 @@
                         <Y>202</Y>
                     </Origin>
                 </Item>
-            </Items>
-            <ScrollSpeed>
-                <X>1</X>
-                <Y>1</Y>
-            </ScrollSpeed>
-        </Layer>
-        <Layer Name="Overlay" Visible="true">
-            <Items>
-                <Item xsi:type="TextureItem" Name="tree" Visible="true">
+                <Item xsi:type="TextureItem" Name="Texture_0071" Visible="true">
                     <Position>
-                        <X>-541</X>
-                        <Y>-313</Y>
+                        <X>9905</X>
+                        <Y>-3509</Y>
                     </Position>
                     <CustomProperties>
-                        <Property Name="type" Type="string" Description="">
-                            <string>tree</string>
+                        <Property Name="type" Type="string" Description="barrier">
+                            <string>barrier</string>
                         </Property>
                     </CustomProperties>
-                    <Rotation>0</Rotation>
+                    <Rotation>2.37042713</Rotation>
                     <Scale>
-                        <X>1.55491149</X>
-                        <Y>1.55491149</Y>
+                        <X>0.453259081</X>
+                        <Y>0.453259081</Y>
                     </Scale>
                     <TintColor>
                         <R>255</R>
@@ -709,17 +701,375 @@
                     </TintColor>
                     <FlipHorizontally>false</FlipHorizontally>
                     <FlipVertically>false</FlipVertically>
-                    <texture_filename>textures\tree.png</texture_filename>
-                    <asset_name>textures\tree</asset_name>
+                    <texture_filename>textures\barrier.png</texture_filename>
+                    <asset_name>textures\barrier</asset_name>
                     <Origin>
-                        <X>75</X>
-                        <Y>75</Y>
+                        <X>79</X>
+                        <Y>202</Y>
                     </Origin>
+                </Item>
+                <Item xsi:type="TextureItem" Name="Texture_0072" Visible="true">
+                    <Position>
+                        <X>10084</X>
+                        <Y>-3313</Y>
+                    </Position>
+                    <CustomProperties>
+                        <Property Name="type" Type="string" Description="barrier">
+                            <string>barrier</string>
+                        </Property>
+                    </CustomProperties>
+                    <Rotation>2.37042713</Rotation>
+                    <Scale>
+                        <X>0.453259081</X>
+                        <Y>0.453259081</Y>
+                    </Scale>
+                    <TintColor>
+                        <R>255</R>
+                        <G>255</G>
+                        <B>255</B>
+                        <A>255</A>
+                        <PackedValue>4294967295</PackedValue>
+                    </TintColor>
+                    <FlipHorizontally>false</FlipHorizontally>
+                    <FlipVertically>false</FlipVertically>
+                    <texture_filename>textures\barrier.png</texture_filename>
+                    <asset_name>textures\barrier</asset_name>
+                    <Origin>
+                        <X>79</X>
+                        <Y>202</Y>
+                    </Origin>
+                </Item>
+                <Item xsi:type="TextureItem" Name="Texture_0073" Visible="true">
+                    <Position>
+                        <X>10264</X>
+                        <Y>-3122</Y>
+                    </Position>
+                    <CustomProperties>
+                        <Property Name="type" Type="string" Description="barrier">
+                            <string>barrier</string>
+                        </Property>
+                    </CustomProperties>
+                    <Rotation>2.37042713</Rotation>
+                    <Scale>
+                        <X>0.453259081</X>
+                        <Y>0.453259081</Y>
+                    </Scale>
+                    <TintColor>
+                        <R>255</R>
+                        <G>255</G>
+                        <B>255</B>
+                        <A>255</A>
+                        <PackedValue>4294967295</PackedValue>
+                    </TintColor>
+                    <FlipHorizontally>false</FlipHorizontally>
+                    <FlipVertically>false</FlipVertically>
+                    <texture_filename>textures\barrier.png</texture_filename>
+                    <asset_name>textures\barrier</asset_name>
+                    <Origin>
+                        <X>79</X>
+                        <Y>202</Y>
+                    </Origin>
+                </Item>
+            </Items>
+            <ScrollSpeed>
+                <X>1</X>
+                <Y>1</Y>
+            </ScrollSpeed>
+        </Layer>
+        <Layer Name="Overlay" Visible="true">
+            <Items>
+                <Item xsi:type="TextureItem" Name="box1" Visible="true">
+                    <Position>
+                        <X>3426</X>
+                        <Y>72</Y>
+                    </Position>
+                    <CustomProperties>
+                        <Property Name="type" Type="string" Description="">
+                            <string>box</string>
+                        </Property>
+                    </CustomProperties>
+                    <Rotation>0</Rotation>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
+                    <TintColor>
+                        <R>255</R>
+                        <G>255</G>
+                        <B>255</B>
+                        <A>255</A>
+                        <PackedValue>4294967295</PackedValue>
+                    </TintColor>
+                    <FlipHorizontally>false</FlipHorizontally>
+                    <FlipVertically>false</FlipVertically>
+                    <texture_filename>textures\box.png</texture_filename>
+                    <asset_name>textures\box</asset_name>
+                    <Origin>
+                        <X>50</X>
+                        <Y>50</Y>
+                    </Origin>
+                </Item>
+                <Item xsi:type="TextureItem" Name="box2" Visible="true">
+                    <Position>
+                        <X>5630</X>
+                        <Y>-1369</Y>
+                    </Position>
+                    <CustomProperties>
+                        <Property Name="type" Type="string" Description="">
+                            <string>box</string>
+                        </Property>
+                    </CustomProperties>
+                    <Rotation>0.48637104</Rotation>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
+                    <TintColor>
+                        <R>255</R>
+                        <G>255</G>
+                        <B>255</B>
+                        <A>255</A>
+                        <PackedValue>4294967295</PackedValue>
+                    </TintColor>
+                    <FlipHorizontally>false</FlipHorizontally>
+                    <FlipVertically>false</FlipVertically>
+                    <texture_filename>textures\box.png</texture_filename>
+                    <asset_name>textures\box</asset_name>
+                    <Origin>
+                        <X>50</X>
+                        <Y>50</Y>
+                    </Origin>
+                </Item>
+                <Item xsi:type="TextureItem" Name="box3" Visible="true">
+                    <Position>
+                        <X>7994</X>
+                        <Y>-3185</Y>
+                    </Position>
+                    <CustomProperties>
+                        <Property Name="type" Type="string" Description="">
+                            <string>box</string>
+                        </Property>
+                    </CustomProperties>
+                    <Rotation>1.17210054</Rotation>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
+                    <TintColor>
+                        <R>255</R>
+                        <G>255</G>
+                        <B>255</B>
+                        <A>255</A>
+                        <PackedValue>4294967295</PackedValue>
+                    </TintColor>
+                    <FlipHorizontally>false</FlipHorizontally>
+                    <FlipVertically>false</FlipVertically>
+                    <texture_filename>textures\box.png</texture_filename>
+                    <asset_name>textures\box</asset_name>
+                    <Origin>
+                        <X>50</X>
+                        <Y>50</Y>
+                    </Origin>
+                </Item>
+                <Item xsi:type="TextureItem" Name="box4" Visible="true">
+                    <Position>
+                        <X>8554</X>
+                        <Y>-2830</Y>
+                    </Position>
+                    <CustomProperties>
+                        <Property Name="type" Type="string" Description="">
+                            <string>box</string>
+                        </Property>
+                    </CustomProperties>
+                    <Rotation>1.17210054</Rotation>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
+                    <TintColor>
+                        <R>255</R>
+                        <G>255</G>
+                        <B>255</B>
+                        <A>255</A>
+                        <PackedValue>4294967295</PackedValue>
+                    </TintColor>
+                    <FlipHorizontally>false</FlipHorizontally>
+                    <FlipVertically>false</FlipVertically>
+                    <texture_filename>textures\box.png</texture_filename>
+                    <asset_name>textures\box</asset_name>
+                    <Origin>
+                        <X>50</X>
+                        <Y>50</Y>
+                    </Origin>
+                </Item>
+                <Item xsi:type="PathItem" Name="path1" Visible="true">
+                    <Position>
+                        <X>3431</X>
+                        <Y>67</Y>
+                    </Position>
+                    <CustomProperties>
+                        <Property Name="type" Type="string" Description="">
+                            <string>path</string>
+                        </Property>
+                        <Property Name="target" Type="Item" Description="">box1</Property>
+                    </CustomProperties>
+                    <LocalPoints>
+                        <Vector2>
+                            <X>0</X>
+                            <Y>0</Y>
+                        </Vector2>
+                        <Vector2>
+                            <X>3</X>
+                            <Y>496.5824</Y>
+                        </Vector2>
+                    </LocalPoints>
+                    <WorldPoints>
+                        <Vector2>
+                            <X>3431</X>
+                            <Y>67</Y>
+                        </Vector2>
+                        <Vector2>
+                            <X>3434</X>
+                            <Y>563.5824</Y>
+                        </Vector2>
+                    </WorldPoints>
+                    <IsPolygon>false</IsPolygon>
+                    <LineWidth>4</LineWidth>
+                    <LineColor>
+                        <R>192</R>
+                        <G>0</G>
+                        <B>192</B>
+                        <A>145</A>
+                        <PackedValue>2445279424</PackedValue>
+                    </LineColor>
+                </Item>
+                <Item xsi:type="PathItem" Name="path2" Visible="true">
+                    <Position>
+                        <X>5202</X>
+                        <Y>-1609</Y>
+                    </Position>
+                    <CustomProperties>
+                        <Property Name="type" Type="string" Description="">
+                            <string>path</string>
+                        </Property>
+                        <Property Name="target" Type="Item" Description="">box2</Property>
+                    </CustomProperties>
+                    <LocalPoints>
+                        <Vector2>
+                            <X>0</X>
+                            <Y>0</Y>
+                        </Vector2>
+                        <Vector2>
+                            <X>433.707764</X>
+                            <Y>241.8689</Y>
+                        </Vector2>
+                    </LocalPoints>
+                    <WorldPoints>
+                        <Vector2>
+                            <X>5202</X>
+                            <Y>-1609</Y>
+                        </Vector2>
+                        <Vector2>
+                            <X>5635.708</X>
+                            <Y>-1367.1311</Y>
+                        </Vector2>
+                    </WorldPoints>
+                    <IsPolygon>false</IsPolygon>
+                    <LineWidth>4</LineWidth>
+                    <LineColor>
+                        <R>192</R>
+                        <G>0</G>
+                        <B>192</B>
+                        <A>145</A>
+                        <PackedValue>2445279424</PackedValue>
+                    </LineColor>
+                </Item>
+                <Item xsi:type="PathItem" Name="path3" Visible="true">
+                    <Position>
+                        <X>8191</X>
+                        <Y>-2727</Y>
+                    </Position>
+                    <CustomProperties>
+                        <Property Name="type" Type="string" Description="">
+                            <string>path</string>
+                        </Property>
+                        <Property Name="target" Type="Item" Description="">box3</Property>
+                    </CustomProperties>
+                    <LocalPoints>
+                        <Vector2>
+                            <X>0</X>
+                            <Y>0</Y>
+                        </Vector2>
+                        <Vector2>
+                            <X>-193.892838</X>
+                            <Y>-457.174561</Y>
+                        </Vector2>
+                    </LocalPoints>
+                    <WorldPoints>
+                        <Vector2>
+                            <X>8191</X>
+                            <Y>-2727</Y>
+                        </Vector2>
+                        <Vector2>
+                            <X>7997.107</X>
+                            <Y>-3184.17456</Y>
+                        </Vector2>
+                    </WorldPoints>
+                    <IsPolygon>false</IsPolygon>
+                    <LineWidth>4</LineWidth>
+                    <LineColor>
+                        <R>192</R>
+                        <G>0</G>
+                        <B>192</B>
+                        <A>145</A>
+                        <PackedValue>2445279424</PackedValue>
+                    </LineColor>
+                </Item>
+                <Item xsi:type="PathItem" Name="path4" Visible="true">
+                    <Position>
+                        <X>8356</X>
+                        <Y>-3307</Y>
+                    </Position>
+                    <CustomProperties>
+                        <Property Name="type" Type="string" Description="">
+                            <string>path</string>
+                        </Property>
+                        <Property Name="target" Type="Item" Description="">box4</Property>
+                    </CustomProperties>
+                    <LocalPoints>
+                        <Vector2>
+                            <X>0</X>
+                            <Y>0</Y>
+                        </Vector2>
+                        <Vector2>
+                            <X>190.632462</X>
+                            <Y>458.5436</Y>
+                        </Vector2>
+                    </LocalPoints>
+                    <WorldPoints>
+                        <Vector2>
+                            <X>8356</X>
+                            <Y>-3307</Y>
+                        </Vector2>
+                        <Vector2>
+                            <X>8546.633</X>
+                            <Y>-2848.4563</Y>
+                        </Vector2>
+                    </WorldPoints>
+                    <IsPolygon>false</IsPolygon>
+                    <LineWidth>4</LineWidth>
+                    <LineColor>
+                        <R>192</R>
+                        <G>0</G>
+                        <B>192</B>
+                        <A>145</A>
+                        <PackedValue>2445279424</PackedValue>
+                    </LineColor>
                 </Item>
                 <Item xsi:type="TextureItem" Name="Tutorial 1" Visible="true">
                     <Position>
-                        <X>1462</X>
-                        <Y>348</Y>
+                        <X>1500</X>
+                        <Y>322</Y>
                     </Position>
                     <CustomProperties>
                         <Property Name="type" Type="string" Description="infobox">
@@ -873,47 +1223,6 @@
                         <X>75</X>
                         <Y>75</Y>
                     </Origin>
-                </Item>
-                <Item xsi:type="PathItem" Name="path" Visible="true">
-                    <Position>
-                        <X>-561</X>
-                        <Y>-326</Y>
-                    </Position>
-                    <CustomProperties>
-                        <Property Name="type" Type="string" Description="">
-                            <string>path</string>
-                        </Property>
-                        <Property Name="target" Type="Item" Description="">tree</Property>
-                    </CustomProperties>
-                    <LocalPoints>
-                        <Vector2>
-                            <X>0</X>
-                            <Y>0</Y>
-                        </Vector2>
-                        <Vector2>
-                            <X>523</X>
-                            <Y>270</Y>
-                        </Vector2>
-                    </LocalPoints>
-                    <WorldPoints>
-                        <Vector2>
-                            <X>-561</X>
-                            <Y>-326</Y>
-                        </Vector2>
-                        <Vector2>
-                            <X>-38</X>
-                            <Y>-56</Y>
-                        </Vector2>
-                    </WorldPoints>
-                    <IsPolygon>false</IsPolygon>
-                    <LineWidth>4</LineWidth>
-                    <LineColor>
-                        <R>192</R>
-                        <G>0</G>
-                        <B>192</B>
-                        <A>145</A>
-                        <PackedValue>2445279424</PackedValue>
-                    </LineColor>
                 </Item>
                 <Item xsi:type="TextureItem" Name="Texture_0046" Visible="true">
                     <Position>
@@ -1240,15 +1549,15 @@
             <string>Manche Hindernisse können sich auch bewegen. Weiche ihnen geschickt aus.</string>
         </Property>
         <Property Name="time" Type="string" Description="">
-            <string>22000</string>
+            <string>30000</string>
         </Property>
     </CustomProperties>
     <EditorRelated>
-        <NextItemNumber>59</NextItemNumber>
+        <NextItemNumber>73</NextItemNumber>
         <ContentRootFolder>D:\Dateien\Projekte\2015\Wöhlerschule BLL\assets</ContentRootFolder>
         <CameraPosition>
-            <X>5158.832</X>
-            <Y>-951.162842</Y>
+            <X>9844.832</X>
+            <Y>-3514.1626</Y>
         </CameraPosition>
         <Version>1.3.0.0</Version>
     </EditorRelated>

@@ -2,15 +2,16 @@
 
 	<vbox width="100%">
 
-		<text wrapLines="true" width="100%" text="Dieses Spiel ist im Rahmen einer besonderen Lernleistung im Fach Informatik entstanden.\n\nEntwickelt von Jan Frederik Bausch\nGymnasium Wöhlerschule, 2015-2016" />
+		<text wrapLines="true" width="100%" text="Entstanden im Rahmen einer besonderen Lernleistung im Fach Informatik.\n\nEntwickelt von Jan Frederik Bausch\nGymnasium Wöhlerschule, 2015-2016" />
 
 		<divider text="Quelltext" />
 		<text wrapLines="true"  width="100%" text="Dieses Spiel wurde mit der Programmiersprache Haxe und den Bibliotheken OpenFl, Ash und HaxeUI entwickelt. Der Quelltext ist auf folgender Seite zu finden:\nhttp://github.com/jfbausch/Woehlerschule/" />
 
 		<divider text="Verwendete Ressourcen" />
-		<text wrapLines="true"  width="100%" text="Freie Ressourcen, die ich benutzt habe:\nWIP" />
+		<text wrapLines="true"  width="100%" text='Weitere Informationen zu Bild- und Tonressourcen finden sich in der Datei "Ressourcen.txt".' />
 
 		 <spacer height="20" />
    		 <button text="Daten zurücksetzen" id="reset" horizontalAlign="right" />
 
 	</vbox>
+

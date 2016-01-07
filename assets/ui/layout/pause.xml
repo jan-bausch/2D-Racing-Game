@@ -6,7 +6,7 @@
     <button text="Hauptmenü" id="main-menu" horizontalAlign="center" width="70%"/>
     <button text="Neustart" id="restart" horizontalAlign="center" width="70%"/>
     <spacer height="15" />
-    <button text="Zurück zum Spiel" id="resume" horizontalAlign="center" width="70%"/>
+    <button text="Weiterspielen" id="resume" horizontalAlign="center" width="70%"/>
     <spacer height="10" />
     
 </vbox>
