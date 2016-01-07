@@ -171,8 +171,8 @@
                 </Item>
                 <Item xsi:type="TextureItem" Name="Texture_0025" Visible="true">
                     <Position>
-                        <X>845</X>
-                        <Y>259</Y>
+                        <X>857</X>
+                        <Y>265</Y>
                     </Position>
                     <CustomProperties>
                         <Property Name="type" Type="string" Description="barrier">
@@ -202,8 +202,8 @@
                 </Item>
                 <Item xsi:type="TextureItem" Name="Texture_0027" Visible="true">
                     <Position>
-                        <X>857</X>
-                        <Y>501</Y>
+                        <X>871</X>
+                        <Y>499</Y>
                     </Position>
                     <CustomProperties>
                         <Property Name="type" Type="string" Description="barrier">
@@ -353,6 +353,68 @@
                     <Origin>
                         <X>79</X>
                         <Y>202</Y>
+                    </Origin>
+                </Item>
+                <Item xsi:type="TextureItem" Name="Texture_0052" Visible="true">
+                    <Position>
+                        <X>857</X>
+                        <Y>67</Y>
+                    </Position>
+                    <CustomProperties>
+                        <Property Name="type" Type="string" Description="">
+                            <string>box</string>
+                        </Property>
+                    </CustomProperties>
+                    <Rotation>0</Rotation>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
+                    <TintColor>
+                        <R>255</R>
+                        <G>255</G>
+                        <B>255</B>
+                        <A>255</A>
+                        <PackedValue>4294967295</PackedValue>
+                    </TintColor>
+                    <FlipHorizontally>false</FlipHorizontally>
+                    <FlipVertically>false</FlipVertically>
+                    <texture_filename>textures\box.png</texture_filename>
+                    <asset_name>textures\box</asset_name>
+                    <Origin>
+                        <X>50</X>
+                        <Y>50</Y>
+                    </Origin>
+                </Item>
+                <Item xsi:type="TextureItem" Name="Texture_0053" Visible="true">
+                    <Position>
+                        <X>857</X>
+                        <Y>681</Y>
+                    </Position>
+                    <CustomProperties>
+                        <Property Name="type" Type="string" Description="">
+                            <string>box</string>
+                        </Property>
+                    </CustomProperties>
+                    <Rotation>0</Rotation>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
+                    <TintColor>
+                        <R>255</R>
+                        <G>255</G>
+                        <B>255</B>
+                        <A>255</A>
+                        <PackedValue>4294967295</PackedValue>
+                    </TintColor>
+                    <FlipHorizontally>false</FlipHorizontally>
+                    <FlipVertically>false</FlipVertically>
+                    <texture_filename>textures\box.png</texture_filename>
+                    <asset_name>textures\box</asset_name>
+                    <Origin>
+                        <X>50</X>
+                        <Y>50</Y>
                     </Origin>
                 </Item>
             </Items>
@@ -602,11 +664,11 @@
         </Property>
     </CustomProperties>
     <EditorRelated>
-        <NextItemNumber>51</NextItemNumber>
+        <NextItemNumber>53</NextItemNumber>
         <ContentRootFolder>D:\Dateien\Projekte\2015\Wöhlerschule BLL\assets</ContentRootFolder>
         <CameraPosition>
-            <X>186.32959</X>
-            <Y>97.1706543</Y>
+            <X>40.32959</X>
+            <Y>167.837341</Y>
         </CameraPosition>
         <Version>1.3.0.0</Version>
     </EditorRelated>
