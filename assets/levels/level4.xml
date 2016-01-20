@@ -1437,7 +1437,7 @@
             <string>Erreiche das Ziel unter der Mindeszeit.</string>
         </Property>
         <Property Name="time" Type="string" Description="">
-            <string>26000</string>
+            <string>35000</string>
         </Property>
     </CustomProperties>
     <EditorRelated>

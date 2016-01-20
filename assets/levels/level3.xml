@@ -997,7 +997,7 @@
             <string>Durchfahre alle Checkpoints</string>
         </Property>
         <Property Name="time" Type="string" Description="">
-            <string>20000</string>
+            <string>30000</string>
         </Property>
     </CustomProperties>
     <EditorRelated>

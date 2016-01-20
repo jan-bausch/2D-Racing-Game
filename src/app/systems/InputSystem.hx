@@ -22,7 +22,6 @@ class InputSystem extends System {
 
     //Physikalische Konstanten
     private var MAX_STEER_ANGLE: Float;   //Maximaler Auschlag der Räder
-    private var STEER_SPEED: Float;     //Empfindlichkeit des Lenkrads
 
     //Steurungsinput
     private var up: Float;
@@ -47,8 +46,6 @@ class InputSystem extends System {
         //Physikalische Konstanten festlegen
         MAX_STEER_ANGLE = 30;
 
-        STEER_SPEED = 60;
-
 
         //Events registrieren
         scene.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
@@ -64,22 +61,23 @@ class InputSystem extends System {
         for (inputNode in inputNodes) {
             var vehicle: Vehicle = inputNode.vehicle;
 
-            //Lenkrad wieder in Nullstellung bringen
-            var STRAIGHTENING_SPEED = Math.pow(STEER_SPEED * elapsed * Math.abs(vehicle.velocity), 1.5) / 300;
+            //Lenkrad wieder in Nullstellung bringen, wenn nicht gelenkt wird.
+            var STEER_SPEED = (-1.2 * vehicle.velocity + 80) * elapsed;
+            var STRAIGHTENING_SPEED = STEER_SPEED * elapsed * Math.abs(vehicle.velocity) * 2.5;
 
-            if (vehicle.steerAngle > 0) {
+            if (vehicle.steerAngle > 0 && right == 0) {
                 vehicle.steerAngle = (vehicle.steerAngle - STRAIGHTENING_SPEED) > 0 ? vehicle.steerAngle - STRAIGHTENING_SPEED : 0;
             }
 
-            if (vehicle.steerAngle < 0) {
+            if (vehicle.steerAngle < 0 && left == 0) {
                 vehicle.steerAngle = (vehicle.steerAngle + STRAIGHTENING_SPEED) < 0 ? vehicle.steerAngle + STRAIGHTENING_SPEED : 0;
             }   
 
 
 
             //Lenkrad drehen, sofern nicht über maximalem Ausschlag.
-            if (vehicle.steerAngle + STEER_SPEED * right * elapsed <= MAX_STEER_ANGLE) vehicle.steerAngle += STEER_SPEED * right *  elapsed;
-            if (vehicle.steerAngle - STEER_SPEED * left *  elapsed >= -MAX_STEER_ANGLE) vehicle.steerAngle -= STEER_SPEED * left * elapsed;
+            if (vehicle.steerAngle + STEER_SPEED * right<= MAX_STEER_ANGLE) vehicle.steerAngle += STEER_SPEED * right;
+            if (vehicle.steerAngle - STEER_SPEED * left >= -MAX_STEER_ANGLE) vehicle.steerAngle -= STEER_SPEED * left;
 
             vehicle.throttle = up;
             vehicle.brake = down;

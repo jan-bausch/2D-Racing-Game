@@ -36,8 +36,8 @@ class PauseScene extends PopupScene {
         view.findChild("resume", Button, true).onClick = function(e:UIEvent){    resume();    };
 
         //Events für Hauptmenü und Neustart festlegen
-        view.findChild("main-menu", Button, true).onClick = function(e:UIEvent){    new app.scenes.MainMenuScene().show();     };
-        view.findChild("restart", Button, true).onClick = function(e:UIEvent){   new GameScene(level.id).show();    };
+        view.findChild("main-menu", Button, true).onClick = function(e:UIEvent){    events.GAME_QUIT.dispatch(); new app.scenes.MainMenuScene().show();     };
+        view.findChild("restart", Button, true).onClick = function(e:UIEvent){   events.GAME_QUIT.dispatch(); new GameScene(level.id).show();    };
 
 
     }

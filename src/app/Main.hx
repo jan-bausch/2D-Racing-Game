@@ -30,8 +30,8 @@ class Main extends Sprite {
 
 
         //Startmenü anzeigen
-        new MainMenuScene().show();
-        //new GameScene(2).show();
+        //new MainMenuScene().show();
+        new GameScene(3).show();
 
 
 

@@ -51,6 +51,7 @@ class SoundSystem extends System {
 
         events.GAME_COUNTDOWN.add(onCountdown);
         events.GAME_END.add(onGameEnd);
+        events.GAME_QUIT.add(onGameQuit);
         events.LOADED_LEVEL.add(onLoadedLevel);
         events.CHECKPOINT_ACTIVATED.add(onCheckpointActivated);
         events.CAR_CRASH.add(onCarCrash);
@@ -84,9 +85,9 @@ class SoundSystem extends System {
 
 
                 CHANNEL_IDLE.soundTransform = new SoundTransform(Math.max(1 - Math.abs((velocity-0)/10), 0));
-                CHANNEL_SLOW.soundTransform = new SoundTransform(Math.max(1 - Math.abs((velocity-15)/15), 0));
-                CHANNEL_MEDIUM.soundTransform = new SoundTransform(Math.max(1 - Math.abs((velocity-35)/25), 0));
-                CHANNEL_FAST.soundTransform = new SoundTransform(Math.max(1 - Math.abs((velocity-60)/30), 0));
+                CHANNEL_SLOW.soundTransform = new SoundTransform(Math.max(1 - Math.abs((velocity-10)/10), 0));
+                CHANNEL_MEDIUM.soundTransform = new SoundTransform(Math.max(1 - Math.abs((velocity-25)/20), 0));
+                CHANNEL_FAST.soundTransform = new SoundTransform(Math.max(1 - Math.abs((velocity-40)/15), 0));
             }
         }
 
@@ -132,6 +133,11 @@ class SoundSystem extends System {
         //Motorgeräusche stoppen
         stop();
 
+    }
+
+    private function onGameQuit() : Void {
+        //Motorgeräusche stoppen
+        stop();
     }
 
     private function onCheckpointActivated(count: Int) : Void {

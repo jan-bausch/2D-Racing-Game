@@ -17,7 +17,8 @@
 #level-container{
     verticalAlignment: center;
     horizontalAlignment: center;
-    spacing: 30;
+    spacing: 20;
+    paddingTop: 30
 }
 
 
@@ -27,8 +28,8 @@
 }
 
 .level-button{
-    width: 100;
-    height: 100;
+    width: 90;
+    height: 90;
     fontSize: 30;
 }
 

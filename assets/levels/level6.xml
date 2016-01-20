@@ -1549,15 +1549,15 @@
             <string>Manche Hindernisse können sich auch bewegen. Weiche ihnen geschickt aus.</string>
         </Property>
         <Property Name="time" Type="string" Description="">
-            <string>30000</string>
+            <string>25000</string>
         </Property>
     </CustomProperties>
     <EditorRelated>
         <NextItemNumber>73</NextItemNumber>
         <ContentRootFolder>D:\Dateien\Projekte\2015\Wöhlerschule BLL\assets</ContentRootFolder>
         <CameraPosition>
-            <X>9844.832</X>
-            <Y>-3514.1626</Y>
+            <X>5594.832</X>
+            <Y>-654.1626</Y>
         </CameraPosition>
         <Version>1.3.0.0</Version>
     </EditorRelated>
