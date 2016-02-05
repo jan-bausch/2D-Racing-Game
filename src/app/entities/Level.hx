@@ -7,6 +7,9 @@ enum Result {
   Gold;
 }
 
+/*
+    Diese Klasse ist keine Entität, sondern repräsentiert Levelinformationen.
+*/
 class Level {
 
     public var name: String;

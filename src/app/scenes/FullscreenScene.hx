@@ -9,6 +9,9 @@ import haxe.ui.toolkit.core.Root;
 import haxe.ui.toolkit.core.RootManager;
 import haxe.ui.toolkit.core.Toolkit;
 
+/*
+    Eine Szene, die das ganze Fenster einnimmt.
+*/
 class FullscreenScene extends Scene {
 
     public function new() {

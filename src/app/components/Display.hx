@@ -2,10 +2,13 @@ package app.components;
 
 import openfl.display.Sprite;
 
-//Speichert den Sprite eines Entitys
+/*
+    Display-Komponente:
+    Entitäten, die eine Textur besitzen, besitzen diese Komponente.
+*/
 class Display {
 
-    public var sprite: Sprite;
+    public var sprite: Sprite; //Diese Grafik soll angezeigt werden.
 
     public function new(sprite: Sprite) {
         this.sprite = sprite;

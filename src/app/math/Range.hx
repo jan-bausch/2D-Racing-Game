@@ -1,5 +1,9 @@
 package app.math;
 
+/*
+    Für die Kollisionserkennung benötigt man einen "Intervall", der zwischen
+    einem Minimum und Maximum liegt. 
+*/
 class Range {
 
     public var min: Float;

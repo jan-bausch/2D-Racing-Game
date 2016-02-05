@@ -1,8 +1,14 @@
 package app.components;
 
 import app.entities.Level;
-//In dieser Komponente werden generelle Informationen zum aktuellen Spielzustand gespeichert.
-//Sie gehört zum GameEntity, das es nur einmal geben sollte.
+
+/*
+    GameState-Komponente:
+    Es gibt einige generelle Informationen über den aktuellen Spielstand, die mehrere
+    System auslesen müssen. In einem "sauberen" ECS-Modell gibt es daher genau eine Entität,
+    die nur eine Komponente besitzt - nämlich die GameState-Komponente.
+    Diese Entität bzw. diese Komponente kann dann von allen Systemen ausgelesen werden.
+*/
 class GameState {
 
     public var time: Float; //Die verstrichene Zeit des Levels in Milisekunden

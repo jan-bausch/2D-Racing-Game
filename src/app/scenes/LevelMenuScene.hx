@@ -9,6 +9,9 @@ import app.scenes.GameScene;
 import app.scenes.FullscreenScene;
 import app.Configuration;
 
+/*
+    Zeigt das Level-Menü an, in dem man das aktuelle Level wählt.
+*/
 class LevelMenuScene extends FullscreenScene {
 
 

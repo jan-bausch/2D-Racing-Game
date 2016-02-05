@@ -14,6 +14,10 @@ import app.Configuration;
 import app.entities.Level;
 import app.math.Time;
 
+/*
+    Pause-Menü wird angezeigt, wenn der Spieler die Escape-Taste
+    im Spiel drückt.
+*/
 class PauseScene extends PopupScene {
 
     private var events: SystemEvents;

@@ -10,7 +10,9 @@ import app.math.Vector2;
 import app.components.Collision;
 import app.entities.sprites.StretchedImageSprite;
 
-
+/*
+    Ein einfacher Baum, mit dessen Stamm der Spieler kollidieren kann.
+*/
 class Tree extends Entity {
 
     public function new(position: Vector2, scale: Vector2, rotation: Float) {

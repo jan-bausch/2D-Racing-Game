@@ -10,7 +10,9 @@ import app.math.Vector2;
 import app.components.Collision;
 import app.entities.sprites.StretchedImageSprite;
 
-
+/*
+    Eine Fläche auf der das Auto beschleunigt.
+*/
 class Boost extends Entity {
 
     public function new(position: Vector2, scale: Vector2, rotation: Float) {

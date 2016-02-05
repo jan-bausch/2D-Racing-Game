@@ -1,5 +1,10 @@
 package app.math;
 
+/*
+    Zeit, in der ein Level durchfahren wurde.
+    Sie berechnet Milisekunden in Minuten, Sekunden und Milisekunden um und
+    speichert sie als String der üblichen Darstellung 01:05.905 (Minuten:Sekunden.Milisekunden)
+*/
 class Time {
 
     public var miliseconds: Int;

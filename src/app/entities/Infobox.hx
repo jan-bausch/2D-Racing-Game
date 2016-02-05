@@ -12,6 +12,9 @@ import app.entities.sprites.StretchedImageSprite;
 
 import haxe.ui.toolkit.core.interfaces.IDisplayObjectContainer;
 
+/*
+    Wenn der Spieler diese Fläche berührt, wird eine Infobox angezeigt.
+*/
 class Infobox extends Entity {
 
     public function new(position: Vector2, scale: Vector2, rotation: Float, view: IDisplayObjectContainer) {

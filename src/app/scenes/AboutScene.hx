@@ -11,6 +11,9 @@ import haxe.ui.toolkit.core.Toolkit;
 import app.scenes.PopupScene;
 import app.Configuration;
 
+/*
+    Zeigt Informationen über das Projekt
+*/
 class AboutScene extends PopupScene {
 
     public function new() {

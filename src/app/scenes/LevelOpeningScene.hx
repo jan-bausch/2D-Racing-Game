@@ -11,6 +11,10 @@ import app.Configuration;
 import app.entities.Level;
 import app.math.Time;
 
+/*
+    Wird zu Beginn eines Levels angezeigt und präsentiert
+    dem Spieler Information über Bestzeit, usw...
+*/
 class LevelOpeningScene extends WindowScene {
 
     public function new(level: Level, callback: Void->Void) {
@@ -29,6 +33,7 @@ class LevelOpeningScene extends WindowScene {
         view.findChild("level-id", Text, true).text = (level.id + 1) + "";
         view.findChild("level-name", Text, true).text = level.name;
         view.findChild("level-description", Text, true).text = level.description;
+        //Persönliche Bestzeit aus dem Savegame auslesen
         view.findChild("personal-time", Text, true).text = (configuration.HIGHSCORES[level.id] != 0) ? Time.fromMiliseconds(configuration.HIGHSCORES[level.id]).string : "-" ;
         view.findChild("level-time", Text, true).text = Time.fromMiliseconds(level.time).string;
 

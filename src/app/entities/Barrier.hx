@@ -9,8 +9,10 @@ import app.components.Display;
 import app.math.Vector2;
 import app.components.Collision;
 import app.entities.sprites.StretchedImageSprite;
-
-
+ 
+/*
+    Eine Mauer, die oft die Seiten der Straße begrenzt.
+*/
 class Barrier extends Entity {
 
     public function new(position: Vector2, scale: Vector2, rotation: Float) {
@@ -21,6 +23,8 @@ class Barrier extends Entity {
             height = bitmap.height * scale.y;
             
         this.add( new Position(position, rotation) );
+        //Das Bild besteht nicht nur aus der Barriere, sondern auch ein leichter Schattenumriss.
+        //Deshalb muss die Textur etwas größer skaliert werden, damit die Dimensionen immer noch passen.
         this.add( new Display(new StretchedImageSprite(width  + 30*scale.x, height + 30*scale.y, bitmap)) );
         this.add( new Collision(width, height) );
 

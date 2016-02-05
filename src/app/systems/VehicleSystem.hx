@@ -38,7 +38,7 @@ class VehicleSystem extends System {
 
             /*  
                 ---------------------
-                Zuerst berechnen wir die Antriebskraft (in Nm), die durch Gas, Bremsen und 
+                Zuerst berechnen wir die Antriebskraft (in N), die durch Gas, Bremsen und 
                 Rückwärtsgang beeinflusst wird.
                 ---------------------
             */    
@@ -49,7 +49,7 @@ class VehicleSystem extends System {
 
             /*  
                 ---------------------
-                Dann berücksichtigen wir die Widerstandskräfte (in Nm)
+                Dann berücksichtigen wir die Widerstandskräfte (in N)
                 ---------------------
             */    
             //Rollwiderstand: -Rollwiderstands-Konstante * v

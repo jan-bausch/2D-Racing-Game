@@ -10,7 +10,9 @@ import app.math.Vector2;
 import app.components.Collision;
 import app.entities.sprites.StretchedImageSprite;
 
-
+/*
+    Wenn der Spieler diese Fläche berührt, ist er im Ziel.
+*/
 class Finish extends Entity {
 
 

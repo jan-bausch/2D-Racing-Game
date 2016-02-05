@@ -8,18 +8,21 @@ import app.components.Display;
 import app.math.Vector2;
 import app.entities.sprites.PolygonSprite;
 
-
+/*
+    Ein Vieleck mit Grasflächentextur.
+*/
 class Grass extends Entity {
 
     public function new(absolutepolygon: Array<Vector2>) {
         super();
 
-        //Calculate center point with average polygon
+        //Die Koordinaten des Polygons werden in absoluten Zahlen übergeben.
+        //Zuerst wird der Mittelpunkt aller Ecken berechnet, der sich aus dem Schnitt aller Punkte ergibt.
         var center: Vector2 = new Vector2(0,0);
         for (point in absolutepolygon) center += point;
         center /= absolutepolygon.length;
 
-        //Calculate polygon relativ to absolutepolygon
+        //Danach lässt sich das relative Vieleck berechnen.
         var polygon: Array<Vector2> = new Array<Vector2>();
         for (point in absolutepolygon) polygon.push(point -center);
 

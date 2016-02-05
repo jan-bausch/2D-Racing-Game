@@ -7,7 +7,9 @@ import openfl.display.BitmapData;
 import app.math.Vector2;
 
 
-//Sprite eines generischen Vielecks mit Bild
+/*
+    Zeichnet ein beliebiges Vieleck, dass mit einem Bildmuster gefüllt ist. (z.B. für Grasboden)
+*/
 class PolygonSprite extends Sprite {
 
 

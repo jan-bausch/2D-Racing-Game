@@ -11,7 +11,9 @@ import app.components.Collision;
 import app.components.CheckpointComponent;
 import app.entities.sprites.StretchedImageSprite;
 
-
+/*
+    Checkpoint, den der Spieler überqueren muss, um das Level beenden zu können.
+*/
 class Checkpoint extends Entity {
 
     public function new(position: Vector2, scale: Vector2, rotation: Float) {

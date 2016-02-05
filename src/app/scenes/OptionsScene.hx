@@ -13,6 +13,10 @@ import haxe.ui.toolkit.core.Toolkit;
 import app.scenes.PopupScene;
 import app.Configuration;
 
+/*
+    Optionsfenster, in dem der Spieler
+    Einstellungen wählen kann.
+*/
 class OptionsScene extends PopupScene {
 
     private var configuration: Configuration;

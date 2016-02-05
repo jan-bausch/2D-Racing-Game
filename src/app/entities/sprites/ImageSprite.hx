@@ -8,7 +8,10 @@ import openfl.display.Bitmap;
 import app.math.Vector2;
 
 
-//Sprite eines generischen Vielecks mit Bild
+/*
+    Rendert ein einfaches Bild als sich wiederholendes Muster.
+    Ein 50x50 Pixel großes Bild wird bei den Parametern 100x100 Pixel daher viermal gezeichnet.
+*/
 class ImageSprite extends Sprite {
 
 

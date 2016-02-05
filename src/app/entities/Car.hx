@@ -11,7 +11,10 @@ import app.components.Collision;
 import app.math.Vector2;
 import app.entities.sprites.VehicleSprite;
 
-
+/*
+    Diese Entität repräsentiert das Auto bzw. den Spieler.
+    Er Besitzt als einzige Entität eine Vehikel-Komponente.
+*/
 class Car extends Entity {
 
     public function new(position: Vector2, rotation: Float) {

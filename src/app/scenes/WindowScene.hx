@@ -8,6 +8,9 @@ import haxe.ui.toolkit.core.Root;
 import haxe.ui.toolkit.core.Toolkit;
 import haxe.ui.toolkit.core.PopupManager;
 
+/*
+    Eine Szene, die nur einen Teil des Fensters einnimmt und nicht wegklickbar ist.
+*/
 class WindowScene extends Scene {
 
     private var x: Null<Float>;

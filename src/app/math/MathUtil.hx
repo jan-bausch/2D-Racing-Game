@@ -1,5 +1,8 @@
 package app.math;
 
+/*
+    In dieser Klasse werden simple mathematische Probleme gelöst, um Berechnungen übersichtlicher zu gestalten.
+*/
 class MathUtil {
 
     //Gibt das Vorzeichen (-1,0,+1) einer beliebigen Nummer zurück

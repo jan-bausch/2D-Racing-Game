@@ -11,6 +11,9 @@ import app.scenes.LevelMenuScene;
 import app.scenes.AboutScene;
 import app.scenes.OptionsScene;
 
+/*
+    Zeigt dem Spieler einen Pokal, wenn er alle Level bestanden hat.
+*/
 class GameBeatenScene extends FullscreenScene {
 
 

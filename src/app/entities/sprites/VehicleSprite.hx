@@ -7,10 +7,16 @@ import openfl.events.Event;
 
 import app.components.Vehicle;
 
+/*
+    Dieses Sprite repräsentiert die Grafik des Autos.
+    Es ist das einzige Sprite, dass während der Laufzeit dynamisch veränder wird - 
+    nämlich, je nach Einschlag des Lenkrads.
+*/
 class VehicleSprite extends Sprite {
 
-    private var vehicle: Vehicle; //Repräsentiert das Auto, das dieses Sprite darstellt
+    private var vehicle: Vehicle; //Referenz auf die Vehikelkomponente, die die Informationen speichert, um das Auto zeichnen zu könnnen.
 
+    //Repräsentiert je einen Reifen
     private var wheeltopLeft: Sprite;  
     private var wheelTopRight: Sprite;
     private var wheelBottomLeft: Sprite;
@@ -57,7 +63,7 @@ class VehicleSprite extends Sprite {
     //Wird aufgerufen, bevor gezeichnet wird.
     private function onEnterFrame(event: Event) : Void {
 
-        //Reifenwinkel aktualisieren
+        //Den aktuellen Winkel der Vorderreifen aus der Vehikel-Komponente auslesen und anwenden.
         wheelTopRight.rotation = vehicle.steerAngle;
         wheeltopLeft.rotation = vehicle.steerAngle;
 

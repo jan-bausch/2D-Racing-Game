@@ -15,6 +15,11 @@ import app.scenes.LevelOpeningScene;
 import app.entities.Level;
 import app.Configuration;
 
+/*
+    Wird angezeigt, wenn ein Level beendet wurde.
+    Das Level kann mit guten, sehr guten oder perfekten Zeiten bestanden werden,
+    oder gar nicht.
+*/
 class LevelFinishScene extends WindowScene {
 
     private var configuration: Configuration;

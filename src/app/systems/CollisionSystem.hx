@@ -14,6 +14,13 @@ import app.math.Vector2;
 import app.math.Range;
 import app.math.CollisionResponse;
 
+/*
+    Dieses System entscheidet, ob zwei Entitäen miteinander kollidieren.
+    Es löst mehrere Ereignisse aus:
+    - COLLISION: Wird jeden Frame ausgelöst, in der sich zwei Entitäten überschneiden
+    - COLLISION_ENTER: Wird *einmal* ausgelöst, wenn sich zwei Entitäten aufeinanderprallen (z.B. relevant für Checkpoint)
+    - COLLISION_LEAVE: Wird *einmal* ausgelöst, wenn sich zwei Entitäten nicht mehr überschneiden (z.B. relevant für Infobox)
+*/
 class CollisionSystem extends System {
 
 
@@ -35,7 +42,10 @@ class CollisionSystem extends System {
     }
 
 
-
+    /*
+        Andere Systeme können über dieses Funktion fragen, ob sich eine Entität in eine bestimmte Richtung bewegen kann.
+        Die Funktion gibt eine Klasse zurück, in der u.a. gespeichert ist, ob die Entität kollidiert
+    */
     private function canEntityMove(entity: Entity, movement: Vector2, callback: CollisionResponse -> Void) : Void {
 
 
@@ -46,7 +56,7 @@ class CollisionSystem extends System {
         //Es kann sein, dass das Entity, dass die Anfrage gemacht hat, keine Collision-Komponente besitzt.
         //In diesem Fall überspringen wir den restlichen Code und geben gleich eine Antwort.
         if (!entity.has(Collision)) {
-            callback(collisionResponse); //Antworten, dass Entity nicht kollidiert
+            callback(collisionResponse); //Antworten, dass das Entity nicht kollidiert
             return; //Funktion abbrechen
         }
 
@@ -57,7 +67,7 @@ class CollisionSystem extends System {
         //Kollision mit jedem Entity prüfen
         for (collisionNode2 in collisionNodes) {
 
-            //Wenn es sich dabei um das selbe Entity handelt, wird dieses übersprungen
+            //Wenn es sich dabei um das selbe Entity, das fragt, handelt, wird dieses übersprungen
             if (entity == collisionNode2.entity) continue;
 
             var collision2: Collision = collisionNode2.collision,
@@ -65,19 +75,29 @@ class CollisionSystem extends System {
 
 
             //Da ein Vergleich zweier gedrehter Rechtecke rechenaufwändig ist, wird zuerst nur grob geprüft
-            //Schneiden sich schon die Radi der Rechtecke nicht, wird der Schleifendurchgang übersprungen
+            //Schneiden sich schon die Radii der Rechtecke nicht, wird der Schleifendurchgang übersprungen
             //Überschneidung von zwei Kreisen: (Abstand der Mittelpunkte ist kleiner als die Summe der Radien)
-            //if ( position2.vector.distanceTo(position1.vector + movement) > collision1.radius + collision2.radius ) continue;
+            if ( position2.vector.distanceTo(position1.vector + movement) > collision1.radius + collision2.radius ) continue;
 
-            //Nun prüfen wir detaillierter, ob die aktuellen Rechtecke kollidieren
+            /*
+                Wir prüfen ganz konkret, ob die Entität mit der aktuellen Entität der Schleife kollidiert.
+                Die Antwort speichern wir in der Variable "response" (im Unterschied, zu collisionResponse, die 
+                Antwort für *alle* Entitäten speichert).
+            */
             var response: CollisionResponse = collide(position1.vector, movement, collision1.width, collision1.height, position1.rotation, position2.vector, collision2.width, collision2.height, position2.rotation);
 
 
             //Wenn die aktuellen Rechtecke kollidieren, dann kollidiert auch das Entity
             if (response.collision) collisionResponse.collision = true;
+            //Wenn die aktuellen Rechtecke und die fragende Entität solide sind, soll auch das in der Antwort gespeichert werden.
             if (collision1.solid && collision2.solid && response.collision) collisionResponse.solid = true;
 
-            //Offset setzen
+            /*
+                Der Offset beschreibt, um wieviel Enheiten die Entität bewegt werden kann, ohne das sie mit einer soliden
+                Entität kollidiert. Diese Variable ist besonders wichtig für das VehicleSystem.
+                Wenn der Offset der *aktuellen* Entität kleiner ist als der Offset, der in Antwort für *alle* Entitäten steht,
+                dann wird der Offset aller Entitäten auf den der aktuellen gesetzt.
+            */
             if (response.offset.length < collisionResponse.offset.length && collisionResponse.solid) collisionResponse.offset = response.offset;
 
             //Wenn das Entity kollidiert, lösen wir gleichzeitig noch ein Event aus

@@ -10,7 +10,9 @@ import app.math.Vector2;
 import app.components.Collision;
 import app.entities.sprites.StretchedImageSprite;
 
-
+/*
+    Simple Holzbox, gegen die der Spieler stoßen kann
+*/
 class Box extends Entity {
 
     public function new(position: Vector2, scale: Vector2, rotation: Float) {

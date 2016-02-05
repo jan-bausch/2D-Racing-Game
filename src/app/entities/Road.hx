@@ -7,7 +7,11 @@ import app.components.Position;
 import app.components.Display;
 import app.entities.sprites.RoadSprite;
 
-
+/*
+    Ein Teilstück einer Straße, die sich durch
+    Start- und Endpunkt, sowie der Winkeln der beiden
+    Enden definiert.
+*/
 class Road extends Entity {
 
     public function new(start: Vector2, end: Vector2, startAngle: Float, endAngle: Float, width) {

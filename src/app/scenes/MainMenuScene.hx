@@ -11,6 +11,9 @@ import app.scenes.LevelMenuScene;
 import app.scenes.AboutScene;
 import app.scenes.OptionsScene;
 
+/*
+    Das Hauptmenü
+*/
 class MainMenuScene extends FullscreenScene {
 
 

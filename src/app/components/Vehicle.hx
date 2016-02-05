@@ -2,7 +2,10 @@ package app.components;
 
 import app.math.Vector2;
 
-//Speichert nötige Daten für Autosimulation
+/*
+    Fahrzeug-Komponente:
+    Speichert alle Variable, die für die Auto-Simulation nötig sind.
+*/
 class Vehicle {
 
     public var velocity: Float; //Geschwindigkeit (in m/s)

@@ -8,6 +8,10 @@ import haxe.ui.toolkit.core.Toolkit;
 import haxe.ui.toolkit.core.PopupManager;
 import haxe.ui.toolkit.controls.popups.Popup;
 
+/*
+    Eine PopUp-Szene, die nur einen Teil des Fensters einnimmt und mit
+    einem x wegklickbar ist.
+*/
 class PopupScene extends Scene {
 
     private var popup: Popup;

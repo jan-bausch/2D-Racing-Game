@@ -8,7 +8,9 @@ import openfl.display.Bitmap;
 import app.math.Vector2;
 
 
-//Sprite eines generischen Vielecks mit Bild
+/*
+    Zeichnet ein einfaches Bild, das auf Höhe und Breite skaliert wird.
+*/
 class StretchedImageSprite extends Sprite {
 
 

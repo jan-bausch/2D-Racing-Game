@@ -19,6 +19,9 @@ import app.components.Camera;
 import app.components.Position;
 import app.components.PathComponent;
 
+/*
+    Animiert Entitäten, sowie die Kamera zu Beginn des Spiels
+*/
 class AnimationSystem extends System {
 
 
@@ -41,9 +44,12 @@ class AnimationSystem extends System {
 
     }
 
+
+    //Beim Spielstart bewegt sich die Kamera auf den Spieler zu.
     private function onZoomIn(callback: Void->Void) : Void {
         
         for (cameraNode in cameraNodes) {
+            //Animation des Zooms von 0,4 -> 1 und der Unschärfe von 10 -> 0
             Actuate.tween(cameraNode.camera, 1, {zoom: 1, blur: 0}).ease(Quad.easeInOut).delay(0.2).onComplete(callback);
 
         }
@@ -51,7 +57,9 @@ class AnimationSystem extends System {
 
     }
 
-
+    //In dieser Funktion wird die die "Target"-Entität animiert.
+    //Dazu wird die Position von Start- zu Endpunkt animiert, und beim Abschluss
+    //der Animation Start und Ende getauscht und die Funktion erneut aufgerufen.
     private function startPath(pathComponent: PathComponent) : Void {
 
         //Zuerst werden Start und Ziel getauscht, damit die Animation geloopt wird

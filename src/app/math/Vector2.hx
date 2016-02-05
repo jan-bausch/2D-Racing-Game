@@ -1,5 +1,12 @@
 package app.math;
 
+/*
+    Eine Vektor-Klasse mit zwei Komponenten.
+    Diese Klasse wurde der Bibliothek haxeMath (https://github.com/tbrosman/hxmath) entlehnt und 
+    angepasst.
+    Da die Trigonometrischen Funktionen von Haxe im Bogenmaß messen, während ich die meisten
+    Werte des Spiels in Grad messe, wandle ich das Bogenmaß in Grad um.
+*/
 
 class Vector2Type {
     public var x:Float;
@@ -20,7 +27,7 @@ class Vector2Type {
 abstract Vector2(Vector2Type) from Vector2Type to Vector2Type {
 
     
-    //Betrag
+    //Betrag des Vektors |v|
     public var length(get, never):Float;
     
     //Winkel zwischen Vektor und Y-Achse (Im Uhrzeigersinn aufsteigend)

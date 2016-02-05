@@ -9,6 +9,9 @@ import app.systems.SystemEvents;
 import app.Game;
 import app.entities.Level;
 
+/*
+    Die Spielszene
+*/
 class GameScene extends FullscreenScene {
 
     private var level: Int;
@@ -23,7 +26,7 @@ class GameScene extends FullscreenScene {
         //Layout laden
         view = Toolkit.processXmlResource("assets/ui/layout/game.xml");
 
-        //GameSprite in der untersten Ebene hinzufügen
+        //Das Spiel wird der Szene dynamisch hinzugefügt.
         view.addChildAt(new SpriteContainer(new Game(systemEvents, this)), 0);
 
 
