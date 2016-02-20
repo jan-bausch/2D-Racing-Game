@@ -24,14 +24,18 @@ import app.entities.Level;
 import app.components.UI;
 import app.Configuration;
 
+/*
+    Hier wird die UI während des Spiels verwaltet, sprich
+    HUD (Infobox, Zeit, Checkpoints) und Popup-Screens (Pause, Start, Ende)
+*/
 class UISystem extends System {
 
     private var scene: Scene;   //Verweis auf Sprite des "GameScene"-Objekts
     private var events: SystemEvents;
     private var configuration: Configuration;
     private var gameNodes: NodeList<GameNode>;
-    private var counter: Float;
-    private var level: Level;
+    private var counter: Float; //Hilfsvariable, um Zeit zu aktualisieren
+    private var level: Level; //Verweis auf Level-Klasse
 
     public function new(events: SystemEvents, scene: Scene) {
         super();

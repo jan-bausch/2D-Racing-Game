@@ -4401,7 +4401,7 @@
             <string>Die Bestzeit erreichst du nicht immer mit durchgedrücktem Gaspedal.</string>
         </Property>
         <Property Name="time" Type="string" Description="">
-            <string>53000</string>
+            <string>60000</string>
         </Property>
     </CustomProperties>
     <EditorRelated>

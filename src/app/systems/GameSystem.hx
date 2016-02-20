@@ -26,11 +26,14 @@ import app.math.CollisionResponse;
 import app.math.Vector2;
 import app.Configuration;
 
+/*
+    Verwaltung von Spielgeschehen und "Gameplay"
+*/
 class GameSystem extends System {
 
 
     private var events: SystemEvents;
-    private var level: Level;
+    private var level: Level; //Aktuelles Level
     private var configuration: Configuration;
     private var gameNodes: NodeList<GameNode>;
     private var checkpointNodes: NodeList<CheckpointNode>;
@@ -96,7 +99,7 @@ class GameSystem extends System {
 
     private function onCollision(entity1: Entity, entity2: Entity, collisionResponse: CollisionResponse) : Void {
 
-        //Kollision zwischen Spieler und Zielfläche
+        //Kollision zwischen Spieler und Checkpoint
         if (Type.getClass(entity1) == app.entities.Car && Type.getClass(entity2) == app.entities.Checkpoint && running) {
             var checkpoint: CheckpointComponent = entity2.get(CheckpointComponent);
 

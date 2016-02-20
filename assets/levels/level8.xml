@@ -3536,10 +3536,10 @@
             <string>Irrgarten</string>
         </Property>
         <Property Name="description" Type="string" Description="">
-            <string>Nicht alle Wege führen zum Zeil.</string>
+            <string>Nicht alle Wege führen zum Ziel.</string>
         </Property>
         <Property Name="time" Type="string" Description="">
-            <string>32000</string>
+            <string>36000</string>
         </Property>
     </CustomProperties>
     <EditorRelated>

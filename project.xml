@@ -26,6 +26,7 @@
     
     <!-- Ressourcen, die nicht gebraucht werden, werden ausgeschlossen -->
     <assets path="assets" exclude="*.xfc" />
+    <assets path="Ressourcen.txt"/>
     <icon path="assets/icon.svg" />
     
 </project>

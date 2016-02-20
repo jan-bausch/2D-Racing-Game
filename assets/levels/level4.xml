@@ -1434,7 +1434,7 @@
             <string>Speed!</string>
         </Property>
         <Property Name="description" Type="string" Description="">
-            <string>Erreiche das Ziel unter der Mindeszeit.</string>
+            <string>Erreiche das Ziel unter der Mindestzeit.</string>
         </Property>
         <Property Name="time" Type="string" Description="">
             <string>35000</string>

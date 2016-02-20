@@ -15,6 +15,9 @@ import openfl.display.Sprite;
 import app.nodes.InputNode;
 import app.components.Vehicle;
 
+/*
+    Hier werden die Tastatureingaben verarbeitet.
+*/
 class InputSystem extends System {
 
     private var inputNodes: NodeList<InputNode>;
@@ -61,10 +64,19 @@ class InputSystem extends System {
         for (inputNode in inputNodes) {
             var vehicle: Vehicle = inputNode.vehicle;
 
-            //Lenkrad wieder in Nullstellung bringen, wenn nicht gelenkt wird.
+            /*
+                Lenkgeschwindigkeit:
+                Je schneller das Auto wird, desto träger wird die Lenkung
+            */
             var STEER_SPEED = (-1.2 * vehicle.velocity + 80) * elapsed;
+            /*
+                Wie schnell soll sich das Lenkrad wieder in die Ausgangsstellung
+                bewegen? Je schneller das Auto, desto schneller dreht sih das Lenkrad
+                wieder zurück
+            */
             var STRAIGHTENING_SPEED = STEER_SPEED * elapsed * Math.abs(vehicle.velocity) * 2.5;
 
+            //Ausgangstellungsgeschwindigkeit anwenden, falls kein Input kommt
             if (vehicle.steerAngle > 0 && right == 0) {
                 vehicle.steerAngle = (vehicle.steerAngle - STRAIGHTENING_SPEED) > 0 ? vehicle.steerAngle - STRAIGHTENING_SPEED : 0;
             }

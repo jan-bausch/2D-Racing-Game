@@ -19,7 +19,9 @@ import app.components.Vehicle;
 import app.nodes.VehicleNode;
 import app.systems.SystemEvents;
 import app.math.CollisionResponse;
-
+/*
+    Spielt Soundeffekte ab
+*/
 class SoundSystem extends System {
 
 
@@ -49,6 +51,7 @@ class SoundSystem extends System {
         this.volume = 1;
         this.running = false;
 
+        //Events registrieren
         events.GAME_COUNTDOWN.add(onCountdown);
         events.GAME_END.add(onGameEnd);
         events.GAME_QUIT.add(onGameQuit);
@@ -56,6 +59,7 @@ class SoundSystem extends System {
         events.CHECKPOINT_ACTIVATED.add(onCheckpointActivated);
         events.CAR_CRASH.add(onCarCrash);
 
+        //Soundeffekte laden
         SOUND_COUNTDOWN = Assets.getSound("assets/sounds/countdown.ogg");
         SOUND_SUCCESS = Assets.getSound("assets/sounds/success.ogg");
         SOUND_CHECKPOINT = Assets.getSound("assets/sounds/checkpoint.ogg");
@@ -83,11 +87,11 @@ class SoundSystem extends System {
             for (vehicleNode in vehicleNodes) {
                 var velocity: Float = vehicleNode.vehicle.velocity;
 
-
-                CHANNEL_IDLE.soundTransform = new SoundTransform(Math.max(1 - Math.abs((velocity-0)/10), 0));
-                CHANNEL_SLOW.soundTransform = new SoundTransform(Math.max(1 - Math.abs((velocity-10)/10), 0));
-                CHANNEL_MEDIUM.soundTransform = new SoundTransform(Math.max(1 - Math.abs((velocity-25)/20), 0));
-                CHANNEL_FAST.soundTransform = new SoundTransform(Math.max(1 - Math.abs((velocity-40)/15), 0));
+                //Je nach Geschwindigkeit verändert sich die Lautstärke der Spuren
+                CHANNEL_IDLE.soundTransform = new SoundTransform(Math.max(1 - Math.abs((velocity-0)/10), 0)); //-5 bis 5
+                CHANNEL_SLOW.soundTransform = new SoundTransform(Math.max(1 - Math.abs((velocity-10)/10), 0)); //5 bis 15
+                CHANNEL_MEDIUM.soundTransform = new SoundTransform(Math.max(1 - Math.abs((velocity-25)/20), 0)); //5 bis 45
+                CHANNEL_FAST.soundTransform = new SoundTransform(Math.max(1 - Math.abs((velocity-40)/15), 0)); //25 bis 55
             }
         }
 

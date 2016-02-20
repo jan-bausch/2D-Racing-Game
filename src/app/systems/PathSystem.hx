@@ -17,6 +17,9 @@ import app.nodes.PathNode;
 import app.components.Position;
 import app.components.PathComponent;
 
+/*
+    Animiert Entitäten auf Pfaden
+*/
 class PathSystem extends System {
 
 
@@ -34,6 +37,7 @@ class PathSystem extends System {
 
     public override function update(elapsed: Float) : Void {
 
+        //Die Ziel-Entität einer jeden Pfaden
         for (pathNode in pathNodes) {
             var path: PathComponent = pathNode.pathComponent;
 

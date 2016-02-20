@@ -17,12 +17,15 @@ import app.components.GameState;
 import haxe.ui.toolkit.core.interfaces.IDisplayObjectContainer;
 import haxe.ui.toolkit.core.Toolkit;
 
+/*
+    Läd zu Beginn des Spiels die Entitäten eines Level.
+*/
 class LevelLoadingSystem extends System {
 
     private var renderNodes: NodeList<RenderNode>;
     private var engine: Engine;
-    private var level: Null<Level>;
-    private var data: Fast;
+    private var level: Null<Level>; //Levelinformationen
+    private var data: Fast; //Xml-Datei, die Entitäten speichert
 
     private var events: SystemEvents;
 
@@ -44,7 +47,7 @@ class LevelLoadingSystem extends System {
 
         clearLevel();
 
-        //Aktuelles Level setzen
+        //Aktuelles Level festlegen
         this.level = level;
 
         //Ein Entity erstellen, das das Spiel repräsentiert
@@ -61,14 +64,17 @@ class LevelLoadingSystem extends System {
     //Level-Datei lesen und Entities erstellen
     private function parseLevel(xml: Xml) : Void {
 
+        //Xml-Dokument auslesen
         data = new Fast(xml.firstElement());
 
+        //Zuerst generelle Informationen auslesen und im Level-Objekt speichern
         for (property in data.node.CustomProperties.nodes.Property) {
             if (property.att.Name == "name") level.name = property.node.string.innerData;
             if (property.att.Name == "description") level.description = property.node.string.innerData;
             if (property.att.Name == "time") level.time = Std.parseInt(property.node.string.innerData);
         }
 
+        //Durch alle Ebenen durchgehen und Entitäten laden
         for (layer in data.node.Layers.nodes.Layer) {
             for (item in layer.node.Items.nodes.Item) {
                 parseItem(item);
@@ -87,6 +93,7 @@ class LevelLoadingSystem extends System {
             if (property.att.Name == "type") type = property.node.string.innerData;
         }
 
+        //Je nach Typ ein Objekt der Entität erstellen und der Engine mitteilen.
         switch type {
             case "grass-ground": engine.addEntity( new app.entities.Grass(parsePolygon(item, true)) );
             case "car": engine.addEntity( new app.entities.Car(parsePosition(item), parseRotation(item)) );
@@ -105,7 +112,7 @@ class LevelLoadingSystem extends System {
 
     }
 
-
+    //Höhe und Breite auslesen
     private function parseScale(item: Fast) : Vector2 {
 
         var x: Float = Std.parseFloat(item.node.Scale.node.X.innerData),
@@ -114,10 +121,12 @@ class LevelLoadingSystem extends System {
         return new Vector2(x,y);
     }
 
+    //Rotation auslesen (von Bogenmaß in Grad)
     private function parseRotation(item: Fast) : Float {
         return Std.parseFloat(item.node.Rotation.innerData) *(180/Math.PI);
     }
 
+    //UI-Element auslesen (für Infobox)
     private function parseView(item: Fast) : IDisplayObjectContainer {
         for (property in item.node.CustomProperties.nodes.Property) {
             if (property.att.Name == "view") return Toolkit.processXml(Xml.parse(StringTools.htmlUnescape(property.node.string.innerData)));
@@ -127,6 +136,7 @@ class LevelLoadingSystem extends System {
         return null;
     }
 
+    //X- und Y-Position auslesen
     private function parsePosition(item: Fast) : Vector2 {
 
         var x: Float = Std.parseFloat(item.node.Position.node.X.innerData),
@@ -136,19 +146,26 @@ class LevelLoadingSystem extends System {
     }
 
 
+    //Ziel-Entität auslesen (für Animationspfad)
     private function parseTarget(item: Fast) : Entity {
+        /*
+            Für eine Animation gibt es eine Pfad-Entität und eine Ziel-Entität, die sich auf dem 
+            Pfad bewegt.
+            In der Leveldatei ist in jeder Pfad-Entität der Name der Ziel-Entität gespeichert. 
+        */
 
         var targetName: String = "";
 
-        //"target" in der XML-Datei finden
+        //Name des Ziels aus der Pfad-Entität auslesen
         for (property in item.node.CustomProperties.nodes.Property) {
             if (property.att.Name == "target") targetName = property.innerData;
         }
 
+        
 
         var targetPosition: Vector2 = new Vector2(0,0);
 
-        //Position des targets ermitteln
+        //Danach in der ganzen Datei nach der Ziel-Entität mit eben diesem Namen suchen
         for (layer in data.node.Layers.nodes.Layer) {
             for (item in layer.node.Items.nodes.Item) {
 

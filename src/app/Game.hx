@@ -66,9 +66,10 @@ class Game extends Sprite {
         engine.addSystem( new CameraSystem(systemEvents),           SystemPriorities.update );
 
 
-        //TODO: Fix audio-error with static-linked executables
-        if (configuration.VOLUME)
-            engine.addSystem( new SoundSystem(systemEvents),            SystemPriorities.update );
+        //TODO: Solve audio-error with static-linked executables
+        #if !release
+            //if (configuration.VOLUME) engine.addSystem( new SoundSystem(systemEvents),            SystemPriorities.update );
+        #end
 
         engine.addSystem( new AnimationSystem(systemEvents),        SystemPriorities.update );
         engine.addSystem( new CollisionSystem(systemEvents),        SystemPriorities.collisions );

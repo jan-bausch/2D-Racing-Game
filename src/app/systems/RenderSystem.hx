@@ -21,6 +21,10 @@ import app.nodes.RenderNode;
 import app.nodes.CameraVehicleNode;
 import app.nodes.CameraNode;
 
+/*
+    Zeigt die Sprites von jedem Entity an
+*/
+
 class RenderSystem extends System {
 
     private var renderNodes: NodeList<RenderNode>;

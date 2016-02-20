@@ -4,7 +4,7 @@ import app.math.Vector2;
 
 /*
     Kamera-Komponente:
-    Das Entitiy, dass diese Komponente trägt, wird von der Kamera in den Mittelgrund gestellt bzw. fokussiert.
+    Das Entitiy, das diese Komponente trägt, wird von der Kamera in den Mittelgrund gestellt bzw. fokussiert.
     Um die Kamera dynamischer wirken zu lassen, kann man zwei Dinge einstellen:
     Erstens muss die Kamera nicht immer genau die Position der Entität fokussieren, sondern kann z.B. etwas
     vor der Entität positioniert sein.

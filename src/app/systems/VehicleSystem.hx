@@ -10,7 +10,9 @@ import app.math.CollisionResponse;
 import app.nodes.VehicleNode;
 import app.components.Vehicle;
 import app.components.Position;
-
+/*
+    Simuliert Fahrphysik
+*/
 class VehicleSystem extends System {
 
     private var vehicleNodes: NodeList<VehicleNode>;
