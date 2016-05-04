@@ -6,9 +6,12 @@ import openfl.display.BitmapData;
 
 import app.components.Position;
 import app.components.Display;
+import app.components.Vehicle;
+import app.components.Input;
 import app.math.Vector2;
 import app.components.Collision;
 import app.entities.sprites.StretchedImageSprite;
+
 
 /*
     Ein einfacher Baum, mit dessen Stamm der Spieler kollidieren kann.
@@ -26,6 +29,8 @@ class Tree extends Entity {
         this.add( new Display(new StretchedImageSprite(width, height, bitmap)) );
         this.add( new Collision(width / 4, height / 4) );
 
+        //this.add( new Input() );
+        //this.add( new Vehicle() );
 
 
     }

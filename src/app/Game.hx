@@ -68,7 +68,7 @@ class Game extends Sprite {
 
         //TODO: Solve audio-error with static-linked executables
         #if !release
-            //if (configuration.VOLUME) engine.addSystem( new SoundSystem(systemEvents),            SystemPriorities.update );
+            if (configuration.VOLUME) engine.addSystem( new SoundSystem(systemEvents),            SystemPriorities.update );
         #end
 
         engine.addSystem( new AnimationSystem(systemEvents),        SystemPriorities.update );
