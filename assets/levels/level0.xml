@@ -710,7 +710,7 @@
                             <string>tree</string>
                         </Property>
                     </CustomProperties>
-                    <Rotation>0</Rotation>
+                    <Rotation>1.57079637</Rotation>
                     <Scale>
                         <X>1.55491149</X>
                         <Y>1.55491149</Y>
@@ -809,7 +809,7 @@
                             <string>tree</string>
                         </Property>
                     </CustomProperties>
-                    <Rotation>-1.2868073</Rotation>
+                    <Rotation>1.57079637</Rotation>
                     <Scale>
                         <X>1.16367543</X>
                         <Y>1.16367543</Y>
