@@ -29,10 +29,6 @@ class Tree extends Entity {
         this.add( new Display(new StretchedImageSprite(width, height, bitmap)) );
         this.add( new Collision(width / 4, height / 4) );
 
-        this.add( new Input() );
-        this.add( new Vehicle() );
-
-
     }
 
 }
